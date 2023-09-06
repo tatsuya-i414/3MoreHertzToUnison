@@ -57,16 +57,16 @@
 	tf.btn_path_on  = tf.img_path + 'c_set.png';
 
 	// ボタン画像の幅と高さ
-	tf.btn_w  = 46; // 幅
-	tf.btn_h = 46; // 高さ
+	tf.btn_w  = 69; // 幅
+	tf.btn_h = 69; // 高さ
 
 	// ボタンを表示する座標（tf.config_y_ch[0]とtf.config_y_auto[0]は未使用）
-	tf.config_x       = [1040, 400,　454, 508, 562, 616, 670, 724, 778, 832, 886]; // X座標（共通）
+	tf.config_x       = [1560, 600, 680, 763, 843, 925, 1005, 1087, 1167, 1248, 1330]; // X座標（共通）
 
-	tf.config_y_bgm   = 190; // BGMのY座標
-	tf.config_y_se    = 250; // SEのY座標
-	tf.config_y_ch    = 325; // テキスト速度のY座標
-	tf.config_y_auto  = 385; // オート速度のY座標
+	tf.config_y_bgm   = 285; // BGMのY座標
+	tf.config_y_se    = 375; // SEのY座標
+	tf.config_y_ch    = 488; // テキスト速度のY座標
+	tf.config_y_auto  = 578; // オート速度のY座標
 
 	// 上記の配列変数の添字を格納しておく変数。選択した音量や速度に対応。
 	tf.config_num_bgm;  // BGM
@@ -91,7 +91,7 @@
 	[bg storage="&tf.img_path +'bg_config.png'" time="100"]
 
 ;	画面右上の「Back」ボタン
-	[button fix="true" graphic="&tf.img_path + 'c_btn_back.png'" enterimg="&tf.img_path + 'c_btn_back2.png'" target="*backtitle" x="1160" y="20"]
+	[button fix="true" graphic="&tf.img_path + 'c_btn_back.png'" enterimg="&tf.img_path + 'c_btn_back2.png'" target="*backtitle" x="1680" y="20"]
 
 [jump target="*config_page"]
 
@@ -164,10 +164,10 @@
 ;------------------------------------------------------------------------------------------------------
 
 ;	未読スキップ-OFF
-	[button name="unread_off" fix="true" target="*skip_off" graphic="&tf.btn_path_off" width="170" height="45" x="400" y="470"]
+	[button name="unread_off" fix="true" target="*skip_off" graphic="&tf.btn_path_off" width="255" height="67.5" x="600" y="705"]
 
 ;	未読スキップ-ON
-	[button name="unread_on"  fix="true" target="*skip_on"  graphic="&tf.btn_path_off" width="170" height="45" x="580" y="470"]
+	[button name="unread_on"  fix="true" target="*skip_on"  graphic="&tf.btn_path_off" width="255" height="67.5" x="870" y="705"]
 
 ;------------------------------------------------------------------------------------------------------
 ; コンフィグ起動時の画面更新
@@ -266,7 +266,7 @@
 	[configdelay speed="&tf.set_ch_speed"]
 
 ;	テキスト表示速度のサンプルに使用するメッセージレイヤの設定
-	[position layer="message1" left="90" top="580" width="1100" height="100" margint="2" marginl="30" page="fore" visible="true" opacity="0"]
+	[position layer="message1" left="100" top="830" width="1100" height="100" margint="2" marginl="30" page="fore" visible="true" opacity="0"]
 	[layopt layer="message1" visible="true"]
 	[current layer="message1"]
 

@@ -1,7 +1,6 @@
 ;一番最初に呼び出されるファイル
 
-[title name="ティラノスクリプト解説"]
-
+[title name="novel-escape"]
 [stop_keyconfig]
 
 
