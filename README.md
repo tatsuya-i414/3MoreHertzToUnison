@@ -5,9 +5,9 @@ novel-escape(仮)
 
 # ドキュメント
 ***
-- [シナリオ管理（Notion）](URL "https://www.notion.so/be497e282b5d433f92e89066e61487a7?pvs=4")
-- [ギミック管理（Miro）](URL "https://miro.com/app/board/uXjVMu73o-0=/?share_link_id=432222032811")
-- [制作スケジュール（GoogleDrive）](URL "https://docs.google.com/spreadsheets/d/1QQv_C-i48v1J4FhACiTby4wgs-4jLAomFaia72DbZKg/edit#gid=977611269")
+- [シナリオ管理（Notion）](https://www.notion.so/be497e282b5d433f92e89066e61487a7?pvs=4){:target="_blank"}
+- [ギミック管理（Miro）](https://miro.com/app/board/uXjVMu73o-0=/?share_link_id=43222203281){:target="_blank"}
+- [制作スケジュール（GoogleDrive）](https://docs.google.com/spreadsheets/d/1QQv_C-i48v1J4FhACiTby4wgs-4jLAomFaia72DbZKg/edit#gid=977611269){:target="_blank"}
 <br>
 
 # 開発環境
