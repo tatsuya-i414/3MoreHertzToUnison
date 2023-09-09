@@ -1,1 +1,45 @@
-# novel-escape
+# ゲーム名
+***
+novel-escape(仮)
+<br>
+
+# ドキュメント
+***
+- [シナリオ管理（Notion）](URL "https://www.notion.so/be497e282b5d433f92e89066e61487a7?pvs=4")
+- [ギミック管理（Miro）](URL "https://miro.com/app/board/uXjVMu73o-0=/?share_link_id=432222032811")
+- [制作スケジュール（GoogleDrive）](URL "https://docs.google.com/spreadsheets/d/1QQv_C-i48v1J4FhACiTby4wgs-4jLAomFaia72DbZKg/edit#gid=977611269")
+<br>
+
+# 開発環境
+***
+- Visual Studio Code
+- TyranoScript syntax（拡張機能）
+- TyranoStudio V120
+<br>
+
+# 使用言語
+***
+TyranoScript V5
+<br>
+
+# ブランチ管理
+***
+Git-Flow準拠とする。
+
+- [master] ブランチと [develop] ブランチが常設されている状態
+- [hotfix] ブランチと [feature] ブランチを適宜作成する
+- [master]はリリースしたソースのみを集約するブランチ
+- [develop]はリリース前の機能追加を積み上げる開発用ブランチ、リリースタイミングで[master]にマージ
+- [hotfix]はバグ対応などの緊急作業用ブランチ、[master]から切って[master]と[develop]にマージ
+- [feature]は作業用のブランチ、[develop]から切って[develop]にマージ、 マージ後に削除
+<br>
+
+# 開発用デプロイ
+***
+[https://develop.t-ishimaru.jp](URL "http://develop.t-ishimaru.jp")
+<br>
+
+# テスト用デプロイ
+***
+[https://kensyo.t-ishimaru.jp](URL "http://kensyo.t-ishimaru.jp")
+<br>
