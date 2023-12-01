@@ -68,17 +68,29 @@
 
 ; アイテム欄
 [layer1True]
+[eval exp="tf.UsingitemInventory1 = 0"]
+[eval exp="tf.UsingitemInventory2 = 0"]
+[eval exp="tf.UsingitemInventory3 = 0"]
+[eval exp="tf.UsingitemInventory4 = 0"]
+[eval exp="tf.UsingitemInventory5 = 0"]
+[eval exp="tf.UsingitemInventory6 = 0"]
+[eval exp="tf.UsingitemInventory7 = 0"]
 [image storage="../image/kari/inventory.png" layer="1" x="1770" y="25"]
 [image storage="../image/kari/inventory.png" layer="1" x="1770" y="100"]
 [image storage="../image/kari/inventory.png" layer="1" x="1770" y="175"]
 [image storage="../image/kari/inventory.png" layer="1" x="1770" y="250"]
+[image storage="../image/kari/inventory.png" layer="1" x="1770" y="325"]
+[image storage="../image/kari/inventory.png" layer="1" x="1770" y="400"]
+[image storage="../image/kari/inventory.png" layer="1" x="1770" y="475"]
 
 ; アイテム画像
 [layer2True]
 [if exp="f.isCableGet == 1"]
+  [eval exp="tf.UsingitemInventory1 = 1"]
   [image storage="../image/kari/cable.png" layer="2" x="1770" y="25" visible="true"]
 [endif]
 [if exp="f.isDriverGet == 1"]
+  [eval exp="tf.UsingitemInventory2 = 1"]
   [image storage="../image/kari/driver.png" layer="2" x="1770" y="100" visible="true"]
 [endif]
 [s]
@@ -116,6 +128,7 @@
 *WiringDoor
 [bg storage="episode1/disconnectedwiring.png" time="100"]
 [clickable x="760" y="380" width="350" height="150" target="*WiringDoor_Decision" opacity="30" mouseopacity="50" color="0x505050"]
+[clickable x="910" y="1015" width="100" height="50" target="*WiringDoor_back" opacity="30" mouseopacity="50" color="0x505050"]
 [s]
 
 *WiringDoor_Decision
@@ -128,23 +141,84 @@
   [messageTrue]
   #
   あの配線を使えばいいんじゃない？[p]
-  #
-  先ほど手に入れた配線でちぎれた配線を直す[p]
-  [bg storage="episode1/connectedwiring.png" time="100"]
-  ; 舞台がせり上がる効果音
-  [eval exp="f.isStageStatusGreen = 1"]
-  ; 制御盤の「舞台」の欄が緑になったことを知らせる効果音
-  #
-  クリアしたね[p]
-  [jump target="*StageRoom"]
+  *SelectItemOfCable
+  [messageFalse]
+  [if exp="tf.UsingitemInventory1 == 1"]
+    [clickable x="1770" y="25" width="70"  height="70"  target="*UseCable" opacity="30" mouseopacity="50" color="0x505050"]
+  [elsif exp="tf.UsingitemInventory2 == 1"]
+    [clickable x="1770" y="100" width="70"  height="70"  target="*NotUseCable" opacity="30" mouseopacity="50" color="0x505050"]
+  [elsif exp="tf.UsingitemInventory3 == 1"]
+    [clickable x="1770" y="175" width="70"  height="70"  target="*NotUseCable" opacity="30" mouseopacity="50" color="0x505050"]
+  [elsif exp="tf.UsingitemInventory4 == 1"]
+    [clickable x="1770" y="250" width="70"  height="70"  target="*NotUseCable" opacity="30" mouseopacity="50" color="0x505050"]
+  [elsif exp="tf.UsingitemInventory5 == 1"]
+    [clickable x="1770" y="325" width="70"  height="70"  target="*NotUseCable" opacity="30" mouseopacity="50" color="0x505050"]
+  [elsif exp="tf.UsingitemInventory6 == 1"]
+    [clickable x="1770" y="400" width="70"  height="70"  target="*NotUseCable" opacity="30" mouseopacity="50" color="0x505050"]
+  [elsif exp="tf.UsingitemInventory7 == 1"]
+    [clickable x="1770" y="475" width="70"  height="70"  target="*NotUseCable" opacity="30" mouseopacity="50" color="0x505050"]
+  [endif]
+  [clickable x="910" y="1015" width="100" height="50" target="*WiringDoor_back" opacity="30" mouseopacity="50" color="0x505050"]
+  [s]
 [endif]
 
-*ToolBox
-[bg storage="episode1/dial.png" time="100"]
-[button graphic="../image/kari/dialnumber_0.png" x="520" y="480" width="200" height="200" exp="tf.leftNum = 0" fix="true" target="*LeftDialTurn"]
-[button graphic="../image/kari/dialnumber_0.png" x="845" y="480" width="200" height="200" exp="tf.centerNum = 0" fix="true" target="*CenterDialTurn"]
-[button graphic="../image/kari/dialnumber_0.png" x="1180" y="480" width="200" height="200" exp="tf.rightNum = 0" fix="true" target="*RightDialTurn"]
+*UseCable
+[messageTrue]
+#
+このアイテムを使用しますか？
+[glink color="btn_29_red" target="*ValidItemOfCable" width="200" x="250" y="930" text="はい"]
+[glink color="btn_29_blue" target="*SelectItemOfCable" width="200" x="550" y="930" text="いいえ"]
 [s]
+
+*NotUseCable
+[messageTrue]
+#
+このアイテムを使用しますか？
+[glink color="btn_29_red" target="*IncorrectItemOfCable" width="200" x="250" y="930" text="はい"]
+[glink color="btn_29_blue" target="*SelectItemOfCable" width="200" x="550" y="930" text="いいえ"]
+[s]
+
+*WiringDoor_back
+[jump target="*StageRoom"]
+
+*ValidItemOfCable
+[eval exp="f.isCableGet = -1"]
+[freeimage layer="2"]
+#
+先ほど手に入れた配線でちぎれた配線を直す[p]
+[bg storage="episode1/connectedwiring.png" time="100"]
+; 舞台がせり上がる効果音
+[eval exp="f.isStageStatusGreen = 1"]
+; 制御盤の「舞台」の欄が緑になったことを知らせる効果音
+#
+クリアしたね[p]
+[jump target="*StageRoom"]
+
+*IncorrectItemOfCable
+#
+このアイテムは違うようだ。[p]
+[jump target="*SelectItemOfCable"]
+
+*ToolBox
+[if exp="tf.leftNum != 4 && tf.centerNum != 5 && tf.rightNum != 6"]
+  [bg storage="episode1/dial.png" time="100"]
+  [clickable x="910" y="1015" width="100" height="50" target="*ToolBox_back" opacity="30" mouseopacity="50" color="0x505050"]
+  [button graphic="../image/kari/dialnumber_0.png" x="520" y="480" width="200" height="200" exp="tf.leftNum = 0" fix="true" target="*LeftDialTurn"]
+  [button graphic="../image/kari/dialnumber_0.png" x="845" y="480" width="200" height="200" exp="tf.centerNum = 0" fix="true" target="*CenterDialTurn"]
+  [button graphic="../image/kari/dialnumber_0.png" x="1180" y="480" width="200" height="200" exp="tf.rightNum = 0" fix="true" target="*RightDialTurn"]
+[else]
+  [call target="*DialUnlock"]
+[endif]
+[s]
+
+*ToolBox_back
+[iscript] 
+    delete tf.leftNum;
+    delete tf.centerNum;
+    delete tf.rightNum;
+[endscript]
+[clearfix]
+[jump target="*StageRoom"]
 
 *LeftDialTurn
 [if exp="tf.leftNum == 0"]
@@ -256,21 +330,25 @@
 
 *DialUnlock
 [if exp="tf.leftNum == 4 && tf.centerNum == 5 && tf.rightNum == 6"]
-  [iscript] 
-    delete tf.leftNum;
-    delete tf.centerNum;
-    delete tf.rightNum;
-  [endscript]
-
   [clearfix]
   [bg storage="episode1/cable.png" time="100"]
   [clickable x="820" y="390" width="300" height="300" target="*GetCable" opacity="30" mouseopacity="50" color="0x505050"]
+  [clickable x="910" y="1015" width="100" height="50" target="*DialUnlock_back" opacity="30" mouseopacity="50" color="0x505050"]
 [endif]
 
 [return]
 
 *GetCable
+[iscript] 
+    delete tf.leftNum;
+    delete tf.centerNum;
+    delete tf.rightNum;
+[endscript]
 [eval exp="f.isCableGet = 1"]
+[jump target="*StageRoom"]
+
+*DialUnlock_back
+[clearfix]
 [jump target="*StageRoom"]
 
 *GetDriver
