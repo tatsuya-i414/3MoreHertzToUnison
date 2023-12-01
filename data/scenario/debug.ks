@@ -20,6 +20,7 @@
 
 ; ボタン
 [button graphic="config/menu_button_close.png" enterimg="config/menu_button_close2.png" target="*backtitle" x="1680" y="40"]
+[button graphic="debug/flagdetail.png" target="*flagdetail" x="1450" y="960"]
 [button graphic="debug/save.png" target="*save" x="1680" y="960"]
 
 ; ゲーム変数_Episode1
@@ -52,6 +53,14 @@
 [edit name="f.isJumperGet" initial="0" left="1600" top="500" color="0x666666" size="36" width="150" maxchars="1"]
 [edit name="f.isJutanOpen" initial="0" left="1600" top="555" color="0x666666" size="36" width="150" maxchars="1"]
 [edit name="f.isRoomLightNight" initial="0" left="1600" top="610" color="0x666666" size="36" width="150" maxchars="1"]
+[s]
+
+;----------------------
+*flagdetail
+;----------------------
+
+;Notionの「フラグ一覧」ページを開く
+[web url="https://www.notion.so/shinya30/8a2e9e554d9d4a8ebea9cc950fb3ca44?v=cc8efcf2a18c4d5db87e5b1abaaf00ec&pvs=4"]
 [s]
 
 ;----------------------
