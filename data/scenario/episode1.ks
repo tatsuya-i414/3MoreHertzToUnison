@@ -56,14 +56,14 @@
 
 ; クリック判定
 ; 制御盤
-[clickable x="30" y="635" width="120" height="120" target="*ControlPanel" opacity="30" mouseopacity="50" color="0x505050"]
+[clickable x="30" y="635" width="120" height="120" target="*SearchControlPanel" opacity="30" mouseopacity="50" color="0x505050"]
 ; 配線扉
 [if exp="f.isStageStatusGreen == 0"]
-  [clickable x="1570" y="770" width="100" height="50" target="*WiringDoor" opacity="30" mouseopacity="50" color="0x505050"]
+  [clickable x="1570" y="770" width="100" height="50" target="*SearchWiringDoor" opacity="30" mouseopacity="50" color="0x505050"]
 [endif]
 ; 道具箱
 [if exp="f.isCableGet == 0"]
-  [clickable x="1700" y="610" width="200" height="200" target="*ToolBox" opacity="30" mouseopacity="50" color="0x505050"]
+  [clickable x="1700" y="610" width="200" height="200" target="*SearchToolBox" opacity="30" mouseopacity="50" color="0x505050"]
 [endif]
 ; ドライバー
 [if exp="f.isStageStatusGreen == 1 && f.isDriverGet == 0""]
@@ -102,7 +102,7 @@
 [endif]
 [s]
 
-*ControlPanel
+*SearchControlPanel
 [if exp="f.isStageStatusGreen == 0 || f.isLightStatusGreen == 0 || f.isSpeakerStatusGreen == 0"]
   [bg storage="episode1/controlpane_allred.png" time="100"]
 [else]
@@ -121,11 +121,11 @@
   [ptext layer="3" x="1190" y="480" size="40" text="「スピーカー」は緑に変更済み" color="0x4caf50"]
 [endif]
 
-[clickable x="460" y="725" width="360" height="240" target="*ControlPanel_Decision" opacity="30" mouseopacity="50" color="0x505050"]
-[clickable x="910" y="1015" width="100" height="50" target="*ControlPanel_back" opacity="30" mouseopacity="50" color="0x505050"]
+[clickable x="460" y="725" width="360" height="240" target="*SearchControlPanel_Decision" opacity="30" mouseopacity="50" color="0x505050"]
+[clickable x="910" y="1015" width="100" height="50" target="*SearchControlPanel_back" opacity="30" mouseopacity="50" color="0x505050"]
 [s]
 
-*ControlPanel_Decision
+*SearchControlPanel_Decision
 [if exp="f.isStageStatusGreen == 1 && f.isLightStatusGreen == 1 && f.isSpeakerStatusGreen == 1"]
   [messageTrue]
   #
@@ -140,17 +140,17 @@
   [JumpStageRoom]
 [endif]
 
-*ControlPanel_back
+*SearchControlPanel_back
 [layer3False]
 [JumpStageRoom]
 
-*WiringDoor
+*SearchWiringDoor
 [bg storage="episode1/disconnectedwiring.png" time="100"]
-[clickable x="760" y="380" width="350" height="150" target="*WiringDoor_Decision" opacity="30" mouseopacity="50" color="0x505050"]
-[clickable x="910" y="1015" width="100" height="50" target="*WiringDoor_back" opacity="30" mouseopacity="50" color="0x505050"]
+[clickable x="760" y="380" width="350" height="150" target="*SearchWiringDoor_Decision" opacity="30" mouseopacity="50" color="0x505050"]
+[clickable x="910" y="1015" width="100" height="50" target="*SearchWiringDoor_back" opacity="30" mouseopacity="50" color="0x505050"]
 [s]
 
-*WiringDoor_Decision
+*SearchWiringDoor_Decision
 [if exp="f.isCableGet == 0"]
   [messageTrue]
   #
@@ -183,7 +183,7 @@
   [if exp="tf.usingItemInventory7 == 1"]
     [clickable x="1770" y="475" width="70"  height="70"  target="*NotUseCable" opacity="30" mouseopacity="50" color="0x505050"]
   [endif]
-  [clickable x="910" y="1015" width="100" height="50" target="*WiringDoor_back" opacity="30" mouseopacity="50" color="0x505050"]
+  [clickable x="910" y="1015" width="100" height="50" target="*SearchWiringDoor_back" opacity="30" mouseopacity="50" color="0x505050"]
   [s]
 [endif]
 
@@ -201,7 +201,7 @@
 [glink color="btn_29_blue" target="*SelectItemOfCable" width="200" x="550" y="930" text="いいえ"]
 [s]
 
-*WiringDoor_back
+*SearchWiringDoor_back
 [JumpStageRoom]
 
 *ValidItemOfCable
@@ -222,10 +222,10 @@
 このアイテムは違うようだ。[p]
 [jump target="*SelectItemOfCable"]
 
-*ToolBox
+*SearchToolBox
 [if exp="tf.leftNum != 4 && tf.centerNum != 5 && tf.rightNum != 6"]
   [bg storage="episode1/dial.png" time="100"]
-  [clickable x="910" y="1015" width="100" height="50" target="*ToolBox_back" opacity="30" mouseopacity="50" color="0x505050"]
+  [clickable x="910" y="1015" width="100" height="50" target="*SearchToolBox_back" opacity="30" mouseopacity="50" color="0x505050"]
   [button graphic="../image/kari/dialnumber_0.png" x="520" y="480" width="200" height="200" exp="tf.leftNum = 0" fix="true" target="*LeftDialTurn"]
   [button graphic="../image/kari/dialnumber_0.png" x="845" y="480" width="200" height="200" exp="tf.centerNum = 0" fix="true" target="*CenterDialTurn"]
   [button graphic="../image/kari/dialnumber_0.png" x="1180" y="480" width="200" height="200" exp="tf.rightNum = 0" fix="true" target="*RightDialTurn"]
@@ -234,7 +234,7 @@
 [endif]
 [s]
 
-*ToolBox_back
+*SearchToolBox_back
 [iscript]
     delete tf.leftNum;
     delete tf.centerNum;
@@ -463,8 +463,6 @@
 
 *SearchSpeaker
 [if exp="tf.tempUseDriver == 1"]
-  [eval exp="f.isDriverGet = -1"]
-  [free layer="2" name="driver"]
   [messageTrue]
   #
   先ほど手に入れたドライバーを使用してスピーカーの傾きを直す[p]

@@ -30,7 +30,7 @@
 [edit name="f.isSpeakerStatusGreen" initial="0" left="400" top="500" color="0x666666" size="36" width="150" maxchars="1"]
 [edit name="f.isCableGet" initial="0" left="400" top="555" color="0x666666" size="36" width="150" maxchars="2"]
 [edit name="f.isLightCoverGet" initial="0" left="400" top="610" color="0x666666" size="36" width="150" maxchars="2"]
-[edit name="f.isDriverGet" initial="0" left="400" top="670" color="0x666666" size="36" width="150" maxchars="2"]
+[edit name="f.isDriverGet" initial="0" left="400" top="670" color="0x666666" size="36" width="150" maxchars="1"]
 [edit name="f.isMikeGet" initial="0" left="400" top="730" color="0x666666" size="36" width="150" maxchars="1"]
 
 ; ゲーム変数_Episode2
