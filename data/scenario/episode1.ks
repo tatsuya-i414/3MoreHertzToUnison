@@ -47,16 +47,21 @@
 [elsif exp="f.isStageStatusGreen == 1 && f.isLightStatusGreen == 0 && f.isSpeakerStatusGreen == 0 && f.isDriverGet == 0"]
   [bg storage="episode1/stageroom_stagerise_withdriver.png" time="100"]
 [elsif exp="f.isStageStatusGreen == 1 && f.isLightStatusGreen == 0 && f.isSpeakerStatusGreen == 0 && f.isDriverGet == 1"]
-  [bg storage="episode1/stageroom_stagerise_driverget.png" time="100"]
+  [bg storage="episode1/stageroom_lightcoverattachment.png" time="100"]
+; 素材未確認
 [elsif exp="f.isStageStatusGreen == 1 && f.isLightStatusGreen == 1 && f.isSpeakerStatusGreen == 0 && f.isCableGet == -1"]
   [bg storage="episode1/stageroom_lightcoverattachment.png" time="100"]
-[elsif exp="f.isStageStatusGreen == 1 && f.isLightStatusGreen == 1 && f.isSpeakerStatusGreen == 1 && f.isDriverGet == -1"]
-  [bg storage="episode1/stageroom_lightcoverattachment.png" time="100"]
+[elsif exp="f.isStageStatusGreen == 1 && f.isLightStatusGreen == 0 && f.isSpeakerStatusGreen == 1 && f.isCableGet == -1"]
+  [bg storage="episode1/stageroom_stagerise_driverget.png" time="100"]
+[elsif exp="f.isStageStatusGreen == 1 && f.isLightStatusGreen == 1 && f.isSpeakerStatusGreen == 1 && f.isDriverGet == 1"]
+  [bg storage="episode1/episode1clear.png" time="100"]
 [endif]
 
 ; クリック判定
 ; 制御盤
-[clickable x="30" y="635" width="120" height="120" target="*SearchControlPanel" opacity="30" mouseopacity="50" color="0x505050"]
+[if exp="f.isEpisode1Clear == 0"]
+  [clickable x="30" y="635" width="120" height="120" target="*SearchControlPanel" opacity="30" mouseopacity="50" color="0x505050"]
+[endif]
 ; 配線扉
 [if exp="f.isStageStatusGreen == 0"]
   [clickable x="1570" y="770" width="100" height="50" target="*SearchWiringDoor" opacity="30" mouseopacity="50" color="0x505050"]
@@ -100,6 +105,10 @@
   [eval exp="tf.usingItemInventory3 = 1"]
   [image storage="../image/kari/lightcover.png" layer="2" x="1770" y="175" visible="true" name="lightcover"]
 [endif]
+[if exp="f.isMikeGet == 1"]
+  [eval exp="tf.usingItemInventory4 = 1"]
+  [image storage="../image/kari/mike.png" layer="2" x="1770" y="250" visible="true" name="mike"]
+[endif]
 [s]
 
 *SearchControlPanel
@@ -110,15 +119,19 @@
 [endif]
 
 ; 素材未完成のため、一時的な処理
-[layer3True]
-[if exp="f.isStageStatusGreen == 1"]
-  [ptext layer="3" x="1190" y="80" size="40" text="「舞台」は緑に変更済み" color="0x4caf50"]
-[endif]
-[if exp="f.isLightStatusGreen == 1"]
-  [ptext layer="3" x="1190" y="280" size="40" text="「ライト」は緑に変更済み" color="0x4caf50"]
-[endif]
-[if exp="f.isSpeakerStatusGreen == 1"]
-  [ptext layer="3" x="1190" y="480" size="40" text="「スピーカー」は緑に変更済み" color="0x4caf50"]
+[if exp="f.isStageStatusGreen == 0 || f.isLightStatusGreen == 0 || f.isSpeakerStatusGreen == 0"]
+  [layer3True]
+  [if exp="f.isStageStatusGreen == 1"]
+    [ptext layer="3" x="1190" y="80" size="40" text="「舞台」は緑に変更済み" color="0x4caf50"]
+  [endif]
+  [if exp="f.isLightStatusGreen == 1"]
+    [ptext layer="3" x="1190" y="280" size="40" text="「ライト」は緑に変更済み" color="0x4caf50"]
+  [endif]
+  [if exp="f.isSpeakerStatusGreen == 1"]
+    [ptext layer="3" x="1190" y="480" size="40" text="「スピーカー」は緑に変更済み" color="0x4caf50"]
+  [endif]
+[else]
+  [layer3False]
 [endif]
 
 [clickable x="460" y="725" width="360" height="240" target="*SearchControlPanel_Decision" opacity="30" mouseopacity="50" color="0x505050"]
@@ -128,19 +141,30 @@
 *SearchControlPanel_Decision
 [if exp="f.isStageStatusGreen == 1 && f.isLightStatusGreen == 1 && f.isSpeakerStatusGreen == 1"]
   [messageTrue]
+  ; 思い出1の会話パートを追加する
   #
-  クリア後の処理[p]
+  思い出1の会話パート[p]
+  [eval exp="f.isMikeGet = 1"]
+  [eval exp="f.isEpisode1Clear = 1"]
+  ; 素材未完成のため、一時的な処理
   [layer3False]
+  ; 思い出2の画面に遷移する
+
+  ; 思い出2未実装のため、一時的な処理
+  #
+  思い出1クリア[p]
   [JumpStageRoom]
 [else]
   [messageTrue]
   #
   この3つを何とかしないといけない[p]
+  ; 素材未完成のため、一時的な処理
   [layer3False]
   [JumpStageRoom]
 [endif]
 
 *SearchControlPanel_back
+; 素材未完成のため、一時的な処理
 [layer3False]
 [JumpStageRoom]
 
