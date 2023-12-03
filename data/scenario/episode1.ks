@@ -42,26 +42,28 @@
 *StageRoom
 [messageFalse]
 ; 背景
-[if exp="f.isStageStatusGreen == 0 && f.isLightStatusGreen == 0"]
+[if exp="f.isStageStatusGreen == 0 && f.isLightStatusGreen == 0 && f.isSpeakerStatusGreen == 0"]
   [bg storage="episode1/stageroom.png" time="100"]
-[elsif exp="f.isStageStatusGreen == 1 && f.isLightStatusGreen == 0 && f.isDriverGet == 0"]
+[elsif exp="f.isStageStatusGreen == 1 && f.isLightStatusGreen == 0 && f.isSpeakerStatusGreen == 0 && f.isDriverGet == 0"]
   [bg storage="episode1/stageroom_stagerise_withdriver.png" time="100"]
-[elsif exp="f.isStageStatusGreen == 1 && f.isLightStatusGreen == 0 && f.isDriverGet == 1"]
+[elsif exp="f.isStageStatusGreen == 1 && f.isLightStatusGreen == 0 && f.isSpeakerStatusGreen == 0 && f.isDriverGet == 1"]
   [bg storage="episode1/stageroom_stagerise_driverget.png" time="100"]
-[elsif exp="f.isStageStatusGreen == 1 && f.isLightStatusGreen == 1 && f.isCableGet == -1"]
+[elsif exp="f.isStageStatusGreen == 1 && f.isLightStatusGreen == 1 && f.isSpeakerStatusGreen == 0 && f.isCableGet == -1"]
+  [bg storage="episode1/stageroom_lightcoverattachment.png" time="100"]
+[elsif exp="f.isStageStatusGreen == 1 && f.isLightStatusGreen == 1 && f.isSpeakerStatusGreen == 1 && f.isDriverGet == -1"]
   [bg storage="episode1/stageroom_lightcoverattachment.png" time="100"]
 [endif]
 
 ; クリック判定
 ; 制御盤
-[clickable x="30" y="635" width="120" height="120" target="*ControlPanel" opacity="30" mouseopacity="50" color="0x505050"]
+[clickable x="30" y="635" width="120" height="120" target="*SearchControlPanel" opacity="30" mouseopacity="50" color="0x505050"]
 ; 配線扉
 [if exp="f.isStageStatusGreen == 0"]
-  [clickable x="1570" y="770" width="100" height="50" target="*WiringDoor" opacity="30" mouseopacity="50" color="0x505050"]
+  [clickable x="1570" y="770" width="100" height="50" target="*SearchWiringDoor" opacity="30" mouseopacity="50" color="0x505050"]
 [endif]
 ; 道具箱
 [if exp="f.isCableGet == 0"]
-  [clickable x="1700" y="610" width="200" height="200" target="*ToolBox" opacity="30" mouseopacity="50" color="0x505050"]
+  [clickable x="1700" y="610" width="200" height="200" target="*SearchToolBox" opacity="30" mouseopacity="50" color="0x505050"]
 [endif]
 ; ドライバー
 [if exp="f.isStageStatusGreen == 1 && f.isDriverGet == 0""]
@@ -75,23 +77,14 @@
 [if exp="f.isLightCoverGet == 0"]
   [clickable x="620" y="790" width="100" height="100" target="*GetLightCover" opacity="30" mouseopacity="50" color="0x505050"]
 [endif]
+; スピーカー
+[if exp="f.isSpeakerStatusGreen == 0"]
+  [clickable x="290" y="140" width="220" height="270" target="*SearchSpeaker" opacity="30" mouseopacity="50" color="0x505050"]
+[endif]
 
 ; アイテム欄
 [layer1True]
-[eval exp="tf.usingItemInventory1 = 0"]
-[eval exp="tf.usingItemInventory2 = 0"]
-[eval exp="tf.usingItemInventory3 = 0"]
-[eval exp="tf.usingItemInventory4 = 0"]
-[eval exp="tf.usingItemInventory5 = 0"]
-[eval exp="tf.usingItemInventory6 = 0"]
-[eval exp="tf.usingItemInventory7 = 0"]
-[image storage="../image/kari/inventory.png" layer="1" x="1770" y="25"]
-[image storage="../image/kari/inventory.png" layer="1" x="1770" y="100"]
-[image storage="../image/kari/inventory.png" layer="1" x="1770" y="175"]
-[image storage="../image/kari/inventory.png" layer="1" x="1770" y="250"]
-[image storage="../image/kari/inventory.png" layer="1" x="1770" y="325"]
-[image storage="../image/kari/inventory.png" layer="1" x="1770" y="400"]
-[image storage="../image/kari/inventory.png" layer="1" x="1770" y="475"]
+[ItemInventory]
 
 ; アイテム画像
 [layer2True]
@@ -109,8 +102,13 @@
 [endif]
 [s]
 
-*ControlPanel
-[bg storage="episode1/controlpane_allred.png" time="100"]
+*SearchControlPanel
+[if exp="f.isStageStatusGreen == 0 || f.isLightStatusGreen == 0 || f.isSpeakerStatusGreen == 0"]
+  [bg storage="episode1/controlpane_allred.png" time="100"]
+[else]
+  [bg storage="episode1/controlpane_allgreen.png" time="100"]
+[endif]
+
 ; 素材未完成のため、一時的な処理
 [layer3True]
 [if exp="f.isStageStatusGreen == 1"]
@@ -119,41 +117,45 @@
 [if exp="f.isLightStatusGreen == 1"]
   [ptext layer="3" x="1190" y="280" size="40" text="「ライト」は緑に変更済み" color="0x4caf50"]
 [endif]
+[if exp="f.isSpeakerStatusGreen == 1"]
+  [ptext layer="3" x="1190" y="480" size="40" text="「スピーカー」は緑に変更済み" color="0x4caf50"]
+[endif]
 
-[clickable x="460" y="725" width="360" height="240" target="*ControlPanel_Decision" opacity="30" mouseopacity="50" color="0x505050"]
-[clickable x="910" y="1015" width="100" height="50" target="*ControlPanel_back" opacity="30" mouseopacity="50" color="0x505050"]
+[clickable x="460" y="725" width="360" height="240" target="*SearchControlPanel_Decision" opacity="30" mouseopacity="50" color="0x505050"]
+[clickable x="910" y="1015" width="100" height="50" target="*SearchControlPanel_back" opacity="30" mouseopacity="50" color="0x505050"]
 [s]
 
-*ControlPanel_Decision
+*SearchControlPanel_Decision
 [if exp="f.isStageStatusGreen == 1 && f.isLightStatusGreen == 1 && f.isSpeakerStatusGreen == 1"]
   [messageTrue]
   #
   クリア後の処理[p]
-  [jump target="*StageRoom"]
+  [layer3False]
+  [JumpStageRoom]
 [else]
   [messageTrue]
   #
   この3つを何とかしないといけない[p]
   [layer3False]
-  [jump target="*StageRoom"]
+  [JumpStageRoom]
 [endif]
 
-*ControlPanel_back
+*SearchControlPanel_back
 [layer3False]
-[jump target="*StageRoom"]
+[JumpStageRoom]
 
-*WiringDoor
+*SearchWiringDoor
 [bg storage="episode1/disconnectedwiring.png" time="100"]
-[clickable x="760" y="380" width="350" height="150" target="*WiringDoor_Decision" opacity="30" mouseopacity="50" color="0x505050"]
-[clickable x="910" y="1015" width="100" height="50" target="*WiringDoor_back" opacity="30" mouseopacity="50" color="0x505050"]
+[clickable x="760" y="380" width="350" height="150" target="*SearchWiringDoor_Decision" opacity="30" mouseopacity="50" color="0x505050"]
+[clickable x="910" y="1015" width="100" height="50" target="*SearchWiringDoor_back" opacity="30" mouseopacity="50" color="0x505050"]
 [s]
 
-*WiringDoor_Decision
+*SearchWiringDoor_Decision
 [if exp="f.isCableGet == 0"]
   [messageTrue]
   #
   修理をしないといけないね[p]
-  [jump target="*StageRoom"]
+  [JumpStageRoom]
 [else]
   [messageTrue]
   #
@@ -181,28 +183,26 @@
   [if exp="tf.usingItemInventory7 == 1"]
     [clickable x="1770" y="475" width="70"  height="70"  target="*NotUseCable" opacity="30" mouseopacity="50" color="0x505050"]
   [endif]
-  [clickable x="910" y="1015" width="100" height="50" target="*WiringDoor_back" opacity="30" mouseopacity="50" color="0x505050"]
+  [clickable x="910" y="1015" width="100" height="50" target="*SearchWiringDoor_back" opacity="30" mouseopacity="50" color="0x505050"]
   [s]
 [endif]
 
 *UseCable
 [messageTrue]
-#
-このアイテムを使用しますか？
+[ConfirmUseItem]
 [glink color="btn_29_red" target="*ValidItemOfCable" width="200" x="250" y="930" text="はい"]
 [glink color="btn_29_blue" target="*SelectItemOfCable" width="200" x="550" y="930" text="いいえ"]
 [s]
 
 *NotUseCable
 [messageTrue]
-#
-このアイテムを使用しますか？
+[ConfirmUseItem]
 [glink color="btn_29_red" target="*IncorrectItemOfCable" width="200" x="250" y="930" text="はい"]
 [glink color="btn_29_blue" target="*SelectItemOfCable" width="200" x="550" y="930" text="いいえ"]
 [s]
 
-*WiringDoor_back
-[jump target="*StageRoom"]
+*SearchWiringDoor_back
+[JumpStageRoom]
 
 *ValidItemOfCable
 [eval exp="f.isCableGet = -1"]
@@ -215,17 +215,17 @@
 ; 制御盤の「舞台」の欄が緑になったことを知らせる効果音
 #
 クリアしたね[p]
-[jump target="*StageRoom"]
+[JumpStageRoom]
 
 *IncorrectItemOfCable
 #
 このアイテムは違うようだ。[p]
 [jump target="*SelectItemOfCable"]
 
-*ToolBox
+*SearchToolBox
 [if exp="tf.leftNum != 4 && tf.centerNum != 5 && tf.rightNum != 6"]
   [bg storage="episode1/dial.png" time="100"]
-  [clickable x="910" y="1015" width="100" height="50" target="*ToolBox_back" opacity="30" mouseopacity="50" color="0x505050"]
+  [clickable x="910" y="1015" width="100" height="50" target="*SearchToolBox_back" opacity="30" mouseopacity="50" color="0x505050"]
   [button graphic="../image/kari/dialnumber_0.png" x="520" y="480" width="200" height="200" exp="tf.leftNum = 0" fix="true" target="*LeftDialTurn"]
   [button graphic="../image/kari/dialnumber_0.png" x="845" y="480" width="200" height="200" exp="tf.centerNum = 0" fix="true" target="*CenterDialTurn"]
   [button graphic="../image/kari/dialnumber_0.png" x="1180" y="480" width="200" height="200" exp="tf.rightNum = 0" fix="true" target="*RightDialTurn"]
@@ -234,14 +234,14 @@
 [endif]
 [s]
 
-*ToolBox_back
+*SearchToolBox_back
 [iscript]
     delete tf.leftNum;
     delete tf.centerNum;
     delete tf.rightNum;
 [endscript]
 [clearfix]
-[jump target="*StageRoom"]
+[JumpStageRoom]
 
 *LeftDialTurn
 [if exp="tf.leftNum == 0"]
@@ -368,15 +368,15 @@
     delete tf.rightNum;
 [endscript]
 [eval exp="f.isCableGet = 1"]
-[jump target="*StageRoom"]
+[JumpStageRoom]
 
 *DialUnlock_back
 [clearfix]
-[jump target="*StageRoom"]
+[JumpStageRoom]
 
 *GetDriver
 [eval exp="f.isDriverGet = 1"]
-[jump target="*StageRoom"]
+[JumpStageRoom]
 
 *SearchLight
 [if exp="tf.tempUseLightCover == 1"]
@@ -393,7 +393,7 @@
   [iscript]
     delete tf.tempUseLightCover;
   [endscript]
-  [jump target="*StageRoom"]
+  [JumpStageRoom]
 [elsif exp="tf.tempUseLightCover == -1"]
   [messageTrue]
   #
@@ -404,7 +404,7 @@
   [messageTrue]
   #
   高すぎて調べられないね[p]
-  [jump target="*StageRoom"]
+  [JumpStageRoom]
 [elsif exp="f.isStageStatusGreen == 1"]
   [messageTrue]
   #
@@ -432,33 +432,109 @@
   [if exp="tf.usingItemInventory7 == 1"]
     [clickable x="1770" y="475" width="70"  height="70"  target="*NotUseLightCover" opacity="30" mouseopacity="50" color="0x505050"]
   [endif]
-  [jump target="*StageRoom"]
+  [JumpStageRoom]
 [endif]
 
 *UseLightCover
 [messageTrue]
-#
-このアイテムを使用しますか？
+[ConfirmUseItem]
 [glink color="btn_29_red" target="*ValidItemOfLightCover" width="200" x="250" y="930" text="はい"]
 [glink color="btn_29_blue" target="*SelectItemOfLightCover" width="200" x="550" y="930" text="いいえ"]
 [s]
 
 *NotUseLightCover
 [messageTrue]
-#
-このアイテムを使用しますか？
+[ConfirmUseItem]
 [glink color="btn_29_red" target="*IncorrectItemOfLightCover" width="200" x="250" y="930" text="はい"]
 [glink color="btn_29_blue" target="*SelectItemOfLightCover" width="200" x="550" y="930" text="いいえ"]
 [s]
 
 *ValidItemOfLightCover
 [eval exp="tf.tempUseLightCover = 1"]
-[jump target="*StageRoom"]
+[JumpStageRoom]
 
 *IncorrectItemOfLightCover
 [eval exp="tf.tempUseLightCover = -1"]
-[jump target="*StageRoom"]
+[JumpStageRoom]
 
 *GetLightCover
 [eval exp="f.isLightCoverGet = 1"]
-[jump target="*StageRoom"]
+[JumpStageRoom]
+
+*SearchSpeaker
+[if exp="tf.tempUseDriver == 1"]
+  [messageTrue]
+  #
+  先ほど手に入れたドライバーを使用してスピーカーの傾きを直す[p]
+  ; 背景を変更する
+  ;[bg storage="episode1/stageroom_lightcoverattachment.png" time="100"]
+  [eval exp="f.isSpeakerStatusGreen = 1"]
+  ; 制御盤の「スピーカー」の欄が緑になったことを知らせる効果音
+  #
+  クリアしたね[p]
+  [iscript]
+    delete tf.tempUseDriver;
+  [endscript]
+  [JumpStageRoom]
+[elsif exp="tf.tempUseDriver == -1"]
+  [messageTrue]
+  #
+  このアイテムは違うようだ。[p]
+  [eval exp="tf.tempUseDriver = 0"]
+  [jump target="*SelectItemOfDriver"]
+[elsif exp="f.isDriverGet == 0"]
+  [messageTrue]
+  #
+  ネジが緩んでいるみたいだね[p]
+  [JumpStageRoom]
+[elsif exp="f.isDriverGet == 1"]
+  [messageTrue]
+  #
+  さっきの道具が使えないかな[p]
+  *SelectItemOfDriver
+  [messageFalse]
+  [if exp="tf.usingItemInventory1 == 1"]
+    [clickable x="1770" y="25" width="70"  height="70"  target="*NotUseDriver" opacity="30" mouseopacity="50" color="0x505050"]
+  [endif]
+  [if exp="tf.usingItemInventory2 == 1"]
+    [clickable x="1770" y="100" width="70"  height="70"  target="*UseDriver" opacity="30" mouseopacity="50" color="0x505050"]
+  [endif]
+  [if exp="tf.usingItemInventory3 == 1"]
+    [clickable x="1770" y="175" width="70"  height="70"  target="*NotUseDriver" opacity="30" mouseopacity="50" color="0x505050"]
+  [endif]
+  [if exp="tf.usingItemInventory4 == 1"]
+    [clickable x="1770" y="250" width="70"  height="70"  target="*NotUseDriver" opacity="30" mouseopacity="50" color="0x505050"]
+  [endif]
+  [if exp="tf.usingItemInventory5 == 1"]
+    [clickable x="1770" y="325" width="70"  height="70"  target="*NotUseDriver" opacity="30" mouseopacity="50" color="0x505050"]
+  [endif]
+  [if exp="tf.usingItemInventory6 == 1"]
+    [clickable x="1770" y="400" width="70"  height="70"  target="*NotUseDriver" opacity="30" mouseopacity="50" color="0x505050"]
+  [endif]
+  [if exp="tf.usingItemInventory7 == 1"]
+    [clickable x="1770" y="475" width="70"  height="70"  target="*NotUseDriver" opacity="30" mouseopacity="50" color="0x505050"]
+  [endif]
+  [JumpStageRoom]
+[endif]
+
+*UseDriver
+[messageTrue]
+[ConfirmUseItem]
+[glink color="btn_29_red" target="*ValidItemOfDriver" width="200" x="250" y="930" text="はい"]
+[glink color="btn_29_blue" target="*SelectItemOfDriver" width="200" x="550" y="930" text="いいえ"]
+[s]
+
+*NotUseDriver
+[messageTrue]
+[ConfirmUseItem]
+[glink color="btn_29_red" target="*IncorrectItemOfDriver" width="200" x="250" y="930" text="はい"]
+[glink color="btn_29_blue" target="*SelectItemOfDriver" width="200" x="550" y="930" text="いいえ"]
+[s]
+
+*ValidItemOfDriver
+[eval exp="tf.tempUseDriver = 1"]
+[JumpStageRoom]
+
+*IncorrectItemOfDriver
+[eval exp="tf.tempUseDriver = -1"]
+[JumpStageRoom]
