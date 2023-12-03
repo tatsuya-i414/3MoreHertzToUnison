@@ -47,13 +47,14 @@
 [elsif exp="f.isStageStatusGreen == 1 && f.isLightStatusGreen == 0 && f.isSpeakerStatusGreen == 0 && f.isDriverGet == 0"]
   [bg storage="episode1/stageroom_stagerise_withdriver.png" time="100"]
 [elsif exp="f.isStageStatusGreen == 1 && f.isLightStatusGreen == 0 && f.isSpeakerStatusGreen == 0 && f.isDriverGet == 1"]
-  [bg storage="episode1/stageroom_stagerise_driverget.png" time="100"]
+  [bg storage="episode1/stageroom_lightcoverattachment.png" time="100"]
+; 素材未確認
 [elsif exp="f.isStageStatusGreen == 1 && f.isLightStatusGreen == 1 && f.isSpeakerStatusGreen == 0 && f.isCableGet == -1"]
   [bg storage="episode1/stageroom_lightcoverattachment.png" time="100"]
 [elsif exp="f.isStageStatusGreen == 1 && f.isLightStatusGreen == 0 && f.isSpeakerStatusGreen == 1 && f.isCableGet == -1"]
   [bg storage="episode1/stageroom_stagerise_driverget.png" time="100"]
 [elsif exp="f.isStageStatusGreen == 1 && f.isLightStatusGreen == 1 && f.isSpeakerStatusGreen == 1 && f.isDriverGet == 1"]
-  [bg storage="episode1/stageroom_lightcoverattachment.png" time="100"]
+  [bg storage="episode1/episode1clear.png" time="100"]
 [endif]
 
 ; クリック判定
