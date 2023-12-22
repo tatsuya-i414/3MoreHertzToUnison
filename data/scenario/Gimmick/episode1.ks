@@ -94,7 +94,7 @@
 [endif]
 
 ; アイテム一覧
-[button graphic="kari/itemmenu_icon.png" storage="itemmenu.ks" target="*ItemMenu" x="1850" y="930" fix="true" role="sleepgame"]
+[button graphic="kari/itemmenu_icon.png" storage="Gimmick/itemmenu.ks" target="*ItemMenu" x="1850" y="930" fix="true" role="sleepgame"]
 [s]
 
 *SearchControlPanel
