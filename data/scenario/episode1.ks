@@ -75,7 +75,7 @@
   [clickable x="770" y="410" width="150" height="100" target="*GetDriver" vopacity="30" mouseopacity="50" color="0x505050"]
 [endif]
 ; ライト
-[if exp="f.isLightStatusGreen == 0"]
+[if exp="f.isLightStatusGreen == 0 && f.isUsing == 0"]
   [clickable x="620" y="180" width="100" height="100" target="*SearchLight" opacity="30" mouseopacity="50" color="0x505050"]
 [endif]
 ; ライトカバー
@@ -83,7 +83,7 @@
   [clickable x="620" y="790" width="100" height="100" target="*GetLightCover" opacity="30" mouseopacity="50" color="0x505050"]
 [endif]
 ; スピーカー
-[if exp="f.isSpeakerStatusGreen == 0"]
+[if exp="f.isSpeakerStatusGreen == 0 && f.isUsing == 0"]
   [clickable x="290" y="140" width="220" height="270" target="*SearchSpeaker" opacity="30" mouseopacity="50" color="0x505050"]
 [endif]
 
@@ -396,28 +396,7 @@
 [JumpStageRoom]
 
 *SearchLight
-[if exp="tf.tempUseLightCover == 1"]
-  [eval exp="f.isLightCoverGet = -1"]
-  [free layer="2" name="lightcover"]
-  [messageTrue]
-  #
-  先ほど手に入れたライトカバーをライトにはめる[p]
-  [bg storage="episode1/stageroom_lightcoverattachment.png" time="100"]
-  [eval exp="f.isLightStatusGreen = 1"]
-  ; 制御盤の「照明」の欄が緑になったことを知らせる効果音
-  #
-  クリアしたね[p]
-  [iscript]
-    delete tf.tempUseLightCover;
-  [endscript]
-  [JumpStageRoom]
-[elsif exp="tf.tempUseLightCover == -1"]
-  [messageTrue]
-  #
-  このアイテムは違うようだ。[p]
-  [eval exp="tf.tempUseLightCover = 0"]
-  [jump target="*SelectItemOfLightCover"]
-[elsif exp="f.isStageStatusGreen == 0"]
+[if exp="f.isStageStatusGreen == 0"]
   [messageTrue]
   #
   高すぎて調べられないね[p]
@@ -477,40 +456,31 @@
 
 *ValidItemOfLightCover
 [HiddenItemBox]
-[eval exp="tf.tempUseLightCover = 1"]
+[eval exp="f.isLightCoverGet = -1"]
+[free layer="2" name="lightcover"]
+[messageTrue]
+#
+先ほど手に入れたライトカバーをライトにはめる[p]
+[bg storage="episode1/stageroom_lightcoverattachment.png" time="100"]
+[eval exp="f.isLightStatusGreen = 1"]
+; 制御盤の「照明」の欄が緑になったことを知らせる効果音
+#
+クリアしたね[p]
 [JumpStageRoom]
 
 *IncorrectItemOfLightCover
 [HiddenItemBox]
-[eval exp="tf.tempUseLightCover = -1"]
-[JumpStageRoom]
+[messageTrue]
+#
+このアイテムは違うようだ。[p]
+[jump target="*SelectItemOfLightCover"]
 
 *GetLightCover
 [eval exp="f.isLightCoverGet = 1"]
 [JumpStageRoom]
 
 *SearchSpeaker
-[if exp="tf.tempUseDriver == 1"]
-  [messageTrue]
-  #
-  先ほど手に入れたドライバーを使用してスピーカーの傾きを直す[p]
-  ; 背景を変更する
-  ;[bg storage="episode1/stageroom_lightcoverattachment.png" time="100"]
-  [eval exp="f.isSpeakerStatusGreen = 1"]
-  ; 制御盤の「スピーカー」の欄が緑になったことを知らせる効果音
-  #
-  クリアしたね[p]
-  [iscript]
-    delete tf.tempUseDriver;
-  [endscript]
-  [JumpStageRoom]
-[elsif exp="tf.tempUseDriver == -1"]
-  [messageTrue]
-  #
-  このアイテムは違うようだ。[p]
-  [eval exp="tf.tempUseDriver = 0"]
-  [jump target="*SelectItemOfDriver"]
-[elsif exp="f.isDriverGet == 0"]
+[if exp="f.isDriverGet == 0"]
   [messageTrue]
   #
   ネジが緩んでいるみたいだね[p]
@@ -570,10 +540,20 @@
 
 *ValidItemOfDriver
 [HiddenItemBox]
-[eval exp="tf.tempUseDriver = 1"]
+[messageTrue]
+#
+先ほど手に入れたドライバーを使用してスピーカーの傾きを直す[p]
+; 背景を変更する
+;[bg storage="episode1/stageroom_lightcoverattachment.png" time="100"]
+[eval exp="f.isSpeakerStatusGreen = 1"]
+; 制御盤の「スピーカー」の欄が緑になったことを知らせる効果音
+#
+クリアしたね[p]
 [JumpStageRoom]
 
 *IncorrectItemOfDriver
 [HiddenItemBox]
-[eval exp="tf.tempUseDriver = -1"]
-[JumpStageRoom]
+[messageTrue]
+#
+このアイテムは違うようだ。[p]
+[jump target="*SelectItemOfDriver"]
