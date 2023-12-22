@@ -87,28 +87,8 @@
   [clickable x="290" y="140" width="220" height="270" target="*SearchSpeaker" opacity="30" mouseopacity="50" color="0x505050"]
 [endif]
 
-; アイテム欄
-[layer1True]
-[ItemInventory]
-
-; アイテム画像
-[layer2True]
-[if exp="f.isCableGet == 1"]
-  [eval exp="tf.usingItemInventory1 = 1"]
-  [image storage="../image/kari/cable.png" layer="2" x="1770" y="25" visible="true" name="cable"]
-[endif]
-[if exp="f.isDriverGet == 1"]
-  [eval exp="tf.usingItemInventory2 = 1"]
-  [image storage="../image/kari/driver.png" layer="2" x="1770" y="100" visible="true" name="driver"]
-[endif]
-[if exp="f.isLightCoverGet == 1"]
-  [eval exp="tf.usingItemInventory3 = 1"]
-  [image storage="../image/kari/lightcover.png" layer="2" x="1770" y="175" visible="true" name="lightcover"]
-[endif]
-[if exp="f.isMikeGet == 1"]
-  [eval exp="tf.usingItemInventory4 = 1"]
-  [image storage="../image/kari/mike.png" layer="2" x="1770" y="250" visible="true" name="mike"]
-[endif]
+; アイテム一覧
+[button graphic="kari/itemmenu_icon.png" storage="itemmenu.ks" target="*ItemMenu" x="1850" y="930" fix="true" role="sleepgame"]
 [s]
 
 *SearchControlPanel
@@ -169,6 +149,10 @@
 [JumpStageRoom]
 
 *SearchWiringDoor
+[if exp="f.isUsing == 1"]
+  [HiddenItemBox]
+  [messageFalse]
+[endif]
 [bg storage="episode1/disconnectedwiring.png" time="100"]
 [clickable x="760" y="380" width="350" height="150" target="*SearchWiringDoor_Decision" opacity="30" mouseopacity="50" color="0x505050"]
 [clickable x="910" y="1015" width="100" height="50" target="*SearchWiringDoor_back" opacity="30" mouseopacity="50" color="0x505050"]
@@ -186,49 +170,55 @@
   あの配線を使えばいいんじゃない？[p]
   *SelectItemOfCable
   [messageFalse]
-  [if exp="tf.usingItemInventory1 == 1"]
-    [clickable x="1770" y="25" width="70"  height="70"  target="*UseCable" opacity="30" mouseopacity="50" color="0x505050"]
+  [eval exp="f.isUsing = 1"]
+  [if exp="f.isUsing == 1"]
+    [ItemBox]
+    [if exp="tf.usingItemInventory1 == 1"]
+      [clickable x="1770" y="25" width="70"  height="70"  target="*UseCable" opacity="30" mouseopacity="50" color="0x505050"]
+    [endif]
+    [if exp="tf.usingItemInventory2 == 1"]
+      [clickable x="1770" y="100" width="70"  height="70"  target="*NotUseCable" opacity="30" mouseopacity="50" color="0x505050"]
+    [endif]
+    [if exp="tf.usingItemInventory3 == 1"]
+      [clickable x="1770" y="175" width="70"  height="70"  target="*NotUseCable" opacity="30" mouseopacity="50" color="0x505050"]
+    [endif]
+    [if exp="tf.usingItemInventory4 == 1"]
+      [clickable x="1770" y="250" width="70"  height="70"  target="*NotUseCable" opacity="30" mouseopacity="50" color="0x505050"]
+    [endif]
+    [if exp="tf.usingItemInventory5 == 1"]
+      [clickable x="1770" y="325" width="70"  height="70"  target="*NotUseCable" opacity="30" mouseopacity="50" color="0x505050"]
+    [endif]
+    [if exp="tf.usingItemInventory6 == 1"]
+      [clickable x="1770" y="400" width="70"  height="70"  target="*NotUseCable" opacity="30" mouseopacity="50" color="0x505050"]
+    [endif]
+    [if exp="tf.usingItemInventory7 == 1"]
+      [clickable x="1770" y="475" width="70"  height="70"  target="*NotUseCable" opacity="30" mouseopacity="50" color="0x505050"]
+    [endif]
+    [clickable x="910" y="1015" width="100" height="50" target="*SearchWiringDoor_back" opacity="30" mouseopacity="50" color="0x505050"]
   [endif]
-  [if exp="tf.usingItemInventory2 == 1"]
-    [clickable x="1770" y="100" width="70"  height="70"  target="*NotUseCable" opacity="30" mouseopacity="50" color="0x505050"]
-  [endif]
-  [if exp="tf.usingItemInventory3 == 1"]
-    [clickable x="1770" y="175" width="70"  height="70"  target="*NotUseCable" opacity="30" mouseopacity="50" color="0x505050"]
-  [endif]
-  [if exp="tf.usingItemInventory4 == 1"]
-    [clickable x="1770" y="250" width="70"  height="70"  target="*NotUseCable" opacity="30" mouseopacity="50" color="0x505050"]
-  [endif]
-  [if exp="tf.usingItemInventory5 == 1"]
-    [clickable x="1770" y="325" width="70"  height="70"  target="*NotUseCable" opacity="30" mouseopacity="50" color="0x505050"]
-  [endif]
-  [if exp="tf.usingItemInventory6 == 1"]
-    [clickable x="1770" y="400" width="70"  height="70"  target="*NotUseCable" opacity="30" mouseopacity="50" color="0x505050"]
-  [endif]
-  [if exp="tf.usingItemInventory7 == 1"]
-    [clickable x="1770" y="475" width="70"  height="70"  target="*NotUseCable" opacity="30" mouseopacity="50" color="0x505050"]
-  [endif]
-  [clickable x="910" y="1015" width="100" height="50" target="*SearchWiringDoor_back" opacity="30" mouseopacity="50" color="0x505050"]
-  [s]
 [endif]
+[s]
 
 *UseCable
 [messageTrue]
 [ConfirmUseItem]
 [glink color="btn_29_red" target="*ValidItemOfCable" width="200" x="250" y="930" text="はい"]
-[glink color="btn_29_blue" target="*SelectItemOfCable" width="200" x="550" y="930" text="いいえ"]
+[glink color="btn_29_blue" target="*SearchWiringDoor" width="200" x="550" y="930" text="いいえ"]
 [s]
 
 *NotUseCable
 [messageTrue]
 [ConfirmUseItem]
 [glink color="btn_29_red" target="*IncorrectItemOfCable" width="200" x="250" y="930" text="はい"]
-[glink color="btn_29_blue" target="*SelectItemOfCable" width="200" x="550" y="930" text="いいえ"]
+[glink color="btn_29_blue" target="*SearchWiringDoor" width="200" x="550" y="930" text="いいえ"]
 [s]
 
 *SearchWiringDoor_back
+[HiddenItemBox]
 [JumpStageRoom]
 
 *ValidItemOfCable
+[HiddenItemBox]
 [eval exp="f.isCableGet = -1"]
 [free layer="2" name="cable"]
 #
@@ -242,6 +232,7 @@
 [JumpStageRoom]
 
 *IncorrectItemOfCable
+[HiddenItemBox]
 #
 このアイテムは違うようだ。[p]
 [jump target="*SelectItemOfCable"]
@@ -260,9 +251,9 @@
 
 *SearchToolBox_back
 [iscript]
-    delete tf.leftNum;
-    delete tf.centerNum;
-    delete tf.rightNum;
+  delete tf.leftNum;
+  delete tf.centerNum;
+  delete tf.rightNum;
 [endscript]
 [clearfix]
 [JumpStageRoom]
@@ -378,6 +369,8 @@
 *DialUnlock
 [if exp="tf.leftNum == 4 && tf.centerNum == 5 && tf.rightNum == 6"]
   [clearfix]
+  ; アイテムボタンを再度表示する
+  [button graphic="kari/itemmenu_icon.png" storage="itemmenu.ks" target="*ItemMenu" x="1850" y="930" fix="true" role="sleepgame"] 
   [bg storage="episode1/cable.png" time="100"]
   [clickable x="820" y="390" width="300" height="300" target="*GetCable" opacity="30" mouseopacity="50" color="0x505050"]
   [clickable x="910" y="1015" width="100" height="50" target="*DialUnlock_back" opacity="30" mouseopacity="50" color="0x505050"]
@@ -387,9 +380,9 @@
 
 *GetCable
 [iscript]
-    delete tf.leftNum;
-    delete tf.centerNum;
-    delete tf.rightNum;
+  delete tf.leftNum;
+  delete tf.centerNum;
+  delete tf.rightNum;
 [endscript]
 [eval exp="f.isCableGet = 1"]
 [JumpStageRoom]
@@ -435,26 +428,35 @@
   舞台が上がったおかげで調べられるね！[p]
   *SelectItemOfLightCover
   [messageFalse]
-  [if exp="tf.usingItemInventory1 == 1"]
-    [clickable x="1770" y="25" width="70"  height="70"  target="*NotUseLightCover" opacity="30" mouseopacity="50" color="0x505050"]
+  [if exp="f.isUsing == 0"]
+    [eval exp="f.isUsing = 1"]
+  [else]
+    [eval exp="f.isUsing = 0"]
+    [HiddenItemBox]
   [endif]
-  [if exp="tf.usingItemInventory2 == 1"]
-    [clickable x="1770" y="100" width="70"  height="70"  target="*NotUseLightCover" opacity="30" mouseopacity="50" color="0x505050"]
-  [endif]
-  [if exp="tf.usingItemInventory3 == 1"]
-    [clickable x="1770" y="175" width="70"  height="70"  target="*UseLightCover" opacity="30" mouseopacity="50" color="0x505050"]
-  [endif]
-  [if exp="tf.usingItemInventory4 == 1"]
-    [clickable x="1770" y="250" width="70"  height="70"  target="*NotUseLightCover" opacity="30" mouseopacity="50" color="0x505050"]
-  [endif]
-  [if exp="tf.usingItemInventory5 == 1"]
-    [clickable x="1770" y="325" width="70"  height="70"  target="*NotUseLightCover" opacity="30" mouseopacity="50" color="0x505050"]
-  [endif]
-  [if exp="tf.usingItemInventory6 == 1"]
-    [clickable x="1770" y="400" width="70"  height="70"  target="*NotUseLightCover" opacity="30" mouseopacity="50" color="0x505050"]
-  [endif]
-  [if exp="tf.usingItemInventory7 == 1"]
-    [clickable x="1770" y="475" width="70"  height="70"  target="*NotUseLightCover" opacity="30" mouseopacity="50" color="0x505050"]
+  [if exp="f.isUsing == 1"]
+    [ItemBox]
+    [if exp="tf.usingItemInventory1 == 1"]
+      [clickable x="1770" y="25" width="70"  height="70"  target="*NotUseLightCover" opacity="30" mouseopacity="50" color="0x505050"]
+    [endif]
+    [if exp="tf.usingItemInventory2 == 1"]
+      [clickable x="1770" y="100" width="70"  height="70"  target="*NotUseLightCover" opacity="30" mouseopacity="50" color="0x505050"]
+    [endif]
+    [if exp="tf.usingItemInventory3 == 1"]
+      [clickable x="1770" y="175" width="70"  height="70"  target="*UseLightCover" opacity="30" mouseopacity="50" color="0x505050"]
+    [endif]
+    [if exp="tf.usingItemInventory4 == 1"]
+      [clickable x="1770" y="250" width="70"  height="70"  target="*NotUseLightCover" opacity="30" mouseopacity="50" color="0x505050"]
+    [endif]
+    [if exp="tf.usingItemInventory5 == 1"]
+      [clickable x="1770" y="325" width="70"  height="70"  target="*NotUseLightCover" opacity="30" mouseopacity="50" color="0x505050"]
+    [endif]
+    [if exp="tf.usingItemInventory6 == 1"]
+      [clickable x="1770" y="400" width="70"  height="70"  target="*NotUseLightCover" opacity="30" mouseopacity="50" color="0x505050"]
+    [endif]
+    [if exp="tf.usingItemInventory7 == 1"]
+      [clickable x="1770" y="475" width="70"  height="70"  target="*NotUseLightCover" opacity="30" mouseopacity="50" color="0x505050"]
+    [endif]
   [endif]
   [JumpStageRoom]
 [endif]
@@ -474,10 +476,12 @@
 [s]
 
 *ValidItemOfLightCover
+[HiddenItemBox]
 [eval exp="tf.tempUseLightCover = 1"]
 [JumpStageRoom]
 
 *IncorrectItemOfLightCover
+[HiddenItemBox]
 [eval exp="tf.tempUseLightCover = -1"]
 [JumpStageRoom]
 
@@ -517,26 +521,35 @@
   さっきの道具が使えないかな[p]
   *SelectItemOfDriver
   [messageFalse]
-  [if exp="tf.usingItemInventory1 == 1"]
-    [clickable x="1770" y="25" width="70"  height="70"  target="*NotUseDriver" opacity="30" mouseopacity="50" color="0x505050"]
+  [if exp="f.isUsing == 0"]
+    [eval exp="f.isUsing = 1"]
+  [else]
+    [eval exp="f.isUsing = 0"]
+    [HiddenItemBox]
   [endif]
-  [if exp="tf.usingItemInventory2 == 1"]
-    [clickable x="1770" y="100" width="70"  height="70"  target="*UseDriver" opacity="30" mouseopacity="50" color="0x505050"]
-  [endif]
-  [if exp="tf.usingItemInventory3 == 1"]
-    [clickable x="1770" y="175" width="70"  height="70"  target="*NotUseDriver" opacity="30" mouseopacity="50" color="0x505050"]
-  [endif]
-  [if exp="tf.usingItemInventory4 == 1"]
-    [clickable x="1770" y="250" width="70"  height="70"  target="*NotUseDriver" opacity="30" mouseopacity="50" color="0x505050"]
-  [endif]
-  [if exp="tf.usingItemInventory5 == 1"]
-    [clickable x="1770" y="325" width="70"  height="70"  target="*NotUseDriver" opacity="30" mouseopacity="50" color="0x505050"]
-  [endif]
-  [if exp="tf.usingItemInventory6 == 1"]
-    [clickable x="1770" y="400" width="70"  height="70"  target="*NotUseDriver" opacity="30" mouseopacity="50" color="0x505050"]
-  [endif]
-  [if exp="tf.usingItemInventory7 == 1"]
-    [clickable x="1770" y="475" width="70"  height="70"  target="*NotUseDriver" opacity="30" mouseopacity="50" color="0x505050"]
+  [if exp="f.isUsing == 1"]
+    [ItemBox]
+    [if exp="tf.usingItemInventory1 == 1"]
+      [clickable x="1770" y="25" width="70"  height="70"  target="*NotUseDriver" opacity="30" mouseopacity="50" color="0x505050"]
+    [endif]
+    [if exp="tf.usingItemInventory2 == 1"]
+      [clickable x="1770" y="100" width="70"  height="70"  target="*UseDriver" opacity="30" mouseopacity="50" color="0x505050"]
+    [endif]
+    [if exp="tf.usingItemInventory3 == 1"]
+      [clickable x="1770" y="175" width="70"  height="70"  target="*NotUseDriver" opacity="30" mouseopacity="50" color="0x505050"]
+    [endif]
+    [if exp="tf.usingItemInventory4 == 1"]
+      [clickable x="1770" y="250" width="70"  height="70"  target="*NotUseDriver" opacity="30" mouseopacity="50" color="0x505050"]
+    [endif]
+    [if exp="tf.usingItemInventory5 == 1"]
+      [clickable x="1770" y="325" width="70"  height="70"  target="*NotUseDriver" opacity="30" mouseopacity="50" color="0x505050"]
+    [endif]
+    [if exp="tf.usingItemInventory6 == 1"]
+      [clickable x="1770" y="400" width="70"  height="70"  target="*NotUseDriver" opacity="30" mouseopacity="50" color="0x505050"]
+    [endif]
+    [if exp="tf.usingItemInventory7 == 1"]
+      [clickable x="1770" y="475" width="70"  height="70"  target="*NotUseDriver" opacity="30" mouseopacity="50" color="0x505050"]
+    [endif]
   [endif]
   [JumpStageRoom]
 [endif]
@@ -556,9 +569,11 @@
 [s]
 
 *ValidItemOfDriver
+[HiddenItemBox]
 [eval exp="tf.tempUseDriver = 1"]
 [JumpStageRoom]
 
 *IncorrectItemOfDriver
+[HiddenItemBox]
 [eval exp="tf.tempUseDriver = -1"]
 [JumpStageRoom]
