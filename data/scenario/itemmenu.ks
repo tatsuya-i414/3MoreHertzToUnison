@@ -1,8 +1,10 @@
 *ItemMenu
 [cm]
-[clearfix]
 [messageFalse]
-[layer3False]
+[clearfix]
+[Freelayer1]
+[Freelayer2]
+[Freelayer3]
 [FreeItemBox]
 
 [screen_full]

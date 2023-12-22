@@ -74,6 +74,18 @@
     @layopt layer="3" visible="false"
 [endmacro]
 
+[macro name="Freelayer1"]
+    [freeimage layer="1"]
+[endmacro]
+
+[macro name="Freelayer2"]
+    [freeimage layer="2"]
+[endmacro]
+
+[macro name="Freelayer3"]
+    [freeimage layer="3"]
+[endmacro]
+
 [macro name="ItemInventory"]
     ; 通常アイテム
     [eval exp="tf.usingItemInventory1 = 0"]
@@ -122,13 +134,8 @@
     [ItemImage]
 [endmacro]
 
-[macro name="HiddenItemBox"]
-    [eval exp="f.isUsing = 0"]
-    [layer1False]
-    [layer2False]
-[endmacro]
-
 [macro name="FreeItemBox"]
+    [eval exp="f.isUsing = 0"]
     [free layer="1" name="inventory1"]
     [free layer="1" name="inventory2"]
     [free layer="1" name="inventory3"]
@@ -136,18 +143,10 @@
     [free layer="1" name="inventory5"]
     [free layer="1" name="inventory6"]
     [free layer="1" name="inventory7"]
-    [if exp="f.isCableGet == 1" ]
-        [free layer="2" name="cable"]
-    [endif]
-    [if exp="f.isDriverGet == 1"]
-        [free layer="2" name="driver"]
-    [endif]
-    [if exp="f.isLightCoverGet == 1"]
-        [free layer="2" name="lightcover"]
-    [endif]
-    [if exp="f.isMikeGet == 1"]
-        [free layer="2" name="mike"]
-    [endif]
+    [free layer="2" name="cable"]
+    [free layer="2" name="driver"]
+    [free layer="2" name="lightcover"]
+    [free layer="2" name="mike"]
 [endmacro]
 
 [macro name="ConfirmUseItem"]

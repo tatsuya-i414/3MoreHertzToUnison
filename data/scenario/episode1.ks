@@ -41,20 +41,24 @@
 
 *StageRoom
 [messageFalse]
+[layer1True]
+[layer2True]
+
 ; 背景
-[if exp="f.isStageStatusGreen == 0 && f.isLightStatusGreen == 0 && f.isSpeakerStatusGreen == 0"]
-  [bg storage="episode1/stageroom.png" time="100"]
-[elsif exp="f.isStageStatusGreen == 1 && f.isLightStatusGreen == 0 && f.isSpeakerStatusGreen == 0 && f.isDriverGet == 0"]
-  [bg storage="episode1/stageroom_stagerise_withdriver.png" time="100"]
-[elsif exp="f.isStageStatusGreen == 1 && f.isLightStatusGreen == 0 && f.isSpeakerStatusGreen == 0 && f.isDriverGet == 1"]
-  [bg storage="episode1/stageroom_lightcoverattachment.png" time="100"]
-; 素材未確認
-[elsif exp="f.isStageStatusGreen == 1 && f.isLightStatusGreen == 1 && f.isSpeakerStatusGreen == 0 && f.isCableGet == -1"]
-  [bg storage="episode1/stageroom_lightcoverattachment.png" time="100"]
-[elsif exp="f.isStageStatusGreen == 1 && f.isLightStatusGreen == 0 && f.isSpeakerStatusGreen == 1 && f.isCableGet == -1"]
-  [bg storage="episode1/stageroom_stagerise_driverget.png" time="100"]
-[elsif exp="f.isStageStatusGreen == 1 && f.isLightStatusGreen == 1 && f.isSpeakerStatusGreen == 1 && f.isDriverGet == 1"]
-  [bg storage="episode1/episode1clear.png" time="100"]
+[bg storage="episode1/stageroom.png" time="100"]
+
+; 背景パーツ
+; ステージ
+[if exp="f.isStageStatusGreen == 1"]
+  [image storage="../image/episode1/stage.png" layer="1" x="600" y="170" name="stage"]
+[endif]
+; ライト
+[if exp="f.isLightStatusGreen == 1"]
+  [image storage="../image/episode1/light.png" layer="1" x="550" y="170" name="light"]
+[endif]
+; スピーカー
+[if exp="f.isSpeakerStatusGreen == 1"]
+  [image storage="../image/episode1/speaker.png" layer="1" x="220" y="110" name="speaker"]
 [endif]
 
 ; クリック判定
@@ -72,7 +76,8 @@
 [endif]
 ; ドライバー
 [if exp="f.isStageStatusGreen == 1 && f.isDriverGet == 0""]
-  [clickable x="770" y="410" width="150" height="100" target="*GetDriver" vopacity="30" mouseopacity="50" color="0x505050"]
+  [image storage="../image/episode1/driver.png" layer="2" x="770" y="340" name="driver"]
+  [clickable x="770" y="360" width="150" height="100" target="*GetDriver" opacity="30" mouseopacity="50" color="0x505050"]
 [endif]
 ; ライト
 [if exp="f.isLightStatusGreen == 0 && f.isUsing == 0"]
@@ -80,6 +85,7 @@
 [endif]
 ; ライトカバー
 [if exp="f.isLightCoverGet == 0"]
+  [image storage="../image/episode1/lightcover.png" layer="1" x="620" y="790" name="lightcover"]
   [clickable x="620" y="790" width="100" height="100" target="*GetLightCover" opacity="30" mouseopacity="50" color="0x505050"]
 [endif]
 ; スピーカー
@@ -92,6 +98,8 @@
 [s]
 
 *SearchControlPanel
+[Freelayer1]
+[Freelayer2]
 [if exp="f.isStageStatusGreen == 0 || f.isLightStatusGreen == 0 || f.isSpeakerStatusGreen == 0"]
   [bg storage="episode1/controlpane_allred.png" time="100"]
 [else]
@@ -149,8 +157,10 @@
 [JumpStageRoom]
 
 *SearchWiringDoor
+[Freelayer1]
+[Freelayer2]
 [if exp="f.isUsing == 1"]
-  [HiddenItemBox]
+  [FreeItemBox]
   [messageFalse]
 [endif]
 [bg storage="episode1/disconnectedwiring.png" time="100"]
@@ -214,13 +224,13 @@
 [s]
 
 *SearchWiringDoor_back
-[HiddenItemBox]
+[FreeItemBox]
 [JumpStageRoom]
 
 *ValidItemOfCable
-[HiddenItemBox]
+[FreeItemBox]
 [eval exp="f.isCableGet = -1"]
-[free layer="2" name="cable"]
+[layer="2" name="cable"]
 #
 先ほど手に入れた配線でちぎれた配線を直す[p]
 [bg storage="episode1/connectedwiring.png" time="100"]
@@ -232,12 +242,14 @@
 [JumpStageRoom]
 
 *IncorrectItemOfCable
-[HiddenItemBox]
+[FreeItemBox]
 #
 このアイテムは違うようだ。[p]
 [jump target="*SelectItemOfCable"]
 
 *SearchToolBox
+[Freelayer1]
+[Freelayer2]
 [if exp="f.leftNum != 4 && f.centerNum != 5 && f.rightNum != 6"]
   [bg storage="episode1/dial.png" time="100"]
   [clickable x="910" y="1015" width="100" height="50" target="*SearchToolBox_back" opacity="30" mouseopacity="50" color="0x505050"]
@@ -393,6 +405,7 @@
 
 *GetDriver
 [eval exp="f.isDriverGet = 1"]
+[free layer="2" name="driver"]
 [JumpStageRoom]
 
 *SearchLight
@@ -411,7 +424,7 @@
     [eval exp="f.isUsing = 1"]
   [else]
     [eval exp="f.isUsing = 0"]
-    [HiddenItemBox]
+    [FreeItemBox]
   [endif]
   [if exp="f.isUsing == 1"]
     [ItemBox]
@@ -455,13 +468,12 @@
 [s]
 
 *ValidItemOfLightCover
-[HiddenItemBox]
+[FreeItemBox]
 [eval exp="f.isLightCoverGet = -1"]
 [free layer="2" name="lightcover"]
 [messageTrue]
 #
 先ほど手に入れたライトカバーをライトにはめる[p]
-[bg storage="episode1/stageroom_lightcoverattachment.png" time="100"]
 [eval exp="f.isLightStatusGreen = 1"]
 ; 制御盤の「照明」の欄が緑になったことを知らせる効果音
 #
@@ -469,7 +481,7 @@
 [JumpStageRoom]
 
 *IncorrectItemOfLightCover
-[HiddenItemBox]
+[FreeItemBox]
 [messageTrue]
 #
 このアイテムは違うようだ。[p]
@@ -477,6 +489,7 @@
 
 *GetLightCover
 [eval exp="f.isLightCoverGet = 1"]
+[free layer="1" name="lightcover"]
 [JumpStageRoom]
 
 *SearchSpeaker
@@ -495,7 +508,7 @@
     [eval exp="f.isUsing = 1"]
   [else]
     [eval exp="f.isUsing = 0"]
-    [HiddenItemBox]
+    [FreeItemBox]
   [endif]
   [if exp="f.isUsing == 1"]
     [ItemBox]
@@ -539,12 +552,11 @@
 [s]
 
 *ValidItemOfDriver
-[HiddenItemBox]
+[FreeItemBox]
 [messageTrue]
 #
 先ほど手に入れたドライバーを使用してスピーカーの傾きを直す[p]
 ; 背景を変更する
-;[bg storage="episode1/stageroom_lightcoverattachment.png" time="100"]
 [eval exp="f.isSpeakerStatusGreen = 1"]
 ; 制御盤の「スピーカー」の欄が緑になったことを知らせる効果音
 #
@@ -552,7 +564,7 @@
 [JumpStageRoom]
 
 *IncorrectItemOfDriver
-[HiddenItemBox]
+[FreeItemBox]
 [messageTrue]
 #
 このアイテムは違うようだ。[p]
