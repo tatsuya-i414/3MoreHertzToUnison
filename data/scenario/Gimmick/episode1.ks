@@ -230,7 +230,7 @@
 *ValidItemOfCable
 [FreeItemBox]
 [eval exp="f.isCableGet = -1"]
-[layer="2" name="cable"]
+[free layer="2" name="cable"]
 #
 先ほど手に入れた配線でちぎれた配線を直す[p]
 [bg storage="episode1/connectedwiring.png" time="100"]
@@ -382,7 +382,7 @@
 [if exp="f.leftNum == 4 && f.centerNum == 5 && f.rightNum == 6"]
   [clearfix]
   ; アイテムボタンを再度表示する
-  [button graphic="kari/itemmenu_icon.png" storage="itemmenu.ks" target="*ItemMenu" x="1850" y="930" fix="true" role="sleepgame"] 
+  [button graphic="kari/itemmenu_icon.png" storage="Gimmick/itemmenu.ks" target="*ItemMenu" x="1850" y="930" fix="true" role="sleepgame"]
   [bg storage="episode1/cable.png" time="100"]
   [clickable x="820" y="390" width="300" height="300" target="*GetCable" opacity="30" mouseopacity="50" color="0x505050"]
   [clickable x="910" y="1015" width="100" height="50" target="*DialUnlock_back" opacity="30" mouseopacity="50" color="0x505050"]
@@ -413,6 +413,11 @@
   [messageTrue]
   #
   高すぎて調べられないね[p]
+  [JumpStageRoom]
+[elsif exp="f.isStageStatusGreen == 1 && f.isLightCoverGet == 0 || f.isDriverGet == 0"]
+  [messageTrue]
+  #
+  ライトを直すにはアイテムが必要そうだ[p]
   [JumpStageRoom]
 [elsif exp="f.isStageStatusGreen == 1"]
   [messageTrue]
