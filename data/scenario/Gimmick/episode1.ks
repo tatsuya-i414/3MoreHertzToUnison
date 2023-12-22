@@ -414,7 +414,7 @@
   #
   高すぎて調べられないね[p]
   [JumpStageRoom]
-[elsif exp="f.isStageStatusGreen == 1 && f.isLightCoverGet == 0 || f.isDriverGet == 0"]
+[elsif exp="f.isStageStatusGreen == 1 && f.isLightCoverGet == 0"]
   [messageTrue]
   #
   ライトを直すにはアイテムが必要そうだ[p]
