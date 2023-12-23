@@ -48,6 +48,11 @@
     @layopt layer="3" visible="false"
 [endmacro]
 
+; レイヤー0に設定した画像を削除する
+[macro name="Freelayer0"]
+    [freeimage layer="0"]
+[endmacro]
+
 ; レイヤー1に設定した画像を削除する
 [macro name="Freelayer1"]
     [freeimage layer="1"]
@@ -73,6 +78,9 @@
     [eval exp="tf.usingItemInventory5 = 0"]
     [eval exp="tf.usingItemInventory6 = 0"]
     [eval exp="tf.usingItemInventory7 = 0"]
+    [eval exp="tf.usingItemInventory8 = 0"]
+    [eval exp="tf.usingItemInventory9 = 0"]
+    [eval exp="tf.usingItemInventory10 = 0"]
     [image storage="../image/kari/inventory.png" layer="1" x="1770" y="25" name="inventory1"]
     [image storage="../image/kari/inventory.png" layer="1" x="1770" y="100" name="inventory2"]
     [image storage="../image/kari/inventory.png" layer="1" x="1770" y="175" name="inventory3"]
@@ -102,7 +110,7 @@
         [image storage="../image/kari/lightcover.png" layer="2" x="1770" y="175" visible="true" name="lightcover"]
     [endif]
     [if exp="f.isMikeGet == 1"]
-        [eval exp="tf.usingItemInventory4 = 1"]
+        [eval exp="tf.usingItemInventory8 = 1"]
         [image storage="../image/kari/mike.png" layer="2" x="1770" y="250" visible="true" name="mike"]
     [endif]
 [endmacro]
