@@ -7,7 +7,6 @@
 [call storage="Utility/settings.ks"]
 
 @showmenubutton
-[screen_full]
 [bg storage="epidode2/studioroom.png" time="100"]
 
 [messageTrue]

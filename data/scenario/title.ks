@@ -19,6 +19,7 @@
 [if exp="f.isEpisode1Clear == 0"]
     [jump storage="Gimmick/episode1.ks"]
 [elsif exp="f.isEpisode1Clear == 1"]
+    [screen_full]
     [jump storage="Gimmick/episode2.ks"]
 [endif]
 
