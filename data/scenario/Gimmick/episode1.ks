@@ -3,36 +3,14 @@
 [clearfix]
 [start_keyconfig]
 
-[bg storage="kari/omoide1_introduction.jpg" time="100"]
-[screen_full]
+; メッセージウインドウとキャラクター情報の読み込み
+[call storage="Utility/settings.ks"]
 
 @showmenubutton
+[screen_full]
+[bg storage="kari/omoide1_introduction.jpg" time="100"]
 
-; メッセージウィンドウの設定
-[position layer="message0" left="160" top="800" width="1600" height="250" page="fore" visible="true"]
-
-; 文字が表示される領域を調整
-[position layer="message0" page="fore" margint="45" marginl="50" marginr="70" marginb="60"]
-
-; キャラクターの名前が表示される文字領域
-[ptext name="chara_name_area" layer="message0" color="white" size="28" bold="true" x="180" y="810"]
-
-; 上記で定義した領域がキャラクターの名前表示であることを宣言
-[chara_config ptext="chara_name_area"]
-
-; 登場するキャラクターを設定
-;[chara_new  name="akane" storage="chara/akane/normal.png" jname="あかね"]
-;[chara_new  name="yamato"  storage="chara/yamato/normal.png" jname="やまと"]
-
-; キャラクターの表情登録
-;[chara_face name="akane" face="angry" storage="chara/akane/angry.png"]
-;[chara_face name="akane" face="doki" storage="chara/akane/doki.png"]
-;[chara_face name="akane" face="happy" storage="chara/akane/happy.png"]
-;[chara_face name="akane" face="sad" storage="chara/akane/sad.png"]
-
-;マクロの読み込み
 [messageTrue]
-
 #思い出1導入
 ステージの隅にあるコンセントと抜けたプラグを差し直す[p]
 
@@ -136,12 +114,8 @@
   [eval exp="f.isEpisode1Clear = 1"]
   ; 素材未完成のため、一時的な処理
   [layer3False]
-  ; 思い出2の画面に遷移する
-
-  ; 思い出2未実装のため、一時的な処理
-  #
-  思い出1クリア[p]
-  [JumpStageRoom]
+  ; 思い出2へ移動する
+  [jump storage="Gimmick/episode2.ks" target="*start"]
 [else]
   [messageTrue]
   #
@@ -561,7 +535,6 @@
 [messageTrue]
 #
 先ほど手に入れたドライバーを使用してスピーカーの傾きを直す[p]
-; 背景を変更する
 [eval exp="f.isSpeakerStatusGreen = 1"]
 ; 制御盤の「スピーカー」の欄が緑になったことを知らせる効果音
 #

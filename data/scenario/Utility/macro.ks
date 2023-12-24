@@ -149,4 +149,9 @@
     [jump storage="Gimmick/episode1.ks" target="*StageRoom"]
 [endmacro]
 
+; スタジオルームへ移動する
+[macro name="JumpStudioRoom"]
+    [jump storage="Gimmick/episode2.ks" target="*StudioRoom"]
+[endmacro]
+
 [return]

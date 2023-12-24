@@ -1,8 +1,8 @@
 [cm]
 
-@clearstack
-@bg storage ="title.jpg" time=100
-@wait time = 200
+[clearstack]
+[bg storage="title.jpg" time="100"]
+[wait time="200"]
 [screen_full]
 
 *start 
@@ -15,8 +15,12 @@
 [s]
 
 *gamestart
-;一番最初のシナリオファイルへジャンプする
-@jump storage="Gimmick/episode1.ks"
+; デバッグ用に追加
+[if exp="f.isEpisode1Clear == 0"]
+    [jump storage="Gimmick/episode1.ks"]
+[elsif exp="f.isEpisode1Clear == 1"]
+    [jump storage="Gimmick/episode2.ks"]
+[endif]
 
 *debug
-@jump storage="Utility/debug.ks"
+[jump storage="Utility/debug.ks"]
