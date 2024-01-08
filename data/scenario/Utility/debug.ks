@@ -109,6 +109,18 @@
     [eval exp="f.isDriverGet = 1"]
 [endif]
 
+[if exp="f.isTentDown == 1"]
+    [eval exp="f.isEpisode1Clear = 1"]
+    [eval exp="f.isStageStatusGreen = 1"]
+    [eval exp="f.isLightStatusGreen = 1"]
+    [eval exp="f.isSpeakerStatusGreen = 1"]
+    [eval exp="f.isCableGet = -1"]
+    [eval exp="f.isLightCoverGet = -1"]
+    [eval exp="f.isDriverGet = 1"]
+    [eval exp="f.is,f.isMikeGet = 1"]
+    [eval exp="f.isHungerGet = -1"]
+[endif]
+
 ; バリデーション_Episode1
 [if exp="(f.isEpisode1Clear != 0" || exp="f.isEpisode1Clear != 1)"]
     [jump target="*debug"]
