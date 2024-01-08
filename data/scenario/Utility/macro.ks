@@ -68,6 +68,11 @@
     [freeimage layer="3"]
 [endmacro]
 
+; 桜良(通常)を表示する
+[macro name="ShowNormalSakura"]
+    [chara_show name="sakura" time="500" layer="3" width="500" height="1350" left="270" top="290"]
+[endmacro]
+
 ; アイテムインベントリを表示する
 [macro name="ItemInventory"]
     ; 通常アイテム
