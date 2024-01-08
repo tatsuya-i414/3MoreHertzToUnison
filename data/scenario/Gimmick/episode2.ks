@@ -59,31 +59,40 @@
 
 *SearchCamera
 [bg storage="epidode2/cameramonitor.png" time="1000" method="zoomIn"]
-[if exp="f.isTentDown == 0 && f.isDressGet == 0"]
-    [messageTrue]
-    #
-    天幕と衣装がいるよね[p]
-    [messageFalse]
-    [JumpStudioRoom]
-[else]
+[if exp="f.isTentDown == 1 && f.isDressGet == 1"]
     #
     後述
     [messageFalse]
+    [JumpStudioRoom]
+[else]
+    [layer3True]
+    [ShowNormalSakura]
+    [messageTrue]
+    #桜良
+    天幕と衣装がいるよね[p]
+    [messageFalse]
+    [layer3False]
     [JumpStudioRoom]
 [endif]
 
 *SearchTent
 [if exp="f.isHungerGet == 0"]
+    [layer3True]
+    [ShowNormalSakura]
     [messageTrue]
-    #
+    #桜良
     高すぎて届かない、何かないかな？[p]
     [messageFalse]
+    [layer3False]
     [JumpStudioRoom]
 [else]
+    [layer3True]
+    [ShowNormalSakura]
     [messageTrue]
-    #
+    #桜良
     針金ハンガーでひっぱり出せたよ！[p]
     [messageFalse]
+    [layer3False]
     [eval exp="f.isHungerGet = -1"]
     [eval exp="f.isTentDown = 1"]
     [JumpStudioRoom]

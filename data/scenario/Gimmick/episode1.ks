@@ -117,9 +117,9 @@
   ; 思い出2へ移動する
   [jump storage="Gimmick/episode2.ks" target="*start"]
 [else]
-  [messageTrue]
   [layer3True]
   [ShowNormalSakura]
+  [messageTrue]
   #桜良
   この3つを何とかしないといけない[p]
   [layer3False]
