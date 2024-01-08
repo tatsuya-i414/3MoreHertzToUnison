@@ -40,7 +40,7 @@
 ; カメラ
 [clickable x="850" y="490" width="250" height="170" target="*SearchCamera" opacity="30" mouseopacity="50" color="0x505050"]
 ; 天幕
-[if exp="f.isHungerGet != -1"]
+[if exp="f.isTentDown == 0"]
     [clickable x="610" y="170" width="720" height="80" target="*SearchTent" opacity="30" mouseopacity="50" color="0x505050"]
 [endif]
 ; ハンガー
@@ -49,7 +49,7 @@
     [clickable x="1530" y="390" width="130" height="90" target="*GetHunger" opacity="30" mouseopacity="50" color="0x505050"]
 [endif]
 ; 紙
-[if exp="f.isHungerGet == -1"]
+[if exp="f.isTentDown == 1"]
     [clickable x="600" y="730" width="100" height="100" target="*SearchPaper" opacity="30" mouseopacity="50" color="0x505050"]
 [endif]
 
@@ -85,6 +85,7 @@
     針金ハンガーでひっぱり出せたよ！[p]
     [messageFalse]
     [eval exp="f.isHungerGet = -1"]
+    [eval exp="f.isTentDown = 1"]
     [JumpStudioRoom]
 [endif]
 
