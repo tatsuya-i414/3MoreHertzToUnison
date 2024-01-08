@@ -11,13 +11,9 @@
 [chara_config ptext="chara_name_area"]
 
 ; 登場するキャラクターを設定
-;[chara_new  name="akane" storage="chara/akane/normal.png" jname="あかね"]
-;[chara_new  name="yamato"  storage="chara/yamato/normal.png" jname="やまと"]
+[chara_new name="sakura" storage="chara/sakura/normal.png" jname="桜良"]
 
 ; キャラクターの表情登録
 ;[chara_face name="akane" face="angry" storage="chara/akane/angry.png"]
-;[chara_face name="akane" face="doki" storage="chara/akane/doki.png"]
-;[chara_face name="akane" face="happy" storage="chara/akane/happy.png"]
-;[chara_face name="akane" face="sad" storage="chara/akane/sad.png"]
 
 [return]

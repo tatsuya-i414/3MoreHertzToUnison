@@ -86,18 +86,18 @@
 
 ; 素材未完成のため、一時的な処理
 [if exp="f.isStageStatusGreen == 0 || f.isLightStatusGreen == 0 || f.isSpeakerStatusGreen == 0"]
-  [layer3True]
+  [layer0True]
   [if exp="f.isStageStatusGreen == 1"]
-    [ptext layer="3" x="1190" y="80" size="40" text="「舞台」は緑に変更済み" color="0x4caf50"]
+    [ptext layer="0" x="1190" y="80" size="40" text="「舞台」は緑に変更済み" color="0x4caf50"]
   [endif]
   [if exp="f.isLightStatusGreen == 1"]
-    [ptext layer="3" x="1190" y="280" size="40" text="「ライト」は緑に変更済み" color="0x4caf50"]
+    [ptext layer="0" x="1190" y="280" size="40" text="「ライト」は緑に変更済み" color="0x4caf50"]
   [endif]
   [if exp="f.isSpeakerStatusGreen == 1"]
-    [ptext layer="3" x="1190" y="480" size="40" text="「スピーカー」は緑に変更済み" color="0x4caf50"]
+    [ptext layer="0" x="1190" y="480" size="40" text="「スピーカー」は緑に変更済み" color="0x4caf50"]
   [endif]
 [else]
-  [layer3False]
+  [layer0False]
 [endif]
 
 [clickable x="460" y="725" width="360" height="240" target="*SearchControlPanel_Decision" opacity="30" mouseopacity="50" color="0x505050"]
@@ -113,15 +113,18 @@
   [eval exp="f.isMikeGet = 1"]
   [eval exp="f.isEpisode1Clear = 1"]
   ; 素材未完成のため、一時的な処理
-  [layer3False]
+  [layer0False]
   ; 思い出2へ移動する
   [jump storage="Gimmick/episode2.ks" target="*start"]
 [else]
   [messageTrue]
-  #
+  [layer3True]
+  [ShowNormalSakura]
+  #桜良
   この3つを何とかしないといけない[p]
-  ; 素材未完成のため、一時的な処理
   [layer3False]
+  ; 素材未完成のため、一時的な処理
+  [layer0False]
   [JumpStageRoom]
 [endif]
 
@@ -144,14 +147,20 @@
 
 *SearchWiringDoor_Decision
 [if exp="f.isCableGet == 0"]
+  [layer3True]
+  [ShowNormalSakura]
   [messageTrue]
-  #
+  #桜良
   修理をしないといけないね[p]
+  [layer3False]
   [JumpStageRoom]
 [else]
+  [layer3True]
+  [ShowNormalSakura]
   [messageTrue]
-  #
+  #桜良
   あの配線を使えばいいんじゃない？[p]
+  [layer3False]
   *SelectItemOfCable
   [messageFalse]
   [eval exp="f.isUsing = 1"]
@@ -211,8 +220,11 @@
 ; 舞台がせり上がる効果音
 [eval exp="f.isStageStatusGreen = 1"]
 ; 制御盤の「舞台」の欄が緑になったことを知らせる効果音
-#
+[layer3True]
+[ShowNormalSakura]
+#桜良
 クリアしたね[p]
+[layer3False]
 [JumpStageRoom]
 
 *IncorrectItemOfCable
@@ -384,19 +396,28 @@
 
 *SearchLight
 [if exp="f.isStageStatusGreen == 0"]
+  [layer3True]
+  [ShowNormalSakura]
   [messageTrue]
-  #
+  #桜良
   高すぎて調べられないね[p]
+  [layer3False]
   [JumpStageRoom]
 [elsif exp="f.isStageStatusGreen == 1 && f.isLightCoverGet == 0"]
+  [layer3True]
+  [ShowNormalSakura]
   [messageTrue]
-  #
+  #桜良
   ライトを直すにはアイテムが必要そうだ[p]
+  [layer3False]
   [JumpStageRoom]
 [elsif exp="f.isStageStatusGreen == 1"]
+  [layer3True]
+  [ShowNormalSakura]
   [messageTrue]
-  #
+  #桜良
   舞台が上がったおかげで調べられるね！[p]
+  [layer3False]
   *SelectItemOfLightCover
   [messageFalse]
   [if exp="f.isUsing == 0"]
@@ -455,8 +476,11 @@
 先ほど手に入れたライトカバーをライトにはめる[p]
 [eval exp="f.isLightStatusGreen = 1"]
 ; 制御盤の「照明」の欄が緑になったことを知らせる効果音
-#
+[layer3True]
+[ShowNormalSakura]
+#桜良
 クリアしたね[p]
+[layer3False]
 [JumpStageRoom]
 
 *IncorrectItemOfLightCover
@@ -473,14 +497,20 @@
 
 *SearchSpeaker
 [if exp="f.isDriverGet == 0"]
+  [layer3True]
+  [ShowNormalSakura]
   [messageTrue]
-  #
+  #桜良
   ネジが緩んでいるみたいだね[p]
+  [layer3False]
   [JumpStageRoom]
 [elsif exp="f.isDriverGet == 1"]
+  [layer3True]
+  [ShowNormalSakura]
   [messageTrue]
-  #
+  #桜良
   さっきの道具が使えないかな[p]
+  [layer3False]
   *SelectItemOfDriver
   [messageFalse]
   [if exp="f.isUsing == 0"]
@@ -537,8 +567,11 @@
 先ほど手に入れたドライバーを使用してスピーカーの傾きを直す[p]
 [eval exp="f.isSpeakerStatusGreen = 1"]
 ; 制御盤の「スピーカー」の欄が緑になったことを知らせる効果音
-#
+[layer3True]
+[ShowNormalSakura]
+#桜良
 クリアしたね[p]
+[layer3False]
 [JumpStageRoom]
 
 *IncorrectItemOfDriver
