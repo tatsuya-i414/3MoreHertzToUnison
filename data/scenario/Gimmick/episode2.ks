@@ -23,6 +23,8 @@
 
 *StudioRoom
 [messageFalse]
+[layer1True]
+[layer2True]
 
 ; 背景
 [if exp="f.isHungerGet == -1"]
@@ -34,7 +36,9 @@
 
 ; 背景パーツ
 ; 紙
-
+[if exp="f.isPaperDown == 1"]
+    [image storage="../image/episode2/paper.png" layer="1" x="600" y="730" width="95" height="100" name="paper"]
+[endif]
 
 ; クリック判定
 ; カメラ
@@ -45,7 +49,7 @@
 [endif]
 ; ハンガー
 [if exp="f.isHungerGet == 0"]
-    [image storage="../image/episode2/hunger.png" layer="1" x="1530" y="390" name="hunger"]
+    [image storage="../image/episode2/hunger.png" layer="1" x="1530" y="370" width="125" height="130" name="hunger"]
     [clickable x="1530" y="390" width="130" height="90" target="*GetHunger" opacity="30" mouseopacity="50" color="0x505050"]
 [endif]
 ; 紙
@@ -95,6 +99,7 @@
     [layer3False]
     [eval exp="f.isHungerGet = -1"]
     [eval exp="f.isTentDown = 1"]
+    [eval exp="f.isPaperDown = 1"]
     [JumpStudioRoom]
 [endif]
 
