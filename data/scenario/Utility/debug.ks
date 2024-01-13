@@ -119,6 +119,7 @@
     [eval exp="f.isDriverGet = 1"]
     [eval exp="f.is,f.isMikeGet = 1"]
     [eval exp="f.isHungerGet = -1"]
+    [eval exp="f.isPaperDown = 1"]
 [endif]
 
 ; バリデーション_Episode1
