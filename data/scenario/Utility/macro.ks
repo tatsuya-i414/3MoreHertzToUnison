@@ -69,8 +69,8 @@
 [endmacro]
 
 ; 桜良(通常)を表示する
-[macro name="ShowNormalSakura"]
-    [chara_show name="sakura" time="500" layer="3" width="500" height="1350" left="270" top="290"]
+[macro name="ShowNormalSakuraOnRight"]
+    [chara_show name="sakura" time="500" layer="3" width="730" height="1990" left="960" top="20"]
 [endmacro]
 
 ; アイテムインベントリを表示する

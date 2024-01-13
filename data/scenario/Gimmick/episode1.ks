@@ -118,7 +118,7 @@
   [jump storage="Gimmick/episode2.ks" target="*start"]
 [else]
   [layer3True]
-  [ShowNormalSakura]
+  [ShowNormalSakuraOnRight]
   [messageTrue]
   #桜良
   この3つを何とかしないといけない[p]
@@ -148,7 +148,7 @@
 *SearchWiringDoor_Decision
 [if exp="f.isCableGet == 0"]
   [layer3True]
-  [ShowNormalSakura]
+  [ShowNormalSakuraOnRight]
   [messageTrue]
   #桜良
   修理をしないといけないね[p]
@@ -156,7 +156,7 @@
   [JumpStageRoom]
 [else]
   [layer3True]
-  [ShowNormalSakura]
+  [ShowNormalSakuraOnRight]
   [messageTrue]
   #桜良
   あの配線を使えばいいんじゃない？[p]
@@ -221,7 +221,7 @@
 [eval exp="f.isStageStatusGreen = 1"]
 ; 制御盤の「舞台」の欄が緑になったことを知らせる効果音
 [layer3True]
-[ShowNormalSakura]
+[ShowNormalSakuraOnRight]
 #桜良
 クリアしたね[p]
 [layer3False]
@@ -397,7 +397,7 @@
 *SearchLight
 [if exp="f.isStageStatusGreen == 0"]
   [layer3True]
-  [ShowNormalSakura]
+  [ShowNormalSakuraOnRight]
   [messageTrue]
   #桜良
   高すぎて調べられないね[p]
@@ -405,7 +405,7 @@
   [JumpStageRoom]
 [elsif exp="f.isStageStatusGreen == 1 && f.isLightCoverGet == 0"]
   [layer3True]
-  [ShowNormalSakura]
+  [ShowNormalSakuraOnRight]
   [messageTrue]
   #桜良
   ライトを直すにはアイテムが必要そうだ[p]
@@ -413,7 +413,7 @@
   [JumpStageRoom]
 [elsif exp="f.isStageStatusGreen == 1"]
   [layer3True]
-  [ShowNormalSakura]
+  [ShowNormalSakuraOnRight]
   [messageTrue]
   #桜良
   舞台が上がったおかげで調べられるね！[p]
@@ -477,7 +477,7 @@
 [eval exp="f.isLightStatusGreen = 1"]
 ; 制御盤の「照明」の欄が緑になったことを知らせる効果音
 [layer3True]
-[ShowNormalSakura]
+[ShowNormalSakuraOnRight]
 #桜良
 クリアしたね[p]
 [layer3False]
@@ -498,7 +498,7 @@
 *SearchSpeaker
 [if exp="f.isDriverGet == 0"]
   [layer3True]
-  [ShowNormalSakura]
+  [ShowNormalSakuraOnRight]
   [messageTrue]
   #桜良
   ネジが緩んでいるみたいだね[p]
@@ -506,7 +506,7 @@
   [JumpStageRoom]
 [elsif exp="f.isDriverGet == 1"]
   [layer3True]
-  [ShowNormalSakura]
+  [ShowNormalSakuraOnRight]
   [messageTrue]
   #桜良
   さっきの道具が使えないかな[p]
@@ -568,7 +568,7 @@
 [eval exp="f.isSpeakerStatusGreen = 1"]
 ; 制御盤の「スピーカー」の欄が緑になったことを知らせる効果音
 [layer3True]
-[ShowNormalSakura]
+[ShowNormalSakuraOnRight]
 #桜良
 クリアしたね[p]
 [layer3False]
