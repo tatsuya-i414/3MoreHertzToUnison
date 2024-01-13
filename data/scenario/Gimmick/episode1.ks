@@ -118,9 +118,9 @@
   [jump storage="Gimmick/episode2.ks" target="*start"]
 [else]
   [layer3True]
-  [ShowNormalSakura]
+  [ShowNormalSakuraAndMiyuki]
   [messageTrue]
-  #桜良
+  #深雪と桜良
   この3つを何とかしないといけない[p]
   [layer3False]
   ; 素材未完成のため、一時的な処理
@@ -148,17 +148,17 @@
 *SearchWiringDoor_Decision
 [if exp="f.isCableGet == 0"]
   [layer3True]
-  [ShowNormalSakura]
+  [ShowNormalSakuraAndMiyuki]
   [messageTrue]
-  #桜良
+  #深雪と桜良
   修理をしないといけないね[p]
   [layer3False]
   [JumpStageRoom]
 [else]
   [layer3True]
-  [ShowNormalSakura]
+  [ShowNormalSakuraAndMiyuki]
   [messageTrue]
-  #桜良
+  #深雪と桜良
   あの配線を使えばいいんじゃない？[p]
   [layer3False]
   *SelectItemOfCable
@@ -221,8 +221,8 @@
 [eval exp="f.isStageStatusGreen = 1"]
 ; 制御盤の「舞台」の欄が緑になったことを知らせる効果音
 [layer3True]
-[ShowNormalSakura]
-#桜良
+[ShowNormalSakuraAndMiyuki]
+#深雪と桜良
 クリアしたね[p]
 [layer3False]
 [JumpStageRoom]
@@ -397,25 +397,25 @@
 *SearchLight
 [if exp="f.isStageStatusGreen == 0"]
   [layer3True]
-  [ShowNormalSakura]
+  [ShowNormalSakuraAndMiyuki]
   [messageTrue]
-  #桜良
+  #深雪と桜良
   高すぎて調べられないね[p]
   [layer3False]
   [JumpStageRoom]
 [elsif exp="f.isStageStatusGreen == 1 && f.isLightCoverGet == 0"]
   [layer3True]
-  [ShowNormalSakura]
+  [ShowNormalSakuraAndMiyuki]
   [messageTrue]
-  #桜良
+  #深雪と桜良
   ライトを直すにはアイテムが必要そうだ[p]
   [layer3False]
   [JumpStageRoom]
 [elsif exp="f.isStageStatusGreen == 1"]
   [layer3True]
-  [ShowNormalSakura]
+  [ShowNormalSakuraAndMiyuki]
   [messageTrue]
-  #桜良
+  #深雪と桜良
   舞台が上がったおかげで調べられるね！[p]
   [layer3False]
   *SelectItemOfLightCover
@@ -477,8 +477,8 @@
 [eval exp="f.isLightStatusGreen = 1"]
 ; 制御盤の「照明」の欄が緑になったことを知らせる効果音
 [layer3True]
-[ShowNormalSakura]
-#桜良
+[ShowNormalSakuraAndMiyuki]
+#深雪と桜良
 クリアしたね[p]
 [layer3False]
 [JumpStageRoom]
@@ -498,17 +498,17 @@
 *SearchSpeaker
 [if exp="f.isDriverGet == 0"]
   [layer3True]
-  [ShowNormalSakura]
+  [ShowNormalSakuraAndMiyuki]
   [messageTrue]
-  #桜良
+  #深雪と桜良
   ネジが緩んでいるみたいだね[p]
   [layer3False]
   [JumpStageRoom]
 [elsif exp="f.isDriverGet == 1"]
   [layer3True]
-  [ShowNormalSakura]
+  [ShowNormalSakuraAndMiyuki]
   [messageTrue]
-  #桜良
+  #深雪と桜良
   さっきの道具が使えないかな[p]
   [layer3False]
   *SelectItemOfDriver
@@ -568,8 +568,8 @@
 [eval exp="f.isSpeakerStatusGreen = 1"]
 ; 制御盤の「スピーカー」の欄が緑になったことを知らせる効果音
 [layer3True]
-[ShowNormalSakura]
-#桜良
+[ShowNormalSakuraAndMiyuki]
+#深雪と桜良
 クリアしたね[p]
 [layer3False]
 [JumpStageRoom]

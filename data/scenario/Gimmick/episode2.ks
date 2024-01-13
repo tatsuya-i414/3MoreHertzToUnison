@@ -66,7 +66,7 @@
     [JumpStudioRoom]
 [else]
     [layer3True]
-    [ShowNormalSakura]
+    [ShowNormalSakuraOnRight]
     [messageTrue]
     #桜良
     天幕と衣装がいるよね[p]
@@ -78,7 +78,7 @@
 *SearchTent
 [if exp="f.isHungerGet == 0"]
     [layer3True]
-    [ShowNormalSakura]
+    [ShowNormalSakuraOnRight]
     [messageTrue]
     #桜良
     高すぎて届かない、何かないかな？[p]
@@ -87,7 +87,7 @@
     [JumpStudioRoom]
 [else]
     [layer3True]
-    [ShowNormalSakura]
+    [ShowNormalSakuraOnRight]
     [messageTrue]
     #桜良
     針金ハンガーでひっぱり出せたよ！[p]

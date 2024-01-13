@@ -68,9 +68,40 @@
     [freeimage layer="3"]
 [endmacro]
 
-; 桜良(通常)を表示する
-[macro name="ShowNormalSakura"]
-    [chara_show name="sakura" time="500" layer="3" width="500" height="1350" left="270" top="290"]
+; 桜良(通常)を画面右手に表示する
+[macro name="ShowNormalSakuraOnRight"]
+    [chara_show name="sakura" time="500" layer="3" width="730" height="1990" left="960" top="20"]
+[endmacro]
+
+; 桜良(通常)を画面中央に表示する
+[macro name="ShowNormalSakuraOnCenter"]
+    [chara_show name="sakura" time="500" layer="3" width="730" height="1990" left="550" top="20"]
+[endmacro]
+
+; 深雪(通常)を画面左手に表示する
+[macro name="ShowNormalMiyukiOnLeft"]
+    [chara_show name="miyuki" time="500" layer="3" width="730" height="1990" left="160" top="20"]
+[endmacro]
+
+; 深雪(通常)を画面中央に表示する
+[macro name="ShowNormalMiyukiOnCenter"]
+    [chara_show name="miyuki" time="500" layer="3" width="730" height="1990" left="550" top="20"]
+[endmacro]
+
+; 桜良(通常)と深雪(通常)を表示する
+[macro name="ShowNormalSakuraAndMiyuki"]
+    [ShowNormalSakuraOnRight]
+    [ShowNormalMiyukiOnLeft]
+[endmacro]
+
+; レイヤー3に設定した桜良の画像を削除する
+[macro name="FreeSakura"]
+    [freeimage layer="3" name="sakura"]
+[endmacro]
+
+; レイヤー3に設定した深雪の画像を削除する
+[macro name="FreeMiyuki"]
+    [freeimage layer="3" name="miyuki"]
 [endmacro]
 
 ; アイテムインベントリを表示する
