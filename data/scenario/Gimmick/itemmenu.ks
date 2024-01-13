@@ -7,7 +7,6 @@
 [Freelayer3]
 [FreeItemBox]
 
-[screen_full]
 [layer1True]
 [layer2True]
 
@@ -45,6 +44,10 @@
 [if exp="f.isHungerGet == 1"]
     [eval exp="tf.usingItemInventory4 = 1"]
     [image storage="../image/kari/hunger.png" layer="2" x="610" y="350" width="140" height="140" visible="true" name="hunger"]
+[endif]
+[if exp="f.isPencilGet == 1"]
+    [eval exp="tf.usingItemInventory5 = 1"]
+    [image storage="../image/kari/pencil.png" layer="2" x="760" y="350" width="140" height="140" visible="true" name="pencil"]
 [endif]
 [if exp="f.isMikeGet == 1"]
     [eval exp="tf.usingItemInventory8 = 1"]

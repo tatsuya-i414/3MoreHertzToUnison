@@ -149,9 +149,9 @@
         [eval exp="tf.usingItemInventory4 = 1"]
         [image storage="../image/kari/hunger.png" layer="2" x="1770" y="250" visible="true" name="hunger"]
     [endif]
-    [if exp="f.isMikeGet == 1"]
-        [eval exp="tf.usingItemInventory8 = 1"]
-        [image storage="../image/kari/mike.png" layer="2" x="1770" y="250" visible="true" name="mike"]
+    [if exp="f.isPencilGet == 1"]
+        [eval exp="tf.usingItemInventory5 = 1"]
+        [image storage="../image/kari/pencil.png" layer="2" x="1770" y="325" visible="true" name="pencil"]
     [endif]
 [endmacro]
 
@@ -175,7 +175,8 @@
     [free layer="2" name="cable"]
     [free layer="2" name="driver"]
     [free layer="2" name="lightcover"]
-    [free layer="2" name="mike"]
+    [free layer="2" name="hunger"]
+    [free layer="2" name="pencil"]
 [endmacro]
 
 ; アイテム使用時の確認メッセージ
