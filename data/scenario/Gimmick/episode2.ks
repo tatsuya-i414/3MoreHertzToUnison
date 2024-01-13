@@ -66,9 +66,9 @@
     [JumpStudioRoom]
 [else]
     [layer3True]
-    [ShowNormalSakuraOnRight]
+    [ShowNormalSakuraAndMiyuki]
     [messageTrue]
-    #桜良
+    #深雪と桜良
     天幕と衣装がいるよね[p]
     [messageFalse]
     [layer3False]
@@ -78,18 +78,18 @@
 *SearchTent
 [if exp="f.isHungerGet == 0"]
     [layer3True]
-    [ShowNormalSakuraOnRight]
+    [ShowNormalSakuraAndMiyuki]
     [messageTrue]
-    #桜良
+    #深雪と桜良
     高すぎて届かない、何かないかな？[p]
     [messageFalse]
     [layer3False]
     [JumpStudioRoom]
 [else]
     [layer3True]
-    [ShowNormalSakuraOnRight]
+    [ShowNormalSakuraAndMiyuki]
     [messageTrue]
-    #桜良
+    #深雪と桜良
     針金ハンガーでひっぱり出せたよ！[p]
     [messageFalse]
     [layer3False]
