@@ -32,7 +32,7 @@
 [edit name="f.isPencilGet" initial="0" left="1010" top="610" color="0x666666" size="36" width="150" maxchars="2"]
 [edit name="f.isRedBlockGet" initial="0" left="1010" top="670" color="0x666666" size="36" width="150" maxchars="1"]
 [edit name="f.isBlueBlockGet" initial="0" left="1010" top="730" color="0x666666" size="36" width="150" maxchars="1"]
-[edit name="f.isYellowBlockGet" initial="0" left="1010" top="785" color="0x666666" size="36" width="150" maxchars="1"]
+[edit name="f.isGreenBlockGet" initial="0" left="1010" top="785" color="0x666666" size="36" width="150" maxchars="1"]
 [edit name="f.isKeyOpen" initial="0" left="1010" top="845" color="0x666666" size="36" width="150" maxchars="1"]
 [edit name="f.isCurtainGet" initial="0" left="1010" top="900" color="0x666666" size="36" width="150" maxchars="1"]
 
@@ -70,7 +70,7 @@
 [commit name="f.isPencilGet"]
 [commit name="f.isRedBlockGet"]
 [commit name="f.isBlueBlockGet"]
-[commit name="f.isYellowBlockGet"]
+[commit name="f.isGreenBlockGet"]
 [commit name="f.isKeyOpen"]
 [commit name="f.isCurtainGet"]
 
@@ -157,7 +157,7 @@
     [jump target="*debug"]
 [elsif exp="(f.isBlueBlockGet != 0" || exp="f.isBlueBlockGet != 1)"]
     [jump target="*debug"]
-[elsif exp="(f.isYellowBlockGet != 0" || exp="f.isYellowBlockGet != 1)"]
+[elsif exp="(f.isGreenBlockGet != 0" || exp="f.isGreenBlockGet != 1)"]
     [jump target="*debug"]
 [elsif exp="(f.isKeyOpen != 0" || exp="f.isKeyOpen != 1)"]
     [jump target="*debug"]
