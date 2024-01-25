@@ -17,7 +17,7 @@
 [eval exp="f.isPencilGet = 0"]
 [eval exp="f.isRedBlockGet = 0"]
 [eval exp="f.isBlueBlockGet = 0"]
-[eval exp="f.isYellowBlockGet = 0"]
+[eval exp="f.isGreenBlockGet = 0"]
 [eval exp="f.isKeyOpen = 0"]
 [eval exp="f.isCurtainGet = 0"]
 
