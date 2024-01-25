@@ -229,7 +229,7 @@
 [JumpStudioRoom]
 
 *SearchChest
-[if exp="f.leftDimple == 'red' && f.centerDimple == 'blue' && f.rightDimple == 'green' "]
+[if exp="f.isKeyOpen == 1"]
     [layer1False]
     [jump target="*GetDressAndCurtain"]
 [endif]
@@ -501,6 +501,7 @@
     [free layer="1" name="blue"]
     [free layer="1" name="red"]
     [free layer="1" name="green"]
+    [eval exp="f.isKeyOpen = 1"]
     *GetDressAndCurtain
     [bg storage="epidode2/dressandcurtain.png" time="100"]
     ; 衣装
