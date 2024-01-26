@@ -68,6 +68,17 @@
     [freeimage layer="3"]
 [endmacro]
 
+; 暗転
+[macro name="blackout"]
+    [mask effect="fadeIn" time="%time_1|3000"]
+    [if exp="%exp"]
+        [bg storage="%storage_1" time="%time_2|100"]
+    [else]
+        [bg storage="%storage_2" time="%time_3|100"]
+    [endif]
+    [mask_off time="2000"]
+[endmacro]
+
 ; 桜良(通常)を画面右手に表示する
 [macro name="ShowNormalSakuraOnRight"]
     [chara_show name="sakura" time="500" layer="3" width="730" height="1990" left="960" top="20"]
@@ -106,7 +117,7 @@
 
 ; アイテムインベントリを表示する
 [macro name="ItemInventory"]
-    ; 通常アイテム
+    ; 通常アイテム用
     [eval exp="tf.usingItemInventory1 = 0"]
     [eval exp="tf.usingItemInventory2 = 0"]
     [eval exp="tf.usingItemInventory3 = 0"]
@@ -114,9 +125,11 @@
     [eval exp="tf.usingItemInventory5 = 0"]
     [eval exp="tf.usingItemInventory6 = 0"]
     [eval exp="tf.usingItemInventory7 = 0"]
+    ; 特別アイテム用
     [eval exp="tf.usingItemInventory8 = 0"]
     [eval exp="tf.usingItemInventory9 = 0"]
     [eval exp="tf.usingItemInventory10 = 0"]
+    ; インベントリ画像
     [image storage="../image/kari/inventory.png" layer="1" x="1770" y="25" name="inventory1"]
     [image storage="../image/kari/inventory.png" layer="1" x="1770" y="100" name="inventory2"]
     [image storage="../image/kari/inventory.png" layer="1" x="1770" y="175" name="inventory3"]
@@ -124,10 +137,6 @@
     [image storage="../image/kari/inventory.png" layer="1" x="1770" y="325" name="inventory5"]
     [image storage="../image/kari/inventory.png" layer="1" x="1770" y="400" name="inventory6"]
     [image storage="../image/kari/inventory.png" layer="1" x="1770" y="475" name="inventory7"]
-    ; 特別アイテム
-    [eval exp="tf.usingItemInventory8 = 0"]
-    [eval exp="tf.usingItemInventory9 = 0"]
-    [eval exp="tf.usingItemInventory10 = 0"]
 [endmacro]
 
 ; アイテム画像を表示する
@@ -185,6 +194,7 @@
 ; 画面右上のアイテムボックスを非表示にする
 [macro name="FreeItemBox"]
     [eval exp="f.isUsing = 0"]
+    ; インベントリ画像
     [free layer="1" name="inventory1"]
     [free layer="1" name="inventory2"]
     [free layer="1" name="inventory3"]
@@ -192,6 +202,7 @@
     [free layer="1" name="inventory5"]
     [free layer="1" name="inventory6"]
     [free layer="1" name="inventory7"]
+    ;　アイテム画像
     [free layer="2" name="cable"]
     [free layer="2" name="driver"]
     [free layer="2" name="lightcover"]
@@ -206,8 +217,10 @@
 
 ; アイテム使用時の確認メッセージ
 [macro name="ConfirmUseItem"]
+    [nolog]
     #
     このアイテムを使用しますか？
+    [endnolog]
 [endmacro]
 
 ; ステージルームへ移動する
