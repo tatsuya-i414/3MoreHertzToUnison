@@ -83,6 +83,7 @@
 [commit name="f.isRoomLightNight"]
 
 ; フラグの値に応じて値を変更する
+; 思い出1をクリアする
 [if exp="f.isEpisode1Clear == 1"]
     [eval exp="f.isStageStatusGreen = 1"]
     [eval exp="f.isLightStatusGreen = 1"]
@@ -93,22 +94,26 @@
     [eval exp="f.isMikeGet = 1"]
 [endif]
 
+; ステージがせり上がる
 [if exp="f.isStageStatusGreen == 1"]
     [eval exp="f.isCableGet = -1"]
 [endif]
 
+; ライトカバーを装着する
 [if exp="f.isLightStatusGreen == 1"]
     [eval exp="f.isStageStatusGreen = 1"]
     [eval exp="f.isCableGet = -1"]
     [eval exp="f.isLightCoverGet = -1"]
 [endif]
 
+; スピーカーの傾きを直す
 [if exp="f.isSpeakerStatusGreen == 1"]
     [eval exp="f.isStageStatusGreen = 1"]
     [eval exp="f.isCableGet = -1"]
     [eval exp="f.isDriverGet = 1"]
 [endif]
 
+; 天幕を下ろす
 [if exp="f.isTentDown == 1"]
     [eval exp="f.isEpisode1Clear = 1"]
     [eval exp="f.isStageStatusGreen = 1"]
@@ -122,6 +127,7 @@
     [eval exp="f.isPaperDown = 1"]
 [endif]
 
+; アイブロウペンシルを獲得する
 [if exp="f.isPencilGet == -1"]
     [eval exp="f.isEpisode1Clear = 1"]
     [eval exp="f.isStageStatusGreen = 1"]
@@ -136,6 +142,7 @@
     [eval exp="f.isPaperDown = 1"]
 [endif]
 
+; タンスの開錠をする
 [if exp="f.isKeyOpen == 1"]
     [eval exp="f.isEpisode1Clear = 1"]
     [eval exp="f.isStageStatusGreen = 1"]
@@ -145,9 +152,9 @@
     [eval exp="f.isLightCoverGet = -1"]
     [eval exp="f.isDriverGet = 1"]
     [eval exp="f.isMikeGet = 1"]
-    [eval exp="f.isHungerGet = -1"]
     [eval exp="f.isRedBlockGet = -1"]
     [eval exp="f.isBlueBlockGet = -1"]
+    [eval exp="f.isHungerGet = 1"]
     [eval exp="f.isGreenBlockGet = -1"]
 [endif]
 
@@ -176,17 +183,17 @@
     [jump target="*debug"]
 [elsif exp="(f.isDressGet != 0" || exp="f.isDressGet != 1)"]
     [jump target="*debug"]
-[elsif exp="(f.isHungerGet != 0" || exp="f.isHungerGet != 1)"]
+[elsif exp="(f.isHungerGet != 0" || exp="f.isHungerGet != 1" || exp="f.isHungerGet != -1)"]
     [jump target="*debug"]
 [elsif exp="(f.isPaperDown != 0" || exp="f.isPaperDown != 1)"]
     [jump target="*debug"]
-[elsif exp="(f.isPencilGet != 0" || exp="f.isPencilGet != 1)"]
+[elsif exp="(f.isPencilGet != 0" || exp="f.isPencilGet != 1" || exp="f.isPencilGet != -1)"]
     [jump target="*debug"]
-[elsif exp="(f.isRedBlockGet != 0" || exp="f.isRedBlockGet != 1)"]
+[elsif exp="(f.isRedBlockGet != 0" || exp="f.isRedBlockGet != 1" || exp="f.isRedBlockGet != -1)"]
     [jump target="*debug"]
-[elsif exp="(f.isBlueBlockGet != 0" || exp="f.isBlueBlockGet != 1)"]
+[elsif exp="(f.isBlueBlockGet != 0" || exp="f.isBlueBlockGet != 1" || exp="f.isBlueBlockGet != -1)"]
     [jump target="*debug"]
-[elsif exp="(f.isGreenBlockGet != 0" || exp="f.isGreenBlockGet != 1)"]
+[elsif exp="(f.isGreenBlockGet != 0" || exp="f.isGreenBlockGet != 1" || exp="f.isGreenBlockGet != -1)"]
     [jump target="*debug"]
 [elsif exp="(f.isKeyOpen != 0" || exp="f.isKeyOpen != 1)"]
     [jump target="*debug"]

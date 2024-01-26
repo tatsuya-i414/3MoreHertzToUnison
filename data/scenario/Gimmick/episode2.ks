@@ -29,7 +29,7 @@
 ; 背景
 [if exp="f.isHungerGet == -1"]
     ; 天幕降下後
-   [bg storage="epidode2/tentdown.png" time="100"]
+    [bg storage="epidode2/tentdown.png" time="100"]
 [else]
     [bg storage="epidode2/studioroom.png" time="100"]
 [endif]
@@ -38,6 +38,12 @@
 ; 紙
 [if exp="f.isPaperDown == 1"]
     [image storage="../image/episode2/paper.png" layer="1" x="600" y="730" width="95" height="100" name="paper"]
+[endif]
+; ブロック
+
+; カーテン
+[if exp="f.isCurtainGet == -1"]
+    [image storage="../image/episode2/curtain.png" layer="1" x="1380" y="350" name="curtain"]
 [endif]
 
 ; クリック判定
@@ -67,6 +73,10 @@
 ; タンス
 [if exp="f.isDressGet == 0 || f.isCurtainGet == 0"]
     [clickable x="205" y="680" width="65" height="40" target="*SearchChest" opacity="30" mouseopacity="50" color="0x505050"]
+[endif]
+; 簡易着替え場所
+[if exp="f.isHungerGet != 0 && f.isCurtainGet != -1 && f.isDressGet != -1"]
+    [clickable x="1400" y="360" width="250" height="480" target="*SearchFittingRoom" opacity="30" mouseopacity="50" color="0x505050"]
 [endif]
 
 ; アイテム一覧
@@ -131,27 +141,27 @@
     [if exp="f.isUsing == 1"]
         [ItemBox]
         [if exp="tf.usingItemInventory1 == 1"]
-            [clickable x="1770" y="25" width="70"  height="70"  target="*NotUsePencil" opacity="30" mouseopacity="50" color="0x505050"]
+            [clickable x="1770" y="25" width="70" height="70" target="*NotUsePencil" opacity="30" mouseopacity="50" color="0x505050"]
         [endif]
         [if exp="tf.usingItemInventory2 == 1"]
-            [clickable x="1770" y="100" width="70"  height="70"  target="*NotUsePencil" opacity="30" mouseopacity="50" color="0x505050"]
+            [clickable x="1770" y="100" width="70" height="70" target="*NotUsePencil" opacity="30" mouseopacity="50" color="0x505050"]
         [endif]
         [if exp="tf.usingItemInventory3 == 1"]
-            [clickable x="1770" y="175" width="70"  height="70"  target="*UsePencil" opacity="30" mouseopacity="50" color="0x505050"]
+            [clickable x="1770" y="175" width="70" height="70" target="*UsePencil" opacity="30" mouseopacity="50" color="0x505050"]
         [endif]
         [if exp="tf.usingItemInventory4 == 1"]
-            [clickable x="1770" y="250" width="70"  height="70"  target="*NotUsePencil" opacity="30" mouseopacity="50" color="0x505050"]
+            [clickable x="1770" y="250" width="70" height="70" target="*NotUsePencil" opacity="30" mouseopacity="50" color="0x505050"]
         [endif]
         [if exp="tf.usingItemInventory5 == 1"]
-            [clickable x="1770" y="325" width="70"  height="70"  target="*NotUsePencil" opacity="30" mouseopacity="50" color="0x505050"]
+            [clickable x="1770" y="325" width="70" height="70" target="*NotUsePencil" opacity="30" mouseopacity="50" color="0x505050"]
         [endif]
         [if exp="tf.usingItemInventory6 == 1"]
-            [clickable x="1770" y="400" width="70"  height="70"  target="*NotUsePencil" opacity="30" mouseopacity="50" color="0x505050"]
+            [clickable x="1770" y="400" width="70" height="70" target="*NotUsePencil" opacity="30" mouseopacity="50" color="0x505050"]
         [endif]
         [if exp="tf.usingItemInventory7 == 1"]
-            [clickable x="1770" y="475" width="70"  height="70"  target="*NotUsePencil" opacity="30" mouseopacity="50" color="0x505050"]
+            [clickable x="1770" y="475" width="70" height="70" target="*NotUsePencil" opacity="30" mouseopacity="50" color="0x505050"]
         [endif]
-            [clickable x="910" y="1015" width="100" height="50" target="*SearchPaper_back" opacity="30" mouseopacity="50" color="0x505050"]
+        [clickable x="910" y="1015" width="100" height="50" target="*SearchPaper_back" opacity="30" mouseopacity="50" color="0x505050"]
     [endif]
     [s]
 [elsif exp="f.isTentDown == 1 && f.isPencilGet == -1"]
@@ -264,25 +274,25 @@
     [if exp="f.isUsing == 1"]
         [ItemBox]
         [if exp="tf.usingItemInventory1 == 1"]
-            [clickable x="1770" y="25" width="70"  height="70"  target="*NotUseBlock" opacity="30" mouseopacity="50" color="0x505050"]
+            [clickable x="1770" y="25" width="70" height="70" target="*NotUseBlock" opacity="30" mouseopacity="50" color="0x505050"]
         [endif]
         [if exp="tf.usingItemInventory2 == 1"]
-            [clickable x="1770" y="100" width="70"  height="70"  target="*NotUseBlock" opacity="30" mouseopacity="50" color="0x505050"]
+            [clickable x="1770" y="100" width="70" height="70" target="*NotUseBlock" opacity="30" mouseopacity="50" color="0x505050"]
         [endif]
         [if exp="tf.usingItemInventory3 == 1"]
-            [clickable x="1770" y="175" width="70"  height="70"  target="*NotUseBlock" opacity="30" mouseopacity="50" color="0x505050"]
+            [clickable x="1770" y="175" width="70" height="70" target="*NotUseBlock" opacity="30" mouseopacity="50" color="0x505050"]
         [endif]
         [if exp="tf.usingItemInventory4 == 1"]
-            [clickable x="1770" y="250" width="70"  height="70"  target="*UseBlueBlock" opacity="30" mouseopacity="50" color="0x505050"]
+            [clickable x="1770" y="250" width="70" height="70" target="*UseBlueBlock" opacity="30" mouseopacity="50" color="0x505050"]
         [endif]
         [if exp="tf.usingItemInventory5 == 1"]
-            [clickable x="1770" y="325" width="70"  height="70"  target="*UseRedBlock" opacity="30" mouseopacity="50" color="0x505050"]
+            [clickable x="1770" y="325" width="70" height="70" target="*UseRedBlock" opacity="30" mouseopacity="50" color="0x505050"]
         [endif]
         [if exp="tf.usingItemInventory6 == 1"]
-            [clickable x="1770" y="400" width="70"  height="70"  target="*UseGreenBlock" opacity="30" mouseopacity="50" color="0x505050"]
+            [clickable x="1770" y="400" width="70" height="70" target="*UseGreenBlock" opacity="30" mouseopacity="50" color="0x505050"]
         [endif]
         [if exp="tf.usingItemInventory7 == 1"]
-            [clickable x="1770" y="475" width="70"  height="70"  target="*NotUseBlock" opacity="30" mouseopacity="50" color="0x505050"]
+            [clickable x="1770" y="475" width="70" height="70" target="*NotUseBlock" opacity="30" mouseopacity="50" color="0x505050"]
         [endif]
         ; 一度はめたブロックを戻すためのクリック判定
         [if exp="f.leftDimple != '' "]
@@ -549,3 +559,106 @@
 
 *OpenChest_back
 [JumpStudioRoom]
+
+*SearchFittingRoom
+[if exp="f.isCurtainGet == 0 && f.isDressGet == 0"]
+    [layer3True]
+    [ShowNormalSakuraAndMiyuki]
+    [messageTrue]
+    #深雪と桜良
+    これってカーテンが必要だよね[p]
+    [messageFalse]
+    [layer3False]
+    [JumpStudioRoom]
+[elsif exp="f.isCurtainGet == 1 && f.isDressGet == 0"]
+    [layer3True]
+    [ShowNormalSakuraAndMiyuki]
+    [messageTrue]
+    #深雪と桜良
+    ドレスはここで着替えるんだろうな[p]
+    [messageFalse]
+    [layer3False]
+    [JumpStudioRoom]
+[elsif exp="f.isCurtainGet == 0 && f.isDressGet == 1"]
+    [layer3True]
+    [ShowNormalSakuraAndMiyuki]
+    [messageTrue]
+    #深雪と桜良
+    目隠しなしで着替えるのは恥ずかしいね[p]
+    [messageFalse]
+    [layer3False]
+    [JumpStudioRoom]
+[elsif exp="f.isCurtainGet == 1 && f.isDressGet == 1"]
+    *SelectItemOfCurtain
+    [messageFalse]
+    [eval exp="f.isUsing = 1"]
+    [if exp="f.isUsing == 1"]
+        [ItemBox]
+        [if exp="tf.usingItemInventory1 == 1"]
+            [clickable x="1770" y="25" width="70" height="70" target="*NotUseCurtain" opacity="30" mouseopacity="50" color="0x505050"]
+        [endif]
+        [if exp="tf.usingItemInventory2 == 1"]
+            [clickable x="1770" y="100" width="70" height="70" target="*NotUseCurtain" opacity="30" mouseopacity="50" color="0x505050"]
+        [endif]
+        [if exp="tf.usingItemInventory3 == 1"]
+            [clickable x="1770" y="175" width="70" height="70" target="*NotUseCurtain" opacity="30" mouseopacity="50" color="0x505050"]
+        [endif]
+        [if exp="tf.usingItemInventory4 == 1"]
+            [clickable x="1770" y="250" width="70" height="70" target="*NotUseCurtain" opacity="30" mouseopacity="50" color="0x505050"]
+        [endif]
+        [if exp="tf.usingItemInventory5 == 1"]
+            [clickable x="1770" y="325" width="70" height="70" target="*UseCurtain" opacity="30" mouseopacity="50" color="0x505050"]
+        [endif]
+        [if exp="tf.usingItemInventory6 == 1"]
+            [clickable x="1770" y="400" width="70" height="70" target="*NotUseCurtain" opacity="30" mouseopacity="50" color="0x505050"]
+        [endif]
+        [if exp="tf.usingItemInventory7 == 1"]
+            [clickable x="1770" y="475" width="70" height="70" target="*NotUseCurtain" opacity="30" mouseopacity="50" color="0x505050"]
+        [endif]
+    [endif]
+    [s]
+[endif]
+
+*UseCurtain
+[messageTrue]
+[ConfirmUseItem]
+[glink color="btn_29_red" target="*ValidItemOfCurtain" width="200" x="250" y="930" text="はい"]
+[glink color="btn_29_blue" target="*SelectItemOfCurtain" width="200" x="550" y="930" text="いいえ"]
+[s]
+
+*NotUseCurtain
+[messageTrue]
+[ConfirmUseItem]
+[glink color="btn_29_red" target="*IncorrectItemOfCurtain" width="200" x="250" y="930" text="はい"]
+[glink color="btn_29_blue" target="*SelectItemOfCurtain" width="200" x="550" y="930" text="いいえ"]
+[s]
+
+*ValidItemOfCurtain
+[FreeItemBox]
+[eval exp="f.isCurtainGet = -1"]
+[layer3True]
+[ShowNormalSakuraAndMiyuki]
+[messageTrue]
+#深雪と桜良
+衣装を着よう！[p]
+[messageFalse]
+[layer3False]
+
+[blackout exp="f.isHungerGet == -1" storage_1="epidode2/tentdown.png" storage_2="epidode2/studioroom.png"]
+
+; ごそごそ物音がする効果音を追加
+[layer3True]
+[ShowNormalSakuraAndMiyuki]
+[messageTrue]
+#深雪と桜良
+衣装に着替えた！[p]
+[messageFalse]
+[layer3False]
+[eval exp="f.isDressGet = -1"]
+[JumpStudioRoom]
+
+*IncorrectItemOfCurtain
+[FreeItemBox]
+#
+このアイテムは違うようだ。[p]
+[jump target="*SelectItemOfCurtain"]
