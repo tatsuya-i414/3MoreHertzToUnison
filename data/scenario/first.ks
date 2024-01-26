@@ -15,6 +15,10 @@
 ; 最初は右下のメニューボタンを非表示にする
 [hidemenubutton]
 
+; モード
+; 開発者モード：develop / プレイヤーモード：play
+[eval exp="f.mode = 'develop' "]
+
 ; タイトル画面へ移動
 @jump storage="title.ks"
 
