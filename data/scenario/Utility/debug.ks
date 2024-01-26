@@ -26,7 +26,7 @@
 ; ゲーム変数_Episode2
 [edit name="f.isEpisode2Clear" initial="0" left="1010" top="265" color="0x666666" size="36" width="150" maxchars="1"]
 [edit name="f.isTentDown" initial="0" left="1010" top="385" color="0x666666" size="36" width="150" maxchars="1"]
-[edit name="f.isDressGet" initial="0" left="1010" top="445" color="0x666666" size="36" width="150" maxchars="1"]
+[edit name="f.isDressGet" initial="0" left="1010" top="445" color="0x666666" size="36" width="150" maxchars="2"]
 [edit name="f.isHungerGet" initial="0" left="1010" top="500" color="0x666666" size="36" width="150" maxchars="2"]
 [edit name="f.isPaperDown" initial="0" left="1010" top="555" color="0x666666" size="36" width="150" maxchars="1"]
 [edit name="f.isPencilGet" initial="0" left="1010" top="610" color="0x666666" size="36" width="150" maxchars="2"]
@@ -34,7 +34,7 @@
 [edit name="f.isBlueBlockGet" initial="0" left="1010" top="730" color="0x666666" size="36" width="150" maxchars="2"]
 [edit name="f.isGreenBlockGet" initial="0" left="1010" top="785" color="0x666666" size="36" width="150" maxchars="2"]
 [edit name="f.isKeyOpen" initial="0" left="1010" top="845" color="0x666666" size="36" width="150" maxchars="1"]
-[edit name="f.isCurtainGet" initial="0" left="1010" top="900" color="0x666666" size="36" width="150" maxchars="1"]
+[edit name="f.isCurtainGet" initial="0" left="1010" top="900" color="0x666666" size="36" width="150" maxchars="2"]
 
 ; ゲーム変数_Episode3
 [edit name="f.isEpisode3Clear" initial="0" left="1600" top="265" color="0x666666" size="36" width="150" maxchars="1"]
@@ -181,7 +181,7 @@
     [jump target="*debug"]
 [elsif exp="(f.isTentDown != 0" || exp="f.isTentDown != 1)"]
     [jump target="*debug"]
-[elsif exp="(f.isDressGet != 0" || exp="f.isDressGet != 1)"]
+[elsif exp="(f.isDressGet != 0" || exp="f.isDressGet != 1" || exp="f.isDressGet != -1)"]
     [jump target="*debug"]
 [elsif exp="(f.isHungerGet != 0" || exp="f.isHungerGet != 1" || exp="f.isHungerGet != -1)"]
     [jump target="*debug"]
@@ -197,7 +197,7 @@
     [jump target="*debug"]
 [elsif exp="(f.isKeyOpen != 0" || exp="f.isKeyOpen != 1)"]
     [jump target="*debug"]
-[elsif exp="(f.isCurtainGet != 0" || exp="f.isCurtainGet != 1)"]
+[elsif exp="(f.isCurtainGet != 0" || exp="f.isCurtainGet != 1" || exp="f.isCurtainGet != -1)"]
     [jump target="*debug"]
 
 ; バリデーション_Episode3
