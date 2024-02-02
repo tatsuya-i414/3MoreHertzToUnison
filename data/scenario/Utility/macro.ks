@@ -269,4 +269,9 @@
     [jump storage="Gimmick/episode2.ks" target="*StudioRoom"]
 [endmacro]
 
+; 背景を変更する
+[macro name="ChangeBackGround"]
+    [bg storage="%storage" time="%time|100" method="%method"]
+[endmacro]
+
 [return]

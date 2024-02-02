@@ -8,7 +8,7 @@
 
 @showmenubutton
 [screen_full]
-[bg storage="kari/omoide1_introduction.jpg" time="100"]
+[ChangeBackGround storage="kari/omoide1_introduction.jpg" time="2000" method="vanishIn"]
 
 [messageTrue]
 #思い出1導入
@@ -23,7 +23,7 @@
 [layer2True]
 
 ; 背景
-[bg storage="episode1/stageroom.png" time="100"]
+[ChangeBackGround storage="episode1/stageroom.png"]
 
 ; 背景パーツ
 ; ステージ
@@ -79,9 +79,9 @@
 [Freelayer1]
 [Freelayer2]
 [if exp="f.isStageStatusGreen == 0 || f.isLightStatusGreen == 0 || f.isSpeakerStatusGreen == 0"]
-  [bg storage="episode1/controlpane_allred.png" time="100"]
+  [ChangeBackGround storage="episode1/controlpane_allred.png"]
 [else]
-  [bg storage="episode1/controlpane_allgreen.png" time="100"]
+  [ChangeBackGround storage="episode1/controlpane_allgreen.png"]
 [endif]
 
 ; 素材未完成のため、一時的な処理
@@ -139,7 +139,7 @@
   [FreeItemBox]
   [messageFalse]
 [endif]
-[bg storage="episode1/disconnectedwiring.png" time="100"]
+[ChangeBackGround storage="episode1/disconnectedwiring.png"]
 [clickable x="760" y="380" width="350" height="150" target="*SearchWiringDoor_Decision" opacity="30" mouseopacity="50" color="0x505050"]
 [BackFromEnlargedMap target="*SearchWiringDoor_back"]
 [s]
@@ -193,7 +193,7 @@
 [free layer="2" name="cable"]
 #
 先ほど手に入れた配線でちぎれた配線を直す[p]
-[bg storage="episode1/connectedwiring.png" time="100"]
+[ChangeBackGround storage="episode1/connectedwiring.png"]
 ; 舞台がせり上がる効果音
 [eval exp="f.isStageStatusGreen = 1"]
 ; 制御盤の「舞台」の欄が緑になったことを知らせる効果音
@@ -214,7 +214,7 @@
 [Freelayer1]
 [Freelayer2]
 [if exp="f.leftNum != 4 && f.centerNum != 5 && f.rightNum != 6"]
-  [bg storage="episode1/dial.png" time="100"]
+  [ChangeBackGround storage="episode1/dial.png"]
   [BackFromEnlargedMap target="*SearchToolBox_back"]
   [button graphic="../image/kari/dialnumber_0.png" x="520" y="480" width="200" height="200" exp="f.leftNum = 0" fix="true" target="*LeftDialTurn"]
   [button graphic="../image/kari/dialnumber_0.png" x="845" y="480" width="200" height="200" exp="f.centerNum = 0" fix="true" target="*CenterDialTurn"]
@@ -346,7 +346,7 @@
   [clearfix]
   ; アイテムボタンを再度表示する
   [button graphic="kari/itemmenu_icon.png" storage="Gimmick/itemmenu.ks" target="*ItemMenu" x="1850" y="930" fix="true" role="sleepgame"]
-  [bg storage="episode1/cable.png" time="100"]
+  [ChangeBackGround storage="episode1/cable.png"]
   [clickable x="820" y="390" width="300" height="300" target="*GetCable" opacity="30" mouseopacity="50" color="0x505050"]
   [BackFromEnlargedMap target="*DialUnlock_back"]
 [endif]
