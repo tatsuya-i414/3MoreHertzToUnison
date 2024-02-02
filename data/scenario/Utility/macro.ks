@@ -254,6 +254,11 @@
     [endif]
 [endmacro]
 
+; 背景を変更する
+[macro name="ChangeBackGround"]
+    [bg storage="%storage" time="%time|100" method="%method"]
+[endmacro]
+
 ; 拡大マップからの戻るボタン
 [macro name="BackFromEnlargedMap"]
     [clickable x="910" y="1015" width="100" height="50" target="%target" opacity="30" mouseopacity="50" color="0x505050"]
@@ -267,11 +272,6 @@
 ; スタジオルームへ移動する
 [macro name="JumpStudioRoom"]
     [jump storage="Gimmick/episode2.ks" target="*StudioRoom"]
-[endmacro]
-
-; 背景を変更する
-[macro name="ChangeBackGround"]
-    [bg storage="%storage" time="%time|100" method="%method"]
 [endmacro]
 
 [return]
