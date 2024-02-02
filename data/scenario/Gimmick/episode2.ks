@@ -196,15 +196,13 @@
 *UsePencil
 [messageTrue]
 [ConfirmUseItem]
-[glink color="btn_29_red" target="*ValidItemOfPencil" width="200" x="250" y="930" text="はい"]
-[glink color="btn_29_blue" target="*SelectItemOfPencil" width="200" x="550" y="930" text="いいえ"]
+[YesNoButton target_yes="*ValidItemOfPencil" target_no="*SelectItemOfPencil"]
 [s]
 
 *NotUsePencil
 [messageTrue]
 [ConfirmUseItem]
-[glink color="btn_29_red" target="*IncorrectItemOfPencil" width="200" x="250" y="930" text="はい"]
-[glink color="btn_29_blue" target="*SelectItemOfPencil" width="200" x="550" y="930" text="いいえ"]
+[YesNoButton target_yes="*IncorrectItemOfPencil" target_no="*SelectItemOfPencil"]
 [s]
 
 *SearchPaper_back
@@ -318,31 +316,27 @@
 [messageTrue]
 [ConfirmUseItem]
 [eval exp="f.isBlockColor = 'blue' "]
-[glink color="btn_29_red" target="*ValidItemOfBlock" width="200" x="250" y="930" text="はい"]
-[glink color="btn_29_blue" target="*SelectItemOfBlock" width="200" x="550" y="930" text="いいえ"]
+[YesNoButton target_yes="*ValidItemOfBlock" target_no="*SelectItemOfBlock"]
 [s]
 
 *UseRedBlock
 [messageTrue]
 [ConfirmUseItem]
 [eval exp="f.isBlockColor = 'red' "]
-[glink color="btn_29_red" target="*ValidItemOfBlock" width="200" x="250" y="930" text="はい"]
-[glink color="btn_29_blue" target="*SelectItemOfBlock" width="200" x="550" y="930" text="いいえ"]
+[YesNoButton target_yes="*ValidItemOfBlock" target_no="*SelectItemOfBlock"]
 [s]
 
 *UseGreenBlock
 [messageTrue]
 [ConfirmUseItem]
 [eval exp="f.isBlockColor = 'green' "]
-[glink color="btn_29_red" target="*ValidItemOfBlock" width="200" x="250" y="930" text="はい"]
-[glink color="btn_29_blue" target="*SelectItemOfBlock" width="200" x="550" y="930" text="いいえ"]
+[YesNoButton target_yes="*ValidItemOfBlock" target_no="*SelectItemOfBlock"]
 [s]
 
 *NotUseBlock
 [messageTrue]
 [ConfirmUseItem]
-[glink color="btn_29_red" target="*IncorrectItemOfBlock" width="200" x="250" y="930" text="はい"]
-[glink color="btn_29_blue" target="*SelectItemOfBlock" width="200" x="550" y="930" text="いいえ"]
+[YesNoButton target_yes="*IncorrectItemOfBlock" target_no="*SelectItemOfBlock"]
 [s]
 
 *ReturnLeftSideBlock
@@ -645,15 +639,13 @@
 *UseCurtain
 [messageTrue]
 [ConfirmUseItem]
-[glink color="btn_29_red" target="*ValidItemOfCurtain" width="200" x="250" y="930" text="はい"]
-[glink color="btn_29_blue" target="*SelectItemOfCurtain" width="200" x="550" y="930" text="いいえ"]
+[YesNoButton target_yes="*ValidItemOfCurtain" target_no="*SelectItemOfCurtain"]
 [s]
 
 *NotUseCurtain
 [messageTrue]
 [ConfirmUseItem]
-[glink color="btn_29_red" target="*IncorrectItemOfCurtain" width="200" x="250" y="930" text="はい"]
-[glink color="btn_29_blue" target="*SelectItemOfCurtain" width="200" x="550" y="930" text="いいえ"]
+[YesNoButton target_yes="*IncorrectItemOfCurtain" target_no="*SelectItemOfCurtain"]
 [s]
 
 *ValidItemOfCurtain
