@@ -99,7 +99,6 @@
 [else]
   [layer0False]
 [endif]
-
 [clickable x="460" y="725" width="360" height="240" target="*SearchControlPanel_Decision" opacity="30" mouseopacity="50" color="0x505050"]
 [clickable x="910" y="1015" width="100" height="50" target="*SearchControlPanel_back" opacity="30" mouseopacity="50" color="0x505050"]
 [s]
@@ -195,15 +194,13 @@
 *UseCable
 [messageTrue]
 [ConfirmUseItem]
-[glink color="btn_29_red" target="*ValidItemOfCable" width="200" x="250" y="930" text="はい"]
-[glink color="btn_29_blue" target="*SearchWiringDoor" width="200" x="550" y="930" text="いいえ"]
+[YesNoButton target_yes="*ValidItemOfCable" target_no="*SearchWiringDoor"]
 [s]
 
 *NotUseCable
 [messageTrue]
 [ConfirmUseItem]
-[glink color="btn_29_red" target="*IncorrectItemOfCable" width="200" x="250" y="930" text="はい"]
-[glink color="btn_29_blue" target="*SearchWiringDoor" width="200" x="550" y="930" text="いいえ"]
+[YesNoButton target_yes="*IncorrectItemOfCable" target_no="*SearchWiringDoor"]
 [s]
 
 *SearchWiringDoor_back
@@ -456,15 +453,13 @@
 *UseLightCover
 [messageTrue]
 [ConfirmUseItem]
-[glink color="btn_29_red" target="*ValidItemOfLightCover" width="200" x="250" y="930" text="はい"]
-[glink color="btn_29_blue" target="*SelectItemOfLightCover" width="200" x="550" y="930" text="いいえ"]
+[YesNoButton target_yes="*ValidItemOfLightCover" target_no="*SelectItemOfLightCover"]
 [s]
 
 *NotUseLightCover
 [messageTrue]
 [ConfirmUseItem]
-[glink color="btn_29_red" target="*IncorrectItemOfLightCover" width="200" x="250" y="930" text="はい"]
-[glink color="btn_29_blue" target="*SelectItemOfLightCover" width="200" x="550" y="930" text="いいえ"]
+[YesNoButton target_yes="*IncorrectItemOfLightCover" target_no="*SelectItemOfLightCover"]
 [s]
 
 *ValidItemOfLightCover
@@ -549,15 +544,13 @@
 *UseDriver
 [messageTrue]
 [ConfirmUseItem]
-[glink color="btn_29_red" target="*ValidItemOfDriver" width="200" x="250" y="930" text="はい"]
-[glink color="btn_29_blue" target="*SelectItemOfDriver" width="200" x="550" y="930" text="いいえ"]
+[YesNoButton target_yes="*ValidItemOfDriver" target_no="*SelectItemOfDriver"]
 [s]
 
 *NotUseDriver
 [messageTrue]
 [ConfirmUseItem]
-[glink color="btn_29_red" target="*IncorrectItemOfDriver" width="200" x="250" y="930" text="はい"]
-[glink color="btn_29_blue" target="*SelectItemOfDriver" width="200" x="550" y="930" text="いいえ"]
+[YesNoButton target_yes="*IncorrectItemOfDriver" target_no="*SelectItemOfDriver"]
 [s]
 
 *ValidItemOfDriver

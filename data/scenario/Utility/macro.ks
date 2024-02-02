@@ -223,6 +223,12 @@
     [endnolog]
 [endmacro]
 
+; アイテム使用時の「はい」「いいえ」ボタン
+[macro name="YesNoButton"]
+    [glink color="btn_29_red" target="%target_yes" width="200" x="250" y="930" text="はい"]
+    [glink color="btn_29_blue" target="%target_no" width="200" x="550" y="930" text="いいえ"]
+[endmacro]
+
 ; ステージルームへ移動する
 [macro name="JumpStageRoom"]
     [jump storage="Gimmick/episode1.ks" target="*StageRoom"]
