@@ -100,7 +100,7 @@
   [layer0False]
 [endif]
 [clickable x="460" y="725" width="360" height="240" target="*SearchControlPanel_Decision" opacity="30" mouseopacity="50" color="0x505050"]
-[clickable x="910" y="1015" width="100" height="50" target="*SearchControlPanel_back" opacity="30" mouseopacity="50" color="0x505050"]
+[BackFromEnlargedMap target="*SearchControlPanel_back"]
 [s]
 
 *SearchControlPanel_Decision
@@ -141,7 +141,7 @@
 [endif]
 [bg storage="episode1/disconnectedwiring.png" time="100"]
 [clickable x="760" y="380" width="350" height="150" target="*SearchWiringDoor_Decision" opacity="30" mouseopacity="50" color="0x505050"]
-[clickable x="910" y="1015" width="100" height="50" target="*SearchWiringDoor_back" opacity="30" mouseopacity="50" color="0x505050"]
+[BackFromEnlargedMap target="*SearchWiringDoor_back"]
 [s]
 
 *SearchWiringDoor_Decision
@@ -166,7 +166,7 @@
   [if exp="f.isUsing == 1"]
     [ItemBox]
     [SelectItemClickable target_1="*NotUseCable" target_2="*UseCable" target_3="*NotUseCable" target_4="*NotUseCable" target_5="*NotUseCable" target_6="*NotUseCable" target_7="*NotUseCable"]
-    [clickable x="910" y="1015" width="100" height="50" target="*SearchWiringDoor_back" opacity="30" mouseopacity="50" color="0x505050"]
+    [BackFromEnlargedMap target="*SearchWiringDoor_back"]
   [endif]
 [endif]
 [s]
@@ -215,7 +215,7 @@
 [Freelayer2]
 [if exp="f.leftNum != 4 && f.centerNum != 5 && f.rightNum != 6"]
   [bg storage="episode1/dial.png" time="100"]
-  [clickable x="910" y="1015" width="100" height="50" target="*SearchToolBox_back" opacity="30" mouseopacity="50" color="0x505050"]
+  [BackFromEnlargedMap target="*SearchToolBox_back"]
   [button graphic="../image/kari/dialnumber_0.png" x="520" y="480" width="200" height="200" exp="f.leftNum = 0" fix="true" target="*LeftDialTurn"]
   [button graphic="../image/kari/dialnumber_0.png" x="845" y="480" width="200" height="200" exp="f.centerNum = 0" fix="true" target="*CenterDialTurn"]
   [button graphic="../image/kari/dialnumber_0.png" x="1180" y="480" width="200" height="200" exp="f.rightNum = 0" fix="true" target="*RightDialTurn"]
@@ -348,7 +348,7 @@
   [button graphic="kari/itemmenu_icon.png" storage="Gimmick/itemmenu.ks" target="*ItemMenu" x="1850" y="930" fix="true" role="sleepgame"]
   [bg storage="episode1/cable.png" time="100"]
   [clickable x="820" y="390" width="300" height="300" target="*GetCable" opacity="30" mouseopacity="50" color="0x505050"]
-  [clickable x="910" y="1015" width="100" height="50" target="*DialUnlock_back" opacity="30" mouseopacity="50" color="0x505050"]
+  [BackFromEnlargedMap target="*DialUnlock_back"]
 [endif]
 
 [return]

@@ -254,6 +254,11 @@
     [endif]
 [endmacro]
 
+; 拡大マップからの戻るボタン
+[macro name="BackFromEnlargedMap"]
+    [clickable x="910" y="1015" width="100" height="50" target="%target" opacity="30" mouseopacity="50" color="0x505050"]
+[endmacro]
+
 ; ステージルームへ移動する
 [macro name="JumpStageRoom"]
     [jump storage="Gimmick/episode1.ks" target="*StageRoom"]
