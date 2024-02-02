@@ -7,7 +7,7 @@
 [call storage="Utility/settings.ks"]
 
 @showmenubutton
-[bg storage="epidode2/studioroom.png" time="100"]
+[ChangeBackGround storage="epidode2/studioroom.png" time="2000" method="vanishIn"]
 
 [messageTrue]
 #思い出2導入
@@ -16,7 +16,7 @@
 #思い出2導入
 カメラを調べる......[p]
 
-[bg storage="epidode2/cameramonitor.png" time="1000" method="zoomIn"]
+[ChangeBackGround storage="epidode2/cameramonitor.png" time="1000" method="zoomIn"]
 
 #思い出2導入
 写真を撮ればいいのかな？[p]
@@ -29,9 +29,9 @@
 ; 背景
 [if exp="f.isHungerGet == -1"]
     ; 天幕降下後
-    [bg storage="epidode2/tentdown.png" time="100"]
+    [ChangeBackGround storage="epidode2/tentdown.png"]
 [else]
-    [bg storage="epidode2/studioroom.png" time="100"]
+    [ChangeBackGround storage="epidode2/studioroom.png"]  
 [endif]
 
 ; 背景パーツ
@@ -85,7 +85,7 @@
 
 *SearchCamera
 [layer1False]
-[bg storage="epidode2/cameramonitor.png" time="1000" method="zoomIn"]
+[ChangeBackGround storage="epidode2/cameramonitor.png" time="1000" method="zoomIn"]
 [if exp="f.isTentDown == 1 && f.isDressGet == -1"]
     [layer3True]
     [ShowNormalSakuraAndMiyuki]
@@ -139,7 +139,7 @@
 *SearchPaper
 [if exp="f.isTentDown == 1 && f.isPencilGet == 1"]
     [Freelayer1]
-    [bg storage="epidode2/papernotletter.png" time="500"]
+    [ChangeBackGround storage="epidode2/papernotletter.png"]
     *SelectItemOfPencil
     [messageFalse]
     [eval exp="f.isUsing = 1"]
@@ -151,7 +151,7 @@
     [s]
 [elsif exp="f.isTentDown == 1 && f.isPencilGet == -1"]
     [layer1False]
-    [bg storage="epidode2/paperletter.png" time="100"]
+    [ChangeBackGround storage="epidode2/paperletter.png"]
     [layer3True]
     [ShowNormalSakuraAndMiyuki]
     [messageTrue]
@@ -162,7 +162,7 @@
     [JumpStudioRoom]
 [else]
     [layer1False]
-    [bg storage="epidode2/papernotletter.png" time="100"]
+    [ChangeBackGround storage="epidode2/papernotletter.png"]
     [layer3True]
     [ShowNormalSakuraAndMiyuki]
     [messageTrue]
@@ -191,7 +191,7 @@
 
 *ValidItemOfPencil
 [FreeItemBox]
-[bg storage="epidode2/paperletter.png" time="100"]
+[ChangeBackGround storage="epidode2/paperletter.png" time="2000" method="fadeIn"]
 [layer3True]
 [ShowNormalSakuraAndMiyuki]
 [messageTrue]
@@ -234,7 +234,7 @@
     [eval exp="f.rightDimple = '' "]
 
     [Freelayer1]
-    [bg storage="epidode2/chest.png" time="100"]
+    [ChangeBackGround storage="epidode2/chest.png"]
     *SelectItemOfBlock
     ; ブロックの配置が正しくない場合はリセットする
     [if exp="f.leftDimple != '' && f.centerDimple != '' && f.rightDimple != '' "]
@@ -490,7 +490,7 @@
     [free layer="1" name="green"]
     [eval exp="f.isKeyOpen = 1"]
     *GetDressAndCurtain
-    [bg storage="epidode2/dressandcurtain.png" time="100"]
+    [ChangeBackGround storage="epidode2/dressandcurtain.png"]
     ; 衣装
     [if exp="f.isDressGet == 0"]
         [clickable x="230" y="150" width="690" height="510" target="*GetDress" opacity="30" mouseopacity="50" color="0x505050"]
