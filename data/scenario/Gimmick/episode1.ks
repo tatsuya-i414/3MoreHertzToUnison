@@ -7,9 +7,11 @@
 [if exp="sf.loadData == 'false' "]
     [call storage="Plugin/loadingshow.ks"]
 [endif]
-
 ; メッセージウインドウとキャラクター情報の読み込み
-[call storage="Utility/settings.ks"]
+[if exp="sf.isLoadSetting == 'false' "]
+  [call storage="Utility/settings.ks"]
+  [eval exp="sf.isLoadSetting = 'true' "]
+[endif]
 
 @showmenubutton
 [screen_full]

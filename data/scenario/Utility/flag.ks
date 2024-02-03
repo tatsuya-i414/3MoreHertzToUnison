@@ -7,7 +7,6 @@
 [eval exp="f.isLightCoverGet = 0"]
 [eval exp="f.isDriverGet = 0"]
 [eval exp="f.isMikeGet = 0"]
-
 ; 思い出2
 [eval exp="f.isEpisode2Clear = 0"]
 [eval exp="f.isTentDown = 0"]
@@ -20,7 +19,6 @@
 [eval exp="f.isGreenBlockGet = 0"]
 [eval exp="f.isKeyOpen = 0"]
 [eval exp="f.isCurtainGet = 0"]
-
 ; 思い出3
 [eval exp="f.isEpisode3Clear = 0"]
 [eval exp="f.isFutonGet = 0"]
@@ -28,11 +26,11 @@
 [eval exp="f.isJumperGet = 0"]
 [eval exp="f.isJutanOpen = 0"]
 [eval exp="f.isRoomLightNight = 0"]
-
 ; デバッグページで編集不可
 [eval exp="f.isUsing = 0"]
-
-; プリロード
+; ゲームデータの読み込み
 [eval exp="sf.loadData = 'false' "]
+; メッセージウインドウとキャラクター情報の読み込み
+[eval exp="sf.isLoadSetting = 'false' "]
 
 [return]
