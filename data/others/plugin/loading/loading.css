@@ -1,0 +1,102 @@
+/* ==================================================
+    ぽよぽよ
+===================================================== */
+
+.poyo {animation-name: poyo;}
+
+@-webkit-keyframes poyo {0%, 40%, 60%, 80% {transform: scale(1.0);} 50%, 70% {transform: scale(0.95);}}
+@-moz-keyframes poyo {0%, 40%, 60%, 80% {transform: scale(1.0);} 50%, 70% {transform: scale(0.95);}}
+@keyframes poyo {0%, 40%, 60%, 80% {transform: scale(1.0);} 50%, 70% {transform: scale(0.95);}}
+
+
+/* ==================================================
+    ふわふわ
+===================================================== */
+
+.fuwa {animation-name: fuwa;}
+
+@-webkit-keyframes fuwa {
+    0% {transform:translateY(0)}
+    5% {transform:translateY(0)}
+    10% {transform:translateY(0)}
+    20% {transform:translateY(-15px)}
+    25% {transform:translateY(0)}
+    30% {transform:translateY(-15px)}
+    50% {transform:translateY(0)}
+    100% {transform:translateY(0)}
+}
+
+@-moz-keyframes fuwa {
+    0% {transform:translateY(0)}
+    5% {transform:translateY(0)}
+    10% {transform:translateY(0)}
+    20% {transform:translateY(-15px)}
+    25% {transform:translateY(0)}
+    30% {transform:translateY(-15px)}
+    50% {transform:translateY(0)}
+    100% {transform:translateY(0)}
+}
+
+@keyframes fuwa {
+    0% {transform:translateY(0)}
+    5% {transform:translateY(0)}
+    10% {transform:translateY(0)}
+    20% {transform:translateY(-15px)}
+    25% {transform:translateY(0)}
+    30% {transform:translateY(-15px)}
+    50% {transform:translateY(0)}
+    100% {transform:translateY(0)}
+}
+
+
+/* ==================================================
+    点滅
+===================================================== */
+
+.flash {animation-name: flash;}
+
+@-webkit-keyframes flash {0% {opacity:0;} 50% {opacity:1;} 100% {opacity:0;}}
+@-moz-keyframes flash {0% {opacity:0;} 50% {opacity:1;} 100% {opacity:0;}}
+@keyframes flash {0% {opacity:0;} 50% {opacity:1;} 100% {opacity:0;}}
+
+
+/* ==================================================
+    回転R
+===================================================== */
+
+.roleR {animation-name: roleR;}
+
+@-webkit-keyframes roleR {0% {transform: rotate(0);} 100% {transform: rotate(360deg);}}
+@-moz-keyframes roleR {0% {transform: rotate(0);} 100% {transform: rotate(360deg);}}
+@keyframes roleR {0% {transform: rotate(0);} 100% {transform: rotate(360deg);}}
+
+/* ==================================================
+    回転L
+===================================================== */
+
+.roleL {animation-name: roleL;}
+
+@-webkit-keyframes roleL {0% {transform: rotate(0);} 100% {transform: rotate(-360deg);}}
+@-moz-keyframes roleL {0% {transform: rotate(0);} 100% {transform: rotate(-360deg);}}
+@keyframes roleL {0% {transform: rotate(0);} 100% {transform: rotate(-360deg);}}
+
+/* ==================================================
+    回転X
+===================================================== */
+
+.roleX {animation-name: roleX;}
+
+@-webkit-keyframes roleX {0% {transform: rotateX(0);} 100% {transform: rotateX(360deg);}}
+@-moz-keyframes roleX {0% {transform: rotateX(0);} 100% {transform: rotateX(360deg);}}
+@keyframes roleX {0% {transform: rotateX(0);} 100% {transform: rotateX(360deg);}}
+
+
+/* ==================================================
+    回転Y
+===================================================== */
+
+.roleY {animation-name: roleY;}
+
+@-webkit-keyframes roleY {0% {transform: rotateY(0);} 100% {transform: rotateY(360deg);}}
+@-moz-keyframes roleY {0% {transform: rotateY(0);} 100% {transform: rotateY(360deg);}}
+@keyframes roleY {0% {transform: rotateY(0);} 100% {transform: rotateY(360deg);}}

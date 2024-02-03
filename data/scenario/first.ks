@@ -6,11 +6,15 @@
 
 ; フラグ初期化
 [call storage="Utility/flag.ks"]
-
 ; マクロ読み込み
 [call storage="Utility/macro.ks"]
 
-@layopt layer="message" visible=false
+; ローディング画面表示プラグインの呼び出し
+[plugin name="loading"]
+; ローディング画面設定の呼び出し
+[call storage="Plugin/loading.ks"]
+
+@layopt layer="message" visible="false"
 
 ; 最初は右下のメニューボタンを非表示にする
 [hidemenubutton]
