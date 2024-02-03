@@ -12,7 +12,7 @@
 ; ローディング画面表示プラグインの呼び出し
 [plugin name="loading"]
 ; ローディング画面設定の呼び出し
-[call storage="Utility/loading.ks"]
+[call storage="Plugin/loading.ks"]
 
 @layopt layer="message" visible="false"
 

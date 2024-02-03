@@ -5,7 +5,7 @@
 
 ; ゲームデータを先に読み込む
 [if exp="sf.loadData == 'false' "]
-    [call storage="Utility/loadingshow.ks"]
+    [call storage="Plugin/loadingshow.ks"]
 [endif]
 
 ; メッセージウインドウとキャラクター情報の読み込み
