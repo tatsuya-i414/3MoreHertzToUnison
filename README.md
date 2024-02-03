@@ -1,29 +1,28 @@
 # ゲーム名
-***
 novel-escape(仮)
-<br>
+<br><br>
 
 # ドキュメント
-***
 - [シナリオ管理（Notion）](https://www.notion.so/be497e282b5d433f92e89066e61487a7?pvs=4)
 - [ギミック管理（Miro）](https://miro.com/app/board/uXjVMu73o-0=/?share_link_id=43222203281)
 - [制作スケジュール（GoogleDrive）](https://docs.google.com/spreadsheets/d/1QQv_C-i48v1J4FhACiTby4wgs-4jLAomFaia72DbZKg/edit#gid=977611269)
 <br>
 
 # 開発環境
-***
 - Visual Studio Code
 - TyranoScript syntax（拡張機能）
 - TyranoStudio V120
 <br>
 
 # 使用言語
-***
 TyranoScript V5
-<br>
+<br><br>
+
+# プラグイン
+ローディング画面表示プラグイン
+<br><br>
 
 # ブランチ管理
-***
 Git-Flow準拠とする。
 
 - [master] ブランチと [develop] ブランチが常設されている状態
@@ -35,11 +34,5 @@ Git-Flow準拠とする。
 <br>
 
 # 開発用デプロイ
-***
 [https://develop.t-ishimaru.jp](URL "http://develop.t-ishimaru.jp")
-<br>
-
-# テスト用デプロイ
-***
-[https://kensyo.t-ishimaru.jp](URL "http://kensyo.t-ishimaru.jp")
 <br>

@@ -1,24 +1,29 @@
-;一番最初に呼び出されるファイル
-
 [title name="novel-escape"]
 [stop_keyconfig]
 
+; 標準ライブラリ群
+@call storage="Utility/tyrano.ks"
 
-;ティラノスクリプトが標準で用意している便利なライブラリ群
-;コンフィグ、CG、回想モードを使う場合は必須
-@call storage="tyrano.ks"
+; フラグ初期化
+[call storage="Utility/flag.ks"]
+; マクロ読み込み
+[call storage="Utility/macro.ks"]
 
-;ゲームで必ず必要な初期化処理はこのファイルに記述するのがオススメ
+; ローディング画面表示プラグインの呼び出し
+[plugin name="loading"]
+; ローディング画面設定の呼び出し
+[call storage="Plugin/loading.ks"]
 
-;メッセージボックスは非表示
-@layopt layer="message" visible=false
+@layopt layer="message" visible="false"
 
-;最初は右下のメニューボタンを非表示にする
+; 最初は右下のメニューボタンを非表示にする
 [hidemenubutton]
 
-;タイトル画面へ移動
+; モード
+; 開発者モード：develop / プレイヤーモード：play
+[eval exp="f.mode = 'develop' "]
+
+; タイトル画面へ移動
 @jump storage="title.ks"
 
 [s]
-
-
