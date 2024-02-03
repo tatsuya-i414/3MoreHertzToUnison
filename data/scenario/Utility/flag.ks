@@ -32,4 +32,7 @@
 ; デバッグページで編集不可
 [eval exp="f.isUsing = 0"]
 
+; プリロード
+[eval exp="sf.loadData = 'false' "]
+
 [return]
