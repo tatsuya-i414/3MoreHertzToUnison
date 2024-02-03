@@ -12,12 +12,11 @@
 
 *debug
 [bg storage="debug.jpg" time="100"]
-[screen_full]
 
 ; ボタン
 [button graphic="config/menu_button_close.png" enterimg="config/menu_button_close2.png" target="*backtitle" x="1680" y="40"]
-[button graphic="debug/flagdetail.png" target="*flagdetail" x="1380" y="960"]
-[glink color="rosy" target="*save" text="保存" x="1610" y="960" width="50" height="24" size="24" bold="true"]
+[button graphic="debug/flagdetail.png" target="*flagdetail" x="1450" y="960"]
+[button graphic="debug/save.png" target="*save" x="1680" y="960"]
 
 ; ゲーム変数_Episode1
 [if exp="f.isEpisode1Clear == 0"]
@@ -153,8 +152,11 @@
 
 *flagdetail
 ;Notionの「フラグ一覧」ページを開く
+[iscript]
+    alert("Notionでフラグ一覧ページを開きます");
+[endscript]
 [web url="https://www.notion.so/shinya30/8a2e9e554d9d4a8ebea9cc950fb3ca44?v=cc8efcf2a18c4d5db87e5b1abaaf00ec&pvs=4"]
-[s]
+[jump target="*debug"]
 
 *save
 ; ゲーム変数格納_Episode1

@@ -3,7 +3,6 @@
 [clearstack]
 [bg storage="title.jpg" time="100"]
 [wait time="200"]
-[screen_full]
 
 *start 
 [button x="120" y="320" width="540" height="111" graphic="title/button_start.png" enterimg="title/button_start2.png" target="*gamestart"]
