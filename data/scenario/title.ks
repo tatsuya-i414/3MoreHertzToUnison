@@ -12,7 +12,7 @@
 [button x="120" y="710" width="540" height="111" graphic="title/button_replay.png" enterimg="title/button_replay2.png" storage="replay.ks"]
 [button x="120" y="840" width="540" height="111" graphic="title/button_config.png" enterimg="title/button_config2.png" role="sleepgame" storage="Utility/config.ks"]
 [if exp="f.mode == 'develop' "]
-    [button x="1550" y="870" width="345" height="75" graphic="debug/debug.png" target="*debug"]
+    [glink color="gray" target="*debug" text="デバッグ" x="1560" y="880" width="150" height="36" size="36" bold="true"]
 [endif]
 [s]
 
