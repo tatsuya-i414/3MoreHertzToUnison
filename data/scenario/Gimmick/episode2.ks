@@ -57,35 +57,35 @@
 
 ; クリック判定
 ; カメラ
-[clickable x="850" y="490" width="250" height="170" target="*SearchCamera" opacity="30" mouseopacity="50" color="0x505050"]
+[clickJudgment x="850" y="490" width="250" height="170" target="*SearchCamera"]
 ; 天幕
 [if exp="f.isTentDown == 0"]
-    [clickable x="610" y="170" width="720" height="80" target="*SearchTent" opacity="30" mouseopacity="50" color="0x505050"]
+    [clickJudgment x="610" y="170" width="720" height="80" target="*SearchTent"]
 [endif]
 ; ハンガー
 [if exp="f.isHungerGet == 0"]
     [image storage="../image/episode2/hunger.png" layer="1" x="1530" y="370" width="125" height="130" name="hunger"]
-    [clickable x="1530" y="390" width="130" height="90" target="*GetHunger" opacity="30" mouseopacity="50" color="0x505050"]
+    [clickJudgment x="1530" y="390" width="130" height="90" target="*GetHunger"]
 [endif]
 ; 紙
 [if exp="f.isTentDown == 1"]
-    [clickable x="600" y="730" width="100" height="100" target="*SearchPaper" opacity="30" mouseopacity="50" color="0x505050"]
+    [clickJudgment x="600" y="730" width="100" height="100" target="*SearchPaper"]
 [endif]
 ; メイクボックス
 [if exp="f.isPencilGet == 0"]
-    [clickable x="1660" y="680" width="185" height="130" target="*SearchMakeBox" opacity="30" mouseopacity="50" color="0x505050"]
+    [clickJudgment x="1660" y="680" width="185" height="130" target="*SearchMakeBox"]
 [endif]
 ; ブロック
 [if exp="f.isBlueBlockGet == 0 && f.isRedBlockGet == 0 && f.isGreenBlockGet == 0"]
-    [clickable x="590" y="890" width="100" height="75" target="*GetBlock" opacity="30" mouseopacity="50" color="0x505050"]
+    [clickJudgment x="590" y="890" width="100" height="75" target="*GetBlock"]
 [endif]
 ; タンス
 [if exp="f.isDressGet == 0 || f.isCurtainGet == 0"]
-    [clickable x="205" y="680" width="65" height="40" target="*SearchChest" opacity="30" mouseopacity="50" color="0x505050"]
+    [clickJudgment x="205" y="680" width="65" height="40" target="*SearchChest"]
 [endif]
 ; 簡易着替え場所
 [if exp="f.isHungerGet != 0 && f.isCurtainGet != -1 && f.isDressGet != -1"]
-    [clickable x="1400" y="360" width="250" height="480" target="*SearchFittingRoom" opacity="30" mouseopacity="50" color="0x505050"]
+    [clickJudgment x="1400" y="360" width="250" height="480" target="*SearchFittingRoom"]
 [endif]
 
 ; アイテムメニュー
@@ -267,13 +267,13 @@
         [SelectItemClickable target_1="*NotUseBlock" target_2="*NotUseBlock" target_3="*NotUseBlock" target_4="*UseBlueBlock" target_5="*UseRedBlock" target_6="*UseGreenBlock" target_7="*NotUseBlock"]
         ; 一度はめたブロックを戻すためのクリック判定
         [if exp="f.leftDimple != '' "]
-            [clickable x="700" y="490" width="185" height="150" target="*ReturnLeftSideBlock" opacity="30" mouseopacity="50" color="0x505050"]
+            [clickJudgment x="700" y="490" width="185" height="150" target="*ReturnLeftSideBlock"]
         [endif]
         [if exp="f.centerDimple != '' "]
-            [clickable x="895" y="490" width="185" height="150" target="*ReturnCenterSideBlock" opacity="30" mouseopacity="50" color="0x505050"]
+            [clickJudgment x="895" y="490" width="185" height="150" target="*ReturnCenterSideBlock"]
         [endif]
         [if exp="f.rightDimple != '' "]
-            [clickable x="1080" y="490" width="185" height="150" target="*ReturnRightSideBlock" opacity="30" mouseopacity="50" color="0x505050"]
+            [clickJudgment x="1080" y="490" width="185" height="150" target="*ReturnRightSideBlock"]
         [endif]
         [BackFromEnlargedMap target="*SearchChest_back"]
     [endif]
@@ -426,13 +426,13 @@
     [free layer="2" name="greenblock"]
 [endif]
 [if exp="f.leftDimple == '' "]
-    [clickable x="700" y="490" width="185" height="150" target="*LeftDimple" opacity="30" mouseopacity="50" color="0x505050"]
+    [clickJudgment x="700" y="490" width="185" height="150" target="*LeftDimple"]
 [endif]
 [if exp="f.centerDimple == '' "]
-    [clickable x="895" y="490" width="185" height="150" target="*CenterDimple" opacity="30" mouseopacity="50" color="0x505050"]
+    [clickJudgment x="895" y="490" width="185" height="150" target="*CenterDimple"]
 [endif]
 [if exp="f.rightDimple == '' "]
-    [clickable x="1080" y="490" width="185" height="150" target="*RightDimple" opacity="30" mouseopacity="50" color="0x505050"]
+    [clickJudgment x="1080" y="490" width="185" height="150" target="*RightDimple"]
 [endif]
 [s]
 
@@ -501,11 +501,11 @@
     [ChangeBackGround storage="epidode2/dressandcurtain.png"]
     ; 衣装
     [if exp="f.isDressGet == 0"]
-        [clickable x="230" y="150" width="690" height="510" target="*GetDress" opacity="30" mouseopacity="50" color="0x505050"]
+        [clickJudgment x="230" y="150" width="690" height="510" target="*GetDress"]
     [endif]
     ; カーテン
     [if exp="f.isCurtainGet == 0"]
-        [clickable x="1090" y="480" width="720" height="300" target="*GetCurtain" opacity="30" mouseopacity="50" color="0x505050"]
+        [clickJudgment x="1090" y="480" width="720" height="300" target="*GetCurtain"]
     [endif]
     [if exp="f.isDressGet == 0 || f.isCurtainGet == 0"]
         [BackFromEnlargedMap target="*OpenChest_back"]

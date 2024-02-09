@@ -254,6 +254,11 @@
     [endif]
 [endmacro]
 
+; 通常のクリック判定
+[macro name="clickJudgment"]
+    [clickable x="%x" y="%y" width="%width" height="%height" target="%target" opacity="30" mouseopacity="50" color="0x505050"]
+[endmacro]
+
 ; 背景を変更する
 [macro name="ChangeBackGround"]
     [bg storage="%storage" time="%time|100" method="%method"]
