@@ -78,8 +78,8 @@
   [clickable x="290" y="140" width="220" height="270" target="*SearchSpeaker" opacity="30" mouseopacity="50" color="0x505050"]
 [endif]
 
-; アイテム一覧
-[button graphic="kari/itemmenu_icon.png" storage="Gimmick/itemmenu.ks" target="*ItemMenu" x="1850" y="930" fix="true" role="sleepgame"]
+; アイテムメニュー
+[ItemMenuButton]
 [s]
 
 *SearchControlPanel

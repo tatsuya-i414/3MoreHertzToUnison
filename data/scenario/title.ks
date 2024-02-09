@@ -4,7 +4,7 @@
 [bg storage="title.jpg" time="100"]
 [wait time="200"]
 
-*start 
+*start
 [button x="120" y="320" width="540" height="111" graphic="title/button_start.png" enterimg="title/button_start2.png" target="*gamestart"]
 [button x="120" y="450" width="540" height="111" graphic="title/button_load.png" enterimg="title/button_load2.png" role="load"]
 [button x="120" y="580" width="540" height="111" graphic="title/button_cg.png" enterimg="title/button_cg2.png" storage="cg.ks"]
@@ -19,9 +19,12 @@
 ; デバッグ用に追加
 [if exp="f.isEpisode1Clear == 0"]
     [jump storage="Gimmick/episode1.ks"]
-[elsif exp="f.isEpisode1Clear == 1"]
+[elsif exp="f.isEpisode1Clear == 1 && f.isEpisode2Clear == 0"]
     [screen_full]
     [jump storage="Gimmick/episode2.ks"]
+[elsif exp="f.isEpisode1Clear == 1 && f.isEpisode2Clear == 1"]
+    [screen_full]
+    [jump storage="Gimmick/episode3.ks"]
 [endif]
 
 *debug

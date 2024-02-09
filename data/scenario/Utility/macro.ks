@@ -259,6 +259,11 @@
     [bg storage="%storage" time="%time|100" method="%method"]
 [endmacro]
 
+; アイテムメニューボタン
+[macro name="ItemMenuButton"]
+    [button graphic="kari/itemmenu_icon.png" storage="Gimmick/itemmenu.ks" target="*ItemMenu" x="1850" y="930" fix="true" role="sleepgame"]
+[endmacro]
+
 ; 拡大マップからの戻るボタン
 [macro name="BackFromEnlargedMap"]
     [clickable x="910" y="1015" width="100" height="50" target="%target" opacity="30" mouseopacity="50" color="0x505050"]
@@ -272,6 +277,11 @@
 ; スタジオルームへ移動する
 [macro name="JumpStudioRoom"]
     [jump storage="Gimmick/episode2.ks" target="*StudioRoom"]
+[endmacro]
+
+; ベッドルームへ移動する
+[macro name="JumpBedRoom"]
+    [jump storage="Gimmick/episode3.ks" target="*BedRoom"]
 [endmacro]
 
 [return]
