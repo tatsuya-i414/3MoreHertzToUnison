@@ -36,7 +36,7 @@
 
 ; クリック判定
 ; ベッド
-[clickable x="610" y="460" width="160" height="60" target="*SearchBed" opacity="30" mouseopacity="50" color="0x505050"]
+[clickJudgment x="610" y="460" width="160" height="60" target="*SearchBed"]
 [s]
 
 *SearchBed

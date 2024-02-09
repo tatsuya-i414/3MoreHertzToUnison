@@ -49,33 +49,33 @@
 ; クリック判定
 ; 制御盤
 [if exp="f.isEpisode1Clear == 0"]
-  [clickable x="30" y="635" width="120" height="120" target="*SearchControlPanel" opacity="30" mouseopacity="50" color="0x505050"]
+  [clickJudgment x="30" y="635" width="120" height="120" target="*SearchControlPanel"]
 [endif]
 ; 配線扉
 [if exp="f.isStageStatusGreen == 0"]
-  [clickable x="1570" y="770" width="100" height="50" target="*SearchWiringDoor" opacity="30" mouseopacity="50" color="0x505050"]
+  [clickJudgment x="1570" y="770" width="100" height="50" target="*SearchWiringDoor"]
 [endif]
 ; 道具箱
 [if exp="f.isCableGet == 0"]
-  [clickable x="1700" y="610" width="200" height="200" target="*SearchToolBox" opacity="30" mouseopacity="50" color="0x505050"]
+  [clickJudgment x="1700" y="610" width="200" height="200" target="*SearchToolBox"]
 [endif]
 ; ドライバー
 [if exp="f.isStageStatusGreen == 1 && f.isDriverGet == 0""]
   [image storage="../image/episode1/driver.png" layer="2" x="770" y="340" name="driver"]
-  [clickable x="770" y="360" width="150" height="100" target="*GetDriver" opacity="30" mouseopacity="50" color="0x505050"]
+  [clickJudgment x="770" y="360" width="150" height="100" target="*GetDriver"]
 [endif]
 ; ライト
 [if exp="f.isLightStatusGreen == 0 && f.isUsing == 0"]
-  [clickable x="620" y="180" width="100" height="100" target="*SearchLight" opacity="30" mouseopacity="50" color="0x505050"]
+  [clickJudgment x="620" y="180" width="100" height="100" target="*SearchLight"]
 [endif]
 ; ライトカバー
 [if exp="f.isLightCoverGet == 0"]
   [image storage="../image/episode1/lightcover.png" layer="1" x="620" y="790" name="lightcover"]
-  [clickable x="620" y="790" width="100" height="100" target="*GetLightCover" opacity="30" mouseopacity="50" color="0x505050"]
+  [clickJudgment x="620" y="790" width="100" height="100" target="*GetLightCover"]
 [endif]
 ; スピーカー
 [if exp="f.isSpeakerStatusGreen == 0 && f.isUsing == 0"]
-  [clickable x="290" y="140" width="220" height="270" target="*SearchSpeaker" opacity="30" mouseopacity="50" color="0x505050"]
+  [clickJudgment x="290" y="140" width="220" height="270" target="*SearchSpeaker"]
 [endif]
 
 ; アイテムメニュー
@@ -106,7 +106,7 @@
 [else]
   [layer0False]
 [endif]
-[clickable x="460" y="725" width="360" height="240" target="*SearchControlPanel_Decision" opacity="30" mouseopacity="50" color="0x505050"]
+[clickJudgment x="460" y="725" width="360" height="240" target="*SearchControlPanel_Decision"]
 [BackFromEnlargedMap target="*SearchControlPanel_back"]
 [s]
 
@@ -147,7 +147,7 @@
   [messageFalse]
 [endif]
 [ChangeBackGround storage="episode1/disconnectedwiring.png"]
-[clickable x="760" y="380" width="350" height="150" target="*SearchWiringDoor_Decision" opacity="30" mouseopacity="50" color="0x505050"]
+[clickJudgment x="760" y="380" width="350" height="150" target="*SearchWiringDoor_Decision"]
 [BackFromEnlargedMap target="*SearchWiringDoor_back"]
 [s]
 
@@ -354,7 +354,7 @@
   ; アイテムボタンを再度表示する
   [button graphic="kari/itemmenu_icon.png" storage="Gimmick/itemmenu.ks" target="*ItemMenu" x="1850" y="930" fix="true" role="sleepgame"]
   [ChangeBackGround storage="episode1/cable.png"]
-  [clickable x="820" y="390" width="300" height="300" target="*GetCable" opacity="30" mouseopacity="50" color="0x505050"]
+  [clickJudgment x="820" y="390" width="300" height="300" target="*GetCable"]
   [BackFromEnlargedMap target="*DialUnlock_back"]
 [endif]
 
