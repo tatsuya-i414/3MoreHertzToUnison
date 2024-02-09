@@ -47,6 +47,9 @@
     [image storage="../image/episode2/paper.png" layer="1" x="600" y="730" width="95" height="100" name="paper"]
 [endif]
 ; ブロック
+[if exp="f.isBlueBlockGet == 0 && f.isRedBlockGet == 0 && f.isGreenBlockGet == 0"]
+    [image storage="../image/episode2/block.png" layer="1" x="590" y="890" name="block"]
+[endif]
 
 ; カーテン
 [if exp="f.isCurtainGet == -1"]
@@ -223,9 +226,7 @@
 [eval exp="f.isBlueBlockGet = 1"]
 [eval exp="f.isRedBlockGet = 1"]
 [eval exp="f.isGreenBlockGet = 1"]
-[free layer="1" name="blueblock"]
-[free layer="1" name="redblock"]
-[free layer="1" name="greenblock"]
+[free layer="1" name="block"]
 [JumpStudioRoom]
 
 *SearchChest
