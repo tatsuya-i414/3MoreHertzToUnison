@@ -75,6 +75,10 @@
     [eval exp="tf.usingItemInventory8 = 1"]
     [image storage="../image/kari/mike.png" layer="2" x="160" y="680" width="140" height="140" visible="true" name="mike"]
 [endif]
+[if exp="f.isDressGet == 1 || f.isDressGet == -1"]
+    [eval exp="tf.usingItemInventory9 = 1"]
+    [image storage="../image/kari/dress.png" layer="2" x="310" y="680" width="140" height="140" visible="true" name="dress_special"]
+[endif]
 [s]
 
 *Scenario_Back
