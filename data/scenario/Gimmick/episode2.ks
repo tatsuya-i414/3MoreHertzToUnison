@@ -50,7 +50,6 @@
 [if exp="f.isBlueBlockGet == 0 && f.isRedBlockGet == 0 && f.isGreenBlockGet == 0"]
     [image storage="../image/episode2/block.png" layer="1" x="590" y="890" name="block"]
 [endif]
-
 ; カーテン
 [if exp="f.isCurtainGet == -1"]
     [image storage="../image/episode2/curtain.png" layer="1" x="1380" y="350" name="curtain"]
@@ -89,8 +88,8 @@
     [clickable x="1400" y="360" width="250" height="480" target="*SearchFittingRoom" opacity="30" mouseopacity="50" color="0x505050"]
 [endif]
 
-; アイテム一覧
-[button graphic="kari/itemmenu_icon.png" storage="Gimmick/itemmenu.ks" target="*ItemMenu" x="1850" y="930" fix="true" role="sleepgame"]
+; アイテムメニュー
+[ItemMenuButton]
 [s]
 
 *SearchCamera
@@ -105,7 +104,8 @@
     [messageFalse]
     [layer3False]
     [eval exp="f.isEpisode2Clear = 1"]
-    [JumpStudioRoom]
+    ; 思い出3へ移動する
+    [jump storage="Gimmick/episode3.ks" target="*start"]
 [else]
     [layer3True]
     [ShowNormalSakuraAndMiyuki]
