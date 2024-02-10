@@ -14,7 +14,6 @@
 [endif]
 
 @showmenubutton
-[screen_full]
 [ChangeBackGround storage="kari/omoide1_introduction.jpg" time="2000" method="vanishIn"]
 
 [messageTrue]
@@ -30,52 +29,55 @@
 [layer2True]
 
 ; 背景
-[ChangeBackGround storage="episode1/stageroom.png"]
-
-; 背景パーツ
-; ステージ
 [if exp="f.isStageStatusGreen == 1"]
-  [image storage="../image/episode1/stage.png" layer="1" x="600" y="170" name="stage"]
+  ; ステージせり上がり後
+  [ChangeBackGround storage="episode1/stageroom_stagerise.png"]
+[else]
+  [ChangeBackGround storage="episode1/stageroom.png"]
 [endif]
+
+; 背景（パーツ部分）
 ; ライト
 [if exp="f.isLightStatusGreen == 1"]
-  [image storage="../image/episode1/light.png" layer="1" x="550" y="170" name="light"]
+  [image storage="../image/episode1/lightcover_mount.png" layer="1" x="670" y="20" name="light"]
 [endif]
 ; スピーカー
 [if exp="f.isSpeakerStatusGreen == 1"]
-  [image storage="../image/episode1/speaker.png" layer="1" x="220" y="110" name="speaker"]
+  [image storage="../image/episode1/speaker_afterrepair.png" layer="1" x="1" y="125" name="speaker"]
+[else]
+  [image storage="../image/episode1/speaker_beforerepair.png" layer="1" x="1" y="110" name="speaker"]
 [endif]
 
 ; クリック判定
 ; 制御盤
 [if exp="f.isEpisode1Clear == 0"]
-  [clickJudgment x="30" y="635" width="120" height="120" target="*SearchControlPanel"]
+  [clickJudgment x="200" y="530" width="140" height="130" target="*SearchControlPanel"]
 [endif]
 ; 配線扉
 [if exp="f.isStageStatusGreen == 0"]
-  [clickJudgment x="1570" y="770" width="100" height="50" target="*SearchWiringDoor"]
+  [clickJudgment x="1590" y="990" width="150" height="90" target="*SearchWiringDoor"]
 [endif]
 ; 道具箱
 [if exp="f.isCableGet == 0"]
-  [clickJudgment x="1700" y="610" width="200" height="200" target="*SearchToolBox"]
+  [clickJudgment x="1580" y="630" width="160" height="130" target="*SearchToolBox"]
 [endif]
 ; ドライバー
 [if exp="f.isStageStatusGreen == 1 && f.isDriverGet == 0""]
-  [image storage="../image/episode1/driver.png" layer="2" x="770" y="340" name="driver"]
-  [clickJudgment x="770" y="360" width="150" height="100" target="*GetDriver"]
+  [image storage="../image/episode1/driver.png" layer="2" x="740" y="430" name="driver"]
+  [clickJudgment x="740" y="430" width="150" height="150" target="*GetDriver"]
 [endif]
 ; ライト
 [if exp="f.isLightStatusGreen == 0 && f.isUsing == 0"]
-  [clickJudgment x="620" y="180" width="100" height="100" target="*SearchLight"]
+  [clickJudgment x="710" y="40" width="60" height="60" target="*SearchLight"]
 [endif]
 ; ライトカバー
 [if exp="f.isLightCoverGet == 0"]
-  [image storage="../image/episode1/lightcover.png" layer="1" x="620" y="790" name="lightcover"]
-  [clickJudgment x="620" y="790" width="100" height="100" target="*GetLightCover"]
+  [image storage="../image/episode1/lightcover_item.png" layer="1" x="450" y="770" name="lightcover"]
+  [clickJudgment x="450" y="770" width="150" height="150" target="*GetLightCover"]
 [endif]
 ; スピーカー
 [if exp="f.isSpeakerStatusGreen == 0 && f.isUsing == 0"]
-  [clickJudgment x="290" y="140" width="220" height="270" target="*SearchSpeaker"]
+  [clickJudgment x="10" y="120" width="220" height="320" target="*SearchSpeaker"]
 [endif]
 
 ; アイテムメニュー
@@ -85,32 +87,44 @@
 *SearchControlPanel
 [Freelayer1]
 [Freelayer2]
-[if exp="f.isStageStatusGreen == 0 || f.isLightStatusGreen == 0 || f.isSpeakerStatusGreen == 0"]
-  [ChangeBackGround storage="episode1/controlpane_allred.png"]
+[ChangeBackGround  storage="episode1/controlpanel.png"]
+
+; ボタン
+[clickJudgment target="*SearchControlPanel_Decision" x="700" y="810" width="170" height="140"]
+[image storage="../image/episode1/controlpanel/controlpanel_button_push.png" layer="1" x="690" y="800" name="controlpanel_button"]
+
+; 準備完了ランプ
+[if exp="f.isStageStatusGreen == 1 && f.isLightStatusGreen == 1 && f.isSpeakerStatusGreen == 1"]
+  [image storage="../image/episode1/controlpanel/controlpanel_complete.png" layer="1" x="950" y="850" name="controlpanel_lamp"]
 [else]
-  [ChangeBackGround storage="episode1/controlpane_allgreen.png"]
+  [image storage="../image/episode1/controlpanel/controlpanel_incomplete.png" layer="1" x="950" y="850" name="controlpanel_lamp"]
 [endif]
 
-; 素材未完成のため、一時的な処理
-[if exp="f.isStageStatusGreen == 0 || f.isLightStatusGreen == 0 || f.isSpeakerStatusGreen == 0"]
-  [layer0True]
-  [if exp="f.isStageStatusGreen == 1"]
-    [ptext layer="0" x="1190" y="80" size="40" text="「舞台」は緑に変更済み" color="0x4caf50"]
-  [endif]
-  [if exp="f.isLightStatusGreen == 1"]
-    [ptext layer="0" x="1190" y="280" size="40" text="「ライト」は緑に変更済み" color="0x4caf50"]
-  [endif]
-  [if exp="f.isSpeakerStatusGreen == 1"]
-    [ptext layer="0" x="1190" y="480" size="40" text="「スピーカー」は緑に変更済み" color="0x4caf50"]
-  [endif]
+; ランプ（赤or緑）
+[if exp="f.isStageStatusGreen == 1"]
+  [image storage="../image/episode1/controlpanel/controlpanel_green_lamp.png" layer="1" x="780" y="245" name="stage_redlamp"]
 [else]
-  [layer0False]
+  [image storage="../image/episode1/controlpanel/controlpanel_red_lamp.png" layer="1" x="780" y="245" name="stage_greenlamp"]
 [endif]
-[clickJudgment x="460" y="725" width="360" height="240" target="*SearchControlPanel_Decision"]
+[if exp="f.isLightStatusGreen == 1"]
+  [image storage="../image/episode1/controlpanel/controlpanel_green_lamp.png" layer="1" x="780" y="335" name="light_redlamp"]
+[else]
+  [image storage="../image/episode1/controlpanel/controlpanel_red_lamp.png" layer="1" x="780" y="335" name="light_greenlamp"]
+[endif]
+[if exp="f.isSpeakerStatusGreen == 1"]
+  [image storage="../image/episode1/controlpanel/controlpanel_green_lamp.png" layer="1" x="780" y="425" name="speaker_redlamp"]
+[else]
+  [image storage="../image/episode1/controlpanel/controlpanel_red_lamp.png" layer="1" x="780" y="425" name="speaker_greenlamp"]
+[endif]
+
+; 戻るボタン
 [BackFromEnlargedMap target="*SearchControlPanel_back"]
 [s]
 
 *SearchControlPanel_Decision
+[free layer="1" name="controlpanel_button"]
+; ボタンを押す効果音を追加
+[image storage="../image/episode1/controlpanel/controlpanel_button_notpush.png" layer="1" x="685" y="835" name="controlpanel_button"]
 [if exp="f.isStageStatusGreen == 1 && f.isLightStatusGreen == 1 && f.isSpeakerStatusGreen == 1"]
   [messageTrue]
   ; 思い出1の会話パートを追加する
@@ -118,8 +132,14 @@
   思い出1の会話パート[p]
   [eval exp="f.isMikeGet = 1"]
   [eval exp="f.isEpisode1Clear = 1"]
-  ; 素材未完成のため、一時的な処理
-  [layer0False]
+  [free layer="1" name="controlpanel_button"]
+  [free layer="1" name="controlpanel_lamp"]
+  [free layer="1" name="stage_greenlamp"]
+  [free layer="1" name="stage_redlamp"]
+  [free layer="1" name="light_greenlamp"]
+  [free layer="1" name="light_redlamp"]
+  [free layer="1" name="speaker_greenlamp"]
+  [free layer="1" name="speaker_redlamp"]
   ; 思い出2へ移動する
   [jump storage="Gimmick/episode2.ks" target="*start"]
 [else]
@@ -129,25 +149,41 @@
   #深雪と桜良
   この3つを何とかしないといけない[p]
   [layer3False]
-  ; 素材未完成のため、一時的な処理
-  [layer0False]
+  ; 画像を削除する
+  [free layer="1" name="controlpanel_button"]
+  [free layer="1" name="controlpanel_lamp"]
+  [free layer="1" name="stage_greenlamp"]
+  [free layer="1" name="stage_redlamp"]
+  [free layer="1" name="light_greenlamp"]
+  [free layer="1" name="light_redlamp"]
+  [free layer="1" name="speaker_greenlamp"]
+  [free layer="1" name="speaker_redlamp"]
   [JumpStageRoom]
 [endif]
 
 *SearchControlPanel_back
-; 素材未完成のため、一時的な処理
-[layer0False]
+; 画像を削除する
+[free layer="1" name="controlpanel_button"]
+[free layer="1" name="controlpanel_lamp"]
+[free layer="1" name="stage_greenlamp"]
+[free layer="1" name="stage_redlamp"]
+[free layer="1" name="light_greenlamp"]
+[free layer="1" name="light_redlamp"]
+[free layer="1" name="speaker_greenlamp"]
+[free layer="1" name="speaker_redlamp"]
 [JumpStageRoom]
 
 *SearchWiringDoor
 [Freelayer1]
 [Freelayer2]
+; 扉を開ける効果音を追加
 [if exp="f.isUsing == 1"]
   [FreeItemBox]
   [messageFalse]
 [endif]
 [ChangeBackGround storage="episode1/disconnectedwiring.png"]
 [clickJudgment x="760" y="380" width="350" height="150" target="*SearchWiringDoor_Decision"]
+; 戻るボタン
 [BackFromEnlargedMap target="*SearchWiringDoor_back"]
 [s]
 
@@ -173,6 +209,7 @@
   [if exp="f.isUsing == 1"]
     [ItemBox]
     [SelectItemClickable target_1="*NotUseCable" target_2="*UseCable" target_3="*NotUseCable" target_4="*NotUseCable" target_5="*NotUseCable" target_6="*NotUseCable" target_7="*NotUseCable"]
+    ; 戻るボタン
     [BackFromEnlargedMap target="*SearchWiringDoor_back"]
   [endif]
 [endif]
@@ -200,6 +237,7 @@
 [free layer="2" name="cable"]
 #
 先ほど手に入れた配線でちぎれた配線を直す[p]
+; ケーブルを繋ぎ合わせる効果音を追加
 [ChangeBackGround storage="episode1/connectedwiring.png"]
 ; 舞台がせり上がる効果音
 [eval exp="f.isStageStatusGreen = 1"]
@@ -220,12 +258,15 @@
 *SearchToolBox
 [Freelayer1]
 [Freelayer2]
+; 箱を開ける効果音を追加
 [if exp="f.leftNum != 4 && f.centerNum != 5 && f.rightNum != 6"]
   [ChangeBackGround storage="episode1/dial.png"]
+  ; ダイヤル
+  [button graphic="episode1/dial/dialnumber_0.png" x="440" y="480" width="200" height="200" exp="f.leftNum = 0" fix="true" target="*LeftDialTurn"]
+  [button graphic="episode1/dial/dialnumber_0.png" x="850" y="480" width="200" height="200" exp="f.centerNum = 0" fix="true" target="*CenterDialTurn"]
+  [button graphic="episode1/dial/dialnumber_0.png" x="1250" y="480" width="200" height="200" exp="f.rightNum = 0" fix="true" target="*RightDialTurn"]
+  ; 戻るボタン
   [BackFromEnlargedMap target="*SearchToolBox_back"]
-  [button graphic="../image/kari/dialnumber_0.png" x="520" y="480" width="200" height="200" exp="f.leftNum = 0" fix="true" target="*LeftDialTurn"]
-  [button graphic="../image/kari/dialnumber_0.png" x="845" y="480" width="200" height="200" exp="f.centerNum = 0" fix="true" target="*CenterDialTurn"]
-  [button graphic="../image/kari/dialnumber_0.png" x="1180" y="480" width="200" height="200" exp="f.rightNum = 0" fix="true" target="*RightDialTurn"]
 [else]
   [call target="*DialUnlock"]
 [endif]
@@ -243,121 +284,123 @@
 *LeftDialTurn
 [if exp="f.leftNum == 0"]
   [eval exp="f.leftNum = 1"]
-  [button graphic="../image/kari/dialnumber_1.png" x="520" y="480" width="200" height="200" exp="f.leftNum = 1" fix="true" target="*LeftDialTurn"]
+  [button graphic="episode1/dial/dialnumber_1.png" x="440" y="480" width="200" height="200" exp="f.leftNum = 1" fix="true" target="*LeftDialTurn"]
 [elsif exp="f.leftNum == 1"]
   [eval exp="f.leftNum = 2"]
-  [button graphic="../image/kari/dialnumber_2.png" x="520" y="480" width="200" height="200" exp="f.leftNum = 2" fix="true" target="*LeftDialTurn"]
+  [button graphic="episode1/dial/dialnumber_2.png" x="440" y="480" width="200" height="200" exp="f.leftNum = 2" fix="true" target="*LeftDialTurn"]
 [elsif exp="f.leftNum == 2"]
   [eval exp="f.leftNum = 3"]
-  [button graphic="../image/kari/dialnumber_3.png" x="520" y="480" width="200" height="200" exp="f.leftNum = 3" fix="true" target="*LeftDialTurn"]
+  [button graphic="episode1/dial/dialnumber_3.png" x="440" y="480" width="200" height="200" exp="f.leftNum = 3" fix="true" target="*LeftDialTurn"]
 [elsif exp="f.leftNum == 3"]
   [eval exp="f.leftNum = 4"]
-  [button graphic="../image/kari/dialnumber_4.png" x="520" y="480" width="200" height="200" exp="f.leftNum = 4" fix="true" target="*LeftDialTurn"]
+  [button graphic="episode1/dial/dialnumber_4.png" x="440" y="480" width="200" height="200" exp="f.leftNum = 4" fix="true" target="*LeftDialTurn"]
 [elsif exp="f.leftNum == 4"]
   [eval exp="f.leftNum = 5"]
-  [button graphic="../image/kari/dialnumber_5.png" x="520" y="480" width="200" height="200" exp="f.leftNum = 5" fix="true" target="*LeftDialTurn"]
+  [button graphic="episode1/dial/dialnumber_5.png" x="440" y="480" width="200" height="200" exp="f.leftNum = 5" fix="true" target="*LeftDialTurn"]
 [elsif exp="f.leftNum == 5"]
   [eval exp="f.leftNum = 6"]
-  [button graphic="../image/kari/dialnumber_6.png" x="520" y="480" width="200" height="200" exp="f.leftNum = 6" fix="true" target="*LeftDialTurn"]
+  [button graphic="episode1/dial/dialnumber_6.png" x="440" y="480" width="200" height="200" exp="f.leftNum = 6" fix="true" target="*LeftDialTurn"]
 [elsif exp="f.leftNum == 6"]
   [eval exp="f.leftNum = 7"]
-  [button graphic="../image/kari/dialnumber_7.png" x="520" y="480" width="200" height="200" exp="f.leftNum = 7" fix="true" target="*LeftDialTurn"]
+  [button graphic="episode1/dial/dialnumber_7.png" x="440" y="480" width="200" height="200" exp="f.leftNum = 7" fix="true" target="*LeftDialTurn"]
 [elsif exp="f.leftNum == 7"]
   [eval exp="f.leftNum = 8"]
-  [button graphic="../image/kari/dialnumber_8.png" x="520" y="480" width="200" height="200" exp="f.leftNum = 8" fix="true" target="*LeftDialTurn"]
+  [button graphic="episode1/dial/dialnumber_8.png" x="440" y="480" width="200" height="200" exp="f.leftNum = 8" fix="true" target="*LeftDialTurn"]
 [elsif exp="f.leftNum == 8"]
   [eval exp="f.leftNum = 9"]
-  [button graphic="../image/kari/dialnumber_9.png" x="520" y="480" width="200" height="200" exp="f.leftNum = 9" fix="true" target="*LeftDialTurn"]
+  [button graphic="episode1/dial/dialnumber_9.png" x="440" y="480" width="200" height="200" exp="f.leftNum = 9" fix="true" target="*LeftDialTurn"]
 [elsif exp="f.leftNum == 9"]
   [eval exp="f.leftNum = 0"]
-  [button graphic="../image/kari/dialnumber_0.png" x="520" y="480" width="200" height="200" exp="f.leftNum = 0" fix="true" target="*LeftDialTurn"]
+  [button graphic="episode1/dial/dialnumber_0.png" x="440" y="480" width="200" height="200" exp="f.leftNum = 0" fix="true" target="*LeftDialTurn"]
 [endif]
-
+; ダイヤルを回す効果音を追加
 [call target="*DialUnlock"]
 [return]
 
 *CenterDialTurn
 [if exp="f.centerNum == 0"]
   [eval exp="f.centerNum = 1"]
-  [button graphic="../image/kari/dialnumber_1.png" x="845" y="480" width="200" height="200" exp="f.centerNum = 1" fix="true" target="*CenterDialTurn"]
+  [button graphic="episode1/dial/dialnumber_1.png" x="850" y="480" width="200" height="200" exp="f.centerNum = 1" fix="true" target="*CenterDialTurn"]
 [elsif exp="f.centerNum == 1"]
   [eval exp="f.centerNum = 2"]
-  [button graphic="../image/kari/dialnumber_2.png" x="845" y="480" width="200" height="200" exp="f.centerNum = 2" fix="true" target="*CenterDialTurn"]
+  [button graphic="episode1/dial/dialnumber_2.png" x="850" y="480" width="200" height="200" exp="f.centerNum = 2" fix="true" target="*CenterDialTurn"]
 [elsif exp="f.centerNum == 2"]
   [eval exp="f.centerNum = 3"]
-  [button graphic="../image/kari/dialnumber_3.png" x="845" y="480" width="200" height="200" exp="f.centerNum = 3" fix="true" target="*CenterDialTurn"]
+  [button graphic="episode1/dial/dialnumber_3.png" x="850" y="480" width="200" height="200" exp="f.centerNum = 3" fix="true" target="*CenterDialTurn"]
 [elsif exp="f.centerNum == 3"]
   [eval exp="f.centerNum = 4"]
-  [button graphic="../image/kari/dialnumber_4.png" x="845" y="480" width="200" height="200" exp="f.centerNum = 4" fix="true" target="*CenterDialTurn"]
+  [button graphic="episode1/dial/dialnumber_4.png" x="850" y="480" width="200" height="200" exp="f.centerNum = 4" fix="true" target="*CenterDialTurn"]
 [elsif exp="f.centerNum == 4"]
   [eval exp="f.centerNum = 5"]
-  [button graphic="../image/kari/dialnumber_5.png" x="845" y="480" width="200" height="200" exp="f.centerNum = 5" fix="true" target="*CenterDialTurn"]
+  [button graphic="episode1/dial/dialnumber_5.png" x="850" y="480" width="200" height="200" exp="f.centerNum = 5" fix="true" target="*CenterDialTurn"]
 [elsif exp="f.centerNum == 5"]
   [eval exp="f.centerNum = 6"]
-  [button graphic="../image/kari/dialnumber_6.png" x="845" y="480" width="200" height="200" exp="f.centerNum = 6" fix="true" target="*CenterDialTurn"]
+  [button graphic="episode1/dial/dialnumber_6.png" x="850" y="480" width="200" height="200" exp="f.centerNum = 6" fix="true" target="*CenterDialTurn"]
 [elsif exp="f.centerNum == 6"]
   [eval exp="f.centerNum = 7"]
-  [button graphic="../image/kari/dialnumber_7.png" x="845" y="480" width="200" height="200" exp="f.centerNum = 7" fix="true" target="*CenterDialTurn"]
+  [button graphic="episode1/dial/dialnumber_7.png" x="850" y="480" width="200" height="200" exp="f.centerNum = 7" fix="true" target="*CenterDialTurn"]
 [elsif exp="f.centerNum == 7"]
   [eval exp="f.centerNum = 8"]
-  [button graphic="../image/kari/dialnumber_8.png" x="845" y="480" width="200" height="200" exp="f.centerNum = 8" fix="true" target="*CenterDialTurn"]
+  [button graphic="episode1/dial/dialnumber_8.png" x="850" y="480" width="200" height="200" exp="f.centerNum = 8" fix="true" target="*CenterDialTurn"]
 [elsif exp="f.centerNum == 8"]
   [eval exp="f.centerNum = 9"]
-  [button graphic="../image/kari/dialnumber_9.png" x="845" y="480" width="200" height="200" exp="f.centerNum = 9" fix="true" target="*CenterDialTurn"]
+  [button graphic="episode1/dial/dialnumber_9.png" x="850" y="480" width="200" height="200" exp="f.centerNum = 9" fix="true" target="*CenterDialTurn"]
 [elsif exp="f.centerNum == 9"]
   [eval exp="f.centerNum = 0"]
-  [button graphic="../image/kari/dialnumber_0.png" x="845" y="480" width="200" height="200" exp="f.centerNum = 0" fix="true" target="*CenterDialTurn"]
+  [button graphic="episode1/dial/dialnumber_0.png" x="850" y="480" width="200" height="200" exp="f.centerNum = 0" fix="true" target="*CenterDialTurn"]
 [endif]
-
+; ダイヤルを回す効果音を追加
 [call target="*DialUnlock"]
 [return]
 
 *RightDialTurn
 [if exp="f.rightNum == 0"]
   [eval exp="f.rightNum = 1"]
-  [button graphic="../image/kari/dialnumber_1.png" x="1180" y="480" width="200" height="200" exp="f.rightNum = 1" fix="true" target="*RightDialTurn"]
+  [button graphic="episode1/dial/dialnumber_1.png" x="1250" y="480" width="200" height="200" exp="f.rightNum = 1" fix="true" target="*RightDialTurn"]
 [elsif exp="f.rightNum == 1"]
   [eval exp="f.rightNum = 2"]
-  [button graphic="../image/kari/dialnumber_2.png" x="1180" y="480" width="200" height="200" exp="f.rightNum = 2" fix="true" target="*RightDialTurn"]
+  [button graphic="episode1/dial/dialnumber_2.png" x="1250" y="480" width="200" height="200" exp="f.rightNum = 2" fix="true" target="*RightDialTurn"]
 [elsif exp="f.rightNum == 2"]
   [eval exp="f.rightNum = 3"]
-  [button graphic="../image/kari/dialnumber_3.png" x="1180" y="480" width="200" height="200" exp="f.rightNum = 3" fix="true" target="*RightDialTurn"]
+  [button graphic="episode1/dial/dialnumber_3.png" x="1250" y="480" width="200" height="200" exp="f.rightNum = 3" fix="true" target="*RightDialTurn"]
 [elsif exp="f.rightNum == 3"]
   [eval exp="f.rightNum = 4"]
-  [button graphic="../image/kari/dialnumber_4.png" x="1180" y="480" width="200" height="200" exp="f.rightNum = 4" fix="true" target="*RightDialTurn"]
+  [button graphic="episode1/dial/dialnumber_4.png" x="1250" y="480" width="200" height="200" exp="f.rightNum = 4" fix="true" target="*RightDialTurn"]
 [elsif exp="f.rightNum == 4"]
   [eval exp="f.rightNum = 5"]
-  [button graphic="../image/kari/dialnumber_5.png" x="1180" y="480" width="200" height="200" exp="f.rightNum = 5" fix="true" target="*RightDialTurn"]
+  [button graphic="episode1/dial/dialnumber_5.png" x="1250" y="480" width="200" height="200" exp="f.rightNum = 5" fix="true" target="*RightDialTurn"]
 [elsif exp="f.rightNum == 5"]
   [eval exp="f.rightNum = 6"]
-  [button graphic="../image/kari/dialnumber_6.png" x="1180" y="480" width="200" height="200" exp="f.rightNum = 6" fix="true" target="*RightDialTurn"]
+  [button graphic="episode1/dial/dialnumber_6.png" x="1250" y="480" width="200" height="200" exp="f.rightNum = 6" fix="true" target="*RightDialTurn"]
 [elsif exp="f.rightNum == 6"]
   [eval exp="f.rightNum = 7"]
-  [button graphic="../image/kari/dialnumber_7.png" x="1180" y="480" width="200" height="200" exp="f.rightNum = 7" fix="true" target="*RightDialTurn"]
+  [button graphic="episode1/dial/dialnumber_7.png" x="1250" y="480" width="200" height="200" exp="f.rightNum = 7" fix="true" target="*RightDialTurn"]
 [elsif exp="f.rightNum == 7"]
   [eval exp="f.rightNum = 8"]
-  [button graphic="../image/kari/dialnumber_8.png" x="1180" y="480" width="200" height="200" exp="f.rightNum = 8" fix="true" target="*RightDialTurn"]
+  [button graphic="episode1/dial/dialnumber_8.png" x="1250" y="480" width="200" height="200" exp="f.rightNum = 8" fix="true" target="*RightDialTurn"]
 [elsif exp="f.rightNum == 8"]
   [eval exp="f.rightNum = 9"]
-  [button graphic="../image/kari/dialnumber_9.png" x="1180" y="480" width="200" height="200" exp="f.rightNum = 9" fix="true" target="*RightDialTurn"]
+  [button graphic="episode1/dial/dialnumber_9.png" x="1250" y="480" width="200" height="200" exp="f.rightNum = 9" fix="true" target="*RightDialTurn"]
 [elsif exp="f.rightNum == 9"]
   [eval exp="f.rightNum = 0"]
-  [button graphic="../image/kari/dialnumber_0.png" x="1180" y="480" width="200" height="200" exp="f.rightNum = 0" fix="true" target="*RightDialTurn"]
+  [button graphic="episode1/dial/dialnumber_0.png" x="1250" y="480" width="200" height="200" exp="f.rightNum = 0" fix="true" target="*RightDialTurn"]
 [endif]
-
+; ダイヤルを回す効果音を追加
 [call target="*DialUnlock"]
 [return]
 
 *DialUnlock
 [if exp="f.leftNum == 4 && f.centerNum == 5 && f.rightNum == 6"]
+  ; 開錠する時の効果音を追加
+  [wait time="1000"]
   [clearfix]
-  ; アイテムボタンを再度表示する
-  [button graphic="kari/itemmenu_icon.png" storage="Gimmick/itemmenu.ks" target="*ItemMenu" x="1850" y="930" fix="true" role="sleepgame"]
+  ; アイテムメニューボタンを再度表示する
+  [ItemMenuButton]
   [ChangeBackGround storage="episode1/cable.png"]
   [clickJudgment x="820" y="390" width="300" height="300" target="*GetCable"]
+  ; 戻るボタン
   [BackFromEnlargedMap target="*DialUnlock_back"]
 [endif]
-
 [return]
 
 *GetCable
@@ -366,6 +409,7 @@
   delete f.centerNum;
   delete f.rightNum;
 [endscript]
+; アイテムを獲得する効果音を追加
 [eval exp="f.isCableGet = 1"]
 [JumpStageRoom]
 
@@ -374,6 +418,7 @@
 [JumpStageRoom]
 
 *GetDriver
+; アイテムを獲得する効果音を追加
 [eval exp="f.isDriverGet = 1"]
 [free layer="2" name="driver"]
 [JumpStageRoom]
@@ -436,6 +481,7 @@
 [messageTrue]
 #
 先ほど手に入れたライトカバーをライトにはめる[p]
+; 修理をする効果音を追加
 [eval exp="f.isLightStatusGreen = 1"]
 ; 制御盤の「照明」の欄が緑になったことを知らせる効果音
 [layer3True]
@@ -453,6 +499,7 @@
 [jump target="*SelectItemOfLightCover"]
 
 *GetLightCover
+; アイテムを獲得する効果音を追加
 [eval exp="f.isLightCoverGet = 1"]
 [free layer="1" name="lightcover"]
 [JumpStageRoom]
@@ -505,7 +552,9 @@
 [messageTrue]
 #
 先ほど手に入れたドライバーを使用してスピーカーの傾きを直す[p]
+; ドライバーを回す効果音を追加
 [eval exp="f.isSpeakerStatusGreen = 1"]
+[free layer="1" name="speaker"]
 ; 制御盤の「スピーカー」の欄が緑になったことを知らせる効果音
 [layer3True]
 [ShowNormalSakuraAndMiyuki]
