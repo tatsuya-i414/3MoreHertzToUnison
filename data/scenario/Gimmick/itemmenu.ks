@@ -68,7 +68,7 @@
 [endif]
 [if exp="f.isCurtainGet == 1"]
     [eval exp="tf.usingItemInventory5 = 1"]
-    [image storage="../image/kari/curtain.png" layer="2" x="760" y="350" width="140" height="140" visible="true" name="curtaim"]
+    [image storage="../image/kari/curtain.png" layer="2" x="760" y="350" width="140" height="140" visible="true" name="curtain"]
 [endif]
 ; 特別アイテム
 [if exp="f.isMikeGet == 1"]
