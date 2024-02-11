@@ -1,3 +1,7 @@
+; ------------------------------
+; レイヤー
+; ------------------------------
+
 ; メッセージレイヤーを表示にする
 [macro name="messageTrue"]
     @layopt layer="message0" visible="true"
@@ -68,6 +72,10 @@
     [freeimage layer="3"]
 [endmacro]
 
+; ------------------------------
+; 演出
+; ------------------------------
+
 ; 暗転
 [macro name="blackout"]
     [mask effect="fadeIn" time="%time_1|3000"]
@@ -78,6 +86,10 @@
     [endif]
     [mask_off time="2000"]
 [endmacro]
+
+; ------------------------------
+; キャラクター
+; ------------------------------
 
 ; 桜良(通常)を画面右手に表示する
 [macro name="ShowNormalSakuraOnRight"]
@@ -115,6 +127,10 @@
     [freeimage layer="3" name="miyuki"]
 [endmacro]
 
+; ------------------------------
+; アイテム
+; ------------------------------
+
 ; アイテムインベントリを表示する
 [macro name="ItemInventory"]
     ; 通常アイテム用
@@ -148,7 +164,7 @@
     [endif]
     [if exp="f.isDriverGet == 1"]
         [eval exp="tf.usingItemInventory1 = 1"]
-        [image storage="../image/episode1/driver.png" layer="2" x="1770" y="25" width="70" height="70" visible="true" name="driver"]
+        [image storage="../image/episode1/driver_item.png" layer="2" x="1770" y="25" width="70" height="70" visible="true" name="driver"]
     [endif]
     [if exp="f.isLightCoverGet == 1"]
         [eval exp="tf.usingItemInventory3 = 1"]
@@ -215,20 +231,6 @@
     [free layer="2" name="curtain"]
 [endmacro]
 
-; アイテム使用時の確認メッセージ
-[macro name="ConfirmUseItem"]
-    [nolog]
-    #
-    このアイテムを使用しますか？
-    [endnolog]
-[endmacro]
-
-; アイテム使用時の「はい」「いいえ」ボタン
-[macro name="YesNoButton"]
-    [glink color="btn_29_red" target="%target_yes" width="200" x="250" y="930" text="はい"]
-    [glink color="btn_29_blue" target="%target_no" width="200" x="550" y="930" text="いいえ"]
-[endmacro]
-
 ; アイテム使用時のクリック判定
 [macro name="SelectItemClickable"]
     [if exp="tf.usingItemInventory1 == 1"]
@@ -254,20 +256,31 @@
     [endif]
 [endmacro]
 
-; 通常のクリック判定
-[macro name="clickJudgment"]
-    [clickable x="%x" y="%y" width="%width" height="%height" target="%target" opacity="30" mouseopacity="50" color="0x505050"]
+; アイテム使用時の確認メッセージ
+[macro name="ConfirmUseItem"]
+    [nolog]
+    #
+    このアイテムを使用しますか？
+    [endnolog]
 [endmacro]
 
-; 背景を変更する
-[macro name="ChangeBackGround"]
-    [bg storage="%storage" time="%time|100" method="%method"]
+; アイテム使用時の「はい」「いいえ」ボタン
+[macro name="YesNoButton"]
+    [glink color="btn_29_red" target="%target_yes" width="200" x="250" y="930" text="はい"]
+    [glink color="btn_29_blue" target="%target_no" width="200" x="550" y="930" text="いいえ"]
 [endmacro]
 
-; アイテムメニューボタン
-[macro name="ItemMenuButton"]
-    [button graphic="kari/itemmenu_icon.png" storage="Gimmick/itemmenu.ks" target="*ItemMenu" x="1850" y="930" fix="true" role="sleepgame"]
+; 正しくないアイテムを使用した時のメッセージ
+[macro name="MessageToUsingWrongItem"]
+    [nolog]
+    #
+    このアイテムは違うようだ。[p]
+    [endnolog]
 [endmacro]
+
+; ------------------------------
+; 画面遷移
+; ------------------------------
 
 ; 拡大マップからの戻るボタン
 [macro name="BackFromEnlargedMap"]
@@ -287,6 +300,25 @@
 ; ベッドルームへ移動する
 [macro name="JumpBedRoom"]
     [jump storage="Gimmick/episode3.ks" target="*BedRoom"]
+[endmacro]
+
+; ------------------------------
+; その他共通処理
+; ------------------------------
+
+; アイテムメニューボタン
+[macro name="ItemMenuButton"]
+    [button graphic="kari/itemmenu_icon.png" storage="Gimmick/itemmenu.ks" target="*ItemMenu" x="1850" y="930" fix="true" role="sleepgame"]
+[endmacro]
+
+; 背景を変更する
+[macro name="ChangeBackGround"]
+    [bg storage="%storage" time="%time|100" method="%method"]
+[endmacro]
+
+; 通常のクリック判定
+[macro name="clickJudgment"]
+    [clickable x="%x" y="%y" width="%width" height="%height" target="%target" opacity="30" mouseopacity="50" color="0x505050"]
 [endmacro]
 
 [return]

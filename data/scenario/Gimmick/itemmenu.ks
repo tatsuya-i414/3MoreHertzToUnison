@@ -36,7 +36,7 @@
 [endif]
 [if exp="f.isDriverGet == 1"]
     [eval exp="tf.usingItemInventory1 = 1"]
-    [image storage="../image/episode1/driver.png" layer="2" x="160" y="350" width="140" height="140" visible="true" name="driver"]
+    [image storage="../image/episode1/driver_item.png" layer="2" x="160" y="350" width="140" height="140" visible="true" name="driver"]
 [endif]
 [if exp="f.isLightCoverGet == 1"]
     [eval exp="tf.usingItemInventory3 = 1"]
@@ -68,7 +68,7 @@
 [endif]
 [if exp="f.isCurtainGet == 1"]
     [eval exp="tf.usingItemInventory5 = 1"]
-    [image storage="../image/kari/curtain.png" layer="2" x="760" y="350" width="140" height="140" visible="true" name="curtaim"]
+    [image storage="../image/kari/curtain.png" layer="2" x="760" y="350" width="140" height="140" visible="true" name="curtain"]
 [endif]
 ; 特別アイテム
 [if exp="f.isMikeGet == 1"]

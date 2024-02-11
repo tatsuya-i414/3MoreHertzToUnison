@@ -104,6 +104,8 @@
     [messageFalse]
     [layer3False]
     [eval exp="f.isEpisode2Clear = 1"]
+    [free layer="1" name="paper"]
+    [free layer="1" name="curtain"]
     ; 思い出3へ移動する
     [jump storage="Gimmick/episode3.ks" target="*start"]
 [else]
@@ -214,9 +216,8 @@
 
 *IncorrectItemOfPencil
 [FreeItemBox]
-#
-このアイテムは違うようだ。[p]
-[jump target="*SelectItemOfPencil"]
+[MessageToUsingWrongItem]
+[JumpStudioRoom]
 
 *SearchMakeBox
 [eval exp="f.isPencilGet = 1"]
@@ -622,6 +623,5 @@
 
 *IncorrectItemOfCurtain
 [FreeItemBox]
-#
-このアイテムは違うようだ。[p]
-[jump target="*SelectItemOfCurtain"]
+[MessageToUsingWrongItem]
+[JumpStudioRoom]
