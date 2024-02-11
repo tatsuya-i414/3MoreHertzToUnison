@@ -63,8 +63,8 @@
 [endif]
 ; ドライバー
 [if exp="f.isStageStatusGreen == 1 && f.isDriverGet == 0""]
-  [image storage="../image/episode1/driver.png" layer="2" x="740" y="430" name="driver"]
-  [clickJudgment x="740" y="430" width="150" height="150" target="*GetDriver"]
+  [image storage="../image/episode1/driver_stage.png" layer="2" x="740" y="520" name="driver"]
+  [clickJudgment x="740" y="520" width="185" height="50" target="*GetDriver"]
 [endif]
 ; ライト
 [if exp="f.isLightStatusGreen == 0 && f.isUsing == 0"]
@@ -383,7 +383,7 @@
   [button graphic="episode1/dial/dialnumber_9.png" x="1250" y="400" width="200" height="400" exp="f.rightNum = 9" fix="true" target="*RightDialTurn"]
 [elsif exp="f.rightNum == 9"]
   [eval exp="f.rightNum = 0"]
-  [button graphic="episode1/dial/dialnumber_0.png" x="1250" y="400" width="200" height="400" exp="f.rightNum = 0" fix="true" target="*RightDialTurn"]
+  [button graphic="episode1/dial/dialnumber_0.png" x="1250" y="40 0" width="200" height="400" exp="f.rightNum = 0" fix="true" target="*RightDialTurn"]
 [endif]
 ; ダイヤルを回す効果音を追加
 [call target="*DialUnlock"]

@@ -148,7 +148,7 @@
     [endif]
     [if exp="f.isDriverGet == 1"]
         [eval exp="tf.usingItemInventory1 = 1"]
-        [image storage="../image/episode1/driver.png" layer="2" x="1770" y="25" width="70" height="70" visible="true" name="driver"]
+        [image storage="../image/episode1/driver_item.png" layer="2" x="1770" y="25" width="70" height="70" visible="true" name="driver"]
     [endif]
     [if exp="f.isLightCoverGet == 1"]
         [eval exp="tf.usingItemInventory3 = 1"]
