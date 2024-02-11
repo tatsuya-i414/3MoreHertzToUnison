@@ -17,16 +17,8 @@
 [ChangeBackGround storage="epidode2/studioroom.png" time="2000" method="vanishIn"]
 
 [messageTrue]
-#思い出2導入
-次の部屋はここみたいだね[p]
-
-#思い出2導入
-カメラを調べる......[p]
-
-[ChangeBackGround storage="epidode2/cameramonitor.png" time="1000" method="zoomIn"]
-
-#思い出2導入
-写真を撮ればいいのかな？[p]
+; 会話パートの読み込み
+[call storage="Conversation/episode2.ks" target="*Introduction"]
 
 *StudioRoom
 [messageFalse]

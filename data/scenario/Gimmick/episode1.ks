@@ -17,11 +17,8 @@
 [ChangeBackGround storage="kari/omoide1_introduction.jpg" time="2000" method="vanishIn"]
 
 [messageTrue]
-#思い出1導入
-ステージの隅にあるコンセントと抜けたプラグを差し直す[p]
-
-#思い出1導入
-電源が入り、あかりが一部復旧する[p]
+; 会話パートの読み込み
+[call storage="Conversation/episode1.ks" target="*Introduction"]
 
 *StageRoom
 [messageFalse]

@@ -17,11 +17,8 @@
 [ChangeBackGround storage="episode3/bedroom.png" time="2000" method="vanishIn"]
 
 [messageTrue]
-#思い出3導入
-次の部屋はここみたいだね[p]
-
-#思い出3導入
-布団を探そう！そして寝よう！[p]
+; 会話パートの読み込み
+[call storage="Conversation/episode3.ks" target="*Introduction"]
 
 *BedRoom
 [messageFalse]
