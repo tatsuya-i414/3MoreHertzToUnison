@@ -179,7 +179,7 @@
   [messageFalse]
 [endif]
 [ChangeBackGround storage="episode1/disconnectedwiring.png"]
-[clickJudgment x="760" y="380" width="350" height="150" target="*SearchWiringDoor_Decision"]
+[clickJudgment x="575" y="485" width="745" height="105" target="*SearchWiringDoor_Decision"]
 ; 戻るボタン
 [BackFromEnlargedMap target="*SearchWiringDoor_back"]
 [s]
@@ -392,8 +392,8 @@
   [clearfix]
   ; アイテムメニューボタンを再度表示する
   [ItemMenuButton]
-  [ChangeBackGround storage="episode1/cable.png"]
-  [clickJudgment x="820" y="390" width="300" height="300" target="*GetCable"]
+  [ChangeBackGround storage="episode1/cablebundle.png"]
+  [clickJudgment x="25" y="1" width="1820" height="1000" target="*GetCable"]
   ; 戻るボタン
   [BackFromEnlargedMap target="*DialUnlock_back"]
 [endif]

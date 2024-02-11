@@ -160,7 +160,7 @@
     [layer2True]
     [if exp="f.isCableGet == 1"]
         [eval exp="tf.usingItemInventory2 = 1"]
-        [image storage="../image/kari/cable.png" layer="2" x="1770" y="100" visible="true" name="cable"]
+        [image storage="../image/episode1/cable.png" layer="2" x="1770" y="100" width="70" height="70" visible="true" name="cable"]
     [endif]
     [if exp="f.isDriverGet == 1"]
         [eval exp="tf.usingItemInventory1 = 1"]

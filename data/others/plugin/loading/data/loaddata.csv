@@ -4,7 +4,7 @@ fgimage\chara\miyuki,normal.png
 image\kari,itemmenu_icon.png
 image\kari,inventory.png
 
-image\kari,cable.png
+image\kari,mike.png
 image\kari,hunger.png
 image\kari,pencil.png
 image\kari,blueblock.png
@@ -21,7 +21,7 @@ bgimage\episode1,controlpanel.png
 bgimage\episode1,dial.png
 bgimage\episode1,disconnectedwiring.png
 bgimage\episode1,connectedwiring.png
-bgimage\episode1,cable.png
+bgimage\episode1,cablebundle.png
 image\episode1\controlpanel,controlpanel_button_notpush.png
 image\episode1\controlpanel,controlpanel_button_push.png
 image\episode1\controlpanel,controlpanel_complete.png
@@ -38,6 +38,7 @@ image\episode1\dial,dialnumber_6.png
 image\episode1\dial,dialnumber_7.png
 image\episode1\dial,dialnumber_8.png
 image\episode1\dial,dialnumber_9.png
+image\episode1,cable.png
 image\episode1,driver_item.png
 image\episode1,driver_stage.png
 image\episode1,lightcover_item.png
