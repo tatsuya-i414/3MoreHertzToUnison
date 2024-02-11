@@ -251,9 +251,8 @@
 
 *IncorrectItemOfCable
 [FreeItemBox]
-#
-このアイテムは違うようだ。[p]
-[jump target="*SelectItemOfCable"]
+[MessageToUsingWrongItem]
+[JumpStageRoom]
 
 *SearchToolBox
 [Freelayer1]
@@ -494,9 +493,8 @@
 *IncorrectItemOfLightCover
 [FreeItemBox]
 [messageTrue]
-#
-このアイテムは違うようだ。[p]
-[jump target="*SelectItemOfLightCover"]
+[MessageToUsingWrongItem]
+[JumpStageRoom]
 
 *GetLightCover
 ; アイテムを獲得する効果音を追加
@@ -566,6 +564,5 @@
 *IncorrectItemOfDriver
 [FreeItemBox]
 [messageTrue]
-#
-このアイテムは違うようだ。[p]
-[jump target="*SelectItemOfDriver"]
+[MessageToUsingWrongItem]
+[JumpStageRoom]

@@ -216,9 +216,8 @@
 
 *IncorrectItemOfPencil
 [FreeItemBox]
-#
-このアイテムは違うようだ。[p]
-[jump target="*SelectItemOfPencil"]
+[MessageToUsingWrongItem]
+[JumpStudioRoom]
 
 *SearchMakeBox
 [eval exp="f.isPencilGet = 1"]
@@ -624,6 +623,5 @@
 
 *IncorrectItemOfCurtain
 [FreeItemBox]
-#
-このアイテムは違うようだ。[p]
-[jump target="*SelectItemOfCurtain"]
+[MessageToUsingWrongItem]
+[JumpStudioRoom]
