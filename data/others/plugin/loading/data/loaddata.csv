@@ -12,6 +12,7 @@ image\kari,redblock.png
 image\kari,greenblock.png
 image\kari,dress.png
 image\kari,curtain.png
+image\kari,compass.png
 
 bgimage\kari,omoide1_introduction.jpg
 
@@ -59,3 +60,7 @@ image\kari,blue.png
 image\kari,red.png
 image\kari,green.png
 bgimage\epidode2,dressandcurtain.png
+
+bgimage\episode3,bedroom.png
+bgimage\episode3,boxkey.png
+bgimage\episode3,poster.png

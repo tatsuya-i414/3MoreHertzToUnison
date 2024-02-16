@@ -198,6 +198,10 @@
         [eval exp="tf.usingItemInventory5 = 1"]
         [image storage="../image/kari/curtain.png" layer="2" x="1770" y="325" visible="true" name="curtain"]
     [endif]
+    [if exp="f.isCompassGet == 1"]
+        [eval exp="tf.usingItemInventory2 = 1"]
+        [image storage="../image/kari/compass.png" layer="2" x="1770" y="100" visible="true" name="compass"]
+    [endif]
 [endmacro]
 
 ; 画面右上のアイテムボックスを表示する
@@ -229,6 +233,7 @@
     [free layer="2" name="greenblock"]
     [free layer="2" name="dress"]
     [free layer="2" name="curtain"]
+    [free layer="2" name="compass"]
 [endmacro]
 
 ; アイテム使用時のクリック判定
