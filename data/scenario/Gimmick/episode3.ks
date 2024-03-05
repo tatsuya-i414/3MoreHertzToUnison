@@ -42,6 +42,8 @@
 [endif]
 ; 張り紙
 [clickJudgment x="755" y="260" width="150" height="155" target="*SearchPoster"]
+; 帽子
+[clickJudgment x="1100" y="495" width="120" height="100" target="*SearchHat"]
 [s]
 
 *SearchBed
@@ -187,5 +189,13 @@
 [s]
 
 *SearchPoster_back
-[FreeItemBox]
+[JumpBedRoom]
+
+*SearchHat
+[ChangeBackGround storage="episode3/hut.png"]
+; 戻るボタン
+[BackFromEnlargedMap target="*SearchHat_back"]
+[s]
+
+*SearchHat_back
 [JumpBedRoom]
