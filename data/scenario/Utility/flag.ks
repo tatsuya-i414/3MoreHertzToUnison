@@ -23,7 +23,7 @@
 [eval exp="f.isEpisode3Clear = 0"]
 [eval exp="f.isFutonGet = 0"]
 [eval exp="f.isCompassGet = 0"]
-[eval exp="f.isJumperGet = 0"]
+[eval exp="f.isJacketGet = 0"]
 [eval exp="f.isJutanOpen = 0"]
 [eval exp="f.isRoomLightNight = 0"]
 ; デバッグページで編集不可
