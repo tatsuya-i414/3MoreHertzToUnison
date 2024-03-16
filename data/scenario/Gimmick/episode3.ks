@@ -26,7 +26,7 @@
 [layer2True]
 
 ; 背景
-[if exp="f.isJacketGet == -1 && f.isRoomLightNight == 0"]
+[if exp="f.isJacketGet == -1 && f.isJutanOpen == 0 && f.isRoomLightNight == 0"]
     ; ジャケットをハンガーに掛けた後
     [ChangeBackGround storage="episode3/bedroom_jacketishanging.png"]
 [elsif exp="f.isJutanOpen == 1 && f.isRoomLightNight == 0"]
