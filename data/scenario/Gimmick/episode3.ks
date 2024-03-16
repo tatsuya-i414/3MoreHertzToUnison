@@ -26,8 +26,15 @@
 [layer2True]
 
 ; 背景
-[if exp="f.isJacketGet == -1"]
+[if exp="f.isJacketGet == -1 && f.isRoomLightNight == 0"]
+    ; ジャケットをハンガーに掛けた後
     [ChangeBackGround storage="episode3/bedroom_jacketishanging.png"]
+[elsif exp="f.isJutanOpen == 1 && f.isRoomLightNight == 0"]
+    [ChangeBackGround storage="episode3/bedroom_jutanturnedup_noon.png"]
+[elsif exp="f.isJutanOpen == 1 && f.isRoomLightNight == 1"]
+    [ChangeBackGround storage="episode3/bedroom_jutanturnedup_night.png"]
+[elsif exp="f.isJutanOpen == 0 && f.isRoomLightNight == 1"]
+    [ChangeBackGround storage="episode3/bedroom_night.png"]
 [else]
     [ChangeBackGround storage="episode3/bedroom.png"]
 [endif]
@@ -56,6 +63,10 @@
 [if exp="f.isJacketGet == 1"]
     [clickJudgment x="1560" y="220" width="200" height="170" target="*SearchHunger"]
 [endif]
+; 絨毯
+[clickJudgment x="1370" y="800" width="150" height="150" target="*SearchJutan"]
+; 昼夜切り替えスイッチ
+[clickJudgment x="1450" y="345" width="75" height="85" target="*SearchRoomLight"]
 [s]
 
 *SearchBed
@@ -267,4 +278,20 @@
 [FreeItemBox]
 [messageTrue]
 [MessageToUsingWrongItem]
+[JumpBedRoom]
+
+*SearchJutan
+[if exp="f.isJutanOpen == 0"]
+    [eval exp="f.isJutanOpen = 1"]
+[elsif exp="f.isJutanOpen == 1"]
+    [eval exp="f.isJutanOpen = 0"]
+[endif]
+[JumpBedRoom]
+
+*SearchRoomLight
+[if exp="f.isRoomLightNight == 0"]
+    [eval exp="f.isRoomLightNight = 1"]
+[elsif exp="f.isRoomLightNight == 1"]
+    [eval exp="f.isRoomLightNight = 0"]
+[endif]
 [JumpBedRoom]
