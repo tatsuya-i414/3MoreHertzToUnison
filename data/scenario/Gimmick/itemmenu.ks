@@ -74,6 +74,10 @@
     [eval exp="tf.usingItemInventory2 = 1"]
     [image storage="../image/kari/compass.png" layer="2" x="310" y="350" width="140" height="140" visible="true" name="compass"]
 [endif]
+[if exp="f.isJacketGet == 1"]
+    [eval exp="tf.usingItemInventory3 = 1"]
+    [image storage="../image/kari/jacket.png" layer="2" x="460" y="350" width="140" height="140" visible="true" name="jacket"]
+[endif]
 ; 特別アイテム
 [if exp="f.isMikeGet == 1"]
     [eval exp="tf.usingItemInventory8 = 1"]

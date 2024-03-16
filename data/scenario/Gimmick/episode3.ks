@@ -26,7 +26,18 @@
 [layer2True]
 
 ; 背景
-[ChangeBackGround storage="episode3/bedroom.png"]
+[if exp="f.isJacketGet == -1 && f.isJutanOpen == 0 && f.isRoomLightNight == 0"]
+    ; ジャケットをハンガーに掛けた後
+    [ChangeBackGround storage="episode3/bedroom_jacketishanging.png"]
+[elsif exp="f.isJutanOpen == 1 && f.isRoomLightNight == 0"]
+    [ChangeBackGround storage="episode3/bedroom_jutanturnedup_noon.png"]
+[elsif exp="f.isJutanOpen == 1 && f.isRoomLightNight == 1"]
+    [ChangeBackGround storage="episode3/bedroom_jutanturnedup_night.png"]
+[elsif exp="f.isJutanOpen == 0 && f.isRoomLightNight == 1"]
+    [ChangeBackGround storage="episode3/bedroom_night.png"]
+[else]
+    [ChangeBackGround storage="episode3/bedroom.png"]
+[endif]
 
 ; アイテムメニュー
 [ItemMenuButton]
@@ -42,6 +53,20 @@
 [endif]
 ; 張り紙
 [clickJudgment x="755" y="260" width="150" height="155" target="*SearchPoster"]
+; 帽子
+[clickJudgment x="1100" y="495" width="120" height="100" target="*SearchHat"]
+; ジャケット
+[if exp="f.isJacketGet == 0"]
+    [clickJudgment x="1570" y="750" width="170" height="140" target="*GetJacket"]
+[endif]
+; 備え付けハンガー
+[if exp="f.isJacketGet == 1"]
+    [clickJudgment x="1560" y="220" width="200" height="170" target="*SearchHunger"]
+[endif]
+; 絨毯
+[clickJudgment x="1370" y="800" width="150" height="150" target="*SearchJutan"]
+; 昼夜切り替えスイッチ
+[clickJudgment x="1450" y="345" width="75" height="85" target="*SearchRoomLight"]
 [s]
 
 *SearchBed
@@ -187,5 +212,86 @@
 [s]
 
 *SearchPoster_back
+[JumpBedRoom]
+
+*SearchHat
+[ChangeBackGround storage="episode3/hut.png"]
+; 戻るボタン
+[BackFromEnlargedMap target="*SearchHat_back"]
+[s]
+
+*SearchHat_back
+[JumpBedRoom]
+
+*GetJacket
+[eval exp="f.isJacketGet = 1"]
+; アイテムを獲得する効果音を追加
+[layer3True]
+[ShowNormalSakuraAndMiyuki]
+[messageTrue]
+#深雪と桜良
+片付けよっか[p]
+[messageFalse]
+[layer3False]
+[JumpBedRoom]
+
+*SearchHunger
+[if exp="f.isJacketGet == 1"]
+    *SelectItemOfJacket
+    [messageFalse]
+    [if exp="f.isUsing == 0"]
+        [eval exp="f.isUsing = 1"]
+    [else]
+        [eval exp="f.isUsing = 0"]
+        [FreeItemBox]
+    [endif]
+    [if exp="f.isUsing == 1"]
+        [ItemBox]
+        [SelectItemClickable target_1="*NotUseJacket" target_2="*NotUseJacket" target_3="*UseJacket" target_4="*NotUseJacket" target_5="*NotUseJacket" target_6="*NotUseJacket" target_7="*NotUseJacket"]
+    [endif]
+    [JumpBedRoom]
+[else]
+    [JumpBedRoom]
+[endif]
+
+*UseJacket
+[messageTrue]
+[ConfirmUseItem]
+[YesNoButton target_yes="*ValidItemOfJacket" target_no="*SelectItemOfJacket"]
+[s]
+
+*NotUseJacket
+[messageTrue]
+[ConfirmUseItem]
+[YesNoButton target_yes="*IncorrectItemOfJacket" target_no="*SelectItemOfJacket"]
+[s]
+
+*ValidItemOfJacket
 [FreeItemBox]
+[messageFalse]
+[eval exp="f.isJacketGet = -1"]
+[free layer="1" name="jacket"]
+[blackout exp="f.isJacketGet = -1" storage_1="episode3/bedroom_jacketishanging.png" storage_2="episode3/bedroom.png"]
+[JumpBedRoom]
+
+*IncorrectItemOfJacket
+[FreeItemBox]
+[messageTrue]
+[MessageToUsingWrongItem]
+[JumpBedRoom]
+
+*SearchJutan
+[if exp="f.isJutanOpen == 0"]
+    [eval exp="f.isJutanOpen = 1"]
+[elsif exp="f.isJutanOpen == 1"]
+    [eval exp="f.isJutanOpen = 0"]
+[endif]
+[JumpBedRoom]
+
+*SearchRoomLight
+[if exp="f.isRoomLightNight == 0"]
+    [eval exp="f.isRoomLightNight = 1"]
+[elsif exp="f.isRoomLightNight == 1"]
+    [eval exp="f.isRoomLightNight = 0"]
+[endif]
 [JumpBedRoom]
