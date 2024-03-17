@@ -3,17 +3,22 @@ fgimage\chara\miyuki,normal.png
 
 image\kari,itemmenu_icon.png
 image\kari,inventory.png
-
 image\kari,mike.png
 image\kari,hunger.png
 image\kari,pencil.png
 image\kari,blueblock.png
 image\kari,redblock.png
 image\kari,greenblock.png
+image\kari,blue.png
+image\kari,red.png
+image\kari,green.png
 image\kari,dress.png
 image\kari,curtain.png
 image\kari,compass.png
+image\kari,jacket.png
+image\kari,futon.png
 
+bgimage\kari,itemmenu.jpg
 bgimage\kari,omoide1_introduction.jpg
 
 bgimage\episode1,stageroom.png
@@ -56,11 +61,13 @@ image\episode2,hunger.png
 bgimage\epidode2,papernotletter.png
 bgimage\epidode2,paperletter.png
 bgimage\epidode2,chest.png
-image\kari,blue.png
-image\kari,red.png
-image\kari,green.png
 bgimage\epidode2,dressandcurtain.png
 
 bgimage\episode3,bedroom.png
+bgimage\episode3,bedroom_jacketishanging.png
+bgimage\episode3,bedroom_jutanturnedup_night.png
+bgimage\episode3,bedroom_jutanturnedup_noon.png
+bgimage\episode3,bedroom_night.png
 bgimage\episode3,boxkey.png
+bgimage\episode3,hut.png
 bgimage\episode3,poster.png
