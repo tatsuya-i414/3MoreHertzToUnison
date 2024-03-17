@@ -206,6 +206,10 @@
         [eval exp="tf.usingItemInventory3 = 1"]
         [image storage="../image/kari/jacket.png" layer="2" x="1770" y="175" visible="true" name="jacket"]
     [endif]
+    [if exp="f.isFutonGet == 1"]
+        [eval exp="tf.usingItemInventory4 = 1"]
+        [image storage="../image/kari/futon.png" layer="2" x="1770" y="250" visible="true" name="futon"]
+    [endif]
 [endmacro]
 
 ; 画面右上のアイテムボックスを表示する
@@ -239,6 +243,7 @@
     [free layer="2" name="curtain"]
     [free layer="2" name="compass"]
     [free layer="2" name="jacket"]
+    [free layer="2" name="futon"]
 [endmacro]
 
 ; アイテム使用時のクリック判定

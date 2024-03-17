@@ -39,14 +39,15 @@
     [ChangeBackGround storage="episode3/bedroom.png"]
 [endif]
 
-; アイテムメニュー
-[ItemMenuButton]
+; 背景パーツ
 
 ; クリック判定
 ; ベッド
 [clickJudgment x="610" y="460" width="160" height="60" target="*SearchBed"]
 ; 収納ボックス
-[clickJudgment x="35" y="625" width="570" height="375" target="*SearchBox"]
+[if exp="f.isFutonGet == 0"]
+    [clickJudgment x="35" y="625" width="570" height="375" target="*SearchBox"]
+[endif]
 ; 鞄（コンパス）
 [if exp="f.isCompassGet == 0"]
     [clickJudgment x="650" y="530" width="290" height="330" target="*GetCompass"]
@@ -67,6 +68,9 @@
 [clickJudgment x="1370" y="800" width="150" height="150" target="*SearchJutan"]
 ; 昼夜切り替えスイッチ
 [clickJudgment x="1450" y="345" width="75" height="85" target="*SearchRoomLight"]
+
+; アイテムメニュー
+[ItemMenuButton]
 [s]
 
 *SearchBed
@@ -79,15 +83,25 @@
     [messageFalse]
     [layer3False]
     [JumpBedRoom]
-[elsif exp="f.isFutonGet == 1"]
+[elsif exp="f.isFutonGet == 1 && f.isRoomLightNight == 0"]
     [layer3True]
     [ShowNormalSakuraAndMiyuki]
     [messageTrue]
     #深雪と桜良
-    後述[p]
+    明るくて眠れないよ[p]
     [messageFalse]
     [layer3False]
     [JumpBedRoom]
+[elsif exp="f.isFutonGet == 1 && f.isRoomLightNight == 1"]
+    [layer3True]
+    [ShowNormalSakuraAndMiyuki]
+    [messageTrue]
+    #深雪と桜良
+    思い出3のエンドイベント[p]
+    [messageFalse]
+    [layer3False]
+    [eval exp="f.isEpisode3Clear = 1"]
+    [s]
 [endif]
 
 *SearchBox
@@ -143,6 +157,9 @@
 *SearchBox_back
 [FreeItemBox]
 [free layer="1" name="compass_set"]
+; 押したボタンの順番を初期化
+[eval exp="f.arrayElementsCount = 0"]
+[eval exp="f.buttonPushOrder = []"]
 [JumpBedRoom]
 
 *ValidItemOfCompass
@@ -150,7 +167,9 @@
 [messageFalse]
 [eval exp="f.isCompassGet = -1"]
 ; コンパスをはめこむ効果音を追加
-; ボタン押下時の処理に移動
+; 押したボタンの順番を記録する配列を宣言
+[eval exp="f.arrayElementsCount = 0"]
+[eval exp="f.buttonPushOrder = []"]
 [jump target="*PushBoxKeyButton"]
 [s]
 
@@ -160,32 +179,60 @@
 [JumpBedRoom]
 
 *PushTopButton
-[messageTrue]
-#
-上矢印ボタンを押下時の処理[p]
-[messageFalse]
-[jump target="*PushBoxKeyButton"]
+[if exp="f.arrayElementsCount <= 4"]
+    [eval exp="f.buttonPushOrder[f.arrayElementsCount] = 'N' "]
+    [eval exp="f.arrayElementsCount = f.arrayElementsCount + 1"]
+    [call target="*BoxUnlock"]
+    [jump target="*PushBoxKeyButton"]
+[endif]
 
 *PushUnderButton
-[messageTrue]
-#
-下矢印ボタンを押下時の処理[p]
-[messageFalse]
-[jump target="*PushBoxKeyButton"]
+[if exp="f.arrayElementsCount <= 4"]
+    [eval exp="f.buttonPushOrder[f.arrayElementsCount] = 'S' "]
+    [eval exp="f.arrayElementsCount = f.arrayElementsCount + 1"]
+    [call target="*BoxUnlock"]
+    [jump target="*PushBoxKeyButton"]
+[endif]
 
 *PushLeftButton
-[messageTrue]
-#
-左矢印ボタンを押下時の処理[p]
-[messageFalse]
-[jump target="*PushBoxKeyButton"]
+[if exp="f.arrayElementsCount <= 4"]
+    [eval exp="f.buttonPushOrder[f.arrayElementsCount] = 'W' "]
+    [eval exp="f.arrayElementsCount = f.arrayElementsCount + 1"]
+    [call target="*BoxUnlock"]
+    [jump target="*PushBoxKeyButton"]
+[endif]
 
 *PushRightButton
-[messageTrue]
-#
-右矢印ボタンを押下時の処理[p]
-[messageFalse]
-[jump target="*PushBoxKeyButton"]
+[if exp="f.arrayElementsCount <= 4"]
+    [eval exp="f.buttonPushOrder[f.arrayElementsCount] = 'E' "]
+    [eval exp="f.arrayElementsCount = f.arrayElementsCount + 1"]
+    [call target="*BoxUnlock"]
+    [jump target="*PushBoxKeyButton"]
+[endif]
+
+*BoxUnlock
+[if exp="f.arrayElementsCount == 5"]
+    [if exp="f.buttonPushOrder[0] == 'N' && f.buttonPushOrder[1] == 'W' && f.buttonPushOrder[2] == 'E' && f.buttonPushOrder[3] == 'N' && f.buttonPushOrder[4] == 'S' "]
+        ; 開錠する時の効果音を追加
+        ; アイテムを獲得する効果音を追加
+        [eval exp="f.isFutonGet = 1"]
+        [free layer="1" name="compass_set"]
+        [iscript]
+            delete f.arrayElementsCount;
+            delete f.buttonPushOrder;
+        [endscript]
+        [JumpBedRoom]
+    [else]
+        [messageTrue]
+        #
+        ボタンを押す順番が違うようだ[p]
+        [messageFalse]
+        ; 押したボタンの順番を初期化
+        [eval exp="f.arrayElementsCount = 0"]
+        [eval exp="f.buttonPushOrder = []"]
+    [endif]
+[endif]
+[return]
 
 *GetCompass
 [layer3True]
