@@ -393,7 +393,8 @@
   ; アイテムメニューボタンを再度表示する
   [ItemMenuButton]
   [ChangeBackGround storage="episode1/cablebundle.png"]
-  [clickJudgment x="25" y="1" width="1820" height="1000" target="*GetCable"]
+  [image storage="../image/episode1/cable.png" layer="1" x="500" y="115" width="800" height="800" name="cable"]
+  [clickJudgment x="500" y="115" width="800" height="800" target="*GetCable"]
   ; 戻るボタン
   [BackFromEnlargedMap target="*DialUnlock_back"]
 [endif]
@@ -405,12 +406,14 @@
   delete f.centerNum;
   delete f.rightNum;
 [endscript]
+[free layer="1" name="cable"]
 ; アイテムを獲得する効果音を追加
 [eval exp="f.isCableGet = 1"]
 [JumpStageRoom]
 
 *DialUnlock_back
 [clearfix]
+[free layer="1" name="cable"]
 [JumpStageRoom]
 
 *GetDriver
