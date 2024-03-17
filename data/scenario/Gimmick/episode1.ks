@@ -1,15 +1,14 @@
 *start
 [cm]
 [clearfix]
+[clearstack]
 [start_keyconfig]
 
 ; ゲームデータを先に読み込む
-[if exp="sf.loadData == 'false' "]
-    [call storage="Plugin/loadingshow.ks"]
-[endif]
+[call storage="Plugin/loadingshow.ks" cond="sf.loadData == 'false' "]
 ; メッセージウインドウとキャラクター情報の読み込み
+[call storage="Utility/settings.ks" cond="sf.isLoadSetting == 'false' "]
 [if exp="sf.isLoadSetting == 'false' "]
-  [call storage="Utility/settings.ks"]
   [eval exp="sf.isLoadSetting = 'true' "]
 [endif]
 
@@ -137,8 +136,6 @@
   [free layer="1" name="light_redlamp"]
   [free layer="1" name="speaker_greenlamp"]
   [free layer="1" name="speaker_redlamp"]
-  ; 思い出2へ移動する
-  [jump storage="Gimmick/episode2.ks" target="*start"]
 [else]
   [layer3True]
   [ShowNormalSakuraAndMiyuki]
@@ -157,6 +154,8 @@
   [free layer="1" name="speaker_redlamp"]
   [JumpStageRoom]
 [endif]
+; 思い出2へ移動する
+[jump storage="Gimmick/episode2.ks" target="*start" cond="f.isStageStatusGreen == 1 && f.isLightStatusGreen == 1 && f.isSpeakerStatusGreen == 1"]
 
 *SearchControlPanel_back
 ; 画像を削除する
@@ -263,9 +262,8 @@
   [button graphic="episode1/dial/dialnumber_0.png" x="1250" y="400" width="200" height="400" exp="f.rightNum = 0" fix="true" target="*RightDialTurn"]
   ; 戻るボタン
   [BackFromEnlargedMap target="*SearchToolBox_back"]
-[else]
-  [call target="*DialUnlock"]
 [endif]
+[call target="*DialUnlock" cond="f.leftNum != 4 && f.centerNum != 5 && f.rightNum != 6"]
 [s]
 
 *SearchToolBox_back

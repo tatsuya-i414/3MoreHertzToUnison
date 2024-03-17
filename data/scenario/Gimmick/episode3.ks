@@ -1,15 +1,14 @@
 *start
 [cm]
 [clearfix]
+[clearstack]
 [start_keyconfig]
 
 ; ゲームデータを先に読み込む
-[if exp="sf.loadData == 'false' "]
-    [call storage="Plugin/loadingshow.ks"]
-[endif]
+[call storage="Plugin/loadingshow.ks" cond="sf.loadData == 'false' "]
 ; メッセージウインドウとキャラクター情報の読み込み
+[call storage="Utility/settings.ks" cond="sf.isLoadSetting == 'false' "]
 [if exp="sf.isLoadSetting == 'false' "]
-  [call storage="Utility/settings.ks"]
   [eval exp="sf.isLoadSetting = 'true' "]
 [endif]
 
@@ -182,33 +181,33 @@
 [if exp="f.arrayElementsCount <= 4"]
     [eval exp="f.buttonPushOrder[f.arrayElementsCount] = 'N' "]
     [eval exp="f.arrayElementsCount = f.arrayElementsCount + 1"]
-    [call target="*BoxUnlock"]
-    [jump target="*PushBoxKeyButton"]
 [endif]
+[call target="*BoxUnlock" cond="f.arrayElementsCount <= 4"]
+[jump target="*PushBoxKeyButton" cond="f.arrayElementsCount <= 4"]
 
 *PushUnderButton
 [if exp="f.arrayElementsCount <= 4"]
     [eval exp="f.buttonPushOrder[f.arrayElementsCount] = 'S' "]
     [eval exp="f.arrayElementsCount = f.arrayElementsCount + 1"]
-    [call target="*BoxUnlock"]
-    [jump target="*PushBoxKeyButton"]
 [endif]
+[call target="*BoxUnlock" cond="f.arrayElementsCount <= 4"]
+[jump target="*PushBoxKeyButton" cond="f.arrayElementsCount <= 4"]
 
 *PushLeftButton
 [if exp="f.arrayElementsCount <= 4"]
     [eval exp="f.buttonPushOrder[f.arrayElementsCount] = 'W' "]
     [eval exp="f.arrayElementsCount = f.arrayElementsCount + 1"]
-    [call target="*BoxUnlock"]
-    [jump target="*PushBoxKeyButton"]
 [endif]
+[call target="*BoxUnlock" cond="f.arrayElementsCount <= 4"]
+[jump target="*PushBoxKeyButton" cond="f.arrayElementsCount <= 4"]
 
 *PushRightButton
 [if exp="f.arrayElementsCount <= 4"]
     [eval exp="f.buttonPushOrder[f.arrayElementsCount] = 'E' "]
     [eval exp="f.arrayElementsCount = f.arrayElementsCount + 1"]
-    [call target="*BoxUnlock"]
-    [jump target="*PushBoxKeyButton"]
 [endif]
+[call target="*BoxUnlock" cond="f.arrayElementsCount <= 4"]
+[jump target="*PushBoxKeyButton" cond="f.arrayElementsCount <= 4"]
 
 *BoxUnlock
 [if exp="f.arrayElementsCount == 5"]

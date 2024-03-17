@@ -174,9 +174,8 @@ tf.savetext = "<span style='font-size:10px'>"+tf.save_date+"</span><br />"+tf.ti
         ;システムボタンを非表示にするなど
         [hidemenubutton]
         
-        @jump storage="replay.ks" 
-        
     [endif]
+	[jump storage="replay.ks" cond="tf.flag_replay == true"]
 
 [endmacro]
 
