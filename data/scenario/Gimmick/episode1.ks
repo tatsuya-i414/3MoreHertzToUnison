@@ -33,7 +33,7 @@
   [ChangeBackGround storage="episode1/stageroom.png"]
 [endif]
 
-; 背景（パーツ部分）
+; 背景パーツ
 ; ライト
 [if exp="f.isLightStatusGreen == 1"]
   [image storage="../image/episode1/lightcover_mount.png" layer="1" x="670" y="20" name="light"]

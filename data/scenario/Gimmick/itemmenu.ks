@@ -78,6 +78,10 @@
     [eval exp="tf.usingItemInventory3 = 1"]
     [image storage="../image/kari/jacket.png" layer="2" x="460" y="350" width="140" height="140" visible="true" name="jacket"]
 [endif]
+[if exp="f.isFutonGet == 1"]
+    [eval exp="tf.usingItemInventory4 = 1"]
+    [image storage="../image/kari/futon.png" layer="2" x="610" y="350" width="140" height="128" visible="true" name="futon"]
+[endif]
 ; 特別アイテム
 [if exp="f.isMikeGet == 1"]
     [eval exp="tf.usingItemInventory8 = 1"]
