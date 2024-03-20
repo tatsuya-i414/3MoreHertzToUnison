@@ -33,50 +33,46 @@
 [endif]
 
 ; 背景パーツ
-; 紙
-[if exp="f.isPaperDown == 1"]
-    [image storage="../image/episode2/paper.png" layer="1" x="600" y="730" width="95" height="100" name="paper"]
-[endif]
 ; ブロック
 [if exp="f.isBlueBlockGet == 0 && f.isRedBlockGet == 0 && f.isGreenBlockGet == 0"]
-    [image storage="../image/episode2/block.png" layer="1" x="590" y="890" name="block"]
+    [image storage="../image/episode2/block.png" layer="1" x="280" y="550" name="block"]
 [endif]
 ; カーテン
 [if exp="f.isCurtainGet == -1"]
-    [image storage="../image/episode2/curtain.png" layer="1" x="1380" y="350" name="curtain"]
+    [image storage="../image/episode2/curtain.png" layer="1" x="238" y="227" name="curtain"]
 [endif]
 
 ; クリック判定
 ; カメラ
-[clickJudgment x="850" y="490" width="250" height="170" target="*SearchCamera"]
+[clickJudgment x="860" y="330" width="210" height="160" target="*SearchCamera"]
 ; 天幕
 [if exp="f.isTentDown == 0"]
-    [clickJudgment x="610" y="170" width="720" height="80" target="*SearchTent"]
+    [clickJudgment x="770" y="80" width="550" height="40" target="*SearchTent"]
 [endif]
 ; ハンガー
 [if exp="f.isHungerGet == 0"]
-    [image storage="../image/episode2/hunger.png" layer="1" x="1530" y="370" width="125" height="130" name="hunger"]
-    [clickJudgment x="1530" y="390" width="130" height="90" target="*GetHunger"]
+    [image storage="../image/episode2/hunger.png" layer="1" x="186" y="409" name="hunger"]
+    [clickJudgment x="185" y="410" width="100" height="80" target="*GetHunger"]
 [endif]
 ; 紙
 [if exp="f.isTentDown == 1"]
-    [clickJudgment x="600" y="730" width="100" height="100" target="*SearchPaper"]
+    [clickJudgment x="690" y="840" width="110" height="90" target="*SearchPaper"]
 [endif]
 ; メイクボックス
 [if exp="f.isPencilGet == 0"]
-    [clickJudgment x="1660" y="680" width="185" height="130" target="*SearchMakeBox"]
+    [clickJudgment x="1740" y="590" width="150" height="150" target="*SearchMakeBox"]
 [endif]
 ; ブロック
 [if exp="f.isBlueBlockGet == 0 && f.isRedBlockGet == 0 && f.isGreenBlockGet == 0"]
-    [clickJudgment x="590" y="890" width="100" height="75" target="*GetBlock"]
+    [clickJudgment x="280" y="570" width="90" height="55" target="*GetBlock"]
 [endif]
 ; タンス
 [if exp="f.isDressGet == 0 || f.isCurtainGet == 0"]
-    [clickJudgment x="205" y="680" width="65" height="40" target="*SearchChest"]
+    [clickJudgment x="1395" y="475" width="50" height="30" target="*SearchChest"]
 [endif]
 ; 簡易着替え場所
 [if exp="f.isHungerGet != 0 && f.isCurtainGet != -1 && f.isDressGet != -1"]
-    [clickJudgment x="1400" y="360" width="250" height="480" target="*SearchFittingRoom"]
+    [clickJudgment x="140" y="210" width="135" height="750" target="*SearchFittingRoom"]
 [endif]
 
 ; アイテムメニュー
@@ -128,6 +124,7 @@
     針金ハンガーでひっぱり出せたよ！[p]
     [messageFalse]
     [layer3False]
+    ; 何かを下ろす効果音を追加
     [eval exp="f.isHungerGet = -1"]
     [eval exp="f.isTentDown = 1"]
     [eval exp="f.isPaperDown = 1"]
@@ -135,6 +132,7 @@
 [endif]
 
 *GetHunger
+; アイテムを獲得する効果音を追加
 [eval exp="f.isHungerGet = 1"]
 [free layer="1" name="hunger"]
 [JumpStudioRoom]
@@ -195,6 +193,7 @@
 *ValidItemOfPencil
 [FreeItemBox]
 [ChangeBackGround storage="episode2/paperletter.png" time="2000" method="fadeIn"]
+; ペンで何かを書いている効果音を追加
 [layer3True]
 [ShowNormalSakuraAndMiyuki]
 [messageTrue]
@@ -215,6 +214,7 @@
 [JumpStudioRoom]
 
 *GetBlock
+; アイテムを獲得する効果音を追加
 [eval exp="f.isBlueBlockGet = 1"]
 [eval exp="f.isRedBlockGet = 1"]
 [eval exp="f.isGreenBlockGet = 1"]
@@ -232,7 +232,6 @@
     [eval exp="f.leftDimple = '' "]
     [eval exp="f.centerDimple = '' "]
     [eval exp="f.rightDimple = '' "]
-
     [Freelayer1]
     [ChangeBackGround storage="episode2/chest.png"]
     *SelectItemOfBlock
@@ -435,54 +434,49 @@
 [jump target="*SelectItemOfBlock"]
 
 *LeftDimple
+; ブロックをはめる効果音を追加
 [if exp="f.isBlockColor == 'blue' "]
-    ; ブロックをはめる効果音
     [image storage="../image/kari/blue.png" layer="1" x="700" y="490" width="185" height="150" name="blue"]
     [eval exp="f.leftDimple = 'blue' "]
 [elsif exp="f.isBlockColor == 'red' "]
-    ; ブロックをはめる効果音
     [image storage="../image/kari/red.png" layer="1" x="700" y="490" width="185" height="150" name="red"]
     [eval exp="f.leftDimple = 'red' "]
 [elsif exp="f.isBlockColor == 'green' "]
-    ; ブロックをはめる効果音
     [image storage="../image/kari/green.png" layer="1" x="700" y="490" width="185" height="150" name="green"]
     [eval exp="f.leftDimple = 'green' "]
 [endif]
 [call target="*OpenChest"]
 
 *CenterDimple
+; ブロックをはめる効果音を追加
 [if exp="f.isBlockColor == 'blue' "]
-    ; ブロックをはめる効果音
     [image storage="../image/kari/blue.png" layer="1" x="895" y="490" width="185" height="150" name="blue"]
     [eval exp="f.centerDimple = 'blue' "]
 [elsif exp="f.isBlockColor == 'red' "]
-    ; ブロックをはめる効果音
     [image storage="../image/kari/red.png" layer="1" x="895" y="490" width="185" height="150" name="red"]
     [eval exp="f.centerDimple = 'red' "]
 [elsif exp="f.isBlockColor == 'green' "]
-    ; ブロックをはめる効果音
     [image storage="../image/kari/green.png" layer="1" x="895" y="490" width="185" height="150" name="green"]
     [eval exp="f.centerDimple = 'green' "]
 [endif]
 [call target="*OpenChest"]
 
 *RightDimple
+; ブロックをはめる効果音を追加
 [if exp="f.isBlockColor == 'blue' "]
-    ; ブロックをはめる効果音
     [image storage="../image/kari/blue.png" layer="1" x="1080" y="490" width="185" height="150" name="blue"]
     [eval exp="f.rightDimple = 'blue' "]
 [elsif exp="f.isBlockColor == 'red' "]
-    ; ブロックをはめる効果音
     [image storage="../image/kari/red.png" layer="1" x="1080" y="490" width="185" height="150" name="red"]
     [eval exp="f.rightDimple = 'red' "]
 [elsif exp="f.isBlockColor == 'green' "]
-    ; ブロックをはめる効果音
     [image storage="../image/kari/green.png" layer="1" x="1080" y="490" width="185" height="150" name="green"]
     [eval exp="f.rightDimple = 'green' "]
 [endif]
 [call target="*OpenChest"]
 
 *OpenChest
+; チェストのドアを開ける効果音を追加
 [if exp="f.leftDimple == 'red' && f.centerDimple == 'blue' && f.rightDimple == 'green' "]
     [FreeItemBox]
     [free layer="1" name="blue"]
@@ -518,6 +512,7 @@
 [return]
 
 *GetDress
+; アイテムを獲得する効果音を追加
 [layer3True]
 [ShowNormalSakuraAndMiyuki]
 [messageTrue]
@@ -530,6 +525,7 @@
 [jump target="*GetDressAndCurtain"]
 
 *GetCurtain
+; アイテムを獲得する効果音を追加
 [eval exp="f.isCurtainGet = 1"]
 [free layer="1" name="curtain"]
 [jump target="*GetDressAndCurtain"]
