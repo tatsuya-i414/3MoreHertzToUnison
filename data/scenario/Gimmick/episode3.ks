@@ -231,6 +231,7 @@
         [eval exp="f.buttonPushOrder = []"]
     [endif]
 [endif]
+[jump target="*PushBoxKeyButton" cond="f.buttonPushOrder[0] != 'N' && f.buttonPushOrder[1] != 'W' && f.buttonPushOrder[2] != 'E' && f.buttonPushOrder[3] != 'N' && f.buttonPushOrder[4] != 'S' "]
 [return]
 
 *GetCompass
