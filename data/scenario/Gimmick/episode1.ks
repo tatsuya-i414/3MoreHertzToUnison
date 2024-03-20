@@ -46,7 +46,7 @@
 
 ; クリック判定
 ; 制御盤
-[if exp="f.isEpisode1Clear == 0"]
+[if exp="f.isEpisode1Clear == 0 && f.isUsing == 0"]
   [clickJudgment x="200" y="530" width="140" height="130" target="*SearchControlPanel"]
 [endif]
 ; 配線扉
@@ -58,7 +58,7 @@
   [clickJudgment x="1580" y="630" width="160" height="130" target="*SearchToolBox"]
 [endif]
 ; ドライバー
-[if exp="f.isStageStatusGreen == 1 && f.isDriverGet == 0""]
+[if exp="f.isStageStatusGreen == 1 && f.isDriverGet == 0 && f.isUsing == 0"]
   [image storage="../image/episode1/driver_stage.png" layer="2" x="740" y="520" name="driver"]
   [clickJudgment x="740" y="520" width="185" height="50" target="*GetDriver"]
 [endif]
@@ -67,7 +67,7 @@
   [clickJudgment x="710" y="40" width="60" height="60" target="*SearchLight"]
 [endif]
 ; ライトカバー
-[if exp="f.isLightCoverGet == 0"]
+[if exp="f.isLightCoverGet == 0 && f.isUsing == 0"]
   [image storage="../image/episode1/lightcover_item.png" layer="1" x="450" y="770" name="lightcover"]
   [clickJudgment x="450" y="770" width="150" height="150" target="*GetLightCover"]
 [endif]
@@ -263,7 +263,7 @@
   ; 戻るボタン
   [BackFromEnlargedMap target="*SearchToolBox_back"]
 [endif]
-[call target="*DialUnlock" cond="f.leftNum != 4 && f.centerNum != 5 && f.rightNum != 6"]
+[call target="*DialUnlock" cond="f.leftNum == 4 && f.centerNum == 5 && f.rightNum == 6"]
 [s]
 
 *SearchToolBox_back
