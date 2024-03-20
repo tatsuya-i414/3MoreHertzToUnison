@@ -5,7 +5,7 @@
 #思い出2導入
 カメラを調べる......[p]
 
-[ChangeBackGround storage="epidode2/cameramonitor.png" time="1000" method="zoomIn"]
+[ChangeBackGround storage="episode2/cameramonitor.png" time="1000" method="zoomIn"]
 
 #思い出2導入
 写真を撮ればいいのかな？[p]

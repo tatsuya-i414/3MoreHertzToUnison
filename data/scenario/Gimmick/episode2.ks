@@ -13,7 +13,7 @@
 [endif]
 
 @showmenubutton
-[ChangeBackGround storage="epidode2/studioroom.png" time="2000" method="vanishIn"]
+[ChangeBackGround storage="episode2/studioroom.png" time="2000" method="vanishIn"]
 
 [messageTrue]
 ; 会話パートの読み込み
@@ -27,9 +27,9 @@
 ; 背景
 [if exp="f.isHungerGet == -1"]
     ; 天幕降下後
-    [ChangeBackGround storage="epidode2/tentdown.png"]
+    [ChangeBackGround storage="episode2/studioroom_tentdown.png"]
 [else]
-    [ChangeBackGround storage="epidode2/studioroom.png"]  
+    [ChangeBackGround storage="episode2/studioroom.png"]  
 [endif]
 
 ; 背景パーツ
@@ -85,7 +85,7 @@
 
 *SearchCamera
 [layer1False]
-[ChangeBackGround storage="epidode2/cameramonitor.png" time="1000" method="zoomIn"]
+[ChangeBackGround storage="episode2/cameramonitor.png" time="1000" method="zoomIn"]
 [if exp="f.isTentDown == 1 && f.isDressGet == -1"]
     [layer3True]
     [ShowNormalSakuraAndMiyuki]
@@ -142,7 +142,7 @@
 *SearchPaper
 [if exp="f.isTentDown == 1 && f.isPencilGet == 1"]
     [Freelayer1]
-    [ChangeBackGround storage="epidode2/papernotletter.png"]
+    [ChangeBackGround storage="episode2/papernotletter.png"]
     *SelectItemOfPencil
     [messageFalse]
     [eval exp="f.isUsing = 1"]
@@ -154,7 +154,7 @@
     [s]
 [elsif exp="f.isTentDown == 1 && f.isPencilGet == -1"]
     [layer1False]
-    [ChangeBackGround storage="epidode2/paperletter.png"]
+    [ChangeBackGround storage="episode2/paperletter.png"]
     [layer3True]
     [ShowNormalSakuraAndMiyuki]
     [messageTrue]
@@ -165,7 +165,7 @@
     [JumpStudioRoom]
 [else]
     [layer1False]
-    [ChangeBackGround storage="epidode2/papernotletter.png"]
+    [ChangeBackGround storage="episode2/papernotletter.png"]
     [layer3True]
     [ShowNormalSakuraAndMiyuki]
     [messageTrue]
@@ -194,7 +194,7 @@
 
 *ValidItemOfPencil
 [FreeItemBox]
-[ChangeBackGround storage="epidode2/paperletter.png" time="2000" method="fadeIn"]
+[ChangeBackGround storage="episode2/paperletter.png" time="2000" method="fadeIn"]
 [layer3True]
 [ShowNormalSakuraAndMiyuki]
 [messageTrue]
@@ -234,7 +234,7 @@
     [eval exp="f.rightDimple = '' "]
 
     [Freelayer1]
-    [ChangeBackGround storage="epidode2/chest.png"]
+    [ChangeBackGround storage="episode2/chest.png"]
     *SelectItemOfBlock
     ; ブロックの配置が正しくない場合はリセットする
     [if exp="f.leftDimple != '' && f.centerDimple != '' && f.rightDimple != '' "]
@@ -490,7 +490,7 @@
     [free layer="1" name="green"]
     [eval exp="f.isKeyOpen = 1"]
     *GetDressAndCurtain
-    [ChangeBackGround storage="epidode2/dressandcurtain.png"]
+    [ChangeBackGround storage="episode2/dressandcurtain.png"]
     ; 衣装
     [if exp="f.isDressGet == 0"]
         [clickJudgment x="230" y="150" width="690" height="510" target="*GetDress"]
@@ -599,7 +599,7 @@
 [messageFalse]
 [layer3False]
 
-[blackout exp="f.isHungerGet == -1" storage_1="epidode2/tentdown.png" storage_2="epidode2/studioroom.png"]
+[blackout exp="f.isHungerGet == -1" storage_1="episode2/studioroom_tentdown.png" storage_2="episode2/studioroom.png"]
 
 ; ごそごそ物音がする効果音を追加
 [layer3True]
