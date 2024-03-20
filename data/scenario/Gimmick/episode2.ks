@@ -1,15 +1,14 @@
 *start
 [cm]
 [clearfix]
+[clearstack]
 [start_keyconfig]
 
 ; ゲームデータを先に読み込む
-[if exp="sf.loadData == 'false' "]
-    [call storage="Plugin/loadingshow.ks"]
-[endif]
+[call storage="Plugin/loadingshow.ks" cond="sf.loadData == 'false' "]
 ; メッセージウインドウとキャラクター情報の読み込み
+[call storage="Utility/settings.ks" cond="sf.isLoadSetting == 'false' "]
 [if exp="sf.isLoadSetting == 'false' "]
-  [call storage="Utility/settings.ks"]
   [eval exp="sf.isLoadSetting = 'true' "]
 [endif]
 
@@ -98,8 +97,6 @@
     [eval exp="f.isEpisode2Clear = 1"]
     [free layer="1" name="paper"]
     [free layer="1" name="curtain"]
-    ; 思い出3へ移動する
-    [jump storage="Gimmick/episode3.ks" target="*start"]
 [else]
     [layer3True]
     [ShowNormalSakuraAndMiyuki]
@@ -110,6 +107,8 @@
     [layer3False]
     [JumpStudioRoom]
 [endif]
+; 思い出3へ移動する
+[jump storage="Gimmick/episode3.ks" target="*start" cond="f.isTentDown == 1 && f.isDressGet == -1"]
 
 *SearchTent
 [if exp="f.isHungerGet == 0"]
@@ -225,8 +224,8 @@
 *SearchChest
 [if exp="f.isKeyOpen == 1"]
     [layer1False]
-    [jump target="*GetDressAndCurtain"]
 [endif]
+[jump target="*GetDressAndCurtain" cond="f.isKeyOpen == 1"]
 [if exp="f.isDressGet == 0 && f.isCurtainGet == 0"]
     ; 判定用変数を宣言
     [eval exp="f.isBlockColor = '' "]

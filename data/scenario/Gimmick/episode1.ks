@@ -1,15 +1,14 @@
 *start
 [cm]
 [clearfix]
+[clearstack]
 [start_keyconfig]
 
 ; ゲームデータを先に読み込む
-[if exp="sf.loadData == 'false' "]
-    [call storage="Plugin/loadingshow.ks"]
-[endif]
+[call storage="Plugin/loadingshow.ks" cond="sf.loadData == 'false' "]
 ; メッセージウインドウとキャラクター情報の読み込み
+[call storage="Utility/settings.ks" cond="sf.isLoadSetting == 'false' "]
 [if exp="sf.isLoadSetting == 'false' "]
-  [call storage="Utility/settings.ks"]
   [eval exp="sf.isLoadSetting = 'true' "]
 [endif]
 
@@ -47,7 +46,7 @@
 
 ; クリック判定
 ; 制御盤
-[if exp="f.isEpisode1Clear == 0"]
+[if exp="f.isEpisode1Clear == 0 && f.isUsing == 0"]
   [clickJudgment x="200" y="530" width="140" height="130" target="*SearchControlPanel"]
 [endif]
 ; 配線扉
@@ -59,7 +58,7 @@
   [clickJudgment x="1580" y="630" width="160" height="130" target="*SearchToolBox"]
 [endif]
 ; ドライバー
-[if exp="f.isStageStatusGreen == 1 && f.isDriverGet == 0""]
+[if exp="f.isStageStatusGreen == 1 && f.isDriverGet == 0 && f.isUsing == 0"]
   [image storage="../image/episode1/driver_stage.png" layer="2" x="740" y="520" name="driver"]
   [clickJudgment x="740" y="520" width="185" height="50" target="*GetDriver"]
 [endif]
@@ -68,7 +67,7 @@
   [clickJudgment x="710" y="40" width="60" height="60" target="*SearchLight"]
 [endif]
 ; ライトカバー
-[if exp="f.isLightCoverGet == 0"]
+[if exp="f.isLightCoverGet == 0 && f.isUsing == 0"]
   [image storage="../image/episode1/lightcover_item.png" layer="1" x="450" y="770" name="lightcover"]
   [clickJudgment x="450" y="770" width="150" height="150" target="*GetLightCover"]
 [endif]
@@ -137,8 +136,6 @@
   [free layer="1" name="light_redlamp"]
   [free layer="1" name="speaker_greenlamp"]
   [free layer="1" name="speaker_redlamp"]
-  ; 思い出2へ移動する
-  [jump storage="Gimmick/episode2.ks" target="*start"]
 [else]
   [layer3True]
   [ShowNormalSakuraAndMiyuki]
@@ -157,6 +154,8 @@
   [free layer="1" name="speaker_redlamp"]
   [JumpStageRoom]
 [endif]
+; 思い出2へ移動する
+[jump storage="Gimmick/episode2.ks" target="*start" cond="f.isStageStatusGreen == 1 && f.isLightStatusGreen == 1 && f.isSpeakerStatusGreen == 1"]
 
 *SearchControlPanel_back
 ; 画像を削除する
@@ -263,9 +262,8 @@
   [button graphic="episode1/dial/dialnumber_0.png" x="1250" y="400" width="200" height="400" exp="f.rightNum = 0" fix="true" target="*RightDialTurn"]
   ; 戻るボタン
   [BackFromEnlargedMap target="*SearchToolBox_back"]
-[else]
-  [call target="*DialUnlock"]
 [endif]
+[call target="*DialUnlock" cond="f.leftNum == 4 && f.centerNum == 5 && f.rightNum == 6"]
 [s]
 
 *SearchToolBox_back

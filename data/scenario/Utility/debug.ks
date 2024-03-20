@@ -5,8 +5,8 @@
 [cm]
 
 ; メッセージウインドウとキャラクター情報の読み込み
+[call storage="Utility/settings.ks" cond="sf.isLoadSetting == 'false' "]
 [if exp="sf.isLoadSetting == 'false' "]
-  [call storage="Utility/settings.ks"]
   [eval exp="sf.isLoadSetting = 'true' "]
 [endif]
 

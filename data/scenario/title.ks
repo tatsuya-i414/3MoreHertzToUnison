@@ -18,15 +18,9 @@
 *gamestart
 [screen_full]
 ; デバッグ用に追加
-[if exp="f.isEpisode1Clear == 0"]
-    [jump storage="Gimmick/episode1.ks"]
-[elsif exp="f.isEpisode1Clear == 1 && f.isEpisode2Clear == 0"]
-    [jump storage="Gimmick/episode2.ks"]
-[elsif exp="f.isEpisode1Clear == 1 && f.isEpisode2Clear == 1"]
-    [jump storage="Gimmick/episode3.ks"]
-[endif]
+[jump storage="Gimmick/episode1.ks" cond="f.isEpisode1Clear == 0"]
+[jump storage="Gimmick/episode2.ks" cond="f.isEpisode1Clear == 1 && f.isEpisode2Clear == 0"]
+[jump storage="Gimmick/episode3.ks" cond="f.isEpisode1Clear == 1 && f.isEpisode2Clear == 1"]
 
 *debug
-[if exp="f.mode == 'develop' "]
-    [jump storage="Utility/debug.ks"]
-[endif]
+[jump storage="Utility/debug.ks" cond="f.mode == 'develop' "]
