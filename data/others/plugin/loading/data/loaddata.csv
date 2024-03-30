@@ -5,12 +5,6 @@ image\kari,itemmenu_icon.png
 image\kari,inventory.png
 image\kari,mike.png
 image\kari,pencil.png
-image\kari,blueblock.png
-image\kari,redblock.png
-image\kari,greenblock.png
-image\kari,blue.png
-image\kari,red.png
-image\kari,green.png
 image\kari,dress.png
 image\kari,compass.png
 image\kari,jacket.png
@@ -57,10 +51,13 @@ bgimage\episode2,papernotletter.png
 bgimage\episode2,paperletter.png
 bgimage\episode2,chest.png
 bgimage\episode2,dressandcurtain.png
-image\episode2,paper.png
 image\episode2,curtain.png
 image\episode2,hunger.png
+image\episode2,paper.png
 image\episode2,block.png
+image\episode2,blueblock.png
+image\episode2,greenblock.png
+image\episode2,redblock.png
 
 bgimage\episode3,bedroom.png
 bgimage\episode3,bedroom_jacketishanging.png
