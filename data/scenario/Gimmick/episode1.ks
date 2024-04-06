@@ -14,6 +14,7 @@
 
 @showmenubutton
 [ChangeBackGround storage="kari/omoide1_introduction.jpg" time="2000" method="vanishIn"]
+[BacklogButton]
 
 [messageTrue]
 ; 会話パートの読み込み
@@ -124,8 +125,10 @@
 [if exp="f.isStageStatusGreen == 1 && f.isLightStatusGreen == 1 && f.isSpeakerStatusGreen == 1"]
   [messageTrue]
   ; 思い出1の会話パートを追加する
+  [nolog]
   #
   思い出1の会話パート[p]
+  [endnolog]
   [eval exp="f.isMikeGet = 1"]
   [eval exp="f.isEpisode1Clear = 1"]
   [free layer="1" name="controlpanel_button"]
@@ -140,8 +143,10 @@
   [layer3True]
   [ShowNormalSakuraAndMiyuki]
   [messageTrue]
+  [nolog]
   #深雪と桜良
   この3つを何とかしないといけない[p]
+  [endnolog]
   [layer3False]
   ; 画像を削除する
   [free layer="1" name="controlpanel_button"]
@@ -188,16 +193,20 @@
   [layer3True]
   [ShowNormalSakuraAndMiyuki]
   [messageTrue]
+  [nolog]
   #深雪と桜良
   修理をしないといけないね[p]
+  [endnolog]
   [layer3False]
   [JumpStageRoom]
 [else]
   [layer3True]
   [ShowNormalSakuraAndMiyuki]
   [messageTrue]
+  [nolog]
   #深雪と桜良
   あの配線を使えばいいんじゃない？[p]
+  [endnolog]
   [layer3False]
   *SelectItemOfCable
   [messageFalse]
@@ -231,8 +240,10 @@
 [FreeItemBox]
 [eval exp="f.isCableGet = -1"]
 [free layer="2" name="cable"]
+[nolog]
 #
 先ほど手に入れた配線でちぎれた配線を直す[p]
+[endnolog]
 ; ケーブルを繋ぎ合わせる効果音を追加
 [ChangeBackGround storage="episode1/connectedwiring.png"]
 ; 舞台がせり上がる効果音
@@ -240,8 +251,10 @@
 ; 制御盤の「舞台」の欄が緑になったことを知らせる効果音
 [layer3True]
 [ShowNormalSakuraAndMiyuki]
+[nolog]
 #深雪と桜良
 クリアしたね[p]
+[endnolog]
 [layer3False]
 [JumpStageRoom]
 
@@ -425,24 +438,30 @@
   [layer3True]
   [ShowNormalSakuraAndMiyuki]
   [messageTrue]
+  [nolog]
   #深雪と桜良
   高すぎて調べられないね[p]
+  [endnolog]
   [layer3False]
   [JumpStageRoom]
 [elsif exp="f.isStageStatusGreen == 1 && f.isLightCoverGet == 0"]
   [layer3True]
   [ShowNormalSakuraAndMiyuki]
   [messageTrue]
+  [nolog]
   #深雪と桜良
   ライトを直すにはアイテムが必要そうだ[p]
+  [endnolog]
   [layer3False]
   [JumpStageRoom]
 [elsif exp="f.isStageStatusGreen == 1"]
   [layer3True]
   [ShowNormalSakuraAndMiyuki]
   [messageTrue]
+  [nolog]
   #深雪と桜良
   舞台が上がったおかげで調べられるね！[p]
+  [endnolog]
   [layer3False]
   *SelectItemOfLightCover
   [messageFalse]
@@ -476,15 +495,19 @@
 [eval exp="f.isLightCoverGet = -1"]
 [free layer="2" name="lightcover"]
 [messageTrue]
+[nolog]
 #
 先ほど手に入れたライトカバーをライトにはめる[p]
+[endnolog]
 ; 修理をする効果音を追加
 [eval exp="f.isLightStatusGreen = 1"]
 ; 制御盤の「照明」の欄が緑になったことを知らせる効果音
 [layer3True]
 [ShowNormalSakuraAndMiyuki]
+[nolog]
 #深雪と桜良
 クリアしたね[p]
+[endnolog]
 [layer3False]
 [JumpStageRoom]
 
@@ -505,16 +528,20 @@
   [layer3True]
   [ShowNormalSakuraAndMiyuki]
   [messageTrue]
+  [nolog]
   #深雪と桜良
   ネジが緩んでいるみたいだね[p]
+  [endnolog]
   [layer3False]
   [JumpStageRoom]
 [elsif exp="f.isDriverGet == 1"]
   [layer3True]
   [ShowNormalSakuraAndMiyuki]
   [messageTrue]
+  [nolog]
   #深雪と桜良
   さっきの道具が使えないかな[p]
+  [endnolog]
   [layer3False]
   *SelectItemOfDriver
   [messageFalse]
@@ -546,16 +573,20 @@
 *ValidItemOfDriver
 [FreeItemBox]
 [messageTrue]
+[nolog]
 #
 先ほど手に入れたドライバーを使用してスピーカーの傾きを直す[p]
+[endnolog]
 ; ドライバーを回す効果音を追加
 [eval exp="f.isSpeakerStatusGreen = 1"]
 [free layer="1" name="speaker"]
 ; 制御盤の「スピーカー」の欄が緑になったことを知らせる効果音
 [layer3True]
 [ShowNormalSakuraAndMiyuki]
+[nolog]
 #深雪と桜良
 クリアしたね[p]
+[endnolog]
 [layer3False]
 [JumpStageRoom]
 

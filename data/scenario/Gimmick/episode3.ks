@@ -14,6 +14,7 @@
 
 @showmenubutton
 [ChangeBackGround storage="episode3/bedroom.png" time="2000" method="vanishIn"]
+[BacklogButton]
 
 [messageTrue]
 ; 会話パートの読み込み
@@ -77,8 +78,10 @@
     [layer3True]
     [ShowNormalSakuraAndMiyuki]
     [messageTrue]
+    [nolog]
     #深雪と桜良
     布団がいるね[p]
+    [endnolog]
     [messageFalse]
     [layer3False]
     [JumpBedRoom]
@@ -86,8 +89,10 @@
     [layer3True]
     [ShowNormalSakuraAndMiyuki]
     [messageTrue]
+    [nolog]
     #深雪と桜良
     明るくて眠れないよ[p]
+    [endnolog]
     [messageFalse]
     [layer3False]
     [JumpBedRoom]
@@ -95,8 +100,10 @@
     [layer3True]
     [ShowNormalSakuraAndMiyuki]
     [messageTrue]
+    [nolog]
     #深雪と桜良
     思い出3のエンドイベント[p]
+    [endnolog]
     [messageFalse]
     [layer3False]
     [eval exp="f.isEpisode3Clear = 1"]
@@ -134,8 +141,10 @@
     [layer3True]
     [ShowNormalSakuraAndMiyuki]
     [messageTrue]
+    [nolog]
     #深雪と桜良
     ボタン押せないね、何かはめられそう[p]
+    [endnolog]
     [messageFalse]
     [layer3False]
     [JumpBedRoom]
@@ -223,8 +232,10 @@
         [JumpBedRoom]
     [else]
         [messageTrue]
+        [nolog]
         #
         ボタンを押す順番が違うようだ[p]
+        [endnolog]
         [messageFalse]
         ; 押したボタンの順番を初期化
         [eval exp="f.arrayElementsCount = 0"]
@@ -238,8 +249,10 @@
 [layer3True]
 [ShowNormalSakuraAndMiyuki]
 [messageTrue]
+[nolog]
 #深雪と桜良
 コンパスだ！[p]
+[endnolog]
 [messageFalse]
 [layer3False]
 [eval exp="f.isCompassGet = 1"]
@@ -250,8 +263,10 @@
 [layer3True]
 [ShowNormalSakuraAndMiyuki]
 [messageTrue]
+[nolog]
 #深雪と桜良
 何かの順番かな？[p]
+[endnolog]
 [messageFalse]
 [layer3False]
 ; 戻るボタン
@@ -276,8 +291,10 @@
 [layer3True]
 [ShowNormalSakuraAndMiyuki]
 [messageTrue]
+[nolog]
 #深雪と桜良
 片付けよっか[p]
+[endnolog]
 [messageFalse]
 [layer3False]
 [JumpBedRoom]
