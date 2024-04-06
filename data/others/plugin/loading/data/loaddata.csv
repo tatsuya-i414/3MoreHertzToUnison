@@ -45,8 +45,8 @@ image\episode1,speaker_afterrepair.png
 image\episode1,speaker_beforerepair.png
 
 bgimage\episode2,studioroom.png
-bgimage\episode2,cameramonitor.png
 bgimage\episode2,studioroom_tentdown.png
+bgimage\episode2,cameramonitor.png
 bgimage\episode2,papernotletter.png
 bgimage\episode2,paperletter.png
 bgimage\episode2,chest.png
