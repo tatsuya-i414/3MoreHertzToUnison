@@ -321,6 +321,11 @@
 ; その他共通処理
 ; ------------------------------
 
+; バックログボタン
+[macro name="BacklogButton"]
+    [button graphic="kari/backlog_icon.png" x="1850" y="930" fix="true" role="backlog"]
+[endmacro]
+
 ; アイテムメニューボタン
 [macro name="ItemMenuButton"]
     [button graphic="kari/itemmenu_icon.png" storage="Gimmick/itemmenu.ks" target="*ItemMenu" x="1850" y="930" fix="true" role="sleepgame"]

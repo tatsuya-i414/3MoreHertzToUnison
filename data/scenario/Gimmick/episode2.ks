@@ -14,6 +14,7 @@
 
 @showmenubutton
 [ChangeBackGround storage="episode2/studioroom.png" time="2000" method="vanishIn"]
+[BacklogButton]
 
 [messageTrue]
 ; 会話パートの読み込み
@@ -86,8 +87,10 @@
     [layer3True]
     [ShowNormalSakuraAndMiyuki]
     [messageTrue]
+    [nolog]
     #
     思い出2の長会話イベント[p]
+    [endnolog]
     [messageFalse]
     [layer3False]
     [eval exp="f.isEpisode2Clear = 1"]
@@ -97,8 +100,10 @@
     [layer3True]
     [ShowNormalSakuraAndMiyuki]
     [messageTrue]
+    [nolog]
     #深雪と桜良
     天幕と衣装がいるよね[p]
+    [endnolog]
     [messageFalse]
     [layer3False]
     [JumpStudioRoom]
@@ -111,8 +116,10 @@
     [layer3True]
     [ShowNormalSakuraAndMiyuki]
     [messageTrue]
+    [nolog]
     #深雪と桜良
     高すぎて届かない、何かないかな？[p]
+    [endnolog]
     [messageFalse]
     [layer3False]
     [JumpStudioRoom]
@@ -120,8 +127,10 @@
     [layer3True]
     [ShowNormalSakuraAndMiyuki]
     [messageTrue]
+    [nolog]
     #深雪と桜良
     針金ハンガーでひっぱり出せたよ！[p]
+    [endnolog]
     [messageFalse]
     [layer3False]
     ; 何かを下ろす効果音を追加
@@ -156,8 +165,10 @@
     [layer3True]
     [ShowNormalSakuraAndMiyuki]
     [messageTrue]
+    [nolog]
     #深雪と桜良
     何か浮かび上がった！[p]
+    [endnolog]
     [messageFalse]
     [layer3False]
     [JumpStudioRoom]
@@ -167,8 +178,10 @@
     [layer3True]
     [ShowNormalSakuraAndMiyuki]
     [messageTrue]
+    [nolog]
     #深雪と桜良
     何も書かれてないね！[p]
+    [endnolog]
     [messageFalse]
     [layer3False]
     [JumpStudioRoom]
@@ -197,8 +210,10 @@
 [layer3True]
 [ShowNormalSakuraAndMiyuki]
 [messageTrue]
+[nolog]
 #深雪と桜良
 何か浮かび上がった！[p]
+[endnolog]
 [messageFalse]
 [layer3False]
 [eval exp="f.isPencilGet = -1"]
@@ -426,8 +441,10 @@
 
 *IncorrectItemOfBlock
 [FreeItemBox]
+[nolog]
 #
 このアイテムは使用できない。[p]
+[endnolog]
 [jump target="*SelectItemOfBlock"]
 
 *LeftDimple
@@ -511,8 +528,10 @@
 [layer3True]
 [ShowNormalSakuraAndMiyuki]
 [messageTrue]
+[nolog]
 #深雪と桜良
 この衣装ってあれだよね[p]
+[endnolog]
 [messageFalse]
 [layer3False]
 [eval exp="f.isDressGet = 1"]
@@ -533,8 +552,10 @@
     [layer3True]
     [ShowNormalSakuraAndMiyuki]
     [messageTrue]
+    [nolog]
     #深雪と桜良
     これってカーテンが必要だよね[p]
+    [endnolog]
     [messageFalse]
     [layer3False]
     [JumpStudioRoom]
@@ -542,8 +563,10 @@
     [layer3True]
     [ShowNormalSakuraAndMiyuki]
     [messageTrue]
+    [nolog]
     #深雪と桜良
     ドレスはここで着替えるんだろうな[p]
+    [endnolog]
     [messageFalse]
     [layer3False]
     [JumpStudioRoom]
@@ -551,8 +574,10 @@
     [layer3True]
     [ShowNormalSakuraAndMiyuki]
     [messageTrue]
+    [nolog]
     #深雪と桜良
     目隠しなしで着替えるのは恥ずかしいね[p]
+    [endnolog]
     [messageFalse]
     [layer3False]
     [JumpStudioRoom]
@@ -585,8 +610,10 @@
 [layer3True]
 [ShowNormalSakuraAndMiyuki]
 [messageTrue]
+[nolog]
 #深雪と桜良
 衣装を着よう！[p]
+[endnolog]
 [messageFalse]
 [layer3False]
 
@@ -596,8 +623,10 @@
 [layer3True]
 [ShowNormalSakuraAndMiyuki]
 [messageTrue]
+[nolog]
 #深雪と桜良
 衣装に着替えた！[p]
+[endnolog]
 [messageFalse]
 [layer3False]
 [eval exp="f.isDressGet = -1"]
