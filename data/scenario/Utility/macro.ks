@@ -337,8 +337,10 @@
 [endmacro]
 
 ; 通常のクリック判定
+; 動作モードにより領域の透明度が異なる（開発者モード：灰色 / プレイヤーモード：透明）
 [macro name="clickJudgment"]
-    [clickable x="%x" y="%y" width="%width" height="%height" target="%target" opacity="30" mouseopacity="50" color="0x505050"]
+    [clickable x="%x" y="%y" width="%width" height="%height" target="%target" opacity="30" mouseopacity="50" color="0x505050" cond="f.mode == 'develop' "]
+    [clickable x="%x" y="%y" width="%width" height="%height" target="%target" opacity="0" mouseopacity="0" color="0x505050" cond="f.mode == 'play' "]
 [endmacro]
 
 [return]

@@ -1,4 +1,5 @@
 *start
+[title name="novel-escape｜思い出1"]
 [cm]
 [clearfix]
 [clearstack]
