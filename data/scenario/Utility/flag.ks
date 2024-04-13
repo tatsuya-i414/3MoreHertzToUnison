@@ -28,6 +28,7 @@
 [eval exp="f.isJacketGet = 0"]
 [eval exp="f.isJutanOpen = 0"]
 [eval exp="f.isRoomLightNight = 0"]
+[eval exp="f.isYoukanGet = 0"]
 
 ; デバッグページで編集不可
 [eval exp="f.isUsing = 0"]

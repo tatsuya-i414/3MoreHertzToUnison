@@ -91,6 +91,10 @@
     [eval exp="tf.usingItemInventory9 = 1"]
     [image storage="../image/kari/dress.png" layer="2" x="310" y="680" width="140" height="140" visible="true" name="dress_special"]
 [endif]
+[if exp="f.isYoukanGet == 1"]
+    [eval exp="tf.usingItemInventory10 = 1"]
+    [image storage="../image/kari/youkan.png" layer="2" x="460" y="680" width="140" height="140" visible="true" name="youkan"]
+[endif]
 [s]
 
 *Scenario_Back

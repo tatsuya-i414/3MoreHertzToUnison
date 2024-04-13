@@ -106,6 +106,8 @@
     [endnolog]
     [messageFalse]
     [layer3False]
+    [eval exp="f.isFutonGet = -1"]
+    [eval exp="f.isYoukanGet = 1"]
     [eval exp="f.isEpisode3Clear = 1"]
     [s]
 [endif]
@@ -220,6 +222,20 @@
 
 *BoxUnlock
 [if exp="f.arrayElementsCount == 5"]
+    ; ジャケットをハンガーに掛ける前に布団を獲得できないようにする例外処理
+    [if exp="f.isJacketGet != -1"]
+        [messageTrue]
+        [nolog]
+        #
+        開錠することができないようだ[p]
+        [endnolog]
+        [messageFalse]
+        ; 押したボタンの順番を初期化
+        [eval exp="f.arrayElementsCount = 0"]
+        [eval exp="f.buttonPushOrder = []"]
+        [free layer="1" name="compass_set"]
+        [JumpBedRoom]
+    [endif]
     [if exp="f.buttonPushOrder[0] == 'N' && f.buttonPushOrder[1] == 'W' && f.buttonPushOrder[2] == 'E' && f.buttonPushOrder[3] == 'N' && f.buttonPushOrder[4] == 'S' "]
         ; 開錠する時の効果音を追加
         ; アイテムを獲得する効果音を追加
