@@ -36,7 +36,7 @@
 ; 背景パーツ
 ; ブロック
 [if exp="f.isBlueBlockGet == 0 && f.isRedBlockGet == 0 && f.isGreenBlockGet == 0"]
-    [image storage="../image/episode2/block.png" layer="1" x="280" y="550" name="block"]
+    [image storage="../image/episode2/block.png" layer="1" x="295" y="527" name="block"]
 [endif]
 ; カーテン
 [if exp="f.isCurtainGet == -1"]
@@ -65,7 +65,7 @@
 [endif]
 ; ブロック
 [if exp="f.isBlueBlockGet == 0 && f.isRedBlockGet == 0 && f.isGreenBlockGet == 0"]
-    [clickJudgment x="280" y="570" width="90" height="55" target="*GetBlock"]
+    [clickJudgment x="295" y="527" width="100" height="100" target="*GetBlock"]
 [endif]
 ; タンス
 [if exp="f.isDressGet == 0 || f.isCurtainGet == 0"]
@@ -313,7 +313,7 @@
 [s]
 
 *ReturnLeftSideBlock
-[if exp="f.f.dimple[0] == 'blue' "]
+[if exp="f.dimple[0] == 'blue' "]
     [if exp="f.isBlueBlockGet == -1"]
         [eval exp="tf.usingItemInventory4 = 1"]
         [eval exp="f.isBlueBlockGet = 1"]

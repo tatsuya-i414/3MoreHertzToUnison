@@ -2,6 +2,7 @@ fgimage\chara\sakura,normal.png
 fgimage\chara\miyuki,normal.png
 
 image\kari,itemmenu_icon.png
+image\kari,backlog_icon.png
 image\kari,inventory.png
 image\kari,mike.png
 image\kari,pencil.png
@@ -53,8 +54,10 @@ bgimage\episode2,chest.png
 bgimage\episode2,dressandcurtain.png
 image\episode2,curtain.png
 image\episode2,hunger.png
-image\episode2,paper.png
 image\episode2,block.png
+image\episode2,blueblock_item.png
+image\episode2,greenblock_item.png
+image\episode2,redblock_item.png
 image\episode2,blueblock.png
 image\episode2,greenblock.png
 image\episode2,redblock.png
