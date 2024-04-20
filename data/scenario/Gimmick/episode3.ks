@@ -44,31 +44,31 @@
 
 ; クリック判定
 ; ベッド
-[clickJudgment x="610" y="460" width="160" height="60" target="*SearchBed"]
+[clickJudgment x="360" y="440" width="350" height="80" target="*SearchBed"]
 ; 収納ボックス
 [if exp="f.isFutonGet == 0"]
-    [clickJudgment x="35" y="625" width="570" height="375" target="*SearchBox"]
+    [clickJudgment x="295" y="705" width="315" height="178" target="*SearchBox"]
 [endif]
 ; 鞄（コンパス）
 [if exp="f.isCompassGet == 0"]
-    [clickJudgment x="650" y="530" width="290" height="330" target="*GetCompass"]
+    [clickJudgment x="740" y="640" width="150" height="225" target="*GetCompass"]
 [endif]
 ; 張り紙
-[clickJudgment x="755" y="260" width="150" height="155" target="*SearchPoster"]
+[clickJudgment x="522" y="166" width="142" height="198" target="*SearchPoster"]
 ; 帽子
-[clickJudgment x="1100" y="495" width="120" height="100" target="*SearchHat"]
+[clickJudgment x="1060" y="545" width="125" height="80" target="*SearchHat"]
 ; ジャケット
 [if exp="f.isJacketGet == 0"]
     [clickJudgment x="1570" y="750" width="170" height="140" target="*GetJacket"]
 [endif]
 ; 備え付けハンガー
 [if exp="f.isJacketGet == 1"]
-    [clickJudgment x="1560" y="220" width="200" height="170" target="*SearchHunger"]
+    [clickJudgment x="1500" y="180" width="150" height="110" target="*SearchHunger"]
 [endif]
 ; 絨毯
-[clickJudgment x="1370" y="800" width="150" height="150" target="*SearchJutan"]
+[clickJudgment x="1115" y="910" width="300" height="140" target="*SearchJutan"]
 ; 昼夜切り替えスイッチ
-[clickJudgment x="1450" y="345" width="75" height="85" target="*SearchRoomLight"]
+[clickJudgment x="1790" y="413" width="65" height="130" target="*SearchRoomLight"]
 
 ; アイテムメニュー
 [ItemMenuButton]
