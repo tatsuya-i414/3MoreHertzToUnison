@@ -1,101 +1,229 @@
-;=========================================
-; CG モード　画面作成
-;=========================================
+;===========================================================
+; CGモード画面作成
+;===========================================================
 
-@layopt layer=message0 visible=false
+; このファイルはscenarioフォルダ内に配置、
+; image フォルダ内に append_theme フォルダを配置して使用します
+; 必要に応じて枚数やページの増減をおこなってください
 
-@clearfix
+;-----------------------------------------------------------
+*start
+;-----------------------------------------------------------
+; 初期化
+[layopt layer="message0" visible="false"]
+[layopt layer="0" visible="true"]
+[layopt layer="1" visible="true"]
 [hidemenubutton]
+
+[clearfix]
 [cm]
 
-[bg storage="../../tyrano/images/system/bg_base.png" time=100]
-[layopt layer=1 visible=true]
-
-[image layer=1 left=0 top=0 storage="config/label_cg.png" folder="image" ]
+; ギャラリーモードの背景読込み
+[bg storage="../image/append_theme/gallery_bg.png" time="300"]
+[title name="&f.gameTile + '｜Gallery' "]
 
 [iscript]
-    
-    tf.page = 0;
-    tf.selected_cg_image = ""; //選択されたCGを一時的に保管
-    
+
+tf.page              = 0   // ページ番号
+tf.selected_cg_image = []  // 選択したCGの差分を格納した配列変数
+tf.cg_index          = 0   // 上の配列の要素番号
+
+tf.cg_posx = [288, 756, 1224]; // サムネイルのX座標
+tf.cg_posy = [326, 605]; // サムネイルのY座標
+tf.cg_thumbnail_width  = 432; // サムネイルの幅
+tf.cg_thumbnail_height = 243; // サムネイルの高さ
+
 [endscript]
 
+; ページネーション（ページ数が変わるときはtextの中身を修正してね）
+[macro name="pagination"]
+  [layopt layer="0" visible="true"]
+  [free layer="0" name="pagination" time="1"]
+  [ptext layer="0" name="pagination" text="&tf.page + 1 + '/3'" x="330" y="890" size="18" color="0x333333" width="1280" align="center"]
+  [endmacro]
 
+[jump target="*cgpage"]
 
+;-----------------------------------------------------------
 *cgpage
-[layopt layer=1 visible=true]
-
+;-----------------------------------------------------------
 [cm]
-[button graphic="config/menu_button_close.png" enterimg="config/menu_button_close2.png"  target="*backtitle" x=1680 y=40 ]
 
-[iscript]
-    tf.tmp_index = 0;
-    tf.cg_index = 12 * tf.page;
-    tf.top = 100;
-    tf.left = 60;
-    
-[endscript]
+; ギャラリーモード終了
+[button graphic="append_theme/gallery_close.png" enterimg="append_theme/gallery_close2.png" target="*backtitle" x="20" y="900"]
 
-[iscript]
-	tf.target_page = "page_"+tf.page;
-[endscript]
+; tf.page変数を利用して個別閲覧ボタン作成ラベルにジャンプします
+[jump target="& 'page_' + tf.page "]
 
-*cgview
-@jump target=&tf.target_page
-
+;-------------------------------------------------------
 *page_0
-[cg_image_button graphic="rouka.jpg,room.jpg,title.png" no_graphic="../../tyrano/images/system/noimage.png" x=60 y=130 width=160 height=140 folder="bgimage" ]
-[cg_image_button graphic="room.jpg" no_graphic="../../tyrano/images/system/noimage.png" x=250 y=130 width=160 height=140 folder="bgimage" ]
+;-------------------------------------------------------
 
-@jump target="*common"
+; CG閲覧モード画面1ページ目
 
+; graphic には表示する画像のファイル名
+; thumb にはサムネイルとして表示する画像のファイル名（記述がなければgraphicのファイルを指定）
+
+; 一段目
+[cg_image_button graphic="" thumb="" no_graphic="../image/append_theme/lock.png" x="&tf.cg_posx[0]" y="&tf.cg_posy[0]" width="&tf.cg_thumbnail_width" height="&tf.cg_thumbnail_height"]
+[cg_image_button graphic="" thumb="" no_graphic="../image/append_theme/lock.png" x="&tf.cg_posx[1]" y="&tf.cg_posy[0]" width="&tf.cg_thumbnail_width" height="&tf.cg_thumbnail_height"]
+[cg_image_button graphic="" thumb="" no_graphic="../image/append_theme/lock.png" x="&tf.cg_posx[2]" y="&tf.cg_posy[0]" width="&tf.cg_thumbnail_width" height="&tf.cg_thumbnail_height"]
+
+; 二段目
+[cg_image_button graphic="" thumb="" no_graphic="../image/append_theme/lock.png" x="&tf.cg_posx[0]" y="&tf.cg_posy[1]" width="&tf.cg_thumbnail_width" height="&tf.cg_thumbnail_height"]
+[cg_image_button graphic="" thumb="" no_graphic="../image/append_theme/lock.png" x="&tf.cg_posx[1]" y="&tf.cg_posy[1]" width="&tf.cg_thumbnail_width" height="&tf.cg_thumbnail_height"]
+[cg_image_button graphic="" thumb="" no_graphic="../image/append_theme/lock.png" x="&tf.cg_posx[2]" y="&tf.cg_posy[1]" width="&tf.cg_thumbnail_width" height="&tf.cg_thumbnail_height"]
+
+; 次ページへ
+[button graphic="append_theme/gallery_next.png" enterimg="append_theme/gallery_next2.png" target="*nextpage" x="1752" y="540"]
+
+; ページネーション
+[pagination]
+
+; 共通処理にジャンプ
+[jump target="*common"]
+
+;-------------------------------------------------------
+*page_1
+;-------------------------------------------------------
+; CG閲覧モード画面2ページ目
+
+; 一段目
+[cg_image_button graphic="" thumb="" no_graphic="../image/append_theme/lock.png" x="&tf.cg_posx[0]" y="&tf.cg_posy[0]" width="&tf.cg_thumbnail_width" height="&tf.cg_thumbnail_height"]
+[cg_image_button graphic="" thumb="" no_graphic="../image/append_theme/lock.png" x="&tf.cg_posx[1]" y="&tf.cg_posy[0]" width="&tf.cg_thumbnail_width" height="&tf.cg_thumbnail_height"]
+[cg_image_button graphic="" thumb="" no_graphic="../image/append_theme/lock.png" x="&tf.cg_posx[2]" y="&tf.cg_posy[0]" width="&tf.cg_thumbnail_width" height="&tf.cg_thumbnail_height"]
+
+; 二段目
+[cg_image_button graphic="" thumb="" no_graphic="../image/append_theme/lock.png" x="&tf.cg_posx[0]" y="&tf.cg_posy[1]" width="&tf.cg_thumbnail_width" height="&tf.cg_thumbnail_height"]
+[cg_image_button graphic="" thumb="" no_graphic="../image/append_theme/lock.png" x="&tf.cg_posx[1]" y="&tf.cg_posy[1]" width="&tf.cg_thumbnail_width" height="&tf.cg_thumbnail_height"]
+[cg_image_button graphic="" thumb="" no_graphic="../image/append_theme/lock.png" x="&tf.cg_posx[2]" y="&tf.cg_posy[1]" width="&tf.cg_thumbnail_width" height="&tf.cg_thumbnail_height"]
+
+
+; 前のページへ
+[button graphic="append_theme/gallery_prev.png" enterimg="append_theme/gallery_prev2.png" target="*backpage" x="150" y="540"]
+
+; 次のページへ
+[button graphic="append_theme/gallery_next.png" enterimg="append_theme/gallery_next2.png" target="*nextpage" x="1752" y="540"]
+
+[pagination]
+
+; 共通処理にジャンプ
+[jump target="*common"]
+
+;-------------------------------------------------------
+*page_2
+;-------------------------------------------------------
+; CG閲覧モード画面3ページ目
+
+; 一段目
+[cg_image_button graphic="" thumb="" no_graphic="../image/append_theme/lock.png" x="&tf.cg_posx[0]" y="&tf.cg_posy[0]" width="&tf.cg_thumbnail_width" height="&tf.cg_thumbnail_height"]
+[cg_image_button graphic="" thumb="" no_graphic="../image/append_theme/lock.png" x="&tf.cg_posx[1]" y="&tf.cg_posy[0]" width="&tf.cg_thumbnail_width" height="&tf.cg_thumbnail_height"]
+[cg_image_button graphic="" thumb="" no_graphic="../image/append_theme/lock.png" x="&tf.cg_posx[2]" y="&tf.cg_posy[0]" width="&tf.cg_thumbnail_width" height="&tf.cg_thumbnail_height"]
+
+; 二段目
+[cg_image_button graphic="" thumb="" no_graphic="../image/append_theme/lock.png" x="&tf.cg_posx[0]" y="&tf.cg_posy[1]" width="&tf.cg_thumbnail_width" height="&tf.cg_thumbnail_height"]
+[cg_image_button graphic="" thumb="" no_graphic="../image/append_theme/lock.png" x="&tf.cg_posx[1]" y="&tf.cg_posy[1]" width="&tf.cg_thumbnail_width" height="&tf.cg_thumbnail_height"]
+[cg_image_button graphic="" thumb="" no_graphic="../image/append_theme/lock.png" x="&tf.cg_posx[2]" y="&tf.cg_posy[1]" width="&tf.cg_thumbnail_width" height="&tf.cg_thumbnail_height"]
+
+
+; 前ページへ
+[button graphic="append_theme/gallery_prev.png" enterimg="append_theme/gallery_prev2.png" target="*backpage" x="150" y="540"]
+
+[pagination]
+
+; 共通処理にジャンプ
+[jump target="*common"]
+
+;-------------------------------------------------------
 *common
+;-------------------------------------------------------
 
-
-*endpage
-
-
+; 停止
 
 [s]
 
+
+;-----------------------------------------------------------
 *backtitle
-[cm]
-[freeimage layer=1]
-@jump storage=title.ks
+;-----------------------------------------------------------
+; タイトルに戻る処理
 
+; 使用したレイヤーをすべて消去
+[cm]
+[freeimage layer="0"]
+[freeimage layer="1"]
+
+; 別のシナリオにジャンプする場合はここを変更
+[jump storage="title.ks"]
+
+
+;-----------------------------------------------------------
 *nextpage
-[emb exp="tf.page++;"]
-@jump target="*cgpage"
+;-----------------------------------------------------------
+; 次のページに移る処理
 
+; 一時変数 tf.page を増加させたうえで *cgpage へ
+[eval exp="tf.page++"]
+[jump target="*cgpage"]
 
+;-----------------------------------------------------------
 *backpage
-[emb exp="tf.page--;"]
-@jump target="*cgpage"
+;-----------------------------------------------------------
+; 前のページに移る処理
 
+; 一時変数 tf.page を減少させたうえで *cgpage へ
+[eval exp="tf.page--"]
+[jump target="*cgpage"]
+
+;-----------------------------------------------------------
+*no_image
+;-----------------------------------------------------------
+; 未解放のCGをクリックしたときの処理
+[jump target="*cgpage"]
+
+;-----------------------------------------------------------
 *clickcg
+;-----------------------------------------------------------
+; 解放済みのCGをクリックしたときの処理
+
+; フリーレイヤーとレイヤー１(back)を解放します
 [cm]
+[freeimage layer="1" page="back"]
 
-[layopt layer=1 visible=false]
+; 一時変数 tf.cg_index に 0 をぶち込みます
+[eval exp="tf.cg_index = 0"]
 
-[eval exp="tf.cg_index=0"]
-
+;-------------------------------------------------------
 *cg_next_image
+;-------------------------------------------------------
+; CGを見ていきます。
+; 見るべきCGがひとつしかない場合は、それだけ見たあと *cgpage に戻ります。
+; 見るべきCGが複数ある場合(差分がある場合)は、
+; 再帰的にこのラベルに飛び直して次のCGを見ていきます。
 
-[image storage=&tf.selected_cg_image[tf.cg_index] folder="bgimage"  ]
+; 一時変数 tf.storage に表示すべきCGのstorageを代入します
+[iscript]
+tf.storage = tf.selected_cg_image[tf.cg_index];
+[endscript]
+
+; CGを表示してクリックを待ちます。
+[freeimage layer="1" page="back"]
+[image     layer="1" page="back" storage="&tf.storage" folder="bgimage" width="1280" height="720"]
+[trans     layer="1" time="700"]
+[wt]
 [l]
-[bg storage="../../tyrano/images/system/bg_base.png" time=10]
 
+; クリックされたら
+; 一時変数 tf.cg_index (差分画像がある場合の画像番号)を1増加させます。
 [eval exp="tf.cg_index++"]
 
-@jump target="cg_next_image" cond="tf.selected_cg_image.length > tf.cg_index"
+; まだ表示すべき差分画像が残っているなら、このラベルに飛びなおします。
+[if exp=" tf.selected_cg_image.length > tf.cg_index "]
+  [jump target="cg_next_image"]
 
+[else]
+  [freeimage layer="1" page="back"]
+  [freeimage layer="1" page="fore" time="700"]
+  [jump target="*cgpage"]
 
-@jump  target=*cgpage
-[s]
-
-*no_image
-
-@jump  target=*cgpage
-
-
-
+[endif]

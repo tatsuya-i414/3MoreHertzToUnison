@@ -1,3 +1,4 @@
+[title name="&f.gameTile + '｜デバッグ' "]
 [clearfix]
 [messageFalse]
 [hidemenubutton]
@@ -11,12 +12,12 @@
 [endif]
 
 *debug
-[bg storage="debug.jpg" time="100"]
+[bg storage="share/debug.png" time="100"]
 
 ; ボタン
-[button graphic="config/menu_button_close.png" enterimg="config/menu_button_close2.png" target="*backtitle" x="1680" y="40"]
-[button graphic="debug/flagdetail.png" target="*flagdetail" x="1450" y="960"]
-[button graphic="debug/save.png" target="*save" x="1680" y="960"]
+[button graphic="../others/plugin/theme_kopanda_bth_06_blue/image/config/back.png" enterimg="../others/plugin/theme_kopanda_bth_06_blue/image/config/back2.png" target="*backtitle" x="1680" y="60"]
+[glink color="bth06" target="*flagdetail" text="フラグ別詳細" x="1380" y="960" width="150" height="24" size="24" bold="true"]
+[button graphic="debug/sysbtn_02_qsave.png" enterimg="debug/sysbtn_02_qsave_hover.png" target="*save" x="1680" y="960"]
 
 ; ゲーム変数_Episode1
 [if exp="f.isEpisode1Clear == 0"]

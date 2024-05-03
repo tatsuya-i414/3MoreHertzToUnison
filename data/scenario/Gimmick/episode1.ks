@@ -1,5 +1,5 @@
 *start
-[title name="novel-escape｜思い出1"]
+[title name="&f.gameTile + '｜思い出1' "]
 [cm]
 [clearfix]
 [clearstack]
@@ -7,14 +7,12 @@
 
 ; ゲームデータを先に読み込む
 [call storage="Plugin/loadingshow.ks" cond="sf.loadData == 'false' "]
-; メッセージウインドウとキャラクター情報の読み込み
-[call storage="Utility/settings.ks" cond="sf.isLoadSetting == 'false' "]
 [if exp="sf.isLoadSetting == 'false' "]
   [eval exp="sf.isLoadSetting = 'true' "]
 [endif]
 
 @showmenubutton
-[ChangeBackGround storage="kari/omoide1_introduction.jpg" time="2000" method="vanishIn"]
+[ChangeBackGround storage="episode1/omoide1_introduction.jpg" time="2000" method="vanishIn"]
 [BacklogButton]
 
 [messageTrue]
@@ -173,6 +171,7 @@
 [free layer="1" name="light_redlamp"]
 [free layer="1" name="speaker_greenlamp"]
 [free layer="1" name="speaker_redlamp"]
+[cm]
 [JumpStageRoom]
 
 *SearchWiringDoor
@@ -234,6 +233,7 @@
 [s]
 
 *SearchWiringDoor_back
+[cm]
 [FreeItemBox]
 [JumpStageRoom]
 
@@ -286,6 +286,7 @@
   delete f.centerNum;
   delete f.rightNum;
 [endscript]
+[cm]
 [clearfix]
 [JumpStageRoom]
 
@@ -424,6 +425,7 @@
 [JumpStageRoom]
 
 *DialUnlock_back
+[cm]
 [clearfix]
 [free layer="1" name="cable"]
 [JumpStageRoom]

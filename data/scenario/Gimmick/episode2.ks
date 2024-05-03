@@ -1,5 +1,5 @@
 *start
-[title name="novel-escape｜思い出2"]
+[title name="&f.gameTile + '｜思い出2' "]
 [cm]
 [clearfix]
 [clearstack]
@@ -7,8 +7,6 @@
 
 ; ゲームデータを先に読み込む
 [call storage="Plugin/loadingshow.ks" cond="sf.loadData == 'false' "]
-; メッセージウインドウとキャラクター情報の読み込み
-[call storage="Utility/settings.ks" cond="sf.isLoadSetting == 'false' "]
 [if exp="sf.isLoadSetting == 'false' "]
   [eval exp="sf.isLoadSetting = 'true' "]
 [endif]
@@ -201,6 +199,7 @@
 [s]
 
 *SearchPaper_back
+[cm]
 [FreeItemBox]
 [JumpStudioRoom]
 
@@ -396,6 +395,7 @@
     delete f.blockColor;
     delete f.dimple;
 [endscript]
+[cm]
 [FreeItemBox]
 [free layer="1" name="blue"]
 [free layer="1" name="red"]
@@ -546,6 +546,7 @@
 [jump target="*GetDressAndCurtain"]
 
 *OpenChest_back
+[cm]
 [JumpStudioRoom]
 
 *SearchFittingRoom
