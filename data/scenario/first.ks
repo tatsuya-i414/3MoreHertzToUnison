@@ -9,21 +9,22 @@
 ; マクロ読み込み
 [call storage="Utility/macro.ks"]
 
+; テーマ一括変換プラグインの呼び出し
+[plugin name="theme_kopanda_bth_06_blue"]
 ; ローディング画面表示プラグインの呼び出し
 [plugin name="loading"]
 ; ローディング画面設定の呼び出し
 [call storage="Plugin/loading.ks"]
 
-@layopt layer="message" visible="false"
+; メッセージウインドウとキャラクター情報の読み込み
+[call storage="Utility/settings.ks" cond="sf.isLoadSetting == 'false' "]
+; カスタム情報の読み込み
+[call storage="Utility/customsettings.ks"]
+
+[layopt layer="message" visible="false"]
 
 ; 最初は右下のメニューボタンを非表示にする
 [hidemenubutton]
 
-; モード
-; 開発者モード：develop / プレイヤーモード：play
-[eval exp="f.mode = 'develop' "]
-
-; タイトル画面へ移動
-@jump storage="title.ks"
-
+[jump storage="title.ks"]
 [s]

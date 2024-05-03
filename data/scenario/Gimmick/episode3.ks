@@ -1,5 +1,5 @@
 *start
-[title name="novel-escape｜思い出3"]
+[title name="&f.gameTile + '｜思い出3' "]
 [cm]
 [clearfix]
 [clearstack]
@@ -7,8 +7,6 @@
 
 ; ゲームデータを先に読み込む
 [call storage="Plugin/loadingshow.ks" cond="sf.loadData == 'false' "]
-; メッセージウインドウとキャラクター情報の読み込み
-[call storage="Utility/settings.ks" cond="sf.isLoadSetting == 'false' "]
 [if exp="sf.isLoadSetting == 'false' "]
   [eval exp="sf.isLoadSetting = 'true' "]
 [endif]
@@ -59,7 +57,7 @@
 [clickJudgment x="1060" y="545" width="125" height="80" target="*SearchHat"]
 ; ジャケット
 [if exp="f.isJacketGet == 0"]
-    [clickJudgment x="1570" y="750" width="170" height="140" target="*GetJacket"]
+    [clickJudgment x="1150" y="750" width="170" height="140" target="*GetJacket"]
 [endif]
 ; 備え付けハンガー
 [if exp="f.isJacketGet == 1"]
@@ -166,6 +164,7 @@
 [s]
 
 *SearchBox_back
+[cm]
 [FreeItemBox]
 [free layer="1" name="compass_set"]
 ; 押したボタンの順番を初期化
@@ -291,6 +290,7 @@
 [s]
 
 *SearchPoster_back
+[cm]
 [JumpBedRoom]
 
 *SearchHat
@@ -300,6 +300,7 @@
 [s]
 
 *SearchHat_back
+[cm]
 [JumpBedRoom]
 
 *GetJacket

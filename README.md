@@ -19,8 +19,9 @@ TyranoScript V5
 <br><br>
 
 # プラグイン
-ローディング画面表示プラグイン
-<br><br>
+- ローディング画面表示プラグイン
+- ゲームUIセット vol.16
+<br>
 
 # ブランチ管理
 Git-Flow準拠とする。
@@ -35,4 +36,3 @@ Git-Flow準拠とする。
 
 # 開発用デプロイ
 [https://develop.t-ishimaru.jp](URL "http://develop.t-ishimaru.jp")
-<br>
