@@ -200,11 +200,11 @@
     [endif]
     [if exp="f.isCompassGet == 1"]
         [eval exp="tf.usingItemInventory2 = 1"]
-        [image storage="../image/episode3/compass.png" layer="2" x="1770" y="225" visible="true" name="compass"]
+        [image storage="../image/episode3/compass.png" layer="2" x="1770" y="225" width="70" height="70" visible="true" name="compass"]
     [endif]
     [if exp="f.isJacketGet == 1"]
         [eval exp="tf.usingItemInventory3 = 1"]
-        [image storage="../image/episode3/jacket.png" layer="2" x="1770" y="300" visible="true" name="jacket"]
+        [image storage="../image/episode3/jacket_item.png" layer="2" x="1770" y="300" width="70" height="70" visible="true" name="jacket"]
     [endif]
     [if exp="f.isFutonGet == 1"]
         [eval exp="tf.usingItemInventory4 = 1"]
@@ -321,6 +321,15 @@
 ; その他共通処理
 ; ------------------------------
 
+; 起動モードの表示設定
+[macro name="DispBootMode"]
+    [if exp="f.mode == 'develop' "]
+        [eval exp="f.dispMode = '開発' "]
+    [elsif exp="f.mode == 'kenshou' "]
+        [eval exp="f.dispMode = '検証' "]
+    [endif]
+[endmacro]
+
 ; バックログボタン
 [macro name="BacklogButton"]
     [button graphic="share/button_backlog.png" x="1650" y="20" fix="true" role="backlog"]
@@ -337,10 +346,10 @@
 [endmacro]
 
 ; 通常のクリック判定
-; 動作モードにより領域の透明度が異なる（開発者モード：灰色 / プレイヤーモード：透明）
+; 開発/検証モード：灰色｜通常モード：透明
 [macro name="clickJudgment"]
-    [clickable x="%x" y="%y" width="%width" height="%height" target="%target" opacity="30" mouseopacity="50" color="0x505050" cond="f.mode == 'develop' "]
-    [clickable x="%x" y="%y" width="%width" height="%height" target="%target" opacity="0" mouseopacity="0" color="0x505050" cond="f.mode == 'play' "]
+    [clickable x="%x" y="%y" width="%width" height="%height" target="%target" opacity="30" mouseopacity="50" color="0x505050" cond="f.mode == 'develop' || f.mode == 'kenshou' "]
+    [clickable x="%x" y="%y" width="%width" height="%height" target="%target" opacity="0" mouseopacity="0" color="0x505050" cond="f.mode == 'normal' "]
 [endmacro]
 
 [return]
