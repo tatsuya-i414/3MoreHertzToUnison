@@ -1,4 +1,3 @@
-*start
 [title name="&f.gameTile + '｜思い出2' "]
 [cm]
 [clearfix]

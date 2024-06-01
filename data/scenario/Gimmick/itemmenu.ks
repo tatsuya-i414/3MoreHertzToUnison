@@ -77,7 +77,7 @@
 [endif]
 [if exp="f.isJacketGet == 1"]
     [eval exp="tf.usingItemInventory3 = 1"]
-    [image storage="../image/episode3/jacket.png" layer="2" x="860" y="350" width="140" height="140" visible="true" name="jacket"]
+    [image storage="../image/episode3/jacket_item.png" layer="2" x="860" y="350" width="140" height="140" visible="true" name="jacket"]
 [endif]
 [if exp="f.isFutonGet == 1"]
     [eval exp="tf.usingItemInventory4 = 1"]

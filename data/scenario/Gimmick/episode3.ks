@@ -1,4 +1,3 @@
-*start
 [title name="&f.gameTile + '｜思い出3' "]
 [cm]
 [clearfix]
@@ -25,48 +24,72 @@
 [layer2True]
 
 ; 背景
-[if exp="f.isJacketGet == -1 && f.isJutanOpen == 0 && f.isRoomLightNight == 0"]
-    ; ジャケットをハンガーに掛けた後
-    [ChangeBackGround storage="episode3/bedroom_jacketishanging.png"]
-[elsif exp="f.isJutanOpen == 1 && f.isRoomLightNight == 0"]
-    [ChangeBackGround storage="episode3/bedroom_jutanturnedup_noon.png"]
-[elsif exp="f.isJutanOpen == 1 && f.isRoomLightNight == 1"]
-    [ChangeBackGround storage="episode3/bedroom_jutanturnedup_night.png"]
-[elsif exp="f.isJutanOpen == 0 && f.isRoomLightNight == 1"]
-    [ChangeBackGround storage="episode3/bedroom_night.png"]
-[else]
+[if exp="f.isRoomLightNight == 0"]
     [ChangeBackGround storage="episode3/bedroom.png"]
+[else]
+    [ChangeBackGround storage="episode3/bedroom_night.png"]
 [endif]
 
 ; 背景パーツ
+; ジャケット
+[if exp="f.isJacketGet == 0"]
+    [image storage="../image/episode3/jacket.png" layer="1" x="1150" y="750" name="jacket"]
+[endif]
+; ハンガー
+[if exp="f.isJacketGet == -1 && f.isRoomLightNight == 0"]
+    [image storage="../image/episode3/wallhanger_onjacket.png" layer="1" x="1427" y="90" name="wallhanger_onjacket"]
+[elsif exp="f.isJacketGet == -1 && f.isRoomLightNight == 1"]
+    [image storage="../image/episode3/wallhanger_onjacket_night.png" layer="1" x="1411" y="107" name="wallhanger_onjacket_night"]
+[else]
+    [image storage="../image/episode3/wallhanger_onhanger.png" layer="1" x="1414" y="111" name="wallhanger_onhanger"]
+[endif]
+; 絨毯
+[if exp="f.isJutanOpen == 1"]
+    [image storage="../image/episode3/jutan_turnedup.png" layer="1" x="585" y="908" name="jutan_turndup"]
+    [if exp="f.isRoomLightNight == 1"]
+        [image storage="../image/episode3/mark_underjutan.png" layer="1" x="1180" y="915" name="mark"]
+    [endif]
+[else]
+    [image storage="../image/episode3/jutan.png" layer="1" x="585" y="908" name="jutan"]
+[endif]
 
 ; クリック判定
 ; ベッド
-[clickJudgment x="360" y="440" width="350" height="80" target="*SearchBed"]
+[if exp="f.isUsing == 0"]
+    [clickJudgment x="360" y="440" width="350" height="80" target="*SearchBed"]
+[endif]
 ; 収納ボックス
-[if exp="f.isFutonGet == 0"]
+[if exp="f.isFutonGet == 0 && f.isUsing == 0"]
     [clickJudgment x="295" y="705" width="315" height="178" target="*SearchBox"]
 [endif]
 ; 鞄（コンパス）
-[if exp="f.isCompassGet == 0"]
+[if exp="f.isCompassGet == 0 && f.isUsing == 0"]
     [clickJudgment x="740" y="640" width="150" height="225" target="*GetCompass"]
 [endif]
 ; 張り紙
-[clickJudgment x="522" y="166" width="142" height="198" target="*SearchPoster"]
+[if exp="f.isUsing == 0"]
+    [clickJudgment x="522" y="166" width="142" height="198" target="*SearchPoster"]
+[endif]
 ; 帽子
-[clickJudgment x="1060" y="545" width="125" height="80" target="*SearchHat"]
+[if exp="f.isUsing == 0"]
+    [clickJudgment x="1060" y="545" width="125" height="80" target="*SearchHut"]
+[endif]
 ; ジャケット
 [if exp="f.isJacketGet == 0"]
-    [clickJudgment x="1150" y="750" width="170" height="140" target="*GetJacket"]
+    [clickJudgment x="1160" y="760" width="130" height="130" target="*GetJacket"]
 [endif]
 ; 備え付けハンガー
 [if exp="f.isJacketGet == 1"]
-    [clickJudgment x="1500" y="180" width="150" height="110" target="*SearchHunger"]
+    [clickJudgment x="1500" y="210" width="160" height="120" target="*SearchHanger"]
 [endif]
 ; 絨毯
-[clickJudgment x="1115" y="910" width="300" height="140" target="*SearchJutan"]
+[if exp="f.isUsing == 0"]
+    [clickJudgment x="1115" y="910" width="300" height="140" target="*SearchJutan"]
+[endif]
 ; 昼夜切り替えスイッチ
-[clickJudgment x="1790" y="413" width="65" height="130" target="*SearchRoomLight"]
+[if exp="f.isUsing == 0"]
+    [clickJudgment x="1790" y="413" width="65" height="130" target="*SearchRoomLight"]
+[endif]
 
 ; アイテムメニュー
 [ItemMenuButton]
@@ -112,7 +135,28 @@
 [endif]
 
 *SearchBox
-[ChangeBackGround storage="episode3/boxkey.png"]
+; 画像の削除
+[if exp="f.isJutanOpen == 1"]
+    [free layer="1" name="jutan_turndup"]
+[else]
+    [free layer="1" name="jutan"]
+[endif]
+[if exp="f.isJacketGet == -1"]
+    [free layer="1" name="wallhanger_onjacket"]
+[else]
+    [free layer="1" name="wallhanger_onhanger"]
+    [free layer="1" name="jacket"]
+[endif]
+[if exp="f.isRoomLightNight == 1"]
+    [free layer="1" name="wallhanger_onjacket_night"]
+    [free layer="1" name="mark"]
+[endif]
+; 昼夜で背景を変更
+[if exp="f.isRoomLightNight == 0"]
+    [ChangeBackGround storage="episode3/boxkey.png"]
+[else]
+    [ChangeBackGround storage="episode3/boxkey_night.png"]
+[endif]
 [if exp="f.isCompassGet == 1"]
     *SelectItemOfCompass
     [messageFalse]
@@ -126,15 +170,15 @@
     [s]
 [elsif exp="f.isCompassGet == -1"]
     *PushBoxKeyButton
-    [image storage="../image/kari/compass.png" layer="1" x="830" y="410" width="210" height="210" name="compass_set"]
+    [image storage="../image/episode3/compass.png" layer="1" x="797" y="399" name="compass_set"]
     ; 上矢印ボタン
-    [clickJudgment x="870" y="200" width="150" height="160" target="*PushTopButton"]
+    [clickJudgment x="870" y="210" width="130" height="120" target="*PushTopButton"]
     ; 下矢印ボタン
-    [clickJudgment x="870" y="645" width="150" height="160" target="*PushUnderButton"]
+    [clickJudgment x="875" y="780" width="130" height="110" target="*PushUnderButton"]
     ; 左矢印ボタン
-    [clickJudgment x="570" y="430" width="150" height="160" target="*PushLeftButton"]
+    [clickJudgment x="615" y="475" width="95" height="155" target="*PushLeftButton"]
     ; 右矢印ボタン
-    [clickJudgment x="1120" y="430" width="150" height="160" target="*PushRightButton"]
+    [clickJudgment x="1165" y="480" width="95" height="155" target="*PushRightButton"]
     ; 戻るボタン
     [BackFromEnlargedMap target="*SearchBox_back"]
     [s]
@@ -237,7 +281,18 @@
         [JumpBedRoom]
     [endif]
     [if exp="f.buttonPushOrder[0] == 'N' && f.buttonPushOrder[1] == 'W' && f.buttonPushOrder[2] == 'E' && f.buttonPushOrder[3] == 'N' && f.buttonPushOrder[4] == 'S' "]
+        [free layer="1" name="compass_set"]
         ; 開錠する時の効果音を追加
+        ; 昼夜で背景を変更
+        [if exp="f.isRoomLightNight == 0"]
+            [ChangeBackGround storage="episode3/futon_inbox.png"]
+        [else]
+            [ChangeBackGround storage="episode3/futon_inbox_night.png"]
+        [endif]
+        [clickJudgment width="1920" height="1080" target="*GetFuton"]
+        
+        [s]
+        *GetFuton
         ; アイテムを獲得する効果音を追加
         [eval exp="f.isFutonGet = 1"]
         [free layer="1" name="compass_set"]
@@ -275,7 +330,28 @@
 [JumpBedRoom]
 
 *SearchPoster
-[ChangeBackGround storage="episode3/poster.png"]
+; 画像の削除
+[if exp="f.isJutanOpen == 1"]
+    [free layer="1" name="jutan_turndup"]
+[else]
+    [free layer="1" name="jutan"]
+[endif]
+[if exp="f.isJacketGet == -1"]
+    [free layer="1" name="wallhanger_onjacket"]
+[else]
+    [free layer="1" name="wallhanger_onhanger"]
+    [free layer="1" name="jacket"]
+[endif]
+[if exp="f.isRoomLightNight == 1"]
+    [free layer="1" name="wallhanger_onjacket_night"]
+    [free layer="1" name="mark"]
+[endif]
+; 昼夜で背景を変更
+[if exp="f.isRoomLightNight == 0"]
+    [ChangeBackGround storage="episode3/poster.png"]
+[else]
+    [ChangeBackGround storage="episode3/poster_night.png"]
+[endif]
 [layer3True]
 [ShowNormalSakuraAndMiyuki]
 [messageTrue]
@@ -293,13 +369,34 @@
 [cm]
 [JumpBedRoom]
 
-*SearchHat
-[ChangeBackGround storage="episode3/hut.png"]
+*SearchHut
+; 画像の削除
+[if exp="f.isJutanOpen == 1"]
+    [free layer="1" name="jutan_turndup"]
+[else]
+    [free layer="1" name="jutan"]
+[endif]
+[if exp="f.isJacketGet == -1"]
+    [free layer="1" name="wallhanger_onjacket"]
+[else]
+    [free layer="1" name="wallhanger_onhanger"]
+    [free layer="1" name="jacket"]
+[endif]
+[if exp="f.isRoomLightNight == 1"]
+    [free layer="1" name="wallhanger_onjacket_night"]
+    [free layer="1" name="mark"]
+[endif]
+; 昼夜で背景を変更
+[if exp="f.isRoomLightNight == 0"]
+    [ChangeBackGround storage="episode3/hut.png"]
+[else]
+    [ChangeBackGround storage="episode3/hut_night.png"]
+[endif]
 ; 戻るボタン
-[BackFromEnlargedMap target="*SearchHat_back"]
+[BackFromEnlargedMap target="*SearchHut_back"]
 [s]
 
-*SearchHat_back
+*SearchHut_back
 [cm]
 [JumpBedRoom]
 
@@ -315,9 +412,10 @@
 [endnolog]
 [messageFalse]
 [layer3False]
+[free layer="1" name="jacket"]
 [JumpBedRoom]
 
-*SearchHunger
+*SearchHanger
 [if exp="f.isJacketGet == 1"]
     *SelectItemOfJacket
     [messageFalse]
@@ -351,9 +449,10 @@
 *ValidItemOfJacket
 [FreeItemBox]
 [messageFalse]
+[free layer="1" name="wallhanger_onhanger"]
 [eval exp="f.isJacketGet = -1"]
 [free layer="1" name="jacket"]
-[blackout exp="f.isJacketGet = -1" storage_1="episode3/bedroom_jacketishanging.png" storage_2="episode3/bedroom.png"]
+[blackout exp="f.isJacketGet = -1" storage_1="episode3/bedroom.png" storage_2="episode3/bedroom.png"]
 [JumpBedRoom]
 
 *IncorrectItemOfJacket
@@ -365,15 +464,21 @@
 *SearchJutan
 [if exp="f.isJutanOpen == 0"]
     [eval exp="f.isJutanOpen = 1"]
+    [free layer="1" name="jutan"]
 [elsif exp="f.isJutanOpen == 1"]
     [eval exp="f.isJutanOpen = 0"]
+    [free layer="1" name="jutan_turndup"]
+    [free layer="1" name="mark"]
 [endif]
 [JumpBedRoom]
 
 *SearchRoomLight
 [if exp="f.isRoomLightNight == 0"]
     [eval exp="f.isRoomLightNight = 1"]
+    [free layer="1" name="wallhanger_onjacket"]
 [elsif exp="f.isRoomLightNight == 1"]
     [eval exp="f.isRoomLightNight = 0"]
+    [free layer="1" name="wallhanger_onjacket_night"]
+    [free layer="1" name="mark"]
 [endif]
 [JumpBedRoom]
