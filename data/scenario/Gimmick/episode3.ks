@@ -151,6 +151,7 @@
     [free layer="1" name="wallhanger_onjacket_night"]
     [free layer="1" name="mark"]
 [endif]
+[jump target="*InsideOfBox" cond="f.buttonPushOrder[0] == 'N' && f.buttonPushOrder[1] == 'W' && f.buttonPushOrder[2] == 'E' && f.buttonPushOrder[3] == 'N' && f.buttonPushOrder[4] == 'S' "]
 ; 昼夜で背景を変更
 [if exp="f.isRoomLightNight == 0"]
     [ChangeBackGround storage="episode3/boxkey.png"]
@@ -283,6 +284,7 @@
     [if exp="f.buttonPushOrder[0] == 'N' && f.buttonPushOrder[1] == 'W' && f.buttonPushOrder[2] == 'E' && f.buttonPushOrder[3] == 'N' && f.buttonPushOrder[4] == 'S' "]
         [free layer="1" name="compass_set"]
         ; 開錠する時の効果音を追加
+        *InsideOfBox
         ; 昼夜で背景を変更
         [if exp="f.isRoomLightNight == 0"]
             [ChangeBackGround storage="episode3/futon_inbox.png"]
@@ -290,7 +292,8 @@
             [ChangeBackGround storage="episode3/futon_inbox_night.png"]
         [endif]
         [clickJudgment width="1920" height="1080" target="*GetFuton"]
-        
+        ; 戻るボタン
+        [BackFromEnlargedMap target="*BoxUnlock_back"]
         [s]
         *GetFuton
         ; アイテムを獲得する効果音を追加
@@ -315,6 +318,10 @@
 [endif]
 [jump target="*PushBoxKeyButton" cond="f.buttonPushOrder[0] != 'N' && f.buttonPushOrder[1] != 'W' && f.buttonPushOrder[2] != 'E' && f.buttonPushOrder[3] != 'N' && f.buttonPushOrder[4] != 'S' "]
 [return]
+
+*BoxUnlock_back
+[cm]
+[JumpBedRoom]
 
 *GetCompass
 [layer3True]
