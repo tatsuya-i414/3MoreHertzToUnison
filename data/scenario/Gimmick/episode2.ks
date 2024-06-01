@@ -107,7 +107,7 @@
     [JumpStudioRoom]
 [endif]
 ; 思い出3へ移動する
-[jump storage="Gimmick/episode3.ks" target="*start" cond="f.isTentDown == 1 && f.isDressGet == -1"]
+[jump storage="Gimmick/episode3.ks" cond="f.isTentDown == 1 && f.isDressGet == -1"]
 
 *SearchTent
 [if exp="f.isHungerGet == 0"]

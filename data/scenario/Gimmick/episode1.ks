@@ -127,6 +127,7 @@
   #
   思い出1の会話パート[p]
   [endnolog]
+  [messageFalse]
   [eval exp="f.isMikeGet = 1"]
   [eval exp="f.isEpisode1Clear = 1"]
   [free layer="1" name="controlpanel_button"]
@@ -158,7 +159,7 @@
   [JumpStageRoom]
 [endif]
 ; 思い出2へ移動する
-[jump storage="Gimmick/episode2.ks" target="*start" cond="f.isStageStatusGreen == 1 && f.isLightStatusGreen == 1 && f.isSpeakerStatusGreen == 1"]
+[jump storage="Gimmick/episode2.ks" cond="f.isStageStatusGreen == 1 && f.isLightStatusGreen == 1 && f.isSpeakerStatusGreen == 1"]
 
 *SearchControlPanel_back
 ; 画像を削除する
