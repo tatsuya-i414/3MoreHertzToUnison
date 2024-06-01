@@ -19,8 +19,8 @@ TyranoScript V5
 <br><br>
 
 # プラグイン
-- ローディング画面表示プラグイン
-- ゲームUIセット vol.16
+- ローディング画面表示プラグイン（https://mamecho.booth.pm/items/3011729）
+- ゲームUIセット vol.16（https://ko10panda.booth.pm/items/3969477）
 <br>
 
 # ブランチ管理
@@ -33,6 +33,11 @@ Git-Flow準拠とする。
 - [hotfix]はバグ対応などの緊急作業用ブランチ、[master]から切って[master]と[develop]にマージ
 - [feature]は作業用のブランチ、[develop]から切って[develop]にマージ、 マージ後に削除
 <br>
+
+# コミットコメントルール
+コミットコメントは "[GitHubの課題キー]:[コミットコメント]" とすること。<br>
+（例）#50:アイテム選択時のクリック判定をマクロ化
+<br><br>
 
 # 開発用デプロイ
 [https://develop.t-ishimaru.jp](URL "http://develop.t-ishimaru.jp")
