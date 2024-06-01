@@ -23,13 +23,16 @@
 [endif]
 [if exp="f.mode == 'develop' || f.mode == 'kenshou' "]
     ; 起動モード表記
-    [ptext layer="fix" text="起動モード：" x="1650" y="60" size="20" color="black" bold="bold" edge="white"]
-    [ptext layer="fix" text="&f.mode" x="1780" y="60" size="20" color="black" bold="bold" edge="white"]
+    [ptext layer="fix" text="起動モード：" x="1690" y="60" size="20" color="black" bold="bold" edge="white"]
+    [ptext layer="fix" text="&f.dispMode" x="1820" y="60" size="20" color="black" bold="bold" edge="white"]
+    ; 使用ブラウザ表記
+    [ptext layer="fix" text="使用ブラウザ：" x="1570" y="90" size="20" color="black" bold="bold" edge="white" align="right"]
+    [ptext layer="fix" text="&f.usingBrowser" x="1715" y="90" size="20" color="black" bold="bold" edge="white" align="right"]
     ; ショートカット
     [ptext layer="fix" text="[ショートカット]" x="170" y="280" size="20" color="black" bold="bold" edge="white"]
-    [glink color="bth06" storage="Utility/debug.ks" target="*save" text="思い出1" x="120" y="330" width="150" height="24" size="24" bold="true" exp="f.isEpisode1Clear = 1"]
-    [glink color="bth06" storage="Utility/debug.ks" target="*save" text="思い出2" x="120" y="410" width="150" height="24" size="24" bold="true" exp="f.isEpisode2Clear = 1"]
-    [glink color="bth06" storage="Utility/debug.ks" target="*save" text="思い出3" x="120" y="490" width="150" height="24" size="24" bold="true" exp="f.isEpisode3Clear = 1"]
+    [glink color="bth06" storage="Utility/debug.ks" target="*Save" text="思い出1" x="120" y="330" width="150" height="24" size="24" bold="true" exp="f.isEpisode1Clear = 1"]
+    [glink color="bth06" storage="Utility/debug.ks" target="*Save" text="思い出2" x="120" y="410" width="150" height="24" size="24" bold="true" exp="f.isEpisode2Clear = 1"]
+    [glink color="bth06" storage="Utility/debug.ks" target="*Save" text="思い出3" x="120" y="490" width="150" height="24" size="24" bold="true" exp="f.isEpisode3Clear = 1"]
 [endif]
 [s]
 
