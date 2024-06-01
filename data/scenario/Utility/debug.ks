@@ -11,13 +11,13 @@
   [eval exp="sf.isLoadSetting = 'true' "]
 [endif]
 
-*debug
+*Debug
 [bg storage="share/debug.png" time="100"]
 
 ; ボタン
-[button graphic="../others/plugin/theme_kopanda_bth_06_blue/image/config/back.png" enterimg="../others/plugin/theme_kopanda_bth_06_blue/image/config/back2.png" target="*backtitle" x="1680" y="60"]
-[glink color="bth06" target="*flagdetail" text="フラグ別詳細" x="1380" y="960" width="150" height="24" size="24" bold="true"]
-[button graphic="debug/sysbtn_02_qsave.png" enterimg="debug/sysbtn_02_qsave_hover.png" target="*save" x="1680" y="960"]
+[button graphic="../others/plugin/theme_kopanda_bth_06_blue/image/config/back.png" enterimg="../others/plugin/theme_kopanda_bth_06_blue/image/config/back2.png" target="*Backtitle" x="1680" y="60"]
+[glink color="bth06" target="*Flagdetail" text="フラグ別詳細" x="1380" y="960" width="150" height="24" size="24" bold="true"]
+[button graphic="debug/sysbtn_02_qsave.png" enterimg="debug/sysbtn_02_qsave_hover.png" target="*Save" x="1680" y="960"]
 
 ; ゲーム変数_Episode1
 [if exp="f.isEpisode1Clear == 0"]
@@ -156,15 +156,15 @@
 [endif]
 [s]
 
-*flagdetail
+*Flagdetail
 ;Notionの「フラグ一覧」ページを開く
 [iscript]
     alert("Notionでフラグ一覧ページを開きます");
 [endscript]
 [web url="https://www.notion.so/shinya30/8a2e9e554d9d4a8ebea9cc950fb3ca44?v=cc8efcf2a18c4d5db87e5b1abaaf00ec&pvs=4"]
-[jump target="*debug"]
+[jump target="*Debug"]
 
-*save
+*Save
 ; ゲーム変数格納_Episode1
 [commit name="f.isEpisode1Clear"]
 [commit name="f.isStageStatusGreen"]
@@ -394,7 +394,7 @@
 [jump storage="title.ks"]
 [s]
 
-*backtitle
+*Backtitle
 [cm]
 [freeimage layer="1"]
 [jump storage="title.ks"]
