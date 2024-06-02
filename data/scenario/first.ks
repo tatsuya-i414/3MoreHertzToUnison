@@ -8,23 +8,15 @@
 [plugin name="theme_kopanda_bth_06_blue"]
 ; ローディング画面表示プラグインの呼び出し
 [plugin name="loading"]
-; ローディング画面設定の呼び出し
-[call storage="Plugin/loading.ks"]
-; キャラ名表示欄拡張プラグインの呼び出し
-;[plugin name="charaname"]
-;[charaname type="text" x="130" y="840" bgimage="../others/plugin/theme_kopanda_bth_06_blue/image/frame_message.png" opacity="255" pos="left"]
-;[charaname_font size="34" color="0x196D7D" bold="bold"]
 
 ; フラグ初期化
 [call storage="Utility/flag.ks"]
 ; マクロ読み込み
 [call storage="Utility/macro.ks"]
-; メッセージウインドウとキャラクター情報の読み込み
-[call storage="Utility/settings.ks" cond="sf.isLoadSetting == 'false' "]
 ; カスタム情報の読み込み
 [call storage="Utility/customsettings.ks"]
 [DispBootMode]
-; ブラウザ情報の取得
+; クライアントのブラウザ情報を取得
 [iscript]
     let agent = window.navigator.userAgent.toLowerCase()
     let usingBrowser = "";
@@ -49,6 +41,18 @@
     } 
     f["usingBrowser"] = usingBrowser;
 [endscript]
+; メッセージウインドウとキャラクター情報の読み込み
+[call storage="Utility/settings.ks"]
+
+; 起動時にゲームデータを読み込む
+[call storage="Plugin/loading.ks"]
+[call storage="Plugin/loadingshow.ks" cond="sf.loadData == 'false' "]
+; ローディング画面を閉じる
+[if exp="sf.loadData == 'true' "]
+    [iscript]
+        $('.loadingWrap').css({'display':'none'});
+    [endscript]
+[endif]
 
 ; 最初はメッセージボックスを非表示にする
 [layopt layer="message" visible="false"]
