@@ -26,6 +26,7 @@ bgimage\episode3,poster_night.png
 bgimage\share,debug.png
 bgimage\share,itemmenu.png
 bgimage\share,title.png
+bgimage\share,top.png
 fgimage\chara\sakura,normal.png
 fgimage\chara\miyuki,normal.png
 image\append_theme,gallery_bg.png
@@ -139,3 +140,4 @@ others\plugin\theme_kopanda_bth_06_blue\image\system,pagebreak.png
 others\plugin\theme_kopanda_bth_06_blue\image\system,saveslot.png
 others\plugin\theme_kopanda_bth_06_blue\image\system,saveslot2.png
 others\plugin\theme_kopanda_bth_06_blue\image,frame_message.png
+bgm,music.m4a

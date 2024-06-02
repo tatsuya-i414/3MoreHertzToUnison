@@ -30,10 +30,13 @@
 [eval exp="f.isRoomLightNight = 0"]
 [eval exp="f.isYoukanGet = 0"]
 
-; デバッグページで編集不可
+; アイテム使用時
 [eval exp="f.isUsing = 0"]
 
 ; ゲームデータの読み込み
 [eval exp="sf.loadData = 'false' "]
+
+; BGMの再生
+[eval exp="f.isPlayingBGM = 'false' "]
 
 [return]

@@ -154,7 +154,7 @@ tf.cg_thumbnail_height = 243; // サムネイルの高さ
 [freeimage layer="1"]
 
 ; 別のシナリオにジャンプする場合はここを変更
-[jump storage="title.ks"]
+[jump storage="title.ks" target="*TopPage"]
 
 
 ;-----------------------------------------------------------
