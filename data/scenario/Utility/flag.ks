@@ -35,7 +35,5 @@
 
 ; ゲームデータの読み込み
 [eval exp="sf.loadData = 'false' "]
-; メッセージウインドウとキャラクター情報の読み込み
-[eval exp="sf.isLoadSetting = 'false' "]
 
 [return]
