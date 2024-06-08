@@ -1,7 +1,7 @@
 [cm]
 [clearstack]
 [title name="&f.gameTile"]
-[bg storage="share/top.png" time="100"]
+[bg storage="share/title.png" time="100"]
 ; バージョン表記
 [ptext layer="fix" text="Ver." x="1760" y="30" size="20" color="black" bold="bold" edge="white"]
 [ptext layer="fix" text="&f.version" x="1810" y="30" size="20" color="black" bold="bold" edge="white"]
@@ -20,7 +20,7 @@
 ; クリックしたらトップ画面を表示する
 *TopPage
 [clearfix]
-[bg storage="share/title.png" time="100"]
+[bg storage="share/top.png" time="100"]
 [button x="700" y="330" width="540" height="86" graphic="title/button_newgame.png" enterimg="title/button_newgame_hover.png" target="*GameStart"]
 [button x="700" y="460" width="540" height="86" graphic="title/button_loadgame.png" enterimg="title/button_loadgame_hover.png" role="load"]
 [button x="700" y="590" width="540" height="86" graphic="title/button_gallery.png" enterimg="title/button_gallery_hover.png" storage="cg.ks"]
