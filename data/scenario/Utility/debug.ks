@@ -5,12 +5,6 @@
 [freeimage layer="0" page="back"]
 [cm]
 
-; メッセージウインドウとキャラクター情報の読み込み
-[call storage="Utility/settings.ks" cond="sf.isLoadSetting == 'false' "]
-[if exp="sf.isLoadSetting == 'false' "]
-  [eval exp="sf.isLoadSetting = 'true' "]
-[endif]
-
 *Debug
 [bg storage="share/debug.png" time="100"]
 
@@ -391,10 +385,10 @@
     [eval exp="f.isJacketGet = -1"]
     [eval exp="f.isRoomLightNight = 1"]
 [endif]
-[jump storage="title.ks"]
+[jump storage="title.ks" target="*TopPage"]
 [s]
 
 *Backtitle
 [cm]
 [freeimage layer="1"]
-[jump storage="title.ks"]
+[jump storage="title.ks" target="*TopPage"]

@@ -88,6 +88,22 @@
 [endmacro]
 
 ; ------------------------------
+; 音声
+; ------------------------------
+
+; 通常BGMを再生する
+[macro name="PlayNormalBgm"]
+    [playbgm storage="../bgm/music.m4a" loop="true" restart="false"]
+    [eval exp="f.isPlayingBGM = 'true' "]
+[endmacro]
+
+; BGMの再生を停止する
+[macro name="StopPlayingBgm"]
+    [stopbgm]
+    [eval exp="f.isPlayingBGM = 'false' "]
+[endmacro]
+
+; ------------------------------
 ; キャラクター
 ; ------------------------------
 
