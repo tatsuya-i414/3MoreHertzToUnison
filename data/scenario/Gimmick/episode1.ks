@@ -5,11 +5,14 @@
 [start_keyconfig]
 
 [showmenubutton]
-[ChangeBackGround storage="episode1/omoide1_introduction.jpg" time="2000" method="vanishIn"]
-[BacklogButton]
-[messageTrue]
-; 会話パートの読み込み
-[call storage="Conversation/episode1.ks" target="*Introduction"]
+; 開発/検証用
+[if exp="f.skipConversation == 0"]
+  [ChangeBackGround storage="episode1/omoide1_introduction.jpg" time="2000" method="vanishIn"]
+  [BacklogButton]
+  [messageTrue]
+  ; 会話パートの読み込み
+  [call storage="Conversation/episode1.ks" target="*Introduction"]
+[endif]
 
 *StageRoom
 [messageFalse]

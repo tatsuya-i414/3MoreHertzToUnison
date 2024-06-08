@@ -5,11 +5,14 @@
 [start_keyconfig]
 
 [showmenubutton]
-[ChangeBackGround storage="episode3/bedroom.png" time="2000" method="vanishIn"]
-[BacklogButton]
-[messageTrue]
-; 会話パートの読み込み
-[call storage="Conversation/episode3.ks" target="*Introduction"]
+; 開発/検証用
+[if exp="f.skipConversation == 0"]
+    [ChangeBackGround storage="episode3/bedroom.png" time="2000" method="vanishIn"]
+    [BacklogButton]
+    [messageTrue]
+    ; 会話パートの読み込み
+    [call storage="Conversation/episode3.ks" target="*Introduction"]
+[endif]
 
 *BedRoom
 [messageFalse]

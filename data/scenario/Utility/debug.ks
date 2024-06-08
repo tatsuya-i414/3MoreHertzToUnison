@@ -148,6 +148,13 @@
 [else]
     [edit name="f.isYoukanGet" initial="&f.isYoukanGet" left="1600" top="670" color="0x666666" size="36" width="150" maxchars="1"]
 [endif]
+
+; ゲーム変数_会話パートのスキップ
+[if exp="f.skipConversation == 0"]
+    [edit name="f.skipConversation" initial="0" left="1600" top="840" color="0x666666" size="36" width="150" maxchars="1"]
+[else]
+    [edit name="f.skipConversation" initial="&f.skipConversation" left="1600" top="840" color="0x666666" size="36" width="150" maxchars="1"]
+[endif]
 [s]
 
 *Flagdetail
@@ -189,6 +196,10 @@
 [commit name="f.isJumperGet"]
 [commit name="f.isJutanOpen"]
 [commit name="f.isRoomLightNight"]
+[commit name="f.isYoukanGet"]
+
+; ゲーム変数格納_会話パートのスキップ
+[commit name="f.skipConversation"]
 
 ; フラグの値に応じて値を変更する
 ; 思い出1をクリアする
@@ -385,6 +396,8 @@
     [eval exp="f.isJacketGet = -1"]
     [eval exp="f.isRoomLightNight = 1"]
 [endif]
+[cm]
+[freeimage layer="1"]
 [jump storage="title.ks" target="*TopPage"]
 [s]
 

@@ -33,6 +33,9 @@
 ; アイテム使用時
 [eval exp="f.isUsing = 0"]
 
+; 会話パートをスキップする
+[eval exp="f.skipConversation = 0"]
+
 ; ゲームデータの読み込み
 [eval exp="sf.loadData = 'false' "]
 

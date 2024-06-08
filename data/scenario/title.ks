@@ -35,6 +35,7 @@
     [glink color="bth06" storage="Utility/debug.ks" target="*Save" text="思い出1" x="120" y="330" width="150" height="24" size="24" bold="true" exp="f.isEpisode1Clear = 1"]
     [glink color="bth06" storage="Utility/debug.ks" target="*Save" text="思い出2" x="120" y="410" width="150" height="24" size="24" bold="true" exp="f.isEpisode2Clear = 1"]
     [glink color="bth06" storage="Utility/debug.ks" target="*Save" text="思い出3" x="120" y="490" width="150" height="24" size="24" bold="true" exp="f.isEpisode3Clear = 1"]
+    [glink color="bth06" storage="Utility/debug.ks" target="*Save" text="会話パートをスキップ" x="120" y="570" width="150" height="45" size="24" bold="true" exp="f.skipConversation = 1"]
 [endif]
 [if exp="f.isPlayingBGM == 'false' "]
     [PlayNormalBgm]
