@@ -16,11 +16,12 @@
 ; カスタム情報の読み込み
 [call storage="Utility/customsettings.ks"]
 [DispBootMode]
-; クライアントのブラウザ情報を取得
+; クライアントの情報を取得
 [iscript]
-    let agent = window.navigator.userAgent.toLowerCase()
-    let usingBrowser = "";
+    let agent = window.navigator.userAgent.toLowerCase();
 
+    // 使用ブラウザの判定
+    let usingBrowser = "";
     if (agent.indexOf("msie") != -1 || agent.indexOf("trident") != -1) {
         usingBrowser = "Internet Explorer";
     } 
@@ -40,6 +41,17 @@
         usingBrowser = "FireFox";
     } 
     f["usingBrowser"] = usingBrowser;
+
+    // 使用デバイスの判定
+    let usingDevice = "";
+    var isSmartPhone = /iphone|ipod|android.*mobile|windows.*phone|blackberry.*mobile/.test(agent);
+    var isPC = !isSmartPhone;
+    if (isSmartPhone) {
+        f["usingDevice"] = "SP";
+    }
+    if (isPC) {
+        f["usingDevice"] = "PC";
+    }
 [endscript]
 ; メッセージウインドウとキャラクター情報の読み込み
 [call storage="Utility/settings.ks"]

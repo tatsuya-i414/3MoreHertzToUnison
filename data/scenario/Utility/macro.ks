@@ -315,7 +315,11 @@
 
 ; 拡大マップからの戻るボタン
 [macro name="BackFromEnlargedMap"]
-    [button graphic="share/arrow_01_down.png" enterimg="share/arrow_01_down_hover.png" target="%target" x="910" y="1015"]
+    [if exp="f.usingDevice == 'SP' "]
+        [button graphic="share/arrow_01_down.png" enterimg="share/arrow_01_down_hover.png" target="%target" x="910" y="950"]
+    [elsif exp="f.usingDevice == 'PC' "]
+        [button graphic="share/arrow_01_down.png" enterimg="share/arrow_01_down_hover.png" target="%target" x="910" y="980"]
+    [endif]
 [endmacro]
 
 ; ステージルームへ移動する

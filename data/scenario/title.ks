@@ -11,9 +11,12 @@
     ; 起動モード表記
     [ptext layer="fix" text="起動モード：" x="1690" y="60" size="20" color="black" bold="bold" edge="white"]
     [ptext layer="fix" text="&f.dispMode" x="1820" y="60" size="20" color="black" bold="bold" edge="white"]
+    ; 使用端末表記
+    [ptext layer="fix" text="使用端末：" x="1708" y="90" size="20" color="black" bold="bold" edge="white" align="right"]
+    [ptext layer="fix" text="&f.usingDevice" x="1830" y="90" size="20" color="black" bold="bold" edge="white" align="right"]
     ; 使用ブラウザ表記
-    [ptext layer="fix" text="使用ブラウザ：" x="1570" y="90" size="20" color="black" bold="bold" edge="white" align="right"]
-    [ptext layer="fix" text="&f.usingBrowser" x="1715" y="90" size="20" color="black" bold="bold" edge="white" align="right"]
+    [ptext layer="fix" text="使用ブラウザ：" x="1570" y="120" size="20" color="black" bold="bold" edge="white" align="right"]
+    [ptext layer="fix" text="&f.usingBrowser" x="1715" y="120" size="20" color="black" bold="bold" edge="white" align="right"]
 [endif]
 [l]
 
