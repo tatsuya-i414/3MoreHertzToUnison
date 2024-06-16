@@ -4,20 +4,25 @@
 [clearstack]
 [start_keyconfig]
 
-[showmenubutton]
 ; 開発/検証用
 [if exp="f.skipConversation == 0"]
+  [hidemenubutton]
   [ChangeBackGround storage="episode1/omoide1_introduction.jpg" time="2000" method="vanishIn"]
+  [hiddenMessageWindow]
+  [AutoButton]
   [BacklogButton]
+  [SkipButton]
   [messageTrue]
   ; 会話パートの読み込み
   [call storage="Conversation/episode1.ks" target="*Introduction"]
 [endif]
 
 *StageRoom
+[clearfix]
 [messageFalse]
 [layer1True]
 [layer2True]
+[showmenubutton]
 
 ; 背景
 [if exp="f.isStageStatusGreen == 1"]
@@ -117,13 +122,21 @@
 ; ボタンを押す効果音を追加
 [image storage="../image/episode1/controlpanel/controlpanel_button_notpush.png" layer="1" x="685" y="835" name="controlpanel_button"]
 [if exp="f.isStageStatusGreen == 1 && f.isLightStatusGreen == 1 && f.isSpeakerStatusGreen == 1"]
-  [messageTrue]
   ; 思い出1の会話パートを追加する
-  [nolog]
-  #
-  思い出1の会話パート[p]
-  [endnolog]
-  [messageFalse]
+  [if exp="f.skipConversation == 0"]
+    [hidemenubutton]
+    [clearfix]
+    [hiddenMessageWindow]
+    [AutoButton]
+    [BacklogButton]
+    [SkipButton]
+    [messageTrue]
+    [nolog]
+    #
+    思い出1の会話パート[p]
+    [endnolog]
+    [messageFalse]
+  [endif]
   [eval exp="f.isMikeGet = 1"]
   [eval exp="f.isEpisode1Clear = 1"]
   [free layer="1" name="controlpanel_button"]
@@ -135,6 +148,12 @@
   [free layer="1" name="speaker_greenlamp"]
   [free layer="1" name="speaker_redlamp"]
 [else]
+  [hidemenubutton]
+  [clearfix]
+  [hiddenMessageWindow]
+  [AutoButton]
+  [BacklogButton]
+  [SkipButton]
   [layer3True]
   [ShowNormalSakuraAndMiyuki]
   [messageTrue]
@@ -143,6 +162,7 @@
   この3つを何とかしないといけない[p]
   [endnolog]
   [layer3False]
+  [showmenubutton]
   ; 画像を削除する
   [free layer="1" name="controlpanel_button"]
   [free layer="1" name="controlpanel_lamp"]
@@ -186,6 +206,12 @@
 
 *SearchWiringDoor_Decision
 [if exp="f.isCableGet == 0"]
+  [hidemenubutton]
+  [clearfix]
+  [hiddenMessageWindow]
+  [AutoButton]
+  [BacklogButton]
+  [SkipButton]
   [layer3True]
   [ShowNormalSakuraAndMiyuki]
   [messageTrue]
@@ -194,8 +220,15 @@
   修理をしないといけないね[p]
   [endnolog]
   [layer3False]
+  [showmenubutton]
   [JumpStageRoom]
 [else]
+  [hidemenubutton]
+  [clearfix]
+  [hiddenMessageWindow]
+  [AutoButton]
+  [BacklogButton]
+  [SkipButton]
   [layer3True]
   [ShowNormalSakuraAndMiyuki]
   [messageTrue]
@@ -204,6 +237,7 @@
   あの配線を使えばいいんじゃない？[p]
   [endnolog]
   [layer3False]
+  [showmenubutton]
   *SelectItemOfCable
   [messageFalse]
   [eval exp="f.isUsing = 1"]
@@ -235,6 +269,12 @@
 
 *ValidItemOfCable
 [FreeItemBox]
+[hidemenubutton]
+[clearfix]
+[hiddenMessageWindow]
+[AutoButton]
+[BacklogButton]
+[SkipButton]
 [eval exp="f.isCableGet = -1"]
 [free layer="2" name="cable"]
 [nolog]
@@ -253,6 +293,7 @@
 クリアしたね[p]
 [endnolog]
 [layer3False]
+[showmenubutton]
 [JumpStageRoom]
 
 *IncorrectItemOfCable
@@ -434,6 +475,12 @@
 
 *SearchLight
 [if exp="f.isStageStatusGreen == 0"]
+  [hidemenubutton]
+  [clearfix]
+  [hiddenMessageWindow]
+  [AutoButton]
+  [BacklogButton]
+  [SkipButton]
   [layer3True]
   [ShowNormalSakuraAndMiyuki]
   [messageTrue]
@@ -442,8 +489,15 @@
   高すぎて調べられないね[p]
   [endnolog]
   [layer3False]
+  [showmenubutton]
   [JumpStageRoom]
 [elsif exp="f.isStageStatusGreen == 1 && f.isLightCoverGet == 0"]
+  [hidemenubutton]
+  [clearfix]
+  [hiddenMessageWindow]
+  [AutoButton]
+  [BacklogButton]
+  [SkipButton]
   [layer3True]
   [ShowNormalSakuraAndMiyuki]
   [messageTrue]
@@ -452,8 +506,15 @@
   ライトを直すにはアイテムが必要そうだ[p]
   [endnolog]
   [layer3False]
+  [showmenubutton]
   [JumpStageRoom]
 [elsif exp="f.isStageStatusGreen == 1"]
+  [hidemenubutton]
+  [clearfix]
+  [hiddenMessageWindow]
+  [AutoButton]
+  [BacklogButton]
+  [SkipButton]
   [layer3True]
   [ShowNormalSakuraAndMiyuki]
   [messageTrue]
@@ -462,6 +523,7 @@
   舞台が上がったおかげで調べられるね！[p]
   [endnolog]
   [layer3False]
+  [showmenubutton]
   *SelectItemOfLightCover
   [messageFalse]
   [if exp="f.isUsing == 0"]
@@ -491,6 +553,12 @@
 
 *ValidItemOfLightCover
 [FreeItemBox]
+[hidemenubutton]
+[clearfix]
+[hiddenMessageWindow]
+[AutoButton]
+[BacklogButton]
+[SkipButton]
 [eval exp="f.isLightCoverGet = -1"]
 [free layer="2" name="lightcover"]
 [messageTrue]
@@ -508,6 +576,7 @@
 クリアしたね[p]
 [endnolog]
 [layer3False]
+[showmenubutton]
 [JumpStageRoom]
 
 *IncorrectItemOfLightCover
@@ -525,6 +594,12 @@
 *SearchSpeaker
 [if exp="f.isDriverGet == 0"]
   [layer3True]
+  [hidemenubutton]
+  [clearfix]
+  [hiddenMessageWindow]
+  [AutoButton]
+  [BacklogButton]
+  [SkipButton]
   [ShowNormalSakuraAndMiyuki]
   [messageTrue]
   [nolog]
@@ -532,9 +607,16 @@
   ネジが緩んでいるみたいだね[p]
   [endnolog]
   [layer3False]
+  [showmenubutton]
   [JumpStageRoom]
 [elsif exp="f.isDriverGet == 1"]
   [layer3True]
+  [hidemenubutton]
+  [clearfix]
+  [hiddenMessageWindow]
+  [AutoButton]
+  [BacklogButton]
+  [SkipButton]
   [ShowNormalSakuraAndMiyuki]
   [messageTrue]
   [nolog]
@@ -542,6 +624,7 @@
   さっきの道具が使えないかな[p]
   [endnolog]
   [layer3False]
+  [showmenubutton]
   *SelectItemOfDriver
   [messageFalse]
   [if exp="f.isUsing == 0"]
@@ -571,6 +654,12 @@
 
 *ValidItemOfDriver
 [FreeItemBox]
+[hidemenubutton]
+[clearfix]
+[hiddenMessageWindow]
+[AutoButton]
+[BacklogButton]
+[SkipButton]
 [messageTrue]
 [nolog]
 #
@@ -587,6 +676,7 @@
 クリアしたね[p]
 [endnolog]
 [layer3False]
+[showmenubutton]
 [JumpStageRoom]
 
 *IncorrectItemOfDriver

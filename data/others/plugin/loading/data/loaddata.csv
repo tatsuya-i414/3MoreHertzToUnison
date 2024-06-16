@@ -87,9 +87,16 @@ image\episode3,wallhanger_onjacket_night.png
 image\episode3,youkan.png
 image\share,arrow_01_down.png
 image\share,arrow_01_down_hover.png
-image\share,button_backlog.png
 image\share,button_item.png
 image\share,inventory.png
+image\share,sysbtn_02_auto.png
+image\share,sysbtn_02_auto_hover.png
+image\share,sysbtn_02_log.png
+image\share,sysbtn_02_log_hover.png
+image\share,sysbtn_02_screen.png
+image\share,sysbtn_02_screen_hover.png
+image\share,sysbtn_02_skip.png
+image\share,sysbtn_02_skip_hover.png
 image\title,button_config.png
 image\title,button_config_hover.png
 image\title,button_gallery.png

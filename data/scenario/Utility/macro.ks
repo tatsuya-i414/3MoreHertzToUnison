@@ -350,9 +350,24 @@
     [endif]
 [endmacro]
 
+; メッセージウィンドウ非表示ボタン
+[macro name="hiddenMessageWindow"]
+    [button graphic="share/sysbtn_02_screen.png" enterimg="share/sysbtn_02_screen_hover.png" x="1420" y="20" fix="true" role="window"]
+[endmacro]
+
+; オートボタン
+[macro name="AutoButton"]
+    [button graphic="share/sysbtn_02_auto.png" enterimg="share/sysbtn_02_auto_hover.png" x="1540" y="20" fix="true" role="auto" hint="AUTO"]
+[endmacro]
+
 ; バックログボタン
 [macro name="BacklogButton"]
-    [button graphic="share/button_backlog.png" x="1650" y="20" fix="true" role="backlog"]
+    [button graphic="share/sysbtn_02_log.png" enterimg="share/sysbtn_02_log_hover.png" x="1660" y="20" fix="true" role="backlog" hint="LOG"]
+[endmacro]
+
+; スキップボタン
+[macro name="SkipButton"]
+    [button graphic="share/sysbtn_02_skip.png" enterimg="share/sysbtn_02_skip_hover.png" x="1780" y="20" fix="true" role="skip" hint="SKIP"]
 [endmacro]
 
 ; アイテムメニューボタン
