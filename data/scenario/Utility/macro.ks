@@ -370,6 +370,22 @@
     [button graphic="share/sysbtn_02_skip.png" enterimg="share/sysbtn_02_skip_hover.png" x="1780" y="20" fix="true" role="skip" hint="SKIP"]
 [endmacro]
 
+; シナリオパート開始時に操作ボタン類を表示する
+[macro name="ControlButtons"]
+    [clearfix]
+    [hidemenubutton]
+    [hiddenMessageWindow]
+    [AutoButton]
+    [BacklogButton]
+    [SkipButton]
+[endmacro]
+
+; シナリオパート終了時に操作ボタン類を閉じて、メニューボタンを表示する
+[macro name="MenuButton"]
+    [showmenubutton]
+    [cancelskip]
+[endmacro]
+
 ; アイテムメニューボタン
 [macro name="ItemMenuButton"]
     [button graphic="share/button_item.png" storage="Gimmick/itemmenu.ks" target="*ItemMenu" x="1650" y="20" fix="true" role="sleepgame"]
