@@ -388,7 +388,7 @@
 
 ; アイテムメニューボタン
 [macro name="ItemMenuButton"]
-    [button graphic="share/button_item.png" storage="Gimmick/itemmenu.ks" target="*ItemMenu" x="1650" y="20" fix="true" role="sleepgame"]
+    [button graphic="share/sysbtn_item.png" storage="Gimmick/itemmenu.ks" target="*ItemMenu" x="1650" y="20" fix="true" role="sleepgame"]
 [endmacro]
 
 ; 背景を変更する
