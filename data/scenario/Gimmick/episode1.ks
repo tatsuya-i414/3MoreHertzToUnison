@@ -214,7 +214,9 @@
   あの配線を使えばいいんじゃない？[p]
   [endnolog]
   [layer3False]
+  [clearfix]
   [MenuButton]
+  [ItemMenuButton]
   *SelectItemOfCable
   [messageFalse]
   [eval exp="f.isUsing = 1"]
