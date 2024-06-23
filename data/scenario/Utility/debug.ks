@@ -150,10 +150,10 @@
 [endif]
 
 ; ゲーム変数_会話パートのスキップ
-[if exp="f.skipConversation == 0"]
-    [edit name="f.skipConversation" initial="0" left="1600" top="840" color="0x666666" size="36" width="150" maxchars="1"]
+[if exp="f.scn_skip == 0"]
+    [edit name="f.scn_skip" initial="0" left="1600" top="840" color="0x666666" size="36" width="150" maxchars="1"]
 [else]
-    [edit name="f.skipConversation" initial="&f.skipConversation" left="1600" top="840" color="0x666666" size="36" width="150" maxchars="1"]
+    [edit name="f.scn_skip" initial="&f.scn_skip" left="1600" top="840" color="0x666666" size="36" width="150" maxchars="1"]
 [endif]
 [s]
 
@@ -199,7 +199,7 @@
 [commit name="f.isYoukanGet"]
 
 ; ゲーム変数格納_会話パートのスキップ
-[commit name="f.skipConversation"]
+[commit name="f.scn_skip"]
 
 ; フラグの値に応じて値を変更する
 ; 思い出1をクリアする

@@ -5,7 +5,7 @@
 [start_keyconfig]
 
 ; 開発/検証用
-[if exp="f.skipConversation == 0"]
+[if exp="f.scn_skip == 0"]
     [ChangeBackGround storage="episode2/studioroom.png" time="2000" method="vanishIn"]
     [ControlButtons]
     [messageTrue]
@@ -79,7 +79,7 @@
 [layer1False]
 [ChangeBackGround storage="episode2/cameramonitor.png" time="1000" method="zoomIn"]
 [if exp="f.isTentDown == 1 && f.isDressGet == -1"]
-    [if exp="f.skipConversation == 0"]
+    [if exp="f.scn_skip == 0"]
         [ControlButtons]
         [layer3True]
         [ShowNormalSakuraAndMiyuki]
