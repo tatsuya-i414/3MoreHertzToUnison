@@ -4,13 +4,13 @@
 [clearstack]
 [start_keyconfig]
 
-; 開発/検証用
-[if exp="f.skipConversation == 0"]
+; シナリオ_導入パート
+[if exp="f.scn_skip == 0"]
   [ChangeBackGround storage="episode1/omoide1_introduction.jpg" time="2000" method="vanishIn"]
   [ControlButtons]
   [messageTrue]
-  ; 会話パートの読み込み
   [call storage="Conversation/episode1.ks" target="*Introduction"]
+  [eval exp="f.scn_introduction = 'true' "]
 [endif]
 
 *StageRoom
@@ -74,6 +74,20 @@
 
 ; アイテムメニュー
 [ItemMenuButton]
+
+; シナリオ_思い出1序盤
+[if exp="f.scn_skip == 0 && f.scn_episode1_Opening == 'false' "]
+  [cm]
+  [ControlButtons]
+  [messageTrue]
+  [call storage="Conversation/episode1.ks" target="*Opening"]
+  [eval exp="f.scn_episode1_Opening = 'true' "]
+  [clearfix]
+  [messageFalse]
+  [MenuButton]
+  [ItemMenuButton]
+  [jump target="*StageRoom"]
+[endif]
 [s]
 
 *SearchControlPanel
@@ -119,7 +133,7 @@
 [image storage="../image/episode1/controlpanel/controlpanel_button_notpush.png" layer="1" x="685" y="835" name="controlpanel_button"]
 [if exp="f.isStageStatusGreen == 1 && f.isLightStatusGreen == 1 && f.isSpeakerStatusGreen == 1"]
   ; 思い出1の会話パートを追加する
-  [if exp="f.skipConversation == 0"]
+  [if exp="f.scn_skip == 0"]
     [ControlButtons]
     [messageTrue]
     [nolog]

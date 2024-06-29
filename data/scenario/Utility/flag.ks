@@ -1,3 +1,12 @@
+; ゲームデータの読み込み
+[eval exp="sf.loadData = 'false' "]
+; BGMの再生
+[eval exp="f.isPlayingBGM = 'false' "]
+; 会話パートをスキップする
+[eval exp="f.scn_skip = 0"]
+; アイテム使用時
+[eval exp="f.isUsing = 0"]
+
 ; 思い出1
 [eval exp="f.isEpisode1Clear = 0"]
 [eval exp="f.isStageStatusGreen = 0"]
@@ -30,16 +39,8 @@
 [eval exp="f.isRoomLightNight = 0"]
 [eval exp="f.isYoukanGet = 0"]
 
-; アイテム使用時
-[eval exp="f.isUsing = 0"]
-
-; 会話パートをスキップする
-[eval exp="f.skipConversation = 0"]
-
-; ゲームデータの読み込み
-[eval exp="sf.loadData = 'false' "]
-
-; BGMの再生
-[eval exp="f.isPlayingBGM = 'false' "]
+; シナリオ
+[eval exp="f.scn_introduction = 'false' "]
+[eval exp="f.scn_episode1_Opening = 'false' "]
 
 [return]

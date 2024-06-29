@@ -5,7 +5,7 @@
 [start_keyconfig]
 
 ; 開発/検証用
-[if exp="f.skipConversation == 0"]
+[if exp="f.scn_skip == 0"]
     [ChangeBackGround storage="episode3/bedroom.png" time="2000" method="vanishIn"]
     [ControlButtons]
     [messageTrue]
@@ -120,7 +120,7 @@
     [MenuButton]
     [JumpBedRoom]
 [elsif exp="f.isFutonGet == 1 && f.isRoomLightNight == 1"]
-    [if exp="f.skipConversation == 0"]
+    [if exp="f.scn_skip == 0"]
         [ControlButtons]
         [layer3True]
         [ShowNormalSakuraAndMiyuki]
