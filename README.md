@@ -15,12 +15,12 @@ novel-escape(仮)
 <br>
 
 # 使用言語
-TyranoScript V5
+TyranoScript V521k
 <br><br>
 
 # プラグイン
-- ローディング画面表示プラグイン（https://mamecho.booth.pm/items/3011729）
-- ゲームUIセット vol.16（https://ko10panda.booth.pm/items/3969477）
+- [ローディング画面表示プラグイン）](https://mamecho.booth.pm/items/3011729)
+- [ゲームUIセット vol.16](https://ko10panda.booth.pm/items/3969477)
 <br>
 
 # ブランチ管理
