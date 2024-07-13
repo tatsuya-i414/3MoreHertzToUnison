@@ -297,8 +297,8 @@
 
 ; アイテム使用時の「はい」「いいえ」ボタン
 [macro name="YesNoButton"]
-    [glink color="bth06" target="%target_yes" width="80" x="240" y="980" size="24" text="はい"]
-    [glink color="bth06" target="%target_no" width="80" x="470" y="980" size="24" text="いいえ"]
+    [glink color="bth06" storage="%storage_yes" target="%target_yes" width="80" x="240" y="980" size="24" text="はい"]
+    [glink color="bth06" storage="%storage_no" target="%target_no" width="80" x="470" y="980" size="24" text="いいえ"]
 [endmacro]
 
 ; 正しくないアイテムを使用した時のメッセージ
