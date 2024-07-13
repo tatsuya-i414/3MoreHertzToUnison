@@ -39,7 +39,14 @@
 [eval exp="f.isRoomLightNight = 0"]
 [eval exp="f.isYoukanGet = 0"]
 
-; シナリオ
+; 初回クリックの判定
+[eval exp="f.isClickedControlPanel_first = 'true' "]
+[eval exp="f.isClickedWiringDoor_first = 'true' "]
+[eval exp="f.isClickedSpeaker_first = 'true' "]
+[eval exp="f.isClickedSpeaker_first = 'true' "]
+[eval exp="f.isClickedSpeaker_first_whenDriverGetting = 'true' "]
+
+; シナリオ既読判定
 [eval exp="f.scn_introduction = 'false' "]
 [eval exp="f.scn_episode1_Opening = 'false' "]
 
