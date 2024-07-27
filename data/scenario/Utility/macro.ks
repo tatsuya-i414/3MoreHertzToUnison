@@ -99,13 +99,13 @@
 
 ; 導入パートBGMを再生する
 [macro name="PlayEpisodeOpBgm"]
-    [playbgm storage="episode1_01.m4a" loop="true" restart="false"]
+    [playbgm storage="episode_op.m4a" loop="true" restart="false"]
     [eval exp="f.isPlayingBGM = 'true' "]
 [endmacro]
 
 ; 思い出1序盤BGMを再生する
 [macro name="PlayEpisode1_OpBgm"]
-    [playbgm storage="episode1_02.m4a" loop="true" restart="false"]
+    [playbgm storage="episode1_op.m4a" loop="true" restart="false"]
     [eval exp="f.isPlayingBGM = 'true' "]
 [endmacro]
 
@@ -127,7 +127,7 @@
 
 ; 制御盤のランプが変化するSEを再生する
 [macro name="PlayChangeControlPanelLamp"]
-    [playse storage="../bgm/se/changecontrolpanellamp.mp3" loop="false"]
+    [playse storage="../bgm/se/changecontrolpanellamp.m4a" loop="false"]
 [endmacro]
 
 ; ------------------------------

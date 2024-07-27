@@ -5,10 +5,10 @@
 [iscript]
     tf.file = [
         "./data/bgm/topmenu.m4a",
-        "./data/bgm/episode1_01.m4a",
-        "./data/bgm/episode1_02.m4a",
+        "./data/bgm/episode_op.m4a",
+        "./data/bgm/episode1_op.m4a",
         "./data/bgm/episode1.m4a",
-        "./data/bgm/se/changecontrolpanellamp.mp3"
+        "./data/bgm/se/changecontrolpanellamp.m4a"
     ];
 [endscript]
 [preload storage="&tf.file" wait="true"]
