@@ -95,21 +95,27 @@
     #桜良
     うーん、もう一度見てみるね。[p]
 [endif]
-
 [return]
 
 *UseCable
 ; 桜良表情：笑顔
 ; 深雪表情：通常
+; ケーブルを繋ぎ合わせる効果音を追加
+[ChangeBackGround storage="episode1/connectedwiring.png"]
 #桜良
 よいしょ......[r]
 できた！[p]
 
 ; 桜良表情：驚き
 ; 深雪表情：驚き
-; 画面数秒揺れる。
-; 揺れに合わせて効果音。舞台がせりあがる鈍い音
+[StopPlayingBgm]
+[quake count="10" wait="true" time="700" hmax="10"]
+; 揺れに合わせて舞台がせりあがる鈍い効果音
+[wait time="1000"]
+[PlayChangeControlPanelLamp]
 ; すこしして画面揺れ、効果音フェードアウト
+[wait time="1000"]
+[PlayEpisode1Bgm]
 
 ; 深雪表情：通常
 #深雪
@@ -137,13 +143,14 @@
 ; 桜良表情：笑顔
 #桜良
 うん！[p]
-
 [return]
 
 *NotUseCable
 [if exp="f.scn_skip == 0"]
+    [ControlButtons]
     [layer3True]
     [ShowNormalSakuraAndMiyuki]
+    [nolog]
     ; 桜良表情：通常
     #桜良
     少し心の準備するね。[p]
@@ -151,6 +158,7 @@
     ; 深雪表情：通常
     #深雪
     わかったわ。[p]
+    [endnolog]
+    [layer3False]
 [endif]
-[layer3False]
 [jump storage="Gimmick/episode1.ks" target="*SelectItemOfCable"]

@@ -45,6 +45,8 @@
 [eval exp="f.isClickedSpeaker_first = 'true' "]
 [eval exp="f.isClickedSpeaker_first = 'true' "]
 [eval exp="f.isClickedSpeaker_first_whenDriverGetting = 'true' "]
+[eval exp="f.isClickedToolBox_first = 'true' "]
+[eval exp="f.isClickedLight_first = 'true' "]
 
 ; シナリオ既読判定
 [eval exp="f.scn_introduction = 'false' "]

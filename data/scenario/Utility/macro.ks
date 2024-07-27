@@ -88,12 +88,30 @@
 [endmacro]
 
 ; ------------------------------
-; 音声
+; BGM
 ; ------------------------------
 
-; 通常BGMを再生する
+; トップ画面BGMを再生する
 [macro name="PlayNormalBgm"]
-    [playbgm storage="../bgm/music.m4a" loop="true" restart="false"]
+    [playbgm storage="topmenu.m4a" loop="true" restart="false"]
+    [eval exp="f.isPlayingBGM = 'true' "]
+[endmacro]
+
+; 導入パートBGMを再生する
+[macro name="PlayEpisode1_01Bgm"]
+    [playbgm storage="episode1_01.m4a" loop="true" restart="false"]
+    [eval exp="f.isPlayingBGM = 'true' "]
+[endmacro]
+
+; 思い出1序盤BGMを再生する
+[macro name="PlayEpisode1_02Bgm"]
+    [playbgm storage="episode1_02.m4a" loop="true" restart="false"]
+    [eval exp="f.isPlayingBGM = 'true' "]
+[endmacro]
+
+; 思い出1通常BGMを再生する
+[macro name="PlayEpisode1Bgm"]
+    [playbgm storage="episode1.m4a" loop="true" restart="false"]
     [eval exp="f.isPlayingBGM = 'true' "]
 [endmacro]
 
@@ -101,6 +119,15 @@
 [macro name="StopPlayingBgm"]
     [stopbgm]
     [eval exp="f.isPlayingBGM = 'false' "]
+[endmacro]
+
+; ------------------------------
+; SE
+; ------------------------------
+
+; 制御盤のランプが変化するSEを再生する
+[macro name="PlayChangeControlPanelLamp"]
+    [playse storage="../bgm/se/changecontrolpanellamp.mp3" loop="false"]
 [endmacro]
 
 ; ------------------------------
