@@ -10,7 +10,7 @@
     [ControlButtons]
     [messageTrue]
     ; 会話パートの読み込み
-    [call storage="Conversation/episode3.ks" target="*Introduction"]
+    [call storage="Conversation/episode3/episode3.ks" target="*Introduction"]
 [endif]
 
 *BedRoom
