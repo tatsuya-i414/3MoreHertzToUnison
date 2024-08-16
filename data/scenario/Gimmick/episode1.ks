@@ -304,7 +304,6 @@
 [clearstack]
 [Freelayer1]
 [Freelayer2]
-; 箱を開ける効果音を追加
 [if exp="f.leftNum != 4 && f.centerNum != 5 && f.rightNum != 6"]
     [ChangeBackGround storage="episode1/dial.png"]
     ; ダイヤル（画像で表示）
@@ -384,7 +383,7 @@
     [eval exp="f.leftNum = 0"]
     [button graphic="episode1/dial/dialnumber_0.png" x="440" y="400" width="200" height="400" exp="f.leftNum = 0" fix="true" target="*LeftDialTurn"]
 [endif]
-; ダイヤルを回す効果音を追加
+[PlayTurnDial]
 [call target="*DialUnlock"]
 [return]
 
@@ -420,7 +419,7 @@
     [eval exp="f.centerNum = 0"]
     [button graphic="episode1/dial/dialnumber_0.png" x="850" y="400" width="200" height="400" exp="f.centerNum = 0" fix="true" target="*CenterDialTurn"]
 [endif]
-; ダイヤルを回す効果音を追加
+[PlayTurnDial]
 [call target="*DialUnlock"]
 [return]
 
@@ -456,13 +455,18 @@
     [eval exp="f.rightNum = 0"]
     [button graphic="episode1/dial/dialnumber_0.png" x="1250" y="40 0" width="200" height="400" exp="f.rightNum = 0" fix="true" target="*RightDialTurn"]
 [endif]
-; ダイヤルを回す効果音を追加
+[PlayTurnDial]
 [call target="*DialUnlock"]
 [return]
 
 *DialUnlock
 [if exp="f.leftNum == 4 && f.centerNum == 5 && f.rightNum == 6"]
-    ; 開錠する時の効果音を追加
+    [wait time="100"]
+    [if exp="tf.dialUnlock != 'true' "]
+        [PlayUnlockKey]
+        [wait time="500"]
+    [endif]
+    [PlayOpenBox]
     [wait time="1000"]
     [clearfix]
     ; アイテムメニューボタンを再度表示する
@@ -501,6 +505,7 @@
     delete f.leftNum;
     delete f.centerNum;
     delete f.rightNum;
+    delete tf.dialUnlock;
 [endscript]
 ; 制御盤の初回クリックフラグをリセットする
 [if exp="f.isClickedWiringDoor_first == 'false' "]
@@ -511,6 +516,7 @@
 *DialUnlock_back
 [cm]
 [clearfix]
+[eval exp="tf.dialUnlock = 'true' "]
 [free layer="1" name="cable"]
 [JumpStageRoom]
 

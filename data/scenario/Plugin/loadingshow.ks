@@ -12,7 +12,10 @@
         "./data/bgm/episode2.m4a",
         "./data/bgm/episode3.m4a",
         "./data/bgm/se/changecontrolpanellamp.m4a",
-        "./data/bgm/se/opendoor.m4a"
+        "./data/bgm/se/openbox.m4a",
+        "./data/bgm/se/opendoor.m4a",
+        "./data/bgm/se/turndial.m4a",
+        "./data/bgm/se/unlockkey.m4a"
     ];
 [endscript]
 [preload storage="&tf.file" wait="true"]

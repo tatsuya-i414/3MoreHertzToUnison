@@ -143,6 +143,21 @@
 ; SE
 ; ------------------------------
 
+; 開錠するSEを再生する
+[macro name="PlayUnlockKey"]
+    [playse storage="../bgm/se/unlockkey.m4a" loop="false"]
+[endmacro]
+
+; 箱を開けるSEを再生する
+[macro name="PlayOpenBox"]
+    [playse storage="../bgm/se/openbox.m4a" loop="false"]
+[endmacro]
+
+; ダイヤルを回すSEを再生する
+[macro name="PlayTurnDial"]
+    [playse storage="../bgm/se/turndial.m4a" loop="false"]
+[endmacro]
+
 ; 制御盤のランプが変化するSEを再生する
 [macro name="PlayChangeControlPanelLamp"]
     [playse storage="../bgm/se/changecontrolpanellamp.m4a" loop="false"]
