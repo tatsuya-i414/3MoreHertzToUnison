@@ -4,6 +4,7 @@ bgimage\episode1,controlpanel.png
 bgimage\episode1,dial.png
 bgimage\episode1,disconnectedwiring.png
 bgimage\episode1,omoide1_introduction.jpg
+bgimage\episode1,spotlight.png
 bgimage\episode1,stageroom.png
 bgimage\episode1,stageroom_stagerise.png
 bgimage\episode2,cameramonitor.png
@@ -63,7 +64,6 @@ image\episode1,lightcover_mount.png
 image\episode1,mike.png
 image\episode1,speaker_afterrepair.png
 image\episode1,speaker_beforerepair.png
-image\episode1,spotlight.png
 image\episode2,block.png
 image\episode2,blueblock.png
 image\episode2,blueblock_item.png

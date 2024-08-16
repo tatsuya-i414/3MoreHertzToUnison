@@ -5,7 +5,7 @@
 ; スタンドマイクが出現
 ; 電気が消える効果音
 ; スポットライトが点灯する効果音
-[layermode name="spotlight" graphic="episode1/spotlight.png" mode="multiply" opacity="170" time="100" wait="true"]
+[ChangeBackGround storage="episode1/spotlight.png"]
 
 ; 桜良表情：驚き
 #桜良
