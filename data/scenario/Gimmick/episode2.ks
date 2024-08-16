@@ -4,21 +4,33 @@
 [clearstack]
 [start_keyconfig]
 
-; 開発/検証用
-[if exp="f.scn_skip == 0"]
-    [ChangeBackGround storage="episode2/studioroom.png" time="2000" method="vanishIn"]
-    [ControlButtons]
-    [messageTrue]
-    ; 会話パートの読み込み
-    [call storage="Conversation/episode2/episode2.ks" target="*Introduction"]
-[endif]
-
 *StudioRoom
 [clearfix]
 [messageFalse]
 [layer1True]
 [layer2True]
 [MenuButton]
+[if exp="f.isPlayingBGM == 'false' "]
+    [PlayEpisode2Bgm]
+[endif]
+
+; シナリオ_思い出2序盤
+[if exp="f.scn_skip == 0 && f.scn_episode2_OP == 'false' "]
+    [cm]
+    [blackout exp="f.isEpisode1Clear == 1" storage_1="episode2/studioroom.png" storage_2="episode1/stageroom.png"]
+    [ControlButtons]
+    [StopPlayingBgm]
+    ; 思い出2序盤のBGM再生
+    [messageTrue]
+    [call storage="Conversation/episode2/episode2.ks" target="*Introduction"]
+    [eval exp="f.scn_episode2_OP = 'true' "]
+    [clearfix]
+    [messageFalse]
+    [MenuButton]
+    [ItemMenuButton]
+    ; BGMを停止
+    [jump target="*StudioRoom"]
+[endif]
 
 ; 背景
 [if exp="f.isHungerGet == -1"]

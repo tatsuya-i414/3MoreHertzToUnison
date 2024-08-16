@@ -115,6 +115,18 @@
     [eval exp="f.isPlayingBGM = 'true' "]
 [endmacro]
 
+; 思い出1終盤BGMを再生する
+[macro name="PlayEpisode1_EdBgm"]
+    [playbgm storage="episode1_ed.m4a" loop="true" restart="false"]
+    [eval exp="f.isPlayingBGM = 'true' "]
+[endmacro]
+
+; 思い出2通常BGMを再生する
+[macro name="PlayEpisode2Bgm"]
+    [playbgm storage="episode2.m4a" loop="true" restart="false"]
+    [eval exp="f.isPlayingBGM = 'true' "]
+[endmacro]
+
 ; BGMの再生を停止する
 [macro name="StopPlayingBgm"]
     [stopbgm]
@@ -128,6 +140,11 @@
 ; 制御盤のランプが変化するSEを再生する
 [macro name="PlayChangeControlPanelLamp"]
     [playse storage="../bgm/se/changecontrolpanellamp.m4a" loop="false"]
+[endmacro]
+
+; 配線扉を開けるSEを再生する
+[macro name="PlayOpenDoor"]
+    [playse storage="../bgm/se/opendoor.m4a" loop="false"]
 [endmacro]
 
 ; ------------------------------

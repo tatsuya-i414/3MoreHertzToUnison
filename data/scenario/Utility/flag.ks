@@ -49,7 +49,7 @@
 [eval exp="f.isClickedLight_first = 'true' "]
 
 ; シナリオ既読判定
-[eval exp="f.scn_introduction = 'false' "]
-[eval exp="f.scn_episode1_Opening = 'false' "]
+[eval exp="f.scn_episode1_OP = 'false' "]
+[eval exp="f.scn_episode2_OP = 'false' "]
 
 [return]

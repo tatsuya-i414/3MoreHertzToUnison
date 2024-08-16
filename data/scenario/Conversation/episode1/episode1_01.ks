@@ -131,6 +131,7 @@
     [messageFalse]
     [cancelskip]
     [clearfix]
+    [ItemMenuButton]
     [MenuButton]
 [endif]
 [jump storage="Gimmick/episode1.ks" target="*SearchControlPanel"]
