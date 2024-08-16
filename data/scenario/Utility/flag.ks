@@ -51,5 +51,6 @@
 ; シナリオ既読判定
 [eval exp="f.scn_episode1_OP = 'false' "]
 [eval exp="f.scn_episode2_OP = 'false' "]
+[eval exp="f.scn_episode3_OP = 'false' "]
 
 [return]

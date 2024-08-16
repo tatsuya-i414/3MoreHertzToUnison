@@ -127,6 +127,12 @@
     [eval exp="f.isPlayingBGM = 'true' "]
 [endmacro]
 
+; 思い出3通常BGMを再生する
+[macro name="PlayEpisode3Bgm"]
+    [playbgm storage="episode3.m4a" loop="true" restart="false"]
+    [eval exp="f.isPlayingBGM = 'true' "]
+[endmacro]
+
 ; BGMの再生を停止する
 [macro name="StopPlayingBgm"]
     [stopbgm]

@@ -46,6 +46,7 @@
     [MenuButton]
     [ItemMenuButton]
     [StopPlayingBgm]
+    ; 背景パーツを削除
     [free layer="1" name="lightcover"]
     [free layer="1" name="speaker"]
     [jump target="*StageRoom"]
