@@ -3,11 +3,14 @@
 
 ; 標準ライブラリ群
 [call storage="Utility/tyrano.ks"]
-
-; テーマ一括変換プラグインの呼び出し
-[plugin name="theme_kopanda_bth_06_blue"]
 ; ローディング画面表示プラグインの呼び出し
 [plugin name="loading"]
+; メニューSE追加プラグインの呼び出し
+[plugin name="menu_se"]
+; システムスワイププラグインの呼び出し
+[plugin name="system_swipe"]
+; テーマ一括変換プラグインの呼び出し
+[plugin name="theme_kopanda_bth_06_blue"]
 
 ; フラグ初期化
 [call storage="Utility/flag.ks"]
@@ -55,6 +58,8 @@
 [endscript]
 ; メッセージウインドウとキャラクター情報の読み込み
 [call storage="Utility/settings.ks"]
+; メニューSEのパラメータを読み込み
+[call storage="Plugin/menuse.ks"]
 
 ; 起動時にゲームデータを読み込む
 [call storage="Plugin/loading.ks"]
