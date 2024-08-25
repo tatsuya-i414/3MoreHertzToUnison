@@ -131,11 +131,14 @@
 
 *UseDriver
 ; 深雪表情：通常
-; ドライバーを回す効果音を追加
+[messageFalse]
+[PlayTurnScrew]
+[wait time="500"]
 [free layer="1" name="speaker"]
 [image storage="../image/episode1/speaker_afterrepair.png" layer="1" x="1" y="125" name="speaker"]
 [wait time="1000"]
 [PlayChangeControlPanelLamp]
+[messageTrue]
 #深雪
 ふう。[r]
 （こ、壊さなくてよかった。[r]

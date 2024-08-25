@@ -105,12 +105,13 @@
 おっけー！[r]
 ポチッとな！[p]
 [endnolog]
+[messageFalse]
 ; ボタンを押下した画像に変換
 [free layer="1" name="controlpanel_button"]
-; ボタンを押す効果音を追加
+[PlayControlPanelButtonClick]
+[wait time="500"]
 [image storage="../image/episode1/controlpanel/controlpanel_button_notpush.png" layer="1" x="685" y="835" name="controlpanel_button"]
 [layer3False]
-[messageFalse]
 [wait time="1000"]
 [return]
 

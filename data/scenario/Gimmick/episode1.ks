@@ -481,7 +481,7 @@
 
 *GetCable
 [free layer="1" name="cable"]
-; アイテムを獲得する効果音を追加
+[PlayGetItem]
 [if exp="f.scn_skip == 0"]
     [ControlButtons]
     [layer3True]
@@ -521,7 +521,7 @@
 [JumpStageRoom]
 
 *GetDriver
-; アイテムを獲得する効果音を追加
+[PlayGetItem]
 [eval exp="f.isDriverGet = 1"]
 [free layer="2" name="driver"]
 [JumpStageRoom]
@@ -597,7 +597,7 @@
 [JumpStageRoom]
 
 *GetLightCover
-; アイテムを獲得する効果音を追加
+[PlayGetItem]
 [eval exp="f.isLightCoverGet = 1"]
 [free layer="1" name="lightcover"]
 ; ライトの初回クリックフラグをリセットする

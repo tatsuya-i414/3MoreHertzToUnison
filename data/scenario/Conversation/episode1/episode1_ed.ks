@@ -1,11 +1,11 @@
 ;-------------------------------------------------------
 ; 思い出1終盤
 ;-------------------------------------------------------
-[ChangeBackGround storage="episode1/stageroom.png"]
+[PlayTurnOffLight]
 ; スタンドマイクが出現
-; 電気が消える効果音
-; スポットライトが点灯する効果音
 [ChangeBackGround storage="episode1/spotlight.png"]
+[wait time="500"]
+[PlaySpotLightOn]
 
 ; 桜良表情：驚き
 #桜良
@@ -171,14 +171,19 @@
 あの時の再現ということね。[r]
 わかったわ[p]
 
-; コツコツという足音のSE
+[messageFalse]
+[PlayFootStep]
+[wait time="4500"]
+[messageTrue]
 
 #深雪
 立つだけじゃダメみたいね。[r]
 マイクに触れてみるわ。[p]
 
-[free_layermode name="spotlight"]
-; ピカッという効果音を追加
+[PlayBell]
+[messageFalse]
+[wait time="500"]
+[messageTrue]
  
 #桜良
 キャッ！！[p]

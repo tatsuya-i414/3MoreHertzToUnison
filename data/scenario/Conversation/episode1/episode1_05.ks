@@ -140,9 +140,13 @@
 
 *UseLightCover
 ; 深雪表情：通常
+[messageFalse]
+[PlayMountLightCover]
+[wait time="500"]
 [image storage="../image/episode1/lightcover_mount.png" layer="1" x="670" y="20" name="light"]
 [wait time="1000"]
 [PlayChangeControlPanelLamp]
+[messageTrue]
 #深雪
 これで元に戻せた、はず。[p]
 

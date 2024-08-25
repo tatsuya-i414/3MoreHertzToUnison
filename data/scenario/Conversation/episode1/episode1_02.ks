@@ -100,7 +100,7 @@
 *UseCable
 ; 桜良表情：笑顔
 ; 深雪表情：通常
-; ケーブルを繋ぎ合わせる効果音を追加
+[PlayConnectCable]
 [ChangeBackGround storage="episode1/connectedwiring.png"]
 #桜良
 よいしょ......[r]
@@ -110,11 +110,10 @@
 ; 深雪表情：驚き
 [messageFalse]
 [StopPlayingBgm]
-[quake count="10" wait="true" time="700" vmax="5"]
-; 揺れに合わせて舞台がせりあがる鈍い効果音
-[wait time="1000"]
+[PlayRisingStage]
+[quake count="40" wait="true" time="2000" vmax="5"]
+[wait time="2000"]
 [PlayChangeControlPanelLamp]
-; すこしして画面揺れ、効果音フェードアウト
 [wait time="1000"]
 [PlayEpisode1Bgm]
 [messageTrue]
