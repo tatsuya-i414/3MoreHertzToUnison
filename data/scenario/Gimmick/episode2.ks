@@ -11,7 +11,9 @@
 [layer2True]
 [MenuButton]
 [if exp="f.isPlayingBGM == 'false' "]
-    [PlayEpisode2Bgm]
+    [PlayEpisode2BGM]
+[else]
+    [FadeoutBGM]
 [endif]
 
 ; シナリオ_思い出2序盤
@@ -19,7 +21,7 @@
     [cm]
     [blackout exp="f.isEpisode1Clear == 1" storage_1="episode2/studioroom.png" storage_2="episode1/stageroom.png"]
     [ControlButtons]
-    [StopPlayingBgm]
+    [FadeoutBGM]
     ; 思い出2序盤のBGM再生
     [messageTrue]
     [call storage="Conversation/episode2/episode2.ks" target="*Introduction"]
@@ -28,7 +30,7 @@
     [messageFalse]
     [MenuButton]
     [ItemMenuButton]
-    ; BGMを停止
+    [FadeoutBGM]
     [jump target="*StudioRoom"]
 [endif]
 
@@ -93,6 +95,8 @@
 [if exp="f.isTentDown == 1 && f.isDressGet == -1"]
     [if exp="f.scn_skip == 0"]
         [ControlButtons]
+        [FadeoutBGM]
+        ; 思い出2終盤のBGM再生
         [layer3True]
         [ShowNormalSakuraAndMiyuki]
         [messageTrue]
@@ -148,7 +152,7 @@
     [endnolog]
     [messageFalse]
     [layer3False]
-    ; 何かを下ろす効果音を追加
+    ; 天幕を下ろす効果音を追加
     [eval exp="f.isHungerGet = -1"]
     [eval exp="f.isTentDown = 1"]
     [eval exp="f.isPaperDown = 1"]
@@ -157,7 +161,7 @@
 [endif]
 
 *GetHunger
-; アイテムを獲得する効果音を追加
+[PlayGetItem]
 [eval exp="f.isHungerGet = 1"]
 [free layer="1" name="hunger"]
 [JumpStudioRoom]
@@ -252,7 +256,7 @@
 [JumpStudioRoom]
 
 *GetBlock
-; アイテムを獲得する効果音を追加
+[PlayGetItem]
 [eval exp="f.isBlueBlockGet = 1"]
 [eval exp="f.isRedBlockGet = 1"]
 [eval exp="f.isGreenBlockGet = 1"]
@@ -548,7 +552,7 @@
 [return]
 
 *GetDress
-; アイテムを獲得する効果音を追加
+[PlayGetItem]
 [ControlButtons]
 [layer3True]
 [ShowNormalSakuraAndMiyuki]
@@ -565,7 +569,7 @@
 [jump target="*GetDressAndCurtain"]
 
 *GetCurtain
-; アイテムを獲得する効果音を追加
+[PlayGetItem]
 [eval exp="f.isCurtainGet = 1"]
 [free layer="1" name="curtain"]
 [jump target="*GetDressAndCurtain"]

@@ -48,7 +48,7 @@
     [glink color="bth06" storage="Utility/debug.ks" target="*Save" text="会話パートをスキップ" x="120" y="570" width="150" height="45" clickse="../bgm/se/itemdecision.m4a" size="24" bold="true" exp="f.scn_skip = 1"]
 [endif]
 [if exp="f.isPlayingBGM == 'false' "]
-    [PlayNormalBgm]
+    [PlayNormalBGM]
 [endif]
 [s]
 

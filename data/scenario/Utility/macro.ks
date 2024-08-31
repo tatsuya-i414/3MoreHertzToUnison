@@ -92,49 +92,49 @@
 ; ------------------------------
 
 ; トップ画面BGMを再生する
-[macro name="PlayNormalBgm"]
+[macro name="PlayNormalBGM"]
     [playbgm storage="topmenu.m4a" loop="true" restart="false"]
     [eval exp="f.isPlayingBGM = 'true' "]
 [endmacro]
 
 ; 導入パートBGMを再生する
-[macro name="PlayEpisodeOpBgm"]
+[macro name="PlayEpisodeOpBGM"]
     [playbgm storage="episode_op.m4a" loop="true" restart="false"]
     [eval exp="f.isPlayingBGM = 'true' "]
 [endmacro]
 
 ; 思い出1序盤BGMを再生する
-[macro name="PlayEpisode1_OpBgm"]
+[macro name="PlayEpisode1_OpBGM"]
     [playbgm storage="episode1_op.m4a" loop="true" restart="false"]
     [eval exp="f.isPlayingBGM = 'true' "]
 [endmacro]
 
 ; 思い出1通常BGMを再生する
-[macro name="PlayEpisode1Bgm"]
+[macro name="PlayEpisode1BGM"]
     [playbgm storage="episode1.m4a" loop="true" volume="60" restart="false"]
     [eval exp="f.isPlayingBGM = 'true' "]
 [endmacro]
 
 ; 思い出1終盤BGMを再生する
-[macro name="PlayEpisode1_EdBgm"]
+[macro name="PlayEpisode1_EdBGM"]
     [playbgm storage="episode1_ed.m4a" loop="true" restart="false"]
     [eval exp="f.isPlayingBGM = 'true' "]
 [endmacro]
 
 ; 思い出2通常BGMを再生する
-[macro name="PlayEpisode2Bgm"]
+[macro name="PlayEpisode2BGM"]
     [playbgm storage="episode2.m4a" loop="true" restart="false"]
     [eval exp="f.isPlayingBGM = 'true' "]
 [endmacro]
 
 ; 思い出3通常BGMを再生する
-[macro name="PlayEpisode3Bgm"]
+[macro name="PlayEpisode3BGM"]
     [playbgm storage="episode3.m4a" loop="true" restart="false"]
     [eval exp="f.isPlayingBGM = 'true' "]
 [endmacro]
 
 ; BGMの再生を停止する
-[macro name="StopPlayingBgm"]
+[macro name="StopPlayingBGM"]
     [stopbgm]
     [eval exp="f.isPlayingBGM = 'false' "]
 [endmacro]
