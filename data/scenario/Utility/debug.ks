@@ -9,9 +9,9 @@
 [bg storage="share/debug.png" time="100"]
 
 ; ボタン
-[button graphic="../others/plugin/theme_kopanda_bth_06_blue/image/config/back.png" enterimg="../others/plugin/theme_kopanda_bth_06_blue/image/config/back2.png" target="*Backtitle" x="1680" y="60"]
-[glink color="bth06" target="*Flagdetail" text="フラグ別詳細" x="1380" y="960" width="150" height="24" size="24" bold="true"]
-[button graphic="debug/sysbtn_02_qsave.png" enterimg="debug/sysbtn_02_qsave_hover.png" target="*Save" x="1680" y="960"]
+[button graphic="../others/plugin/theme_kopanda_bth_06_blue/image/config/back.png" enterimg="../others/plugin/theme_kopanda_bth_06_blue/image/config/back2.png" target="*Backtitle" x="1680" y="60" clickse="../bgm/se/cancel.m4a"]
+[glink color="bth06" target="*Flagdetail" text="フラグ別詳細" x="1380" y="960" width="150" height="24" size="24" clickse="../bgm/se/decision.m4a" bold="true"]
+[button graphic="debug/sysbtn_02_qsave.png" enterimg="debug/sysbtn_02_qsave_hover.png" target="*Save" x="1680" y="960" clickse="../bgm/se/itemdecision.m4a"]
 
 ; ゲーム変数_Episode1
 [if exp="f.isEpisode1Clear == 0"]

@@ -56,6 +56,19 @@
     #深雪
     そうかもしれない。[r]
     一度他を調べましょう。[p]
+    [if exp="f.isClickedControlPanel_first == 'true' "]
+        [eval exp="f.isClickedControlPanel_first = 'false' "]
+    [endif]
+    [free layer="1" name="controlpanel_button"]
+    [free layer="1" name="controlpanel_lamp"]
+    [free layer="1" name="stage_greenlamp"]
+    [free layer="1" name="stage_redlamp"]
+    [free layer="1" name="light_greenlamp"]
+    [free layer="1" name="light_redlamp"]
+    [free layer="1" name="speaker_greenlamp"]
+    [free layer="1" name="speaker_redlamp"]
+    [layer3False]
+    [JumpStageRoom]
 ; 二回目以降
 [elsif exp="f.isClickedControlPanel_first == 'false' "]
     ; 深雪表情：通常
@@ -70,11 +83,20 @@
     ; 深雪表情：尊い
     #深雪
     （桜良、わくわくしててかわいい......）[p]
+    [free layer="1" name="controlpanel_button"]
+    [free layer="1" name="controlpanel_lamp"]
+    [free layer="1" name="stage_greenlamp"]
+    [free layer="1" name="stage_redlamp"]
+    [free layer="1" name="light_greenlamp"]
+    [free layer="1" name="light_redlamp"]
+    [free layer="1" name="speaker_greenlamp"]
+    [free layer="1" name="speaker_redlamp"]
+    [layer3False]
+    [JumpStageRoom]
 [endif]
 
-[return]
-
 *PushSwitch
+[nolog]
 #深雪
 このままここにいても埒があかないわ。[r]
 押してみましょう。[p]
@@ -82,19 +104,35 @@
 #桜良
 おっけー！[r]
 ポチッとな！[p]
-
-; 場面転換
-; 思い出１終わりに突入
-[eval exp="f.isEpisode1Clear = 1"]
-
+[endnolog]
+[messageFalse]
+; ボタンを押下した画像に変換
+[free layer="1" name="controlpanel_button"]
+[PlayControlPanelButtonClick]
+;[wait time="500"]
+[image storage="../image/episode1/controlpanel/controlpanel_button_notpush.png" layer="1" x="685" y="835" name="controlpanel_button"]
+[layer3False]
+;[wait time="1000"]
 [return]
 
 *NotPushSwitch
-#深雪
-いえ、もう少しだけ他を調べてからにしましょう。[p]
+[if exp="f.scn_skip == 0"]
+    [ControlButtons]
+    [layer3True]
+    [ShowNormalSakuraAndMiyuki]
+    [nolog]
+    #深雪
+    いえ、もう少しだけ他を調べてからにしましょう。[p]
 
-#桜良
-まだ見逃してるものがあるかもしれないもんね！[r]
-準備ができたらまた来よう！[p]
-
-[return]
+    #桜良
+    まだ見逃してるものがあるかもしれないもんね！[r]
+    準備ができたらまた来よう！[p]
+    [endnolog]
+    [layer3False]
+    [messageFalse]
+    [cancelskip]
+    [clearfix]
+    [ItemMenuButton]
+    [MenuButton]
+[endif]
+[jump storage="Gimmick/episode1.ks" target="*SearchControlPanel"]

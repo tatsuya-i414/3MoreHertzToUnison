@@ -6,11 +6,16 @@
 
 ; シナリオ_導入パート
 [if exp="f.scn_skip == 0"]
-    [ChangeBackGround storage="episode1/omoide1_introduction.jpg" time="2000" method="vanishIn"]
+    [blackout exp="f.scn_skip == 0" storage_1="episode1/omoide1_introduction.jpg" storage_2="share/top.png"]
     [ControlButtons]
+    [FadeoutBGM]
+    [if exp="f.isPlayingBGM == 'false' "]
+        [PlayEpisodeOpBGM]
+    [endif]
     [messageTrue]
-    [call storage="Conversation/episode1_01.ks"]
-    [eval exp="f.scn_introduction = 'true' "]
+    [call storage="Conversation/episode_op.ks"]
+[else]
+    [FadeoutBGM]
 [endif]
 
 *StageRoom
@@ -19,6 +24,35 @@
 [layer1True]
 [layer2True]
 [MenuButton]
+[if exp="f.isPlayingBGM == 'false' "]
+    [PlayEpisode1BGM]
+[endif]
+
+; シナリオ_思い出1序盤
+[if exp="f.scn_skip == 0 && f.scn_episode1_OP == 'false' "]
+    [cm]
+    [blackout exp="f.scn_skip == 0" storage_1="episode1/stageroom.png" storage_2="episode1/omoide1_introduction.jpg"]
+    ; 背景パーツを表示
+    [image storage="../image/episode1/lightcover_item.png" layer="1" x="450" y="770" name="lightcover"]
+    [image storage="../image/episode1/speaker_beforerepair.png" layer="1" x="1" y="110" name="speaker"]
+    [ControlButtons]
+    [FadeoutBGM]
+    [if exp="f.isPlayingBGM == 'false' "]
+        [PlayEpisode1_OpBGM]
+    [endif]
+    [messageTrue]
+    [call storage="Conversation/episode1/episode1_op.ks"]
+    [eval exp="f.scn_episode1_OP = 'true' "]
+    [clearfix]
+    [messageFalse]
+    [MenuButton]
+    [ItemMenuButton]
+    [FadeoutBGM]
+    ; 背景パーツを削除
+    [free layer="1" name="lightcover"]
+    [free layer="1" name="speaker"]
+    [jump target="*StageRoom"]
+[endif]
 
 ; 背景
 [if exp="f.isStageStatusGreen == 1"]
@@ -74,20 +108,6 @@
 
 ; アイテムメニュー
 [ItemMenuButton]
-
-; シナリオ_思い出1序盤
-[if exp="f.scn_skip == 0 && f.scn_episode1_Opening == 'false' "]
-    [cm]
-    [ControlButtons]
-    [messageTrue]
-    [call storage="Conversation/episode1_02.ks"]
-    [eval exp="f.scn_episode1_Opening = 'true' "]
-    [clearfix]
-    [messageFalse]
-    [MenuButton]
-    [ItemMenuButton]
-    [jump target="*StageRoom"]
-[endif]
 [s]
 
 *SearchControlPanel
@@ -128,16 +148,13 @@
 [s]
 
 *SearchControlPanel_Decision
-[free layer="1" name="controlpanel_button"]
-; ボタンを押す効果音を追加
-[image storage="../image/episode1/controlpanel/controlpanel_button_notpush.png" layer="1" x="685" y="835" name="controlpanel_button"]
 [if exp="f.scn_skip == 0"]
     [ControlButtons]
     [layer3True]
     [ShowNormalSakuraAndMiyuki]
     [messageTrue]
     [nolog]
-    [call storage="Conversation/episode1_03.ks"]
+    [call storage="Conversation/episode1/episode1_01.ks"]
     [endnolog]
     [layer3False]
     [messageFalse]
@@ -146,9 +163,6 @@
 [endif]
 [if exp="f.isClickedControlPanel_first == 'true' "]
     [eval exp="f.isClickedControlPanel_first = 'false' "]
-[endif]
-[if exp="f.isStageStatusGreen == 1 && f.isLightStatusGreen == 1 && f.isSpeakerStatusGreen == 1"]
-    [eval exp="f.isMikeGet = 1"]
 [endif]
 ; 画像を削除する
 [free layer="1" name="controlpanel_button"]
@@ -159,6 +173,28 @@
 [free layer="1" name="light_redlamp"]
 [free layer="1" name="speaker_greenlamp"]
 [free layer="1" name="speaker_redlamp"]
+; シナリオ_思い出1終盤
+[if exp="f.scn_skip == 0"]
+    [ControlButtons]
+    [FadeoutBGM fadeoutTime="500" waitTime="500"]
+    [if exp="f.isPlayingBGM == 'false' "]
+        [PlayEpisode1_EdBGM]
+    [endif]
+    [layer3True]
+    [ShowNormalSakuraAndMiyuki]
+    [messageTrue]
+    [nolog]
+    [call storage="Conversation/episode1/episode1_ed.ks"]
+    [endnolog]
+    [layer3False]
+    [cancelskip]
+    [ItemMenuButton]
+    [MenuButton]
+[endif]
+[eval exp="f.isEpisode1Clear = 1" cond="f.isStageStatusGreen == 1 && f.isLightStatusGreen == 1 && f.isSpeakerStatusGreen == 1"]
+[if exp="f.isStageStatusGreen == 1 && f.isLightStatusGreen == 1 && f.isSpeakerStatusGreen == 1"]
+    [eval exp="f.isMikeGet = 1"]
+[endif]
 ; 思い出2へ移動する
 [jump storage="Gimmick/episode2.ks" cond="f.isEpisode1Clear == 1"]
 [JumpStageRoom]
@@ -179,7 +215,7 @@
 *SearchWiringDoor
 [Freelayer1]
 [Freelayer2]
-; 扉を開ける効果音を追加
+[PlayOpenDoor]
 [if exp="f.isUsing == 1"]
     [FreeItemBox]
     [messageFalse]
@@ -197,14 +233,15 @@
     [ShowNormalSakuraAndMiyuki]
     [messageTrue]
     [nolog]
-    [call storage="Conversation/episode1_04.ks"]
+    [call storage="Conversation/episode1/episode1_02.ks"]
     [endnolog]
-    [if exp="f.isClickedWiringDoor_first == 'true' "]
-        [eval exp="f.isClickedWiringDoor_first = 'false' "]
-    [endif]
     [layer3False]
+    [messageFalse]
     [clearfix cond="f.isCableGet == 1"]
     [MenuButton]
+[endif]
+[if exp="f.isClickedWiringDoor_first == 'true' "]
+    [eval exp="f.isClickedWiringDoor_first = 'false' "]
 [endif]
 [ItemMenuButton cond="f.isCableGet == 1"]
 [JumpStageRoom cond="f.isCableGet == 0"]
@@ -222,13 +259,13 @@
 *UseCable
 [messageTrue]
 [ConfirmUseItem]
-[YesNoButton target_yes="*ValidItemOfCable" storage_no="Conversation/episode1_04.ks" target_no="*NotUseCable"]
+[YesNoButton target_yes="*ValidItemOfCable" storage_no="Conversation/episode1/episode1_02.ks" target_no="*NotUseCable"]
 [s]
 
 *NotUseCable
 [messageTrue]
 [ConfirmUseItem]
-[YesNoButton target_yes="*IncorrectItemOfCable" storage_no="Conversation/episode1_04.ks" target_no="*NotUseCable"]
+[YesNoButton target_yes="*IncorrectItemOfCable" storage_no="Conversation/episode1/episode1_02.ks" target_no="*NotUseCable"]
 [s]
 
 *SearchWiringDoor_back
@@ -238,23 +275,25 @@
 
 *ValidItemOfCable
 [FreeItemBox]
-[ControlButtons]
-[eval exp="f.isCableGet = -1"]
-[free layer="2" name="cable"]
-; ケーブルを繋ぎ合わせる効果音を追加
-[ChangeBackGround storage="episode1/connectedwiring.png"]
-; 舞台がせり上がる効果音
-[eval exp="f.isStageStatusGreen = 1"]
-; 制御盤の「舞台」の欄が緑になったことを知らせる効果音
 [if exp="f.scn_skip == 0"]
+    [ControlButtons]
     [layer3True]
     [ShowNormalSakuraAndMiyuki]
+    [messageTrue]
     [nolog]
-    [call storage="Conversation/episode1_04.ks" target="*UseCable"]
+    [call storage="Conversation/episode1/episode1_02.ks" target="*UseCable"]
     [endnolog]
+    [messageFalse]
     [layer3False]
+    [MenuButton]
 [endif]
-[MenuButton]
+[eval exp="f.isCableGet = -1"]
+[eval exp="f.isStageStatusGreen = 1"]
+[free layer="2" name="cable"]
+; ライトの初回クリックフラグをリセットする
+[if exp="f.isClickedLight_first == 'false' "]
+    [eval exp="f.isClickedLight_first = 'true' "]
+[endif]
 [JumpStageRoom]
 
 *IncorrectItemOfCable
@@ -263,12 +302,37 @@
 [JumpStageRoom]
 
 *SearchToolBox
+[clearstack]
 [Freelayer1]
 [Freelayer2]
-; 箱を開ける効果音を追加
 [if exp="f.leftNum != 4 && f.centerNum != 5 && f.rightNum != 6"]
     [ChangeBackGround storage="episode1/dial.png"]
-    ; ダイヤル
+    ; ダイヤル（画像で表示）
+    [image storage="../image/episode1/dial/dialnumber_0.png" layer="1" x="440" y="400" width="200" height="400" name="leftdial"]
+    [image storage="../image/episode1/dial/dialnumber_0.png" layer="1" x="850" y="400" width="200" height="400" name="centerdial"]
+    [image storage="../image/episode1/dial/dialnumber_0.png" layer="1" x="1250" y="400" width="200" height="400" name="rightdial"]
+    [if exp="f.scn_skip == 0"]
+        [ControlButtons]
+        [layer3True]
+        [ShowNormalSakuraAndMiyuki]
+        [messageTrue]
+        [nolog]
+        [call storage="Conversation/episode1/episode1_04.ks"]
+        [endnolog]
+        [messageFalse]
+        [layer3False]
+        [cancelskip]
+        [clearfix]
+        [ItemMenuButton]
+        [MenuButton]
+    [endif]
+    [if exp="f.isClickedToolBox_first == 'true' "]
+        [eval exp="f.isClickedToolBox_first = 'false' "]
+    [endif]
+    [free layer="1" name="leftdial"]
+    [free layer="1" name="centerdial"]
+    [free layer="1" name="rightdial"]
+    ; ダイヤル（ボタンで表示）
     [button graphic="episode1/dial/dialnumber_0.png" x="440" y="400" width="200" height="400" exp="f.leftNum = 0" fix="true" target="*LeftDialTurn"]
     [button graphic="episode1/dial/dialnumber_0.png" x="850" y="400" width="200" height="400" exp="f.centerNum = 0" fix="true" target="*CenterDialTurn"]
     [button graphic="episode1/dial/dialnumber_0.png" x="1250" y="400" width="200" height="400" exp="f.rightNum = 0" fix="true" target="*RightDialTurn"]
@@ -320,7 +384,7 @@
     [eval exp="f.leftNum = 0"]
     [button graphic="episode1/dial/dialnumber_0.png" x="440" y="400" width="200" height="400" exp="f.leftNum = 0" fix="true" target="*LeftDialTurn"]
 [endif]
-; ダイヤルを回す効果音を追加
+[PlayTurnDial]
 [call target="*DialUnlock"]
 [return]
 
@@ -356,7 +420,7 @@
     [eval exp="f.centerNum = 0"]
     [button graphic="episode1/dial/dialnumber_0.png" x="850" y="400" width="200" height="400" exp="f.centerNum = 0" fix="true" target="*CenterDialTurn"]
 [endif]
-; ダイヤルを回す効果音を追加
+[PlayTurnDial]
 [call target="*DialUnlock"]
 [return]
 
@@ -392,13 +456,18 @@
     [eval exp="f.rightNum = 0"]
     [button graphic="episode1/dial/dialnumber_0.png" x="1250" y="40 0" width="200" height="400" exp="f.rightNum = 0" fix="true" target="*RightDialTurn"]
 [endif]
-; ダイヤルを回す効果音を追加
+[PlayTurnDial]
 [call target="*DialUnlock"]
 [return]
 
 *DialUnlock
 [if exp="f.leftNum == 4 && f.centerNum == 5 && f.rightNum == 6"]
-    ; 開錠する時の効果音を追加
+    [wait time="100"]
+    [if exp="tf.dialUnlock != 'true' "]
+        [PlayUnlockKey]
+        [wait time="500"]
+    [endif]
+    [PlayOpenBox]
     [wait time="1000"]
     [clearfix]
     ; アイテムメニューボタンを再度表示する
@@ -412,14 +481,33 @@
 [return]
 
 *GetCable
+[free layer="1" name="cable"]
+[PlayGetItem]
+[if exp="f.scn_skip == 0"]
+    [ControlButtons]
+    [layer3True]
+    [ShowNormalSakuraAndMiyuki]
+    [messageTrue]
+    [nolog]
+    [call storage="Conversation/episode1/episode1_04.ks"]
+    [endnolog]
+    [messageFalse]
+    [layer3False]
+    [cancelskip]
+    [clearfix]
+    [ItemMenuButton]
+    [MenuButton]
+[endif]
+[if exp="f.isClickedToolBox_first == 'true' "]
+    [eval exp="f.isClickedToolBox_first = 'false' "]
+[endif]
+[eval exp="f.isCableGet = 1"]
 [iscript]
     delete f.leftNum;
     delete f.centerNum;
     delete f.rightNum;
+    delete tf.dialUnlock;
 [endscript]
-[free layer="1" name="cable"]
-; アイテムを獲得する効果音を追加
-[eval exp="f.isCableGet = 1"]
 ; 制御盤の初回クリックフラグをリセットする
 [if exp="f.isClickedWiringDoor_first == 'false' "]
     [eval exp="f.isClickedWiringDoor_first = 'true' "]
@@ -429,51 +517,33 @@
 *DialUnlock_back
 [cm]
 [clearfix]
+[eval exp="tf.dialUnlock = 'true' "]
 [free layer="1" name="cable"]
 [JumpStageRoom]
 
 *GetDriver
-; アイテムを獲得する効果音を追加
+[PlayGetItem]
 [eval exp="f.isDriverGet = 1"]
 [free layer="2" name="driver"]
 [JumpStageRoom]
 
 *SearchLight
-[if exp="f.isStageStatusGreen == 0"]
+[if exp="f.scn_skip == 0"]
     [ControlButtons]
     [layer3True]
     [ShowNormalSakuraAndMiyuki]
     [messageTrue]
     [nolog]
-    #深雪と桜良
-    高すぎて調べられないね[p]
+    [call storage="Conversation/episode1/episode1_05.ks"]
     [endnolog]
     [layer3False]
-    [MenuButton]
-    [JumpStageRoom]
-[elsif exp="f.isStageStatusGreen == 1 && f.isLightCoverGet == 0"]
-    [ControlButtons]
-    [layer3True]
-    [ShowNormalSakuraAndMiyuki]
-    [messageTrue]
-    [nolog]
-    #深雪と桜良
-    ライトを直すにはアイテムが必要そうだ[p]
-    [endnolog]
-    [layer3False]
-    [MenuButton]
+[endif]
+[if exp="f.isClickedLight_first == 'true' "]
+    [eval exp="f.isClickedLight_first = 'false' "]
+[endif]
+[if exp="f.isStageStatusGreen == 0 || f.isStageStatusGreen == 1 && f.isLightCoverGet == 0"]
     [JumpStageRoom]
 [elsif exp="f.isStageStatusGreen == 1"]
-    [ControlButtons]
-    [layer3True]
-    [ShowNormalSakuraAndMiyuki]
-    [messageTrue]
-    [nolog]
-    #深雪と桜良
-    舞台が上がったおかげで調べられるね！[p]
-    [endnolog]
-    [layer3False]
-    [MenuButton]
     *SelectItemOfLightCover
     [messageFalse]
     [if exp="f.isUsing == 0"]
@@ -492,36 +562,33 @@
 *UseLightCover
 [messageTrue]
 [ConfirmUseItem]
-[YesNoButton target_yes="*ValidItemOfLightCover" target_no="*SelectItemOfLightCover"]
+[YesNoButton target_yes="*ValidItemOfLightCover" storage_no="Conversation/episode1/episode1_05.ks" target_no="*NotUseLightCover"]
 [s]
 
 *NotUseLightCover
 [messageTrue]
 [ConfirmUseItem]
-[YesNoButton target_yes="*IncorrectItemOfLightCover" target_no="*SelectItemOfLightCover"]
+[YesNoButton target_yes="*IncorrectItemOfLightCover" storage_no="Conversation/episode1/episode1_05.ks" target_no="*NotUseLightCover"]
 [s]
 
 *ValidItemOfLightCover
 [FreeItemBox]
-[ControlButtons]
+[if exp="f.scn_skip == 0"]
+    [ControlButtons]
+    [layer3True]
+    [ShowNormalSakuraAndMiyuki]
+    [messageTrue]
+    [nolog]
+    [call storage="Conversation/episode1/episode1_05.ks" target="*UseLightCover"]
+    [endnolog]
+    [layer3False]
+[endif]
+[if exp="f.isClickedLight_first == 'true' "]
+    [eval exp="f.isClickedLight_first = 'false' "]
+[endif]
 [eval exp="f.isLightCoverGet = -1"]
 [free layer="2" name="lightcover"]
-[messageTrue]
-[nolog]
-#
-先ほど手に入れたライトカバーをライトにはめる[p]
-[endnolog]
-; 修理をする効果音を追加
 [eval exp="f.isLightStatusGreen = 1"]
-; 制御盤の「照明」の欄が緑になったことを知らせる効果音
-[layer3True]
-[ShowNormalSakuraAndMiyuki]
-[nolog]
-#深雪と桜良
-クリアしたね[p]
-[endnolog]
-[layer3False]
-[MenuButton]
 [JumpStageRoom]
 
 *IncorrectItemOfLightCover
@@ -531,24 +598,29 @@
 [JumpStageRoom]
 
 *GetLightCover
-; アイテムを獲得する効果音を追加
+[PlayGetItem]
 [eval exp="f.isLightCoverGet = 1"]
 [free layer="1" name="lightcover"]
+; ライトの初回クリックフラグをリセットする
+[if exp="f.isClickedLight_first == 'false' && f.isStageStatusGreen == 1"]
+    [eval exp="f.isClickedLight_first = 'true' "]
+[endif]
 [JumpStageRoom]
 
 *SearchSpeaker
-[layer3True]
-[ControlButtons]
-[ShowNormalSakuraAndMiyuki]
-[messageTrue]
-[nolog]
-[call storage="Conversation/episode1_05.ks"]
-[endnolog]
+[if exp="f.scn_skip == 0"]
+    [ControlButtons]
+    [layer3True]
+    [ShowNormalSakuraAndMiyuki]
+    [messageTrue]
+    [nolog]
+    [call storage="Conversation/episode1/episode1_03.ks"]
+    [endnolog]
+    [layer3False]
+[endif]
 [if exp="f.isClickedSpeaker_first == 'true' "]
     [eval exp="f.isClickedSpeaker_first = 'false' "]
 [endif]
-[layer3False]
-[MenuButton]
 [JumpStageRoom cond="f.isDriverGet == 0"]
 *SelectItemOfDriver
 [messageFalse]
@@ -567,30 +639,29 @@
 *UseDriver
 [messageTrue]
 [ConfirmUseItem]
-[YesNoButton target_yes="*ValidItemOfDriver" storage_no="Conversation/episode1_05.ks" target_no="*NotUseDriver"]
+[YesNoButton target_yes="*ValidItemOfDriver" storage_no="Conversation/episode1/episode1_03.ks" target_no="*NotUseDriver"]
 [s]
 
 *NotUseDriver
 [messageTrue]
 [ConfirmUseItem]
-[YesNoButton target_yes="*IncorrectItemOfDriver" storage_no="Conversation/episode1_05.ks" target_no="*NotUseDriver"]
+[YesNoButton target_yes="*IncorrectItemOfDriver" storage_no="Conversation/episode1/episode1_03.ks" target_no="*NotUseDriver"]
 [s]
 
 *ValidItemOfDriver
 [FreeItemBox]
-[ControlButtons]
-[messageTrue]
-; ドライバーを回す効果音を追加
+[if exp="f.scn_skip == 0"]
+    [ControlButtons]
+    [layer3True]
+    [ShowNormalSakuraAndMiyuki]
+    [messageTrue]
+    [nolog]
+    [call storage="Conversation/episode1/episode1_03.ks" target="*UseDriver"]
+    [endnolog]
+    [layer3False]
+[endif]
 [eval exp="f.isSpeakerStatusGreen = 1"]
 [free layer="1" name="speaker"]
-; 制御盤の「スピーカー」の欄が緑になったことを知らせる効果音
-[layer3True]
-[ShowNormalSakuraAndMiyuki]
-[nolog]
-[call storage="Conversation/episode1_05.ks" target="*UseDriver"]
-[endnolog]
-[layer3False]
-[MenuButton]
 [JumpStageRoom]
 
 *IncorrectItemOfDriver

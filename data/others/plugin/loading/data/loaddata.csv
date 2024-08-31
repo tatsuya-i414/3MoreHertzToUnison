@@ -4,6 +4,7 @@ bgimage\episode1,controlpanel.png
 bgimage\episode1,dial.png
 bgimage\episode1,disconnectedwiring.png
 bgimage\episode1,omoide1_introduction.jpg
+bgimage\episode1,spotlight.png
 bgimage\episode1,stageroom.png
 bgimage\episode1,stageroom_stagerise.png
 bgimage\episode2,cameramonitor.png
@@ -147,4 +148,3 @@ others\plugin\theme_kopanda_bth_06_blue\image\system,pagebreak.png
 others\plugin\theme_kopanda_bth_06_blue\image\system,saveslot.png
 others\plugin\theme_kopanda_bth_06_blue\image\system,saveslot2.png
 others\plugin\theme_kopanda_bth_06_blue\image,frame_message.png
-bgm,music.m4a

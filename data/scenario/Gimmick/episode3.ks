@@ -4,21 +4,42 @@
 [clearstack]
 [start_keyconfig]
 
-; 開発/検証用
-[if exp="f.scn_skip == 0"]
-    [ChangeBackGround storage="episode3/bedroom.png" time="2000" method="vanishIn"]
-    [ControlButtons]
-    [messageTrue]
-    ; 会話パートの読み込み
-    [call storage="Conversation/episode3.ks" target="*Introduction"]
-[endif]
-
 *BedRoom
 [clearfix]
 [messageFalse]
 [layer1True]
 [layer2True]
 [MenuButton]
+[if exp="f.isPlayingBGM == 'false' "]
+    [PlayEpisode3BGM]
+[else]
+    [FadeoutBGM]
+[endif]
+
+; シナリオ_思い出3序盤
+[if exp="f.scn_skip == 0 && f.scn_episode3_OP == 'false' "]
+    [ChangeBackGround storage="episode3/bedroom.png" time="2000" method="vanishIn"]
+    ; 背景パーツを表示
+    [image storage="../image/episode3/jacket.png" layer="1" x="1150" y="750" name="jacket"]
+    [image storage="../image/episode3/wallhanger_onhanger.png" layer="1" x="1414" y="111" name="wallhanger_onhanger"]
+    [image storage="../image/episode3/jutan.png" layer="1" x="585" y="908" name="jutan"]
+    [ControlButtons]
+    [FadeoutBGM]
+    ; 思い出3序盤のBGM再生
+    [messageTrue]
+    [call storage="Conversation/episode3/episode3.ks" target="*Introduction"]
+    [eval exp="f.scn_episode3_OP = 'true' "]
+    [clearfix]
+    [messageFalse]
+    [MenuButton]
+    [ItemMenuButton]
+    [FadeoutBGM]
+    ; 背景パーツを削除
+    [free layer="1" name="jacket"]
+    [free layer="1" name="wallhanger_onhanger"]
+    [free layer="1" name="jutan"]
+    [jump target="*BedRoom"]
+[endif]
 
 ; 背景
 [if exp="f.isRoomLightNight == 0"]
@@ -122,6 +143,8 @@
 [elsif exp="f.isFutonGet == 1 && f.isRoomLightNight == 1"]
     [if exp="f.scn_skip == 0"]
         [ControlButtons]
+        [FadeoutBGM]
+        ; 思い出3終盤のBGM再生
         [layer3True]
         [ShowNormalSakuraAndMiyuki]
         [messageTrue]
@@ -306,7 +329,7 @@
         [BackFromEnlargedMap target="*BoxUnlock_back"]
         [s]
         *GetFuton
-        ; アイテムを獲得する効果音を追加
+        [PlayGetItem]
         [eval exp="f.isFutonGet = 1"]
         [free layer="1" name="compass_set"]
         [iscript]
@@ -425,7 +448,7 @@
 
 *GetJacket
 [eval exp="f.isJacketGet = 1"]
-; アイテムを獲得する効果音を追加
+[PlayGetItem]
 [ControlButtons]
 [layer3True]
 [ShowNormalSakuraAndMiyuki]
@@ -487,6 +510,7 @@
 [JumpBedRoom]
 
 *SearchJutan
+; 絨毯をめくる効果音を追加
 [if exp="f.isJutanOpen == 0"]
     [eval exp="f.isJutanOpen = 1"]
     [free layer="1" name="jutan"]
@@ -498,6 +522,7 @@
 [JumpBedRoom]
 
 *SearchRoomLight
+; スイッチを切り替える効果音を追加
 [if exp="f.isRoomLightNight == 0"]
     [eval exp="f.isRoomLightNight = 1"]
     [free layer="1" name="wallhanger_onjacket"]

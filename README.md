@@ -19,7 +19,9 @@ TyranoScript V521k
 <br><br>
 
 # プラグイン
-- [ローディング画面表示プラグイン）](https://mamecho.booth.pm/items/3011729)
+- [ローディング画面表示プラグイン](https://mamecho.booth.pm/items/3011729)
+- [メニューSE追加プラグイン](https://memocho.booth.pm/items/3008345)
+- [システムスワイププラグイン](https://note.com/milkcat/n/naaeade56fcf5)
 - [ゲームUIセット vol.16](https://ko10panda.booth.pm/items/3969477)
 <br>
 
