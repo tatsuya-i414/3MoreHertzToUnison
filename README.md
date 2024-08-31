@@ -15,7 +15,7 @@ novel-escape(仮)
 <br>
 
 # 使用言語
-TyranoScript V5
+TyranoScript V521k
 <br><br>
 
 # プラグイン
