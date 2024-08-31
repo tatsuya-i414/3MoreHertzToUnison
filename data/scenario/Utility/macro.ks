@@ -111,7 +111,7 @@
 
 ; 思い出1通常BGMを再生する
 [macro name="PlayEpisode1Bgm"]
-    [playbgm storage="episode1.m4a" loop="true" restart="false"]
+    [playbgm storage="episode1.m4a" loop="true" volume="60" restart="false"]
     [eval exp="f.isPlayingBGM = 'true' "]
 [endmacro]
 
@@ -136,6 +136,13 @@
 ; BGMの再生を停止する
 [macro name="StopPlayingBgm"]
     [stopbgm]
+    [eval exp="f.isPlayingBGM = 'false' "]
+[endmacro]
+
+; BGMをフェードアウトしながら再生停止する
+[macro name="FadeoutBGM"]
+    [fadeoutbgm time="%fadeoutTime|2000"]
+    [wait time="%waitTime|2000"]
     [eval exp="f.isPlayingBGM = 'false' "]
 [endmacro]
 

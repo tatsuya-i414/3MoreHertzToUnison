@@ -109,10 +109,10 @@
 ; ボタンを押下した画像に変換
 [free layer="1" name="controlpanel_button"]
 [PlayControlPanelButtonClick]
-[wait time="500"]
+;[wait time="500"]
 [image storage="../image/episode1/controlpanel/controlpanel_button_notpush.png" layer="1" x="685" y="835" name="controlpanel_button"]
 [layer3False]
-[wait time="1000"]
+;[wait time="1000"]
 [return]
 
 *NotPushSwitch
