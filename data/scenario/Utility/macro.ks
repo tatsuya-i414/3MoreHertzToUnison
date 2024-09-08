@@ -80,6 +80,11 @@
 [macro name="blackout"]
     [mask effect="fadeIn" time="%time_1|3000"]
     [if exp="%exp"]
+        ; 背景パーツを表示
+        [if exp="f.itemVisible[0] == 'true' && f.itemVisible[1] == 'episode1' " ]
+            [image storage="../image/episode1/lightcover_item.png" layer="1" x="450" y="770" name="lightcover"]
+            [image storage="../image/episode1/speaker_beforerepair.png" layer="1" x="1" y="110" name="speaker"]
+        [endif]
         [bg storage="%storage_1" time="%time_2|100"]
     [else]
         [bg storage="%storage_2" time="%time_3|100"]

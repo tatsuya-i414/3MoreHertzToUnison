@@ -4,8 +4,24 @@
 [eval exp="f.isPlayingBGM = 'false' "]
 ; 会話パートをスキップする
 [eval exp="f.scn_skip = 0"]
+; 背景パーツの表示
+[eval exp="f.itemVisible = ['false', '' "]]
 ; アイテム使用時
 [eval exp="f.isUsing = 0"]
+
+; 初回クリックの判定
+[eval exp="f.isClickedControlPanel_first = 'true' "]
+[eval exp="f.isClickedWiringDoor_first = 'true' "]
+[eval exp="f.isClickedSpeaker_first = 'true' "]
+[eval exp="f.isClickedSpeaker_first = 'true' "]
+[eval exp="f.isClickedSpeaker_first_whenDriverGetting = 'true' "]
+[eval exp="f.isClickedToolBox_first = 'true' "]
+[eval exp="f.isClickedLight_first = 'true' "]
+
+; シナリオ既読判定
+[eval exp="f.scn_episode1_OP = 'false' "]
+[eval exp="f.scn_episode2_OP = 'false' "]
+[eval exp="f.scn_episode3_OP = 'false' "]
 
 ; 思い出1
 [eval exp="f.isEpisode1Clear = 0"]
@@ -38,19 +54,5 @@
 [eval exp="f.isJutanOpen = 0"]
 [eval exp="f.isRoomLightNight = 0"]
 [eval exp="f.isYoukanGet = 0"]
-
-; 初回クリックの判定
-[eval exp="f.isClickedControlPanel_first = 'true' "]
-[eval exp="f.isClickedWiringDoor_first = 'true' "]
-[eval exp="f.isClickedSpeaker_first = 'true' "]
-[eval exp="f.isClickedSpeaker_first = 'true' "]
-[eval exp="f.isClickedSpeaker_first_whenDriverGetting = 'true' "]
-[eval exp="f.isClickedToolBox_first = 'true' "]
-[eval exp="f.isClickedLight_first = 'true' "]
-
-; シナリオ既読判定
-[eval exp="f.scn_episode1_OP = 'false' "]
-[eval exp="f.scn_episode2_OP = 'false' "]
-[eval exp="f.scn_episode3_OP = 'false' "]
 
 [return]
