@@ -84,12 +84,21 @@
         [if exp="f.itemVisible[0] == 'true' && f.itemVisible[1] == 'episode1' " ]
             [image storage="../image/episode1/lightcover_item.png" layer="1" x="450" y="770" name="lightcover"]
             [image storage="../image/episode1/speaker_beforerepair.png" layer="1" x="1" y="110" name="speaker"]
+        [elsif exp="f.itemVisible[0] == 'true' && f.itemVisible[1] == 'episode2' "]
+            [image storage="../image/episode2/block.png" layer="1" x="295" y="527" name="block"]
+            [image storage="../image/episode2/hanger.png" layer="1" x="186" y="409" name="hanger"]
         [endif]
         [bg storage="%storage_1" time="%time_2|100"]
     [else]
         [bg storage="%storage_2" time="%time_3|100"]
     [endif]
     [mask_off time="2000"]
+[endmacro]
+
+; フラッシュ
+[macro name="flasheffect"]
+    [mask effect="fadeIn" color="%color|0xF5F5F5" graphic="%graphic" folder="image" time="%intime|80"]
+    [mask_off effect="fadeOut" time="%outtime|160"]
 [endmacro]
 
 ; ------------------------------
@@ -268,6 +277,21 @@
 ; ピカッと音が鳴るSEを再生する
 [macro name="PlayBell"]
     [playse storage="../bgm/se/bell.m4a" loop="false"]
+[endmacro]
+
+; 衣が擦れるSEを再生する
+[macro name="PlayRustlingClothes"]
+    [playse storage="../bgm/se/rustlingclothes.m4a" loop="false"]
+[endmacro]
+
+; カチャッと音がするSEを再生する
+[macro name="PlayKacha"]
+    [playse storage="../bgm/se/kacha.m4a" loop="false"]
+[endmacro]
+
+; 一眼レフで撮影するSEを再生する
+[macro name="PlayPhotographing"]
+    [playse storage="../bgm/se/camerashutter.m4a" loop="false"]
 [endmacro]
 
 ; ------------------------------
