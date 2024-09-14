@@ -109,13 +109,13 @@
 ; 桜良表情：驚き
 ; 深雪表情：驚き
 [messageFalse]
-[StopPlayingBgm]
+[FadeoutBGM]
 [PlayRisingStage]
 [quake count="40" wait="true" time="2000" vmax="5"]
 [wait time="2000"]
 [PlayChangeControlPanelLamp]
 [wait time="1000"]
-[PlayEpisode1Bgm]
+[PlayEpisode1BGM]
 [messageTrue]
 
 ; 深雪表情：通常

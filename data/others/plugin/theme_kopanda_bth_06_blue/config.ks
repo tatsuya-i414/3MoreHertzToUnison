@@ -2,7 +2,7 @@
 ; コンフィグ モード　画面作成
 ;=========================================
 
-[title name="&f.gameTile + '｜Config' "]
+[title name="&f.gameTitle + '｜Config' "]
 
 ;	メッセージレイヤ0を不可視に
 	[layopt layer="message0" visible="false"]

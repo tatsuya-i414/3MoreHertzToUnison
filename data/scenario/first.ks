@@ -1,4 +1,3 @@
-[title name="novel-escape"]
 [stop_keyconfig]
 
 ; 標準ライブラリ群
@@ -16,8 +15,8 @@
 [call storage="Utility/flag.ks"]
 ; マクロ読み込み
 [call storage="Utility/macro.ks"]
-; カスタム情報の読み込み
-[call storage="Utility/customsettings.ks"]
+; 各種設定情報の読み込み
+[call storage="Utility/settings.ks"]
 [DispBootMode]
 ; クライアントの情報を取得
 [iscript]
@@ -56,14 +55,17 @@
         f["usingDevice"] = "PC";
     }
 [endscript]
-; メッセージウインドウとキャラクター情報の読み込み
-[call storage="Utility/settings.ks"]
 ; メニューSEのパラメータを読み込み
 [call storage="Plugin/menuse.ks"]
 
-; 起動時にゲームデータを読み込む
-[call storage="Plugin/loading.ks"]
-[call storage="Plugin/loadingshow.ks" cond="sf.loadData == 'false' "]
+[if exp="f.distribution == 'WEB' "]
+    ; 起動時にゲームデータを読み込む
+    [call storage="Plugin/loading.ks"]
+    [call storage="Plugin/loadingshow.ks" cond="sf.loadData == 'false' "]
+[else]
+    [eval exp="sf.loadData = 'true' "]
+[endif]
+
 ; ローディング画面を閉じる
 [if exp="sf.loadData == 'true' "]
     [iscript]

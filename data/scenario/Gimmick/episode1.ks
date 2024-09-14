@@ -1,4 +1,4 @@
-[title name="&f.gameTile + '｜思い出1' "]
+[title name="&f.gameTitle + '｜思い出1' "]
 [cm]
 [clearfix]
 [clearstack]
@@ -31,10 +31,9 @@
 ; シナリオ_思い出1序盤
 [if exp="f.scn_skip == 0 && f.scn_episode1_OP == 'false' "]
     [cm]
+    [eval exp="f.itemVisible[0] = 'true' "]
+    [eval exp="f.itemVisible[1] = 'episode1' "]
     [blackout exp="f.scn_skip == 0" storage_1="episode1/stageroom.png" storage_2="episode1/omoide1_introduction.jpg"]
-    ; 背景パーツを表示
-    [image storage="../image/episode1/lightcover_item.png" layer="1" x="450" y="770" name="lightcover"]
-    [image storage="../image/episode1/speaker_beforerepair.png" layer="1" x="1" y="110" name="speaker"]
     [ControlButtons]
     [FadeoutBGM]
     [if exp="f.isPlayingBGM == 'false' "]
@@ -43,14 +42,12 @@
     [messageTrue]
     [call storage="Conversation/episode1/episode1_op.ks"]
     [eval exp="f.scn_episode1_OP = 'true' "]
+    [eval exp="f.itemVisible[0] = 'false' "]
     [clearfix]
     [messageFalse]
     [MenuButton]
     [ItemMenuButton]
     [FadeoutBGM]
-    ; 背景パーツを削除
-    [free layer="1" name="lightcover"]
-    [free layer="1" name="speaker"]
     [jump target="*StageRoom"]
 [endif]
 

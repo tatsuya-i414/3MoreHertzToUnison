@@ -1,8 +1,12 @@
-[title name="&f.gameTile + '｜思い出2' "]
+[title name="&f.gameTitle + '｜思い出2' "]
 [cm]
 [clearfix]
 [clearstack]
 [start_keyconfig]
+
+[if exp="f.scn_skip == 1"]
+    [FadeoutBGM]
+[endif]
 
 *StudioRoom
 [clearfix]
@@ -12,30 +16,32 @@
 [MenuButton]
 [if exp="f.isPlayingBGM == 'false' "]
     [PlayEpisode2BGM]
-[else]
-    [FadeoutBGM]
 [endif]
 
 ; シナリオ_思い出2序盤
 [if exp="f.scn_skip == 0 && f.scn_episode2_OP == 'false' "]
     [cm]
+    [eval exp="f.itemVisible[0] = 'true' "]
+    [eval exp="f.itemVisible[1] = 'episode2' "]
     [blackout exp="f.isEpisode1Clear == 1" storage_1="episode2/studioroom.png" storage_2="episode1/stageroom.png"]
     [ControlButtons]
     [FadeoutBGM]
     ; 思い出2序盤のBGM再生
     [messageTrue]
-    [call storage="Conversation/episode2/episode2.ks" target="*Introduction"]
+    [call storage="Conversation/episode2/episode2_op.ks"]
     [eval exp="f.scn_episode2_OP = 'true' "]
+    [eval exp="f.itemVisible[0] = 'false' "]
     [clearfix]
     [messageFalse]
     [MenuButton]
     [ItemMenuButton]
     [FadeoutBGM]
+    [layer1True]
     [jump target="*StudioRoom"]
 [endif]
 
 ; 背景
-[if exp="f.isHungerGet == -1"]
+[if exp="f.isHangerGet == -1"]
     ; 天幕降下後
     [ChangeBackGround storage="episode2/studioroom_tentdown.png"]
 [else]
@@ -60,9 +66,9 @@
     [clickJudgment x="770" y="80" width="550" height="40" target="*SearchTent"]
 [endif]
 ; ハンガー
-[if exp="f.isHungerGet == 0"]
-    [image storage="../image/episode2/hunger.png" layer="1" x="186" y="409" name="hunger"]
-    [clickJudgment x="185" y="410" width="100" height="80" target="*GetHunger"]
+[if exp="f.isHangerGet == 0"]
+    [image storage="../image/episode2/hanger.png" layer="1" x="186" y="409" name="hanger"]
+    [clickJudgment x="185" y="410" width="100" height="80" target="*GetHanger"]
 [endif]
 ; 紙
 [if exp="f.isTentDown == 1"]
@@ -81,7 +87,7 @@
     [clickJudgment x="1395" y="475" width="50" height="30" target="*SearchChest"]
 [endif]
 ; 簡易着替え場所
-[if exp="f.isHungerGet != 0 && f.isCurtainGet != -1 && f.isDressGet != -1"]
+[if exp="f.isHangerGet != 0 && f.isCurtainGet != -1 && f.isDressGet != -1"]
     [clickJudgment x="140" y="210" width="135" height="750" target="*SearchFittingRoom"]
 [endif]
 
@@ -92,43 +98,49 @@
 *SearchCamera
 [layer1False]
 [ChangeBackGround storage="episode2/cameramonitor.png" time="1000" method="zoomIn"]
-[if exp="f.isTentDown == 1 && f.isDressGet == -1"]
-    [if exp="f.scn_skip == 0"]
-        [ControlButtons]
-        [FadeoutBGM]
-        ; 思い出2終盤のBGM再生
-        [layer3True]
-        [ShowNormalSakuraAndMiyuki]
-        [messageTrue]
-        [nolog]
-        #
-        思い出2の長会話イベント[p]
-        [endnolog]
-        [messageFalse]
-        [layer3False]
-    [endif]
-    [eval exp="f.isEpisode2Clear = 1"]
-    [free layer="1" name="paper"]
-    [free layer="1" name="curtain"]
-[else]
+[if exp="f.scn_skip == 0"]
     [ControlButtons]
     [layer3True]
     [ShowNormalSakuraAndMiyuki]
     [messageTrue]
     [nolog]
-    #深雪と桜良
-    天幕と衣装がいるよね[p]
+    [call storage="Conversation/episode2/episode2_01.ks"]
     [endnolog]
     [messageFalse]
     [layer3False]
-    [MenuButton]
+[endif]
+[if exp="f.isTentDown == 1 && f.isDressGet == -1"]
+    ; 画像を削除する
+    [free layer="1" name="paper"]
+    [free layer="1" name="curtain"]
+    ; シナリオ_思い出2終盤
+    [if exp="f.scn_skip == 0"]
+        [ControlButtons]
+        [FadeoutBGM fadeoutTime="500" waitTime="500"]
+        [if exp="f.isPlayingBGM == 'false' "]
+            ; 思い出2終盤のBGMを再生
+        [endif]
+        [layer3True]
+        [ShowNormalSakuraAndMiyuki]
+        [messageTrue]
+        [nolog]
+        ;[call storage="Conversation/episode2/episode2_ed.ks"]
+        [endnolog]
+        [layer3False]
+        [cancelskip]
+        [ItemMenuButton]
+        [MenuButton]
+    [endif]
+    [eval exp="f.isEpisode2Clear = 1"]
+    ; 思い出3へ移動する
+    [jump storage="Gimmick/episode3.ks"]
+[else]
+    [layer3False]
     [JumpStudioRoom]
 [endif]
-; 思い出3へ移動する
-[jump storage="Gimmick/episode3.ks" cond="f.isTentDown == 1 && f.isDressGet == -1"]
 
 *SearchTent
-[if exp="f.isHungerGet == 0"]
+[if exp="f.isHangerGet == 0"]
     [ControlButtons]
     [layer3True]
     [ShowNormalSakuraAndMiyuki]
@@ -153,17 +165,17 @@
     [messageFalse]
     [layer3False]
     ; 天幕を下ろす効果音を追加
-    [eval exp="f.isHungerGet = -1"]
+    [eval exp="f.isHangerGet = -1"]
     [eval exp="f.isTentDown = 1"]
     [eval exp="f.isPaperDown = 1"]
     [MenuButton]
     [JumpStudioRoom]
 [endif]
 
-*GetHunger
+*GetHanger
 [PlayGetItem]
-[eval exp="f.isHungerGet = 1"]
-[free layer="1" name="hunger"]
+[eval exp="f.isHangerGet = 1"]
+[free layer="1" name="hanger"]
 [JumpStudioRoom]
 
 *SearchPaper
@@ -655,7 +667,7 @@
 [messageFalse]
 [layer3False]
 
-[blackout exp="f.isHungerGet == -1" storage_1="episode2/studioroom_tentdown.png" storage_2="episode2/studioroom.png"]
+[blackout exp="f.isHangerGet == -1" storage_1="episode2/studioroom_tentdown.png" storage_2="episode2/studioroom.png"]
 
 ; ごそごそ物音がする効果音を追加
 [layer3True]
