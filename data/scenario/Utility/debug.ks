@@ -1,4 +1,4 @@
-[title name="&f.gameTile + '｜デバッグ' "]
+[title name="&f.gameTitle + '｜デバッグ' "]
 [clearfix]
 [messageFalse]
 [hidemenubutton]

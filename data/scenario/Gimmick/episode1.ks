@@ -1,4 +1,4 @@
-[title name="&f.gameTile + '｜思い出1' "]
+[title name="&f.gameTitle + '｜思い出1' "]
 [cm]
 [clearfix]
 [clearstack]

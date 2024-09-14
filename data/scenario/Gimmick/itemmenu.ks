@@ -1,5 +1,5 @@
 *ItemMenu
-[title name="&f.gameTile + '｜item' "]
+[title name="&f.gameTitle + '｜item' "]
 [cm]
 [messageFalse]
 [clearfix]
