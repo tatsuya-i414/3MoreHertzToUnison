@@ -35,7 +35,7 @@
 [endif]
 
 ; 背景
-[if exp="f.isHungerGet == -1"]
+[if exp="f.isHangerGet == -1"]
     ; 天幕降下後
     [ChangeBackGround storage="episode2/studioroom_tentdown.png"]
 [else]
@@ -60,9 +60,9 @@
     [clickJudgment x="770" y="80" width="550" height="40" target="*SearchTent"]
 [endif]
 ; ハンガー
-[if exp="f.isHungerGet == 0"]
-    [image storage="../image/episode2/hunger.png" layer="1" x="186" y="409" name="hunger"]
-    [clickJudgment x="185" y="410" width="100" height="80" target="*GetHunger"]
+[if exp="f.isHangerGet == 0"]
+    [image storage="../image/episode2/hanger.png" layer="1" x="186" y="409" name="hanger"]
+    [clickJudgment x="185" y="410" width="100" height="80" target="*GetHanger"]
 [endif]
 ; 紙
 [if exp="f.isTentDown == 1"]
@@ -81,7 +81,7 @@
     [clickJudgment x="1395" y="475" width="50" height="30" target="*SearchChest"]
 [endif]
 ; 簡易着替え場所
-[if exp="f.isHungerGet != 0 && f.isCurtainGet != -1 && f.isDressGet != -1"]
+[if exp="f.isHangerGet != 0 && f.isCurtainGet != -1 && f.isDressGet != -1"]
     [clickJudgment x="140" y="210" width="135" height="750" target="*SearchFittingRoom"]
 [endif]
 
@@ -128,7 +128,7 @@
 [jump storage="Gimmick/episode3.ks" cond="f.isTentDown == 1 && f.isDressGet == -1"]
 
 *SearchTent
-[if exp="f.isHungerGet == 0"]
+[if exp="f.isHangerGet == 0"]
     [ControlButtons]
     [layer3True]
     [ShowNormalSakuraAndMiyuki]
@@ -153,17 +153,17 @@
     [messageFalse]
     [layer3False]
     ; 天幕を下ろす効果音を追加
-    [eval exp="f.isHungerGet = -1"]
+    [eval exp="f.isHangerGet = -1"]
     [eval exp="f.isTentDown = 1"]
     [eval exp="f.isPaperDown = 1"]
     [MenuButton]
     [JumpStudioRoom]
 [endif]
 
-*GetHunger
+*GetHanger
 [PlayGetItem]
-[eval exp="f.isHungerGet = 1"]
-[free layer="1" name="hunger"]
+[eval exp="f.isHangerGet = 1"]
+[free layer="1" name="hanger"]
 [JumpStudioRoom]
 
 *SearchPaper
@@ -655,7 +655,7 @@
 [messageFalse]
 [layer3False]
 
-[blackout exp="f.isHungerGet == -1" storage_1="episode2/studioroom_tentdown.png" storage_2="episode2/studioroom.png"]
+[blackout exp="f.isHangerGet == -1" storage_1="episode2/studioroom_tentdown.png" storage_2="episode2/studioroom.png"]
 
 ; ごそごそ物音がする効果音を追加
 [layer3True]
