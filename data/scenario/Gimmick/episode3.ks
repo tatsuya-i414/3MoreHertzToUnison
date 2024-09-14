@@ -1,8 +1,12 @@
-[title name="&f.gameTile + '｜思い出3' "]
+[title name="&f.gameTitle + '｜思い出3' "]
 [cm]
 [clearfix]
 [clearstack]
 [start_keyconfig]
+
+[if exp="f.scn_skip == 1"]
+    [FadeoutBGM]
+[endif]
 
 *BedRoom
 [clearfix]
@@ -12,8 +16,6 @@
 [MenuButton]
 [if exp="f.isPlayingBGM == 'false' "]
     [PlayEpisode3BGM]
-[else]
-    [FadeoutBGM]
 [endif]
 
 ; シナリオ_思い出3序盤
