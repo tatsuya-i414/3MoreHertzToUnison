@@ -135,6 +135,12 @@
     [eval exp="f.isPlayingBGM = 'true' "]
 [endmacro]
 
+; 思い出2序盤BGMを再生する
+[macro name="PlayEpisode2_OpBGM"]
+    [playbgm storage="episode2_op.m4a" loop="true" restart="false"]
+    [eval exp="f.isPlayingBGM = 'true' "]
+[endmacro]
+
 ; 思い出2通常BGMを再生する
 [macro name="PlayEpisode2BGM"]
     [playbgm storage="episode2.m4a" loop="true" restart="false"]
@@ -292,6 +298,26 @@
 ; 一眼レフで撮影するSEを再生する
 [macro name="PlayPhotographing"]
     [playse storage="../bgm/se/camerashutter.m4a" loop="false"]
+[endmacro]
+
+; 何かをはめ込むSEを再生する
+[macro name="PlayEmbed"]
+    [playse storage="../bgm/se/embed.m4a" loop="false"]
+[endmacro]
+
+; チェストを開けるSEを再生する
+[macro name="PlayOpenChest"]
+    [playse storage="../bgm/se/openchest.m4a" loop="false"]
+[endmacro]
+
+; 電気のスイッチを切り替えるSEを再生する
+[macro name="PlaySwitching"]
+    [playse storage="../bgm/se/switching.m4a" loop="false"]
+[endmacro]
+
+; 絨毯をめくるSEを再生する
+[macro name="PlayTurnOver"]
+    [playse storage="../bgm/se/turnover.m4a" loop="false"]
 [endmacro]
 
 ; ------------------------------

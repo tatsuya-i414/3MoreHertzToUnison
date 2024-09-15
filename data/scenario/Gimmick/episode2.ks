@@ -26,7 +26,7 @@
     [blackout exp="f.isEpisode1Clear == 1" storage_1="episode2/studioroom.png" storage_2="episode1/stageroom.png"]
     [ControlButtons]
     [FadeoutBGM]
-    ; 思い出2序盤のBGM再生
+    [PlayEpisode2_OpBGM]
     [messageTrue]
     [call storage="Conversation/episode2/episode2_op.ks"]
     [eval exp="f.scn_episode2_OP = 'true' "]
@@ -488,7 +488,7 @@
 [jump target="*SelectItemOfBlock"]
 
 *LeftDimple
-; ブロックをはめる効果音を追加
+[PlayEmbed]
 [if exp="f.blockColor == 'blue' "]
     [image storage="../image/episode2/blueblock.png" layer="1" x="495" y="389" width="278" height="293" name="blue"]
     [eval exp="f.dimple[0] = 'blue' "]
@@ -502,7 +502,7 @@
 [call target="*OpenChest"]
 
 *CenterDimple
-; ブロックをはめる効果音を追加
+[PlayEmbed]
 [if exp="f.blockColor == 'blue' "]
     [image storage="../image/episode2/blueblock.png" layer="1" x="795" y="389" width="278" height="293" name="blue"]
     [eval exp="f.dimple[1] = 'blue' "]
@@ -516,7 +516,7 @@
 [call target="*OpenChest"]
 
 *RightDimple
-; ブロックをはめる効果音を追加
+[PlayEmbed]
 [if exp="f.blockColor == 'blue' "]
     [image storage="../image/episode2/blueblock.png" layer="1" x="1095" y="389" width="278" height="293" name="blue"]
     [eval exp="f.dimple[2] = 'blue' "]
@@ -530,7 +530,6 @@
 [call target="*OpenChest"]
 
 *OpenChest
-; チェストのドアを開ける効果音を追加
 [if exp="f.dimple[0]== 'red' && f.dimple[1] == 'blue' && f.dimple[2] == 'green' "]
     [FreeItemBox]
     [free layer="1" name="blue"]
@@ -538,6 +537,8 @@
     [free layer="1" name="green"]
     [eval exp="f.isKeyOpen = 1"]
     *GetDressAndCurtain
+    [wait time="150"]
+    [PlayOpenChest]
     [ChangeBackGround storage="episode2/dressandcurtain.png"]
     ; 衣装
     [if exp="f.isDressGet == 0"]
