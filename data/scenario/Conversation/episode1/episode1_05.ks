@@ -196,6 +196,7 @@
 ; 深雪表情：通常
 [if exp="f.scn_skip == 0"]
     [ControlButtons]
+    [FreeItemBox]
     [layer3True]
     [ShowNormalSakuraAndMiyuki]
     [nolog]
