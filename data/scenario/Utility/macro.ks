@@ -135,6 +135,12 @@
     [eval exp="f.isPlayingBGM = 'true' "]
 [endmacro]
 
+; 思い出2序盤BGMを再生する
+[macro name="PlayEpisode2_OpBGM"]
+    [playbgm storage="episode2_op.m4a" loop="true" restart="false"]
+    [eval exp="f.isPlayingBGM = 'true' "]
+[endmacro]
+
 ; 思い出2通常BGMを再生する
 [macro name="PlayEpisode2BGM"]
     [playbgm storage="episode2.m4a" loop="true" restart="false"]
@@ -294,6 +300,26 @@
     [playse storage="../bgm/se/camerashutter.m4a" loop="false"]
 [endmacro]
 
+; 何かをはめ込むSEを再生する
+[macro name="PlayEmbed"]
+    [playse storage="../bgm/se/embed.m4a" loop="false"]
+[endmacro]
+
+; チェストを開けるSEを再生する
+[macro name="PlayOpenChest"]
+    [playse storage="../bgm/se/openchest.m4a" loop="false"]
+[endmacro]
+
+; 電気のスイッチを切り替えるSEを再生する
+[macro name="PlaySwitching"]
+    [playse storage="../bgm/se/switching.m4a" loop="false"]
+[endmacro]
+
+; 絨毯をめくるSEを再生する
+[macro name="PlayTurnOver"]
+    [playse storage="../bgm/se/turnover.m4a" loop="false"]
+[endmacro]
+
 ; ------------------------------
 ; キャラクター
 ; ------------------------------
@@ -377,9 +403,9 @@
         [eval exp="tf.usingItemInventory3 = 1"]
         [image storage="../image/episode1/lightcover_item.png" layer="2" x="1780" y="350" width="100" height="100" visible="true" name="lightcover"]
     [endif]
-    [if exp="f.isHungerGet == 1"]
+    [if exp="f.isHangerGet == 1"]
         [eval exp="tf.usingItemInventory2 = 1"]
-        [image storage="../image/episode2/hunger.png" layer="2" x="1780" y="250" width="100" height="100" visible="true" name="hunger"]
+        [image storage="../image/episode2/hangar_item.png" layer="2" x="1780" y="250" width="100" height="100" visible="true" name="hanger"]
     [endif]
     [if exp="f.isPencilGet == 1"]
         [eval exp="tf.usingItemInventory3 = 1"]
@@ -403,7 +429,7 @@
     [endif]
     [if exp="f.isCurtainGet == 1"]
         [eval exp="tf.usingItemInventory5 = 1"]
-        [image storage="../image/episode2/curtain.png" layer="2" x="1780" y="550" width="100" height="100" visible="true" name="curtain"]
+        [image storage="../image/episode2/curtain_item.png" layer="2" x="1780" y="550" width="100" height="100" visible="true" name="curtain"]
     [endif]
     [if exp="f.isCompassGet == 1"]
         [eval exp="tf.usingItemInventory2 = 1"]
@@ -441,7 +467,7 @@
     [free layer="2" name="cable"]
     [free layer="2" name="driver"]
     [free layer="2" name="lightcover"]
-    [free layer="2" name="hunger"]
+    [free layer="2" name="hanger"]
     [free layer="2" name="pencil"]
     [free layer="2" name="blueblock"]
     [free layer="2" name="redblock"]

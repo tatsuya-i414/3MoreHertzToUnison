@@ -184,6 +184,7 @@
 *NotUseDriver
 [if exp="f.scn_skip == 0"]
     [ControlButtons]
+    [FreeItemBox]
     [layer3True]
     [ShowNormalSakuraAndMiyuki]
     [nolog]

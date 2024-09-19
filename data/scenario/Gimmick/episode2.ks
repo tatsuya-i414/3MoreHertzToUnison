@@ -26,7 +26,7 @@
     [blackout exp="f.isEpisode1Clear == 1" storage_1="episode2/studioroom.png" storage_2="episode1/stageroom.png"]
     [ControlButtons]
     [FadeoutBGM]
-    ; 思い出2序盤のBGM再生
+    [PlayEpisode2_OpBGM]
     [messageTrue]
     [call storage="Conversation/episode2/episode2_op.ks"]
     [eval exp="f.scn_episode2_OP = 'true' "]
@@ -140,42 +140,76 @@
 [endif]
 
 *SearchTent
-[if exp="f.isHangerGet == 0"]
+[if exp="f.scn_skip == 0"]
     [ControlButtons]
     [layer3True]
     [ShowNormalSakuraAndMiyuki]
     [messageTrue]
     [nolog]
-    #深雪と桜良
-    高すぎて届かない、何かないかな？[p]
+    [call storage="Conversation/episode2/episode2_02.ks"]
     [endnolog]
     [messageFalse]
     [layer3False]
+    [cancelskip]
+    [clearfix]
+    [ItemMenuButton]
     [MenuButton]
-    [JumpStudioRoom]
-[else]
-    [ControlButtons]
-    [layer3True]
-    [ShowNormalSakuraAndMiyuki]
-    [messageTrue]
-    [nolog]
-    #深雪と桜良
-    針金ハンガーでひっぱり出せたよ！[p]
-    [endnolog]
-    [messageFalse]
-    [layer3False]
-    ; 天幕を下ろす効果音を追加
-    [eval exp="f.isHangerGet = -1"]
-    [eval exp="f.isTentDown = 1"]
-    [eval exp="f.isPaperDown = 1"]
-    [MenuButton]
-    [JumpStudioRoom]
 [endif]
+[if exp="f.isClickedTent_first == 'true' "]
+    [eval exp="f.isClickedTent_first = 'false' "]
+[endif]
+*SelectItemOfHanger
+[messageFalse]
+[eval exp="f.isUsing = 1"]
+[if exp="f.isUsing == 1"]
+    [ItemBox]
+    [SelectItemClickable target_1="*NotUseHanger" target_2="*UseHanger" target_3="*NotUseHanger" target_4="*NotUseHanger" target_5="*NotUseHanger" target_6="*NotUseHanger" target_7="*NotUseHanger"]
+[endif]
+[s]
+
+*UseHanger
+[messageTrue]
+[ConfirmUseItem]
+[YesNoButton target_yes="*ValidItemOfHanger" storage_no="Conversation/episode2/episode2_02.ks" target_no="*NotUseHanger"]
+[s]
+
+*NotUseHanger
+[messageTrue]
+[ConfirmUseItem]
+[YesNoButton target_yes="*IncorrectItemOfHanger" storage_no="Conversation/episode2/episode2_02.ks" target_no="*NotUseHanger"]
+[s]
+
+*ValidItemOfHanger
+[FreeItemBox]
+[if exp="f.scn_skip == 0"]
+    [ControlButtons]
+    [layer3True]
+    [ShowNormalSakuraAndMiyuki]
+    [messageTrue]
+    [nolog]
+    [call storage="Conversation/episode2/episode2_02.ks" target="*UseHanger"]
+    [endnolog]
+    [layer3False]
+[endif]
+[eval exp="f.isHangerGet = -1"]
+[eval exp="f.isTentDown = 1"]
+[eval exp="f.isPaperDown = 1"]
+[JumpStudioRoom]
+
+*IncorrectItemOfHanger
+[FreeItemBox]
+[messageTrue]
+[MessageToUsingWrongItem]
+[JumpStudioRoom]
 
 *GetHanger
 [PlayGetItem]
 [eval exp="f.isHangerGet = 1"]
 [free layer="1" name="hanger"]
+; 天幕の初回クリックフラグをリセットする
+[if exp="f.isClickedTent_first == 'false' "]
+    [eval exp="f.isClickedTent_first = 'true' "]
+[endif]
 [JumpStudioRoom]
 
 *SearchPaper
@@ -264,11 +298,27 @@
 [JumpStudioRoom]
 
 *SearchMakeBox
+[PlayGetItem]
 [eval exp="f.isPencilGet = 1"]
 [JumpStudioRoom]
 
 *GetBlock
 [PlayGetItem]
+[if exp="f.scn_skip == 0"]
+    [ControlButtons]
+    [layer3True]
+    [ShowNormalSakuraAndMiyuki]
+    [messageTrue]
+    [nolog]
+    [call storage="Conversation/episode2/episode2_06.ks"]
+    [endnolog]
+    [messageFalse]
+    [layer3False]
+    [cancelskip]
+    [clearfix]
+    [ItemMenuButton]
+    [MenuButton]
+[endif]
 [eval exp="f.isBlueBlockGet = 1"]
 [eval exp="f.isRedBlockGet = 1"]
 [eval exp="f.isGreenBlockGet = 1"]
@@ -488,7 +538,7 @@
 [jump target="*SelectItemOfBlock"]
 
 *LeftDimple
-; ブロックをはめる効果音を追加
+[PlayEmbed]
 [if exp="f.blockColor == 'blue' "]
     [image storage="../image/episode2/blueblock.png" layer="1" x="495" y="389" width="278" height="293" name="blue"]
     [eval exp="f.dimple[0] = 'blue' "]
@@ -502,7 +552,7 @@
 [call target="*OpenChest"]
 
 *CenterDimple
-; ブロックをはめる効果音を追加
+[PlayEmbed]
 [if exp="f.blockColor == 'blue' "]
     [image storage="../image/episode2/blueblock.png" layer="1" x="795" y="389" width="278" height="293" name="blue"]
     [eval exp="f.dimple[1] = 'blue' "]
@@ -516,7 +566,7 @@
 [call target="*OpenChest"]
 
 *RightDimple
-; ブロックをはめる効果音を追加
+[PlayEmbed]
 [if exp="f.blockColor == 'blue' "]
     [image storage="../image/episode2/blueblock.png" layer="1" x="1095" y="389" width="278" height="293" name="blue"]
     [eval exp="f.dimple[2] = 'blue' "]
@@ -530,7 +580,6 @@
 [call target="*OpenChest"]
 
 *OpenChest
-; チェストのドアを開ける効果音を追加
 [if exp="f.dimple[0]== 'red' && f.dimple[1] == 'blue' && f.dimple[2] == 'green' "]
     [FreeItemBox]
     [free layer="1" name="blue"]
@@ -538,6 +587,9 @@
     [free layer="1" name="green"]
     [eval exp="f.isKeyOpen = 1"]
     *GetDressAndCurtain
+    [wait time="150"]
+    [PlayOpenChest]
+    *GetAnotherItem
     [ChangeBackGround storage="episode2/dressandcurtain.png"]
     ; 衣装
     [if exp="f.isDressGet == 0"]
@@ -565,26 +617,30 @@
 
 *GetDress
 [PlayGetItem]
-[ControlButtons]
-[layer3True]
-[ShowNormalSakuraAndMiyuki]
-[messageTrue]
-[nolog]
-#深雪と桜良
-この衣装ってあれだよね[p]
-[endnolog]
-[messageFalse]
-[layer3False]
-[MenuButton]
+[if exp="f.scn_skip == 0"]
+    [ControlButtons]
+    [layer3True]
+    [ShowNormalSakuraAndMiyuki]
+    [messageTrue]
+    [nolog]
+    [call storage="Conversation/episode2/episode2_05.ks"]
+    [endnolog]
+    [messageFalse]
+    [layer3False]
+    [cancelskip]
+    [clearfix]
+    [ItemMenuButton]
+    [MenuButton]
+[endif]
 [eval exp="f.isDressGet = 1"]
 [free layer="1" name="dress"]
-[jump target="*GetDressAndCurtain"]
+[jump target="*GetAnotherItem"]
 
 *GetCurtain
 [PlayGetItem]
 [eval exp="f.isCurtainGet = 1"]
 [free layer="1" name="curtain"]
-[jump target="*GetDressAndCurtain"]
+[jump target="*GetAnotherItem"]
 
 *OpenChest_back
 [cm]

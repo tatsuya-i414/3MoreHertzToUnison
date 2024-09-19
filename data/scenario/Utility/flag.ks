@@ -18,6 +18,7 @@
 [eval exp="f.isClickedToolBox_first = 'true' "]
 [eval exp="f.isClickedLight_first = 'true' "]
 [eval exp="f.isClickedCamera_first = 'true' "]
+[eval exp="f.isClickedTent_first = 'true' "]
 
 ; シナリオ既読判定
 [eval exp="f.scn_episode1_OP = 'false' "]

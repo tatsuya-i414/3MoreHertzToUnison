@@ -1,3 +1,6 @@
+;-------------------------------------------------------
+; カメラ
+;-------------------------------------------------------
 ; 衣装を身に着けていない、天幕が下りていないとき
 [if exp="f.isTentDown == 0 && f.isDressGet != -1"]
     ; 深雪表情：通常
@@ -145,14 +148,19 @@
 [return]
 
 *NotTakeAPicture
-[nolog]
-#深雪
-まだ少しだけ部屋を見てみたいわ。[r]
-何か見逃しているかも。[p]
+[if exp="f.scn_skip == 0"]
+    [ControlButtons]
+    [layer3True]
+    [ShowNormalSakuraAndMiyuki]
+    [nolog]
+    #深雪
+    まだ少しだけ部屋を見てみたいわ。[r]
+    何か見逃しているかも。[p]
 
-#桜良
-わかった！[r]
-準備ができたら言ってね！[p]
-[endnolog]
-[layer3False]
+    #桜良
+    わかった！[r]
+    準備ができたら言ってね！[p]
+    [endnolog]
+    [layer3False]
+[endif]
 [JumpStudioRoom]

@@ -512,7 +512,7 @@
 [JumpBedRoom]
 
 *SearchJutan
-; 絨毯をめくる効果音を追加
+[PlayTurnOver]
 [if exp="f.isJutanOpen == 0"]
     [eval exp="f.isJutanOpen = 1"]
     [free layer="1" name="jutan"]
@@ -524,7 +524,7 @@
 [JumpBedRoom]
 
 *SearchRoomLight
-; スイッチを切り替える効果音を追加
+[PlaySwitching]
 [if exp="f.isRoomLightNight == 0"]
     [eval exp="f.isRoomLightNight = 1"]
     [free layer="1" name="wallhanger_onjacket"]
