@@ -1,4 +1,3 @@
-[title name="&f.gameTitle + '｜思い出3' "]
 [cm]
 [clearfix]
 [clearstack]
@@ -30,7 +29,9 @@
     ; 思い出3序盤のBGM再生
     [messageTrue]
     [call storage="Conversation/episode3/episode3.ks" target="*Introduction"]
-    [eval exp="f.scn_episode3_OP = 'true' "]
+    [iscript]
+        f.scn_episode3_OP = 'true'
+    [endscript]
     [clearfix]
     [messageFalse]
     [MenuButton]
@@ -157,9 +158,11 @@
         [messageFalse]
         [layer3False]
     [endif]
-    [eval exp="f.isFutonGet = -1"]
-    [eval exp="f.isYoukanGet = 1"]
-    [eval exp="f.isEpisode3Clear = 1"]
+    [iscript]
+        f.isFutonGet = -1
+        f.isYoukanGet = 1
+        f.isEpisode3Clear = 1
+    [endscript]
     [clearfix]
     [MenuButton]
     [s]
@@ -192,7 +195,9 @@
 [if exp="f.isCompassGet == 1"]
     *SelectItemOfCompass
     [messageFalse]
-    [eval exp="f.isUsing = 1"]
+    [iscript]
+        f.isUsing = 1
+    [endscript]
     [if exp="f.isUsing == 1"]
         [ItemBox]
         [SelectItemClickable target_1="*NotUseCompass" target_2="*UseCompass" target_3="*NotUseCompass" target_4="*NotUseCompass" target_5="*NotUseCompass" target_6="*NotUseCompass" target_7="*NotUseCompass"]
@@ -245,19 +250,23 @@
 [cm]
 [FreeItemBox]
 [free layer="1" name="compass_set"]
-; 押したボタンの順番を初期化
-[eval exp="f.arrayElementsCount = 0"]
-[eval exp="f.buttonPushOrder = []"]
+[iscript]
+    // 押下したボタンの順番を初期化
+    f.arrayElementsCount = 0
+    f.buttonPushOrder = []
+[endscript]
 [JumpBedRoom]
 
 *ValidItemOfCompass
 [FreeItemBox]
 [messageFalse]
-[eval exp="f.isCompassGet = -1"]
-; コンパスをはめこむ効果音を追加
-; 押したボタンの順番を記録する配列を宣言
-[eval exp="f.arrayElementsCount = 0"]
-[eval exp="f.buttonPushOrder = []"]
+[iscript]
+    f.isCompassGet = -1
+    // コンパスをはめこむ効果音を追加
+    // 押下したボタンの順番を記録する配列を宣言
+    f.arrayElementsCount = 0
+    f.buttonPushOrder = []
+[endscript]
 [jump target="*PushBoxKeyButton"]
 [s]
 
@@ -268,32 +277,40 @@
 
 *PushTopButton
 [if exp="f.arrayElementsCount <= 4"]
-    [eval exp="f.buttonPushOrder[f.arrayElementsCount] = 'N' "]
-    [eval exp="f.arrayElementsCount = f.arrayElementsCount + 1"]
+    [iscript]
+        f.buttonPushOrder[f.arrayElementsCount] = 'N'
+        f.arrayElementsCount = f.arrayElementsCount + 1
+    [endscript]
 [endif]
 [call target="*BoxUnlock" cond="f.arrayElementsCount <= 4"]
 [jump target="*PushBoxKeyButton" cond="f.arrayElementsCount <= 4"]
 
 *PushUnderButton
 [if exp="f.arrayElementsCount <= 4"]
-    [eval exp="f.buttonPushOrder[f.arrayElementsCount] = 'S' "]
-    [eval exp="f.arrayElementsCount = f.arrayElementsCount + 1"]
+    [iscript]
+        f.buttonPushOrder[f.arrayElementsCount] = 'S'
+        f.arrayElementsCount = f.arrayElementsCount + 1
+    [endscript]
 [endif]
 [call target="*BoxUnlock" cond="f.arrayElementsCount <= 4"]
 [jump target="*PushBoxKeyButton" cond="f.arrayElementsCount <= 4"]
 
 *PushLeftButton
 [if exp="f.arrayElementsCount <= 4"]
-    [eval exp="f.buttonPushOrder[f.arrayElementsCount] = 'W' "]
-    [eval exp="f.arrayElementsCount = f.arrayElementsCount + 1"]
+    [iscript]
+        f.buttonPushOrder[f.arrayElementsCount] = 'W'
+        f.arrayElementsCount = f.arrayElementsCount + 1
+    [endscript]
 [endif]
 [call target="*BoxUnlock" cond="f.arrayElementsCount <= 4"]
 [jump target="*PushBoxKeyButton" cond="f.arrayElementsCount <= 4"]
 
 *PushRightButton
 [if exp="f.arrayElementsCount <= 4"]
-    [eval exp="f.buttonPushOrder[f.arrayElementsCount] = 'E' "]
-    [eval exp="f.arrayElementsCount = f.arrayElementsCount + 1"]
+    [iscript]
+        f.buttonPushOrder[f.arrayElementsCount] = 'E'
+        f.arrayElementsCount = f.arrayElementsCount + 1
+    [endscript]
 [endif]
 [call target="*BoxUnlock" cond="f.arrayElementsCount <= 4"]
 [jump target="*PushBoxKeyButton" cond="f.arrayElementsCount <= 4"]
@@ -309,9 +326,11 @@
         開錠することができないようだ[p]
         [endnolog]
         [messageFalse]
-        ; 押したボタンの順番を初期化
-        [eval exp="f.arrayElementsCount = 0"]
-        [eval exp="f.buttonPushOrder = []"]
+        [iscript]
+            // 押下したボタンの順番を初期化
+            f.arrayElementsCount = 0
+            f.buttonPushOrder = []
+        [endscript]
         [free layer="1" name="compass_set"]
         [MenuButton]
         [JumpBedRoom]
@@ -332,7 +351,9 @@
         [s]
         *GetFuton
         [PlayGetItem]
-        [eval exp="f.isFutonGet = 1"]
+        [iscript]
+            f.isFutonGet = 1
+        [endscript]
         [free layer="1" name="compass_set"]
         [iscript]
             delete f.arrayElementsCount;
@@ -347,9 +368,11 @@
         ボタンを押す順番が違うようだ[p]
         [endnolog]
         [messageFalse]
-        ; 押したボタンの順番を初期化
-        [eval exp="f.arrayElementsCount = 0"]
-        [eval exp="f.buttonPushOrder = []"]
+        [iscript]
+            // 押下したボタンの順番を初期化
+            f.arrayElementsCount = 0
+            f.buttonPushOrder = []
+        [endscript]
         [MenuButton]
     [endif]
 [endif]
@@ -371,7 +394,9 @@
 [endnolog]
 [messageFalse]
 [layer3False]
-[eval exp="f.isCompassGet = 1"]
+[iscript]
+    f.isCompassGet = 1
+[endscript]
 [MenuButton]
 [JumpBedRoom]
 
@@ -449,7 +474,9 @@
 [JumpBedRoom]
 
 *GetJacket
-[eval exp="f.isJacketGet = 1"]
+[iscript]
+    f.isJacketGet = 1 
+[endscript]
 [PlayGetItem]
 [ControlButtons]
 [layer3True]
@@ -470,9 +497,13 @@
     *SelectItemOfJacket
     [messageFalse]
     [if exp="f.isUsing == 0"]
-        [eval exp="f.isUsing = 1"]
+        [iscript]
+            f.isUsing = 1
+        [endscript]
     [else]
-        [eval exp="f.isUsing = 0"]
+        [iscript]
+            f.isUsing = 0
+        [endscript]
         [FreeItemBox]
     [endif]
     [if exp="f.isUsing == 1"]
@@ -500,7 +531,9 @@
 [FreeItemBox]
 [messageFalse]
 [free layer="1" name="wallhanger_onhanger"]
-[eval exp="f.isJacketGet = -1"]
+[iscript]
+    f.isJacketGet = -1   
+[endscript]
 [free layer="1" name="jacket"]
 [blackout exp="f.isJacketGet = -1" storage_1="episode3/bedroom.png" storage_2="episode3/bedroom.png"]
 [JumpBedRoom]
@@ -514,10 +547,14 @@
 *SearchJutan
 [PlayTurnOver]
 [if exp="f.isJutanOpen == 0"]
-    [eval exp="f.isJutanOpen = 1"]
+    [iscript]
+        f.isJutanOpen = 1
+    [endscript]
     [free layer="1" name="jutan"]
 [elsif exp="f.isJutanOpen == 1"]
-    [eval exp="f.isJutanOpen = 0"]
+    [iscript]
+        f.isJutanOpen = 0
+    [endscript]
     [free layer="1" name="jutan_turndup"]
     [free layer="1" name="mark"]
 [endif]
@@ -526,10 +563,14 @@
 *SearchRoomLight
 [PlaySwitching]
 [if exp="f.isRoomLightNight == 0"]
-    [eval exp="f.isRoomLightNight = 1"]
+    [iscript]
+        f.isRoomLightNight = 1
+    [endscript]
     [free layer="1" name="wallhanger_onjacket"]
 [elsif exp="f.isRoomLightNight == 1"]
-    [eval exp="f.isRoomLightNight = 0"]
+    [iscript]
+        f.isRoomLightNight = 0
+    [endscript]
     [free layer="1" name="wallhanger_onjacket_night"]
     [free layer="1" name="mark"]
 [endif]

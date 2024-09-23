@@ -57,7 +57,9 @@
     そうかもしれない。[r]
     一度他を調べましょう。[p]
     [if exp="f.isClickedControlPanel_first == 'true' "]
-        [eval exp="f.isClickedControlPanel_first = 'false' "]
+        [iscript]
+            f.isClickedControlPanel_first = 'false'
+        [endscript]
     [endif]
     [free layer="1" name="controlpanel_button"]
     [free layer="1" name="controlpanel_lamp"]

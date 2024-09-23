@@ -20,7 +20,6 @@
 
 ; ギャラリーモードの背景読込み
 [bg storage="../image/append_theme/gallery_bg.png" time="300"]
-[title name="&f.gameTitle + '｜Gallery' "]
 
 [iscript]
 

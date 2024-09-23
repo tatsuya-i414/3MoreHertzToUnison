@@ -84,7 +84,9 @@
     （ち、ちかい......[r]
     集中力が途切れる......）[p]
     [if exp="f.isClickedSpeaker_first_whenDriverGetting == 'true' "]
-        [eval exp="f.isClickedSpeaker_first_whenDriverGetting = 'false' "]
+        [iscript]
+            f.isClickedSpeaker_first_whenDriverGetting = 'false'
+        [endscript]
     [endif]
 ; ドライバー所持
 ; 2回目以降
@@ -124,7 +126,9 @@
     （ち、ちかい......[r]
     集中力が途切れる......）[p]
     [if exp="f.isClickedSpeaker_first_whenDriverGetting == 'true' "]
-        [eval exp="f.isClickedSpeaker_first_whenDriverGetting = 'false' "]
+        [iscript]
+            f.isClickedSpeaker_first_whenDriverGetting = 'false'
+        [endscript]
     [endif]
 [endif]
 [return]

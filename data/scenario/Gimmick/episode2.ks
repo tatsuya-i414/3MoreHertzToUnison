@@ -1,4 +1,3 @@
-[title name="&f.gameTitle + '｜思い出2' "]
 [cm]
 [clearfix]
 [clearstack]
@@ -21,16 +20,20 @@
 ; シナリオ_思い出2序盤
 [if exp="f.scn_skip == 0 && f.scn_episode2_OP == 'false' "]
     [cm]
-    [eval exp="f.itemVisible[0] = 'true' "]
-    [eval exp="f.itemVisible[1] = 'episode2' "]
+    [iscript]
+        f.itemVisible[0] = 'true'
+        f.itemVisible[1] = 'episode2'
+    [endscript]
     [blackout exp="f.isEpisode1Clear == 1" storage_1="episode2/studioroom.png" storage_2="episode1/stageroom.png"]
     [ControlButtons]
     [FadeoutBGM]
     [PlayEpisode2_OpBGM]
     [messageTrue]
     [call storage="Conversation/episode2/episode2_op.ks"]
-    [eval exp="f.scn_episode2_OP = 'true' "]
-    [eval exp="f.itemVisible[0] = 'false' "]
+    [iscript]
+        f.scn_episode2_OP = 'true'
+        f.itemVisible[0] = 'false'
+    [endscript]
     [clearfix]
     [messageFalse]
     [MenuButton]
@@ -131,7 +134,9 @@
         [ItemMenuButton]
         [MenuButton]
     [endif]
-    [eval exp="f.isEpisode2Clear = 1"]
+    [iscript]
+        f.isEpisode2Clear = 1
+    [endscript]
     ; 思い出3へ移動する
     [jump storage="Gimmick/episode3.ks"]
 [else]
@@ -156,11 +161,15 @@
     [MenuButton]
 [endif]
 [if exp="f.isClickedTent_first == 'true' "]
-    [eval exp="f.isClickedTent_first = 'false' "]
+    [iscript]
+        f.isClickedTent_first = 'false'
+    [endscript]
 [endif]
 *SelectItemOfHanger
 [messageFalse]
-[eval exp="f.isUsing = 1"]
+[iscript]
+    f.isUsing = 1
+[endscript]
 [if exp="f.isUsing == 1"]
     [ItemBox]
     [SelectItemClickable target_1="*NotUseHanger" target_2="*UseHanger" target_3="*NotUseHanger" target_4="*NotUseHanger" target_5="*NotUseHanger" target_6="*NotUseHanger" target_7="*NotUseHanger"]
@@ -191,9 +200,11 @@
     [endnolog]
     [layer3False]
 [endif]
-[eval exp="f.isHangerGet = -1"]
-[eval exp="f.isTentDown = 1"]
-[eval exp="f.isPaperDown = 1"]
+[iscript]
+    f.isHangerGet = -1
+    f.isTentDown = 1
+    f.isPaperDown = 1
+[endscript]
 [JumpStudioRoom]
 
 *IncorrectItemOfHanger
@@ -204,11 +215,15 @@
 
 *GetHanger
 [PlayGetItem]
-[eval exp="f.isHangerGet = 1"]
+[iscript]
+    f.isHangerGet = 1
+[endscript]
 [free layer="1" name="hanger"]
 ; 天幕の初回クリックフラグをリセットする
 [if exp="f.isClickedTent_first == 'false' "]
-    [eval exp="f.isClickedTent_first = 'true' "]
+    [iscript]
+        f.isClickedTent_first = 'true'
+    [endscript]
 [endif]
 [JumpStudioRoom]
 
@@ -218,7 +233,9 @@
     [ChangeBackGround storage="episode2/papernotletter.png"]
     *SelectItemOfPencil
     [messageFalse]
-    [eval exp="f.isUsing = 1"]
+    [iscript]
+        f.isUsing = 1
+    [endscript]
     [if exp="f.isUsing == 1"]
         [ItemBox]
         [SelectItemClickable target_1="*NotUsePencil" target_2="*NotUsePencil" target_3="*UsePencil" target_4="*NotUsePencil" target_5="*NotUsePencil" target_6="*NotUsePencil" target_7="*NotUsePencil"]
@@ -288,7 +305,9 @@
 [endnolog]
 [messageFalse]
 [layer3False]
-[eval exp="f.isPencilGet = -1"]
+[iscript]
+    f.isPencilGet = -1
+[endscript]
 [MenuButton]
 [JumpStudioRoom]
 
@@ -299,7 +318,9 @@
 
 *SearchMakeBox
 [PlayGetItem]
-[eval exp="f.isPencilGet = 1"]
+[iscript]
+    f.isPencilGet = 1
+[endscript]
 [JumpStudioRoom]
 
 *GetBlock
@@ -319,9 +340,11 @@
     [ItemMenuButton]
     [MenuButton]
 [endif]
-[eval exp="f.isBlueBlockGet = 1"]
-[eval exp="f.isRedBlockGet = 1"]
-[eval exp="f.isGreenBlockGet = 1"]
+[iscript]
+    f.isBlueBlockGet = 1
+    f.isRedBlockGet = 1
+    f.isGreenBlockGet = 1
+[endscript]
 [free layer="1" name="block"]
 [JumpStudioRoom]
 
@@ -332,8 +355,10 @@
 [jump target="*GetDressAndCurtain" cond="f.isKeyOpen == 1"]
 [if exp="f.isDressGet == 0 && f.isCurtainGet == 0"]
     ; 判定用変数と配列を宣言
-    [eval exp="f.blockColor = '' "]
-    [eval exp="f.dimple = ['', '', '' "]]
+    [iscript]
+        f.blockColor = ''
+        f.dimple = ['', '', '']
+    [endscript]
 
     [Freelayer1]
     [ChangeBackGround storage="episode2/chest.png"]
@@ -343,19 +368,23 @@
         [free layer="1" name="blue"]
         [free layer="1" name="red"]
         [free layer="1" name="green"]
-        [eval exp="tf.usingItemInventory4 = 1"]
-        [eval exp="f.isBlueBlockGet = 1"]
-        [eval exp="tf.usingItemInventory5 = 1"]
-        [eval exp="f.isRedBlockGet = 1"]
-        [eval exp="tf.usingItemInventory6 = 1"]
-        [eval exp="f.isGreenBlockGet = 1"]
-        [eval exp="f.blockColor = '' "]
-        [eval exp="f.dimple[0] = '' "]
-        [eval exp="f.dimple[1] = '' "]
-        [eval exp="f.dimple[2] = '' "]
+        [iscript]
+            tf.usingItemInventory4 = 1
+            f.isBlueBlockGet = 1
+            tf.usingItemInventory5 = 1
+            f.isRedBlockGet = 1
+            tf.usingItemInventory6 = 1
+            f.isGreenBlockGet = 1
+            f.blockColor = ''
+            f.dimple[0] = ''
+            f.dimple[1] = ''
+            f.dimple[2] = ''
+        [endscript]
     [endif]
     [messageFalse]
-    [eval exp="f.isUsing = 1"]
+    [iscript]
+        f.isUsing = 1
+    [endscript]
     [if exp="f.isUsing == 1"]
         [ItemBox]
         [SelectItemClickable target_1="*NotUseBlock" target_2="*NotUseBlock" target_3="*NotUseBlock" target_4="*UseBlueBlock" target_5="*UseRedBlock" target_6="*UseGreenBlock" target_7="*NotUseBlock"]
@@ -377,21 +406,27 @@
 *UseBlueBlock
 [messageTrue]
 [ConfirmUseItem]
-[eval exp="f.blockColor = 'blue' "]
+[iscript]
+    f.blockColor = 'blue'
+[endscript]
 [YesNoButton target_yes="*ValidItemOfBlock" target_no="*SelectItemOfBlock"]
 [s]
 
 *UseRedBlock
 [messageTrue]
 [ConfirmUseItem]
-[eval exp="f.blockColor = 'red' "]
+[iscript]
+    f.blockColor = 'red'
+[endscript]
 [YesNoButton target_yes="*ValidItemOfBlock" target_no="*SelectItemOfBlock"]
 [s]
 
 *UseGreenBlock
 [messageTrue]
 [ConfirmUseItem]
-[eval exp="f.blockColor = 'green' "]
+[iscript]
+    f.blockColor = 'green'
+[endscript]
 [YesNoButton target_yes="*ValidItemOfBlock" target_no="*SelectItemOfBlock"]
 [s]
 
@@ -404,79 +439,106 @@
 *ReturnLeftSideBlock
 [if exp="f.dimple[0] == 'blue' "]
     [if exp="f.isBlueBlockGet == -1"]
-        [eval exp="tf.usingItemInventory4 = 1"]
-        [eval exp="f.isBlueBlockGet = 1"]
+        [iscript]
+            tf.usingItemInventory4 = 1
+            f.isBlueBlockGet = 1
+        [endscript]
         [free layer="1" name="blue"]
     [endif]
 [endif]
 [if exp="f.dimple[0] == 'red' "]
     [if exp="f.isRedBlockGet == -1" ]
-        [eval exp="tf.usingItemInventory5 = 1"]
-        [eval exp="f.isRedBlockGet = 1"]
+        [iscript]
+            tf.usingItemInventory5 = 1
+            f.isRedBlockGet = 1
+        [endscript]
         [free layer="1" name="red"]
     [endif]
 [endif]
 [if exp="f.dimple[0] == 'green' "]
     [if exp="f.isGreenBlockGet == -1"]
-        [eval exp="tf.usingItemInventory6 = 1"]
-        [eval exp="f.isGreenBlockGet = 1"]
+        [iscript]
+            tf.usingItemInventory6 = 1
+            f.isGreenBlockGet = 1
+        [endscript]
         [free layer="1" name="green"]
     [endif]
 [endif]
-[eval exp="f.dimple[0] = '' "]
-[eval exp="f.blockColor = '' "]
+[iscript]
+    f.dimple[0] = ''
+    f.blockColor = ''
+[endscript]
+[iscript]
+            
+[endscript]
 [jump target="*SelectItemOfBlock"]
 
 *ReturnCenterSideBlock
 [if exp="f.dimple[1]== 'blue' "]
     [if exp="f.isBlueBlockGet == -1"]
-        [eval exp="tf.usingItemInventory4 = 1"]
-        [eval exp="f.isBlueBlockGet = 1"]
+        [iscript]
+            tf.usingItemInventory4 = 1
+            f.isBlueBlockGet = 1
+        [endscript]
         [free layer="1" name="blue"]
     [endif]
 [endif]
 [if exp="f.dimple[1] == 'red' "]
     [if exp="f.isRedBlockGet == -1" ]
-        [eval exp="tf.usingItemInventory5 = 1"]
-        [eval exp="f.isRedBlockGet = 1"]
+        [iscript]
+            tf.usingItemInventory5 = 1
+            f.isRedBlockGet = 1
+        [endscript]
         [free layer="1" name="red"]
     [endif]
 [endif]
 [if exp="f.dimple[1] == 'green' "]
     [if exp="f.isGreenBlockGet == -1"]
-        [eval exp="tf.usingItemInventory6 = 1"]
-        [eval exp="f.isGreenBlockGet = 1"]
+        [iscript]
+            tf.usingItemInventory6 = 1
+            f.isGreenBlockGet = 1
+        [endscript]
         [free layer="1" name="green"]
     [endif]
 [endif]
-[eval exp="f.dimple[1] = '' "]
-[eval exp="f.blockColor = '' "]
+[iscript]
+    f.dimple[1] = ''
+    f.blockColor = ''
+[endscript]
 [jump target="*SelectItemOfBlock"]
 
 *ReturnRightSideBlock
 [if exp="f.dimple[2] == 'blue' "]
     [if exp="f.isBlueBlockGet == -1"]
-        [eval exp="tf.usingItemInventory4 = 1"]
-        [eval exp="f.isBlueBlockGet = 1"]
+        [iscript]
+            tf.usingItemInventory4 = 1
+            f.isBlueBlockGet = 1
+        [endscript]
         [free layer="1" name="blue"]
     [endif]
 [endif]
 [if exp="f.dimple[2] == 'red' "]
     [if exp="f.isRedBlockGet == -1" ]
-        [eval exp="tf.usingItemInventory5 = 1"]
-        [eval exp="f.isRedBlockGet = 1"]
+        [iscript]
+            tf.usingItemInventory5 = 1
+            f.isRedBlockGet = 1
+        [endscript]
         [free layer="1" name="red"]
     [endif]
 [endif]
 [if exp="f.dimple[2] == 'green' "]
     [if exp="f.isGreenBlockGet == -1"]
-        [eval exp="tf.usingItemInventory6 = 1"]
-        [eval exp="f.isGreenBlockGet = 1"]
+        [iscript]
+            tf.usingItemInventory6 = 1
+            f.isGreenBlockGet = 1
+        [endscript]
         [free layer="1" name="green"]
     [endif]
 [endif]
-[eval exp="f.dimple[2] = '' "]
-[eval exp="f.blockColor = '' "]
+[iscript]
+    f.dimple[2] = ''
+    f.blockColor = ''      
+[endscript]
 [jump target="*SelectItemOfBlock"]
 
 *SearchChest_back
@@ -490,32 +552,44 @@
 [free layer="1" name="red"]
 [free layer="1" name="green"]
 [if exp="tf.usingItemInventory4 == 1"]
-    [eval exp="tf.usingItemInventory4 = 1"]
-    [eval exp="f.isBlueBlockGet = 1"]
+    [iscript]
+        tf.usingItemInventory4 = 1
+        f.isBlueBlockGet = 1
+    [endscript]
 [endif]
 [if exp="tf.usingItemInventory5 == 1"]
-    [eval exp="tf.usingItemInventory5 = 1"]
-    [eval exp="f.isRedBlockGet = 1"]
+    [iscript]
+        tf.usingItemInventory5 = 1
+        f.isRedBlockGet = 1
+    [endscript]
 [endif]
 [if exp="tf.usingItemInventory6 == 1"]
-    [eval exp="tf.usingItemInventory6 = 1"]
-    [eval exp="f.isGreenBlockGet = 1"]
+    [iscript]
+        tf.usingItemInventory6 = 1
+        f.isGreenBlockGet = 1
+    [endscript]
 [endif]
 [JumpStudioRoom]
 
 *ValidItemOfBlock
 [messageFalse]
 [if exp="f.blockColor == 'blue' "]
-    [eval exp="tf.usingItemInventory4 = 0"]
-    [eval exp="f.isBlueBlockGet = -1"]
+    [iscript]
+        tf.usingItemInventory4 = 0
+        f.isBlueBlockGet = -1
+    [endscript]
     [free layer="2" name="blueblock"]
 [elsif exp="f.blockColor == 'red' "]
-    [eval exp="tf.usingItemInventory5 = 0"]
-    [eval exp="f.isRedBlockGet = -1"]
+    [iscript]
+        tf.usingItemInventory5 = 0
+        f.isRedBlockGet = -1
+    [endscript]
     [free layer="2" name="redblock"]
 [elsif exp="f.blockColor == 'green' "]
-    [eval exp="tf.usingItemInventory6 = 0"]
-    [eval exp="f.isGreenBlockGet = -1"]
+    [iscript]
+        tf.usingItemInventory6 = 0
+        f.isGreenBlockGet = -1
+    [endscript]
     [free layer="2" name="greenblock"]
 [endif]
 [if exp="f.dimple[0] == '' "]
@@ -541,13 +615,19 @@
 [PlayEmbed]
 [if exp="f.blockColor == 'blue' "]
     [image storage="../image/episode2/blueblock.png" layer="1" x="495" y="389" width="278" height="293" name="blue"]
-    [eval exp="f.dimple[0] = 'blue' "]
+    [iscript]
+        f.dimple[0] = 'blue'
+    [endscript]
 [elsif exp="f.blockColor == 'red' "]
     [image storage="../image/episode2/redblock.png" layer="1" x="495" y="389" width="278" height="293" name="red"]
-    [eval exp="f.dimple[0] = 'red' "]
+    [iscript]
+        f.dimple[0] = 'red'
+    [endscript]
 [elsif exp="f.blockColor == 'green' "]
     [image storage="../image/episode2/greenblock.png" layer="1" x="495" y="389" width="278" height="293" name="green"]
-    [eval exp="f.dimple[0] = 'green' "]
+    [iscript]
+        f.dimple[0] = 'green'
+    [endscript]
 [endif]
 [call target="*OpenChest"]
 
@@ -555,13 +635,19 @@
 [PlayEmbed]
 [if exp="f.blockColor == 'blue' "]
     [image storage="../image/episode2/blueblock.png" layer="1" x="795" y="389" width="278" height="293" name="blue"]
-    [eval exp="f.dimple[1] = 'blue' "]
+    [iscript]
+        f.dimple[1] = 'blue'
+    [endscript]
 [elsif exp="f.blockColor == 'red' "]
     [image storage="../image/episode2/redblock.png" layer="1" x="795" y="389" width="278" height="293" name="red"]
-    [eval exp="f.dimple[1] = 'red' "]
+    [iscript]
+        f.dimple[1] = 'red'
+    [endscript]
 [elsif exp="f.blockColor == 'green' "]
     [image storage="../image/episode2/greenblock.png" layer="1" x="795" y="389" width="278" height="293" name="green"]
-    [eval exp="f.dimple[1] = 'green' "]
+    [iscript]
+        f.dimple[1] = 'green'
+    [endscript]
 [endif]
 [call target="*OpenChest"]
 
@@ -569,13 +655,19 @@
 [PlayEmbed]
 [if exp="f.blockColor == 'blue' "]
     [image storage="../image/episode2/blueblock.png" layer="1" x="1095" y="389" width="278" height="293" name="blue"]
-    [eval exp="f.dimple[2] = 'blue' "]
+    [iscript]
+        f.dimple[2] = 'blue'
+    [endscript]
 [elsif exp="f.blockColor == 'red' "]
     [image storage="../image/episode2/redblock.png" layer="1" x="1095" y="389" width="278" height="293" name="red"]
-    [eval exp="f.dimple[2] = 'red' "]
+    [iscript]
+        f.dimple[2] = 'red'
+    [endscript]
 [elsif exp="f.blockColor == 'green' "]
     [image storage="../image/episode2/greenblock.png" layer="1" x="1095" y="389" width="278" height="293" name="green"]
-    [eval exp="f.dimple[2] = 'green' "]
+    [iscript]
+        f.dimple[2] = 'green'
+    [endscript]
 [endif]
 [call target="*OpenChest"]
 
@@ -585,7 +677,9 @@
     [free layer="1" name="blue"]
     [free layer="1" name="red"]
     [free layer="1" name="green"]
-    [eval exp="f.isKeyOpen = 1"]
+    [iscript]
+        f.isKeyOpen = 1
+    [endscript]
     *GetDressAndCurtain
     [wait time="150"]
     [PlayOpenChest]
@@ -632,13 +726,17 @@
     [ItemMenuButton]
     [MenuButton]
 [endif]
-[eval exp="f.isDressGet = 1"]
+[iscript]
+    f.isDressGet = 1
+[endscript]
 [free layer="1" name="dress"]
 [jump target="*GetAnotherItem"]
 
 *GetCurtain
 [PlayGetItem]
-[eval exp="f.isCurtainGet = 1"]
+[iscript]
+    f.isCurtainGet = 1
+[endscript]
 [free layer="1" name="curtain"]
 [jump target="*GetAnotherItem"]
 
@@ -689,7 +787,9 @@
 [elsif exp="f.isCurtainGet == 1 && f.isDressGet == 1"]
     *SelectItemOfCurtain
     [messageFalse]
-    [eval exp="f.isUsing = 1"]
+    [iscript]
+        f.isUsing = 1
+    [endscript]
     [if exp="f.isUsing == 1"]
         [ItemBox]
         [SelectItemClickable target_1="*NotUseCurtain" target_2="*NotUseCurtain" target_3="*NotUseCurtain" target_4="*NotUseCurtain" target_5="*UseCurtain" target_6="*NotUseCurtain" target_7="*NotUseCurtain"]
@@ -712,7 +812,9 @@
 *ValidItemOfCurtain
 [FreeItemBox]
 [ControlButtons]
-[eval exp="f.isCurtainGet = -1"]
+[iscript]
+    f.isCurtainGet = -1
+[endscript]
 [layer3True]
 [ShowNormalSakuraAndMiyuki]
 [messageTrue]
@@ -735,7 +837,9 @@
 [endnolog]
 [messageFalse]
 [layer3False]
-[eval exp="f.isDressGet = -1"]
+[iscript]
+    f.isDressGet = -1
+[endscript]
 [MenuButton]
 [JumpStudioRoom]
 

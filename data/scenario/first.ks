@@ -17,57 +17,22 @@
 [call storage="Utility/macro.ks"]
 ; 各種設定情報の読み込み
 [call storage="Utility/settings.ks"]
-[DispBootMode]
-; クライアントの情報を取得
-[iscript]
-    let agent = window.navigator.userAgent.toLowerCase();
-
-    // 使用ブラウザの判定
-    let usingBrowser = "";
-    if (agent.indexOf("msie") != -1 || agent.indexOf("trident") != -1) {
-        usingBrowser = "Internet Explorer";
-    } 
-    else if (agent.indexOf("edg") != -1 || agent.indexOf("edge") != -1) {
-        usingBrowser = "Microsoft Edge";
-    } 
-    else if (agent.indexOf("opr") != -1 || agent.indexOf("opera") != -1) {
-        usingBrowser = "Opera";
-    } 
-    else if (agent.indexOf("chrome") != -1) {
-        usingBrowser = "Google Chrome";
-    } 
-    else if (agent.indexOf("safari") != -1) {
-        usingBrowser = "Safari";
-    } 
-    else if (agent.indexOf("firefox") != -1) {
-        usingBrowser = "FireFox";
-    } 
-    f["usingBrowser"] = usingBrowser;
-
-    // 使用デバイスの判定
-    let usingDevice = "";
-    var isSmartPhone = /iphone|ipod|android.*mobile|windows.*phone|blackberry.*mobile/.test(agent);
-    var isPC = !isSmartPhone;
-    if (isSmartPhone) {
-        f["usingDevice"] = "SP";
-    }
-    if (isPC) {
-        f["usingDevice"] = "PC";
-    }
-[endscript]
+; クライアント情報を取得
+[call storage="Utility/getClientInfo.ks"]
 ; メニューSEのパラメータを読み込み
 [call storage="Plugin/menuse.ks"]
 
-[if exp="f.distribution == 'WEB' "]
-    ; 起動時にゲームデータを読み込む
+; 配布形式が「WEB」の時、起動時にゲームデータを読み込む
+[if exp="sf.distribution == 'WEB' "]
     [call storage="Plugin/loading.ks"]
-    [call storage="Plugin/loadingshow.ks" cond="sf.loadData == 'false' "]
+    [call storage="Plugin/loadingshow.ks"]
 [else]
-    [eval exp="sf.loadData = 'true' "]
+    [iscript]
+        f.loadData = 'true'
+    [endscript]
 [endif]
-
 ; ローディング画面を閉じる
-[if exp="sf.loadData == 'true' "]
+[if exp="f.loadData == 'true' "]
     [iscript]
         $('.loadingWrap').css({'display':'none'});
     [endscript]

@@ -108,62 +108,82 @@
 ; トップ画面BGMを再生する
 [macro name="PlayNormalBGM"]
     [playbgm storage="topmenu.m4a" loop="true" restart="false"]
-    [eval exp="f.isPlayingBGM = 'true' "]
+    [iscript]
+        f.isPlayingBGM = 'true'
+    [endscript]
 [endmacro]
 
 ; 導入パートBGMを再生する
 [macro name="PlayEpisodeOpBGM"]
     [playbgm storage="episode_op.m4a" loop="true" restart="false"]
-    [eval exp="f.isPlayingBGM = 'true' "]
+    [iscript]
+        f.isPlayingBGM = 'true'
+    [endscript]
 [endmacro]
 
 ; 思い出1序盤BGMを再生する
 [macro name="PlayEpisode1_OpBGM"]
     [playbgm storage="episode1_op.m4a" loop="true" restart="false"]
-    [eval exp="f.isPlayingBGM = 'true' "]
+    [iscript]
+        f.isPlayingBGM = 'true'
+    [endscript]
 [endmacro]
 
 ; 思い出1通常BGMを再生する
 [macro name="PlayEpisode1BGM"]
     [playbgm storage="episode1.m4a" loop="true" volume="60" restart="false"]
-    [eval exp="f.isPlayingBGM = 'true' "]
+    [iscript]
+        f.isPlayingBGM = 'true'
+    [endscript]
 [endmacro]
 
 ; 思い出1終盤BGMを再生する
 [macro name="PlayEpisode1_EdBGM"]
     [playbgm storage="episode1_ed.m4a" loop="true" restart="false"]
-    [eval exp="f.isPlayingBGM = 'true' "]
+    [iscript]
+        f.isPlayingBGM = 'true'
+    [endscript]
 [endmacro]
 
 ; 思い出2序盤BGMを再生する
 [macro name="PlayEpisode2_OpBGM"]
     [playbgm storage="episode2_op.m4a" loop="true" restart="false"]
-    [eval exp="f.isPlayingBGM = 'true' "]
+    [iscript]
+        f.isPlayingBGM = 'true'
+    [endscript]
 [endmacro]
 
 ; 思い出2通常BGMを再生する
 [macro name="PlayEpisode2BGM"]
     [playbgm storage="episode2.m4a" loop="true" restart="false"]
-    [eval exp="f.isPlayingBGM = 'true' "]
+    [iscript]
+        f.isPlayingBGM = 'true'
+    [endscript]
 [endmacro]
 
 ; 思い出3通常BGMを再生する
 [macro name="PlayEpisode3BGM"]
     [playbgm storage="episode3.m4a" loop="true" restart="false"]
-    [eval exp="f.isPlayingBGM = 'true' "]
+    [iscript]
+        f.isPlayingBGM = 'true'
+    [endscript]
 [endmacro]
 
 ; BGMの再生を停止する
 [macro name="StopPlayingBGM"]
     [stopbgm]
-    [eval exp="f.isPlayingBGM = 'false' "]
+    [iscript]
+        f.isPlayingBGM = 'false'
+    [endscript]
 [endmacro]
 
 ; BGMをフェードアウトしながら再生停止する
 [macro name="FadeoutBGM"]
     [fadeoutbgm time="%fadeoutTime|2000"]
     [wait time="%waitTime|2000"]
-    [eval exp="f.isPlayingBGM = 'false' "]
+    [iscript]
+        f.isPlayingBGM = 'false'
+    [endscript]
 [endmacro]
 
 ; ------------------------------
@@ -367,17 +387,21 @@
 ; アイテムインベントリを表示する
 [macro name="ItemInventory"]
     ; 通常アイテム用
-    [eval exp="tf.usingItemInventory1 = 0"]
-    [eval exp="tf.usingItemInventory2 = 0"]
-    [eval exp="tf.usingItemInventory3 = 0"]
-    [eval exp="tf.usingItemInventory4 = 0"]
-    [eval exp="tf.usingItemInventory5 = 0"]
-    [eval exp="tf.usingItemInventory6 = 0"]
-    [eval exp="tf.usingItemInventory7 = 0"]
+    [iscript]
+        tf.usingItemInventory1 = 0
+        tf.usingItemInventory2 = 0
+        tf.usingItemInventory3 = 0
+        tf.usingItemInventory4 = 0
+        tf.usingItemInventory5 = 0
+        tf.usingItemInventory6 = 0
+        tf.usingItemInventory7 = 0
+    [endscript]
     ; 特別アイテム用
-    [eval exp="tf.usingItemInventory8 = 0"]
-    [eval exp="tf.usingItemInventory9 = 0"]
-    [eval exp="tf.usingItemInventory10 = 0"]
+    [iscript]
+        tf.usingItemInventory8 = 0
+        tf.usingItemInventory9 = 0
+        tf.usingItemInventory10 = 0
+    [endscript]
     ; インベントリ画像
     [image storage="../image/share/inventory.png" layer="1" x="1780" y="150" name="inventory1"]
     [image storage="../image/share/inventory.png" layer="1" x="1780" y="250" name="inventory2"]
@@ -392,55 +416,81 @@
 [macro name="ItemImage"]
     [layer2True]
     [if exp="f.isCableGet == 1"]
-        [eval exp="tf.usingItemInventory2 = 1"]
+        [iscript]
+            tf.usingItemInventory2 = 1
+        [endscript]
         [image storage="../image/episode1/cable.png" layer="2" x="1780" y="250" width="100" height="100" visible="true" name="cable"]
     [endif]
     [if exp="f.isDriverGet == 1"]
-        [eval exp="tf.usingItemInventory1 = 1"]
+        [iscript]
+            tf.usingItemInventory1 = 1
+        [endscript]
         [image storage="../image/episode1/driver_item.png" layer="2" x="1780" y="150" width="100" height="100" visible="true" name="driver"]
     [endif]
     [if exp="f.isLightCoverGet == 1"]
-        [eval exp="tf.usingItemInventory3 = 1"]
+        [iscript]
+            tf.usingItemInventory3 = 1
+        [endscript]
         [image storage="../image/episode1/lightcover_item.png" layer="2" x="1780" y="350" width="100" height="100" visible="true" name="lightcover"]
     [endif]
     [if exp="f.isHangerGet == 1"]
-        [eval exp="tf.usingItemInventory2 = 1"]
+        [iscript]
+            tf.usingItemInventory2 = 1
+        [endscript]
         [image storage="../image/episode2/hangar_item.png" layer="2" x="1780" y="250" width="100" height="100" visible="true" name="hanger"]
     [endif]
     [if exp="f.isPencilGet == 1"]
-        [eval exp="tf.usingItemInventory3 = 1"]
+        [iscript]
+            tf.usingItemInventory3 = 1
+        [endscript]
         [image storage="../image/episode2/pencil.png" layer="2" x="1780" y="350" width="100" height="100" visible="true" name="pencil"]
     [endif]
     [if exp="f.isBlueBlockGet == 1"]
-        [eval exp="tf.usingItemInventory4 = 1"]
+        [iscript]
+            tf.usingItemInventory4 = 1
+        [endscript]
         [image storage="../image/episode2/blueblock_item.png" layer="2" x="1780" y="450" width="100" height="100" visible="true" name="blueblock"]
     [endif]
     [if exp="f.isRedBlockGet == 1"]
-        [eval exp="tf.usingItemInventory5 = 1"]
+        [iscript]
+            tf.usingItemInventory5 = 1
+        [endscript]
         [image storage="../image/episode2/redblock_item.png" layer="2" x="1780" y="550" width="100" height="100" visible="true" name="redblock"]
     [endif]
     [if exp="f.isGreenBlockGet == 1"]
-        [eval exp="tf.usingItemInventory6 = 1"]
+        [iscript]
+            tf.usingItemInventory6 = 1
+        [endscript]
         [image storage="../image/episode2/greenblock_item.png" layer="2" x="1780" y="650" width="100" height="100" visible="true" name="greenblock"]
     [endif]
     [if exp="f.isDressGet == 1"]
-        [eval exp="tf.usingItemInventory4 = 1"]
+        [iscript]
+            tf.usingItemInventory4 = 1
+        [endscript]
         [image storage="../image/episode2/dress.png" layer="2" x="1780" y="450" width="100" height="100" visible="true" name="dress"]
     [endif]
     [if exp="f.isCurtainGet == 1"]
-        [eval exp="tf.usingItemInventory5 = 1"]
+        [iscript]
+            tf.usingItemInventory5 = 1
+        [endscript]
         [image storage="../image/episode2/curtain_item.png" layer="2" x="1780" y="550" width="100" height="100" visible="true" name="curtain"]
     [endif]
     [if exp="f.isCompassGet == 1"]
-        [eval exp="tf.usingItemInventory2 = 1"]
+        [iscript]
+            tf.usingItemInventory2 = 1
+        [endscript]
         [image storage="../image/episode3/compass.png" layer="2" x="1780" y="250" width="97" height="100" visible="true" name="compass"]
     [endif]
     [if exp="f.isJacketGet == 1"]
-        [eval exp="tf.usingItemInventory3 = 1"]
+        [iscript]
+            tf.usingItemInventory3 = 1
+        [endscript]
         [image storage="../image/episode3/jacket_item.png" layer="2" x="1780" y="350" width="100" height="100" visible="true" name="jacket"]
     [endif]
     [if exp="f.isFutonGet == 1"]
-        [eval exp="tf.usingItemInventory4 = 1"]
+        [iscript]
+            tf.usingItemInventory4 = 1
+        [endscript]
         [image storage="../image/episode3/futon.png" layer="2" x="1780" y="450" width="100" height="91" visible="true" name="futon"]
     [endif]
 [endmacro]
@@ -454,7 +504,9 @@
 
 ; 画面右上のアイテムボックスを非表示にする
 [macro name="FreeItemBox"]
-    [eval exp="f.isUsing = 0"]
+    [iscript]
+        f.isUsing = 0
+    [endscript]
     ; インベントリ画像
     [free layer="1" name="inventory1"]
     [free layer="1" name="inventory2"]
@@ -533,9 +585,9 @@
 
 ; 拡大マップからの戻るボタン
 [macro name="BackFromEnlargedMap"]
-    [if exp="f.usingDevice == 'SP' "]
+    [if exp="sf.usingDevice == 'SP' "]
         [button graphic="share/arrow_01_down.png" enterimg="share/arrow_01_down_hover.png" target="%target" x="910" y="950"]
-    [elsif exp="f.usingDevice == 'PC' "]
+    [elsif exp="sf.usingDevice == 'PC' "]
         [button graphic="share/arrow_01_down.png" enterimg="share/arrow_01_down_hover.png" target="%target" x="910" y="980"]
     [endif]
 [endmacro]
@@ -558,15 +610,6 @@
 ; ------------------------------
 ; その他共通処理
 ; ------------------------------
-
-; 起動モードの表示設定
-[macro name="DispBootMode"]
-    [if exp="f.mode == 'develop' "]
-        [eval exp="f.dispMode = '開発' "]
-    [elsif exp="f.mode == 'kenshou' "]
-        [eval exp="f.dispMode = '検証' "]
-    [endif]
-[endmacro]
 
 ; メッセージウィンドウ非表示ボタン
 [macro name="hiddenMessageWindow"]
@@ -617,8 +660,7 @@
 ; 通常のクリック判定
 ; 開発/検証モード：灰色｜通常モード：透明
 [macro name="clickJudgment"]
-    [clickable x="%x" y="%y" width="%width" height="%height" target="%target" opacity="30" mouseopacity="50" color="0x505050" cond="f.mode == 'develop' || f.mode == 'kenshou' "]
-    [clickable x="%x" y="%y" width="%width" height="%height" target="%target" opacity="0" mouseopacity="0" color="0x505050" cond="f.mode == 'normal' "]
+    [clickable x="%x" y="%y" width="%width" height="%height" target="%target" opacity="30" mouseopacity="50" color="0x505050" cond="sf.bootMode == 'develop' || sf.bootMode == 'kenshou' "]
+    [clickable x="%x" y="%y" width="%width" height="%height" target="%target" opacity="0" mouseopacity="0" color="0x505050" cond="sf.bootMode == 'normal' "]
 [endmacro]
-
 [return]
