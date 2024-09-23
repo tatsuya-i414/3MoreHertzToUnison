@@ -1,9 +1,8 @@
 ; 画像ファイルを事前ダウンロード
 [loading_show file="loaddata.csv"]
-
 ; 音声ファイルを事前ダウンロード
 [iscript]
-    tf.file = [
+    tf.audioFile = [
         "./data/bgm/topmenu.m4a",
         "./data/bgm/episode_op.m4a",
         "./data/bgm/episode1_op.m4a",
@@ -44,11 +43,9 @@
         "./data/bgm/se/unlockkey.m4a"
     ];
 [endscript]
-[preload storage="&tf.file" wait="true"]
+[preload storage="&tf.audioFile" wait="true"]
 [iscript]
-    delete tf.file;
+    delete tf.audioFile;
+    f.loadData = 'true'
 [endscript]
-
-[eval exp="sf.loadData = 'true' "]
-
 [return]

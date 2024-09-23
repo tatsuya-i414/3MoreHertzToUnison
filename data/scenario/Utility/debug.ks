@@ -1,4 +1,3 @@
-[title name="&f.gameTitle + '｜デバッグ' "]
 [clearfix]
 [messageFalse]
 [hidemenubutton]
@@ -204,197 +203,221 @@
 ; フラグの値に応じて値を変更する
 ; 思い出1をクリアする
 [if exp="f.isEpisode1Clear == 1"]
-    [eval exp="f.isStageStatusGreen = 1"]
-    [eval exp="f.isLightStatusGreen = 1"]
-    [eval exp="f.isSpeakerStatusGreen = 1"]
-    [eval exp="f.isCableGet = -1"]
-    [eval exp="f.isLightCoverGet = -1"]
-    [eval exp="f.isDriverGet = 1"]
-    [eval exp="f.isMikeGet = 1"]
+    [iscript]
+        f.isStageStatusGreen = 1
+        f.isLightStatusGreen = 1
+        f.isSpeakerStatusGreen = 1
+        f.isCableGet = -1
+        f.isLightCoverGet = -1
+        f.isDriverGet = 1
+        f.isMikeGet = 1
+    [endscript]
 [endif]
 
 ; ステージがせり上がる
 [if exp="f.isStageStatusGreen == 1"]
-    [eval exp="f.isCableGet = -1"]
+    [iscript]
+        f.isCableGet = -1
+    [endscript]
 [endif]
 
 ; ライトカバーを装着する
 [if exp="f.isLightStatusGreen == 1"]
-    [eval exp="f.isStageStatusGreen = 1"]
-    [eval exp="f.isCableGet = -1"]
-    [eval exp="f.isLightCoverGet = -1"]
+    [iscript]
+        f.isStageStatusGreen = 1
+        f.isCableGet = -1
+        f.isLightCoverGet = -1
+    [endscript]
 [endif]
 
 ; スピーカーの傾きを直す
 [if exp="f.isSpeakerStatusGreen == 1"]
-    [eval exp="f.isStageStatusGreen = 1"]
-    [eval exp="f.isCableGet = -1"]
-    [eval exp="f.isDriverGet = 1"]
+    [iscript]
+        f.isStageStatusGreen = 1
+        f.isCableGet = -1
+        f.isDriverGet = 1
+    [endscript]
 [endif]
 
 ; 天幕を下ろす
 [if exp="f.isTentDown == 1"]
-    [eval exp="f.isEpisode1Clear = 1"]
-    [eval exp="f.isStageStatusGreen = 1"]
-    [eval exp="f.isLightStatusGreen = 1"]
-    [eval exp="f.isSpeakerStatusGreen = 1"]
-    [eval exp="f.isCableGet = -1"]
-    [eval exp="f.isLightCoverGet = -1"]
-    [eval exp="f.isDriverGet = 1"]
-    [eval exp="f.isMikeGet = 1"]
-    [eval exp="f.isHungerGet = -1"]
-    [eval exp="f.isPaperDown = 1"]
+    [iscript]
+        f.isEpisode1Clear = 1
+        f.isStageStatusGreen = 1
+        f.isLightStatusGreen = 1
+        f.isSpeakerStatusGreen = 1
+        f.isCableGet = -1
+        f.isLightCoverGet = -1
+        f.isDriverGet = 1
+        f.isMikeGet = 1
+        f.isHungerGet = -1
+        f.isPaperDown = 1
+    [endscript]
 [endif]
 
 ; アイブロウペンシルを獲得する
 [if exp="f.isPencilGet == -1"]
-    [eval exp="f.isEpisode1Clear = 1"]
-    [eval exp="f.isStageStatusGreen = 1"]
-    [eval exp="f.isLightStatusGreen = 1"]
-    [eval exp="f.isSpeakerStatusGreen = 1"]
-    [eval exp="f.isCableGet = -1"]
-    [eval exp="f.isLightCoverGet = -1"]
-    [eval exp="f.isDriverGet = 1"]
-    [eval exp="f.isMikeGet = 1"]
-    [eval exp="f.isTentDown = 1"]
-    [eval exp="f.isHungerGet = -1"]
-    [eval exp="f.isPaperDown = 1"]
+    [iscript]
+        f.isEpisode1Clear = 1
+        f.isStageStatusGreen = 1
+        f.isLightStatusGreen = 1
+        f.isSpeakerStatusGreen = 1
+        f.isCableGet = -1
+        f.isLightCoverGet = -1
+        f.isDriverGet = 1
+        f.isMikeGet = 1
+        f.isTentDown = 1
+        f.isHungerGet = -1
+        f.isPaperDown = 1
+    [endscript]
 [endif]
 
 ; タンスの開錠をする
 [if exp="f.isKeyOpen == 1"]
-    [eval exp="f.isEpisode1Clear = 1"]
-    [eval exp="f.isStageStatusGreen = 1"]
-    [eval exp="f.isLightStatusGreen = 1"]
-    [eval exp="f.isSpeakerStatusGreen = 1"]
-    [eval exp="f.isCableGet = -1"]
-    [eval exp="f.isLightCoverGet = -1"]
-    [eval exp="f.isDriverGet = 1"]
-    [eval exp="f.isMikeGet = 1"]
-    [eval exp="f.isRedBlockGet = -1"]
-    [eval exp="f.isBlueBlockGet = -1"]
-    [eval exp="f.isGreenBlockGet = -1"]
-    [eval exp="f.isHungerGet = 1"]
+    [iscript]
+        f.isEpisode1Clear = 1
+        f.isStageStatusGreen = 1
+        f.isLightStatusGreen = 1
+        f.isSpeakerStatusGreen = 1
+        f.isCableGet = -1
+        f.isLightCoverGet = -1
+        f.isDriverGet = 1
+        f.isMikeGet = 1
+        f.isRedBlockGet = -1
+        f.isBlueBlockGet = -1
+        f.isGreenBlockGet = -1
+        f.isHungerGet = 1
+    [endscript]
 [endif]
 
 ; 思い出2をクリアする
 [if exp="f.isEpisode2Clear == 1"]
-    [eval exp="f.isEpisode1Clear = 1"]
-    [eval exp="f.isStageStatusGreen = 1"]
-    [eval exp="f.isLightStatusGreen = 1"]
-    [eval exp="f.isSpeakerStatusGreen = 1"]
-    [eval exp="f.isCableGet = -1"]
-    [eval exp="f.isLightCoverGet = -1"]
-    [eval exp="f.isDriverGet = 1"]
-    [eval exp="f.isMikeGet = 1"]
-    [eval exp="f.isTentDown = 1"]
-    [eval exp="f.isDressGet = -1"]
-    [eval exp="f.isHungerGet = -1"]
-    [eval exp="f.isPaperDown = 1"]
-    [eval exp="f.isPencilGet = -1"]
-    [eval exp="f.isRedBlockGet = -1"]
-    [eval exp="f.isBlueBlockGet = -1"]
-    [eval exp="f.isGreenBlockGet = -1"]
-    [eval exp="f.isKeyOpen = 1"]
-    [eval exp="f.isCurtainGet = -1"]
+    [iscript]
+        f.isEpisode1Clear = 1
+        f.isStageStatusGreen = 1
+        f.isLightStatusGreen = 1
+        f.isSpeakerStatusGreen = 1
+        f.isCableGet = -1
+        f.isLightCoverGet = -1
+        f.isDriverGet = 1
+        f.isMikeGet = 1
+        f.isTentDown = 1
+        f.isDressGet = -1
+        f.isHungerGet = -1
+        f.isPaperDown = 1
+        f.isPencilGet = -1
+        f.isRedBlockGet = -1
+        f.isBlueBlockGet = -1
+        f.isGreenBlockGet = -1
+        f.isKeyOpen = 1
+        f.isCurtainGet = -1
+    [endscript]
 [endif]
 
 ; 収納ボックスにコンパスをはめる
 [if exp="f.isCompassGet == -1"]
-    [eval exp="f.isEpisode1Clear = 1"]
-    [eval exp="f.isStageStatusGreen = 1"]
-    [eval exp="f.isLightStatusGreen = 1"]
-    [eval exp="f.isSpeakerStatusGreen = 1"]
-    [eval exp="f.isCableGet = -1"]
-    [eval exp="f.isLightCoverGet = -1"]
-    [eval exp="f.isDriverGet = 1"]
-    [eval exp="f.isMikeGet = 1"]
-    [eval exp="f.isEpisode2Clear = 1"]
-    [eval exp="f.isTentDown = 1"]
-    [eval exp="f.isDressGet = -1"]
-    [eval exp="f.isHungerGet = -1"]
-    [eval exp="f.isPaperDown = 1"]
-    [eval exp="f.isPencilGet = -1"]
-    [eval exp="f.isRedBlockGet = -1"]
-    [eval exp="f.isBlueBlockGet = -1"]
-    [eval exp="f.isGreenBlockGet = -1"]
-    [eval exp="f.isKeyOpen = 1"]
-    [eval exp="f.isCurtainGet = -1"]
+    [iscript]
+        f.isEpisode1Clear = 1
+        f.isStageStatusGreen = 1
+        f.isLightStatusGreen = 1
+        f.isSpeakerStatusGreen = 1
+        f.isCableGet = -1
+        f.isLightCoverGet = -1
+        f.isDriverGet = 1
+        f.isMikeGet = 1
+        f.isEpisode2Clear = 1
+        f.isTentDown = 1
+        f.isDressGet = -1
+        f.isHungerGet = -1
+        f.isPaperDown = 1
+        f.isPencilGet = -1
+        f.isRedBlockGet = -1
+        f.isBlueBlockGet = -1
+        f.isGreenBlockGet = -1
+        f.isKeyOpen = 1
+        f.isCurtainGet = -1
+    [endscript]
 [endif]
 
 ; ジャケットをハンガーに掛ける
 [if exp="f.isJacketGet == -1"]
-    [eval exp="f.isEpisode1Clear = 1"]
-    [eval exp="f.isStageStatusGreen = 1"]
-    [eval exp="f.isLightStatusGreen = 1"]
-    [eval exp="f.isSpeakerStatusGreen = 1"]
-    [eval exp="f.isCableGet = -1"]
-    [eval exp="f.isLightCoverGet = -1"]
-    [eval exp="f.isDriverGet = 1"]
-    [eval exp="f.isMikeGet = 1"]
-    [eval exp="f.isEpisode2Clear = 1"]
-    [eval exp="f.isTentDown = 1"]
-    [eval exp="f.isDressGet = -1"]
-    [eval exp="f.isHungerGet = -1"]
-    [eval exp="f.isPaperDown = 1"]
-    [eval exp="f.isPencilGet = -1"]
-    [eval exp="f.isRedBlockGet = -1"]
-    [eval exp="f.isBlueBlockGet = -1"]
-    [eval exp="f.isGreenBlockGet = -1"]
-    [eval exp="f.isKeyOpen = 1"]
-    [eval exp="f.isCurtainGet = -1"]
+    [iscript]
+        f.isEpisode1Clear = 1
+        f.isStageStatusGreen = 1
+        f.isLightStatusGreen = 1
+        f.isSpeakerStatusGreen = 1
+        f.isCableGet = -1
+        f.isLightCoverGet = -1
+        f.isDriverGet = 1
+        f.isMikeGet = 1
+        f.isEpisode2Clear = 1
+        f.isTentDown = 1
+        f.isDressGet = -1
+        f.isHungerGet = -1
+        f.isPaperDown = 1
+        f.isPencilGet = -1
+        f.isRedBlockGet = -1
+        f.isBlueBlockGet = -1
+        f.isGreenBlockGet = -1
+        f.isKeyOpen = 1
+        f.isCurtainGet = -1
+    [endscript]
 [endif]
 
 ; 布団を獲得する
 [if exp="f.isFutonGet == 1"]
-    [eval exp="f.isEpisode1Clear = 1"]
-    [eval exp="f.isStageStatusGreen = 1"]
-    [eval exp="f.isLightStatusGreen = 1"]
-    [eval exp="f.isSpeakerStatusGreen = 1"]
-    [eval exp="f.isCableGet = -1"]
-    [eval exp="f.isLightCoverGet = -1"]
-    [eval exp="f.isDriverGet = 1"]
-    [eval exp="f.isMikeGet = 1"]
-    [eval exp="f.isEpisode2Clear = 1"]
-    [eval exp="f.isTentDown = 1"]
-    [eval exp="f.isDressGet = -1"]
-    [eval exp="f.isHungerGet = -1"]
-    [eval exp="f.isPaperDown = 1"]
-    [eval exp="f.isPencilGet = -1"]
-    [eval exp="f.isRedBlockGet = -1"]
-    [eval exp="f.isBlueBlockGet = -1"]
-    [eval exp="f.isGreenBlockGet = -1"]
-    [eval exp="f.isKeyOpen = 1"]
-    [eval exp="f.isCurtainGet = -1"]
-    [eval exp="f.isCompassGet = -1"]
-    [eval exp="f.isJacketGet = -1"]
+    [iscript]
+        f.isEpisode1Clear = 1
+        f.isStageStatusGreen = 1
+        f.isLightStatusGreen = 1
+        f.isSpeakerStatusGreen = 1
+        f.isCableGet = -1
+        f.isLightCoverGet = -1
+        f.isDriverGet = 1
+        f.isMikeGet = 1
+        f.isEpisode2Clear = 1
+        f.isTentDown = 1
+        f.isDressGet = -1
+        f.isHungerGet = -1
+        f.isPaperDown = 1
+        f.isPencilGet = -1
+        f.isRedBlockGet = -1
+        f.isBlueBlockGet = -1
+        f.isGreenBlockGet = -1
+        f.isKeyOpen = 1
+        f.isCurtainGet = -1
+        f.isCompassGet = -1
+        f.isJacketGet = -1
+    [endscript]
 [endif]
 
 ; 思い出3をクリアする
 [if exp="f.isEpisode3Clear == 1"]
-    [eval exp="f.isEpisode1Clear = 1"]
-    [eval exp="f.isStageStatusGreen = 1"]
-    [eval exp="f.isLightStatusGreen = 1"]
-    [eval exp="f.isSpeakerStatusGreen = 1"]
-    [eval exp="f.isCableGet = -1"]
-    [eval exp="f.isLightCoverGet = -1"]
-    [eval exp="f.isDriverGet = 1"]
-    [eval exp="f.isMikeGet = 1"]
-    [eval exp="f.isEpisode2Clear = 1"]
-    [eval exp="f.isTentDown = 1"]
-    [eval exp="f.isDressGet = -1"]
-    [eval exp="f.isHungerGet = -1"]
-    [eval exp="f.isPaperDown = 1"]
-    [eval exp="f.isPencilGet = -1"]
-    [eval exp="f.isRedBlockGet = -1"]
-    [eval exp="f.isBlueBlockGet = -1"]
-    [eval exp="f.isGreenBlockGet = -1"]
-    [eval exp="f.isKeyOpen = 1"]
-    [eval exp="f.isCurtainGet = -1"]
-    [eval exp="f.isFutonGet = 1"]
-    [eval exp="f.isCompassGet = -1"]
-    [eval exp="f.isJacketGet = -1"]
-    [eval exp="f.isRoomLightNight = 1"]
+    [iscript]
+        f.isEpisode1Clear = 1
+        f.isStageStatusGreen = 1
+        f.isLightStatusGreen = 1
+        f.isSpeakerStatusGreen = 1
+        f.isCableGet = -1
+        f.isLightCoverGet = -1
+        f.isDriverGet = 1
+        f.isMikeGet = 1
+        f.isEpisode2Clear = 1
+        f.isTentDown = 1
+        f.isDressGet = -1
+        f.isHungerGet = -1
+        f.isPaperDown = 1
+        f.isPencilGet = -1
+        f.isRedBlockGet = -1
+        f.isBlueBlockGet = -1
+        f.isGreenBlockGet = -1
+        f.isKeyOpen = 1
+        f.isCurtainGet = -1
+        f.isFutonGet = 1
+        f.isCompassGet = -1
+        f.isJacketGet = -1
+        f.isRoomLightNight = 1
+    [endscript]
 [endif]
 [cm]
 [freeimage layer="1"]

@@ -2,22 +2,29 @@
 [clearstack]
 [bg storage="share/title.png" time="100"]
 ; タイトル名
-[ptext layer="fix" text="&f.gameTitle" x="140" y="100" size="100" color="black"]
+[ptext layer="fix" text="&sf.gameTitle" x="140" y="100" size="100" color="black"]
 ; バージョン表記
 [ptext layer="fix" text="Ver." x="1760" y="30" size="20" color="black" bold="bold" edge="white"]
-[ptext layer="fix" text="&f.version" x="1810" y="30" size="20" color="black" bold="bold" edge="white"]
+[ptext layer="fix" text="&sf.sysVersion" x="1810" y="30" size="20" color="black" bold="bold" edge="white"]
 ; クレジット表記
-[ptext layer="fix" text="&f.credit" x="850" y="1000" size="20" face="sans-serif" color="black" bold="bold" edge="white"]
-[if exp="f.mode == 'develop' || f.mode == 'kenshou' "]
+[ptext layer="fix" text="&sf.credit" x="850" y="1000" size="20" face="sans-serif" color="black" bold="bold" edge="white"]
+[if exp="sf.bootMode == 'develop' || sf.bootMode == 'kenshou' "]
+    ; ティラノスクリプトバージョン表記
+    [ptext layer="fix" text="ティラノスクリプトVer." x="1590" y="60" size="20" color="black" bold="bold" edge="white"]
+    [ptext layer="fix" text="&sf.trnVersion" x="1810" y="60" size="20" color="black" bold="bold" edge="white"]
     ; 起動モード表記
-    [ptext layer="fix" text="起動モード：" x="1690" y="60" size="20" color="black" bold="bold" edge="white"]
-    [ptext layer="fix" text="&f.dispMode" x="1820" y="60" size="20" color="black" bold="bold" edge="white"]
+    [ptext layer="fix" text="起動モード：" x="1690" y="90" size="20" color="black" bold="bold" edge="white"]
+    [if exp="sf.bootMode == 'develop' "]
+        [ptext layer="fix" text="開発" x="1810" y="90" size="20" color="black" bold="bold" edge="white"]
+    [elsif exp="sf.bootMode == 'kenshou' "]
+        [ptext layer="fix" text="検証" x="1810" y="90" size="20" color="black" bold="bold" edge="white"]
+    [endif]
     ; 使用端末表記
-    [ptext layer="fix" text="使用端末：" x="1708" y="90" size="20" color="black" bold="bold" edge="white" align="right"]
-    [ptext layer="fix" text="&f.usingDevice" x="1830" y="90" size="20" color="black" bold="bold" edge="white" align="right"]
+    [ptext layer="fix" text="使用端末：" x="1708" y="120" size="20" color="black" bold="bold" edge="white" align="right"]
+    [ptext layer="fix" text="&sf.usingDevice" x="1810" y="120" size="20" color="black" bold="bold" edge="white" align="right"]
     ; 使用ブラウザ表記
-    [ptext layer="fix" text="使用ブラウザ：" x="1570" y="120" size="20" color="black" bold="bold" edge="white" align="right"]
-    [ptext layer="fix" text="&f.usingBrowser" x="1715" y="120" size="20" color="black" bold="bold" edge="white" align="right"]
+    [ptext layer="fix" text="使用ブラウザ：" x="1570" y="150" size="20" color="black" bold="bold" edge="white" align="right"]
+    [ptext layer="fix" text="&sf.usingBrowser" x="1715" y="150" size="20" color="black" bold="bold" edge="white" align="right"]
 [endif]
 [l]
 [PlayTitleDecision]
@@ -28,18 +35,18 @@
 [clearfix]
 [bg storage="share/top.png" time="100"]
 ; タイトル名
-[ptext layer="fix" text="&f.gameTitle" x="140" y="100" size="100" color="black"]
+[ptext layer="fix" text="&sf.gameTitle" x="140" y="100" size="100" color="black"]
 [button x="700" y="330" width="540" height="86" graphic="title/button_newgame.png" enterimg="title/button_newgame_hover.png" target="*GameStart" clickse="../bgm/se/decision.m4a"]
 [button x="700" y="460" width="540" height="86" graphic="title/button_loadgame.png" enterimg="title/button_loadgame_hover.png" role="load" clickse="../bgm/se/decision.m4a"]
-[if exp="f.cgMode == 'true' "]
+[if exp="sf.CGMode == 'true' "]
     [button x="700" y="590" width="540" height="86" graphic="title/button_gallery.png" enterimg="title/button_gallery_hover.png" storage="cg.ks" clickse="../bgm/se/decision.m4a"]
     [button x="700" y="720" width="540" height="86" graphic="title/button_config.png" enterimg="title/button_config_hover.png" role="sleepgame" storage="../others/plugin/theme_kopanda_bth_06_blue/config.ks" clickse="../bgm/se/decision.m4a"]
 [else]
     [button x="700" y="590" width="540" height="86" graphic="title/button_config.png" enterimg="title/button_config_hover.png" role="sleepgame" storage="../others/plugin/theme_kopanda_bth_06_blue/config.ks" clickse="../bgm/se/decision.m4a"]
 [endif]
 ; 開発/検証用
-[if exp="f.mode == 'develop' || f.mode == 'kenshou' "]
-    [if exp="f.mode == 'develop' "]
+[if exp="sf.bootMode == 'develop' || sf.bootMode == 'kenshou' "]
+    [if exp="sf.bootMode == 'develop' "]
         [glink color="bth06" target="*Debug" text="デバッグ" x="1560" y="880" width="150" height="36" size="36" bold="true" clickse="../bgm/se/decision.m4a"]
     [endif]
     ; ショートカット
@@ -62,4 +69,4 @@
 [jump storage="Gimmick/episode3.ks" cond="f.isEpisode1Clear == 1 && f.isEpisode2Clear == 1"]
 
 *Debug
-[jump storage="Utility/debug.ks" cond="f.mode == 'develop' "]
+[jump storage="Utility/debug.ks" cond="sf.bootMode == 'develop' "]

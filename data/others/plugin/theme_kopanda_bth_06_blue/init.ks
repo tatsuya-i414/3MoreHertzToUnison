@@ -117,15 +117,21 @@ if(TG.config.alreadyReadTextColor != "default"){
 [loadcss file="./data/others/plugin/theme_kopanda_bth_06_blue/testMessagePlus/style.css"]
 
 [macro name="test_message_start"]
-[eval exp="gMessageTester.create()"]
+[iscript]
+  gMessageTester.create()
+[endscript]
 [endmacro]
 
 [macro name="test_message_end"]
-[eval exp="gMessageTester.destroy()"]
+[iscript]
+  gMessageTester.destroy()
+[endscript]
 [endmacro]
 
 [macro name="test_message_reset"]
-[eval exp="gMessageTester.currentTextNumber=0;gMessageTester.next(true)"]
+[iscript]
+  gMessageTester.currentTextNumber=0;gMessageTester.next(true)
+[endscript]
 [endmacro]
 
 

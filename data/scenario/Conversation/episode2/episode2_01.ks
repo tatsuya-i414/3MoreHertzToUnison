@@ -119,7 +119,9 @@
         #桜良
         ねえ深雪ちゃん、今すぐ写真を撮る？[r]
         それとも、もう少しこの部屋を見てみる？[p]
-        [eval exp="f.isClickedCamera_first = 'false' "]
+        [iscript]
+            f.isClickedCamera_first = 'false'
+        [endscript]
     ; 二回目以降セリフ表示
     [else]
         ; 桜良表情：通常
@@ -133,6 +135,7 @@
     [YesNoButton target_yes="*TakeAPicture" target_no="*NotTakeAPicture"]
     [s]
 [endif]
+[return]
 
 *TakeAPicture
 ; 深雪表情：通常

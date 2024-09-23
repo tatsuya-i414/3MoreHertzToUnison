@@ -60,7 +60,9 @@
     #深雪
     （主に私の心臓が持たないからよ！！）
     [if exp="f.isClickedTent_first == 'true' "]
-        [eval exp="f.isClickedTent_first = 'false' "]
+        [iscript]
+            f.isClickedTent_first = 'false'
+        [endscript]
     [endif]
     [layer3False]
     [JumpStudioRoom]

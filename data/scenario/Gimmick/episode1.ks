@@ -1,4 +1,3 @@
-[title name="&f.gameTitle + '｜思い出1' "]
 [cm]
 [clearfix]
 [clearstack]
@@ -31,8 +30,10 @@
 ; シナリオ_思い出1序盤
 [if exp="f.scn_skip == 0 && f.scn_episode1_OP == 'false' "]
     [cm]
-    [eval exp="f.itemVisible[0] = 'true' "]
-    [eval exp="f.itemVisible[1] = 'episode1' "]
+    [iscript]
+        f.itemVisible[0] = 'true'
+        f.itemVisible[1] = 'episode1'
+    [endscript]
     [blackout exp="f.scn_skip == 0" storage_1="episode1/stageroom.png" storage_2="episode1/omoide1_introduction.jpg"]
     [ControlButtons]
     [FadeoutBGM]
@@ -41,8 +42,10 @@
     [endif]
     [messageTrue]
     [call storage="Conversation/episode1/episode1_op.ks"]
-    [eval exp="f.scn_episode1_OP = 'true' "]
-    [eval exp="f.itemVisible[0] = 'false' "]
+    [iscript]
+        f.scn_episode1_OP = 'true'
+        f.itemVisible[0] = 'false'
+    [endscript]
     [clearfix]
     [messageFalse]
     [MenuButton]
@@ -159,7 +162,9 @@
     [MenuButton]
 [endif]
 [if exp="f.isClickedControlPanel_first == 'true' "]
-    [eval exp="f.isClickedControlPanel_first = 'false' "]
+    [iscript]
+        f.isClickedControlPanel_first = 'false'
+    [endscript]
 [endif]
 ; 画像を削除する
 [free layer="1" name="controlpanel_button"]
@@ -188,9 +193,11 @@
     [ItemMenuButton]
     [MenuButton]
 [endif]
-[eval exp="f.isEpisode1Clear = 1" cond="f.isStageStatusGreen == 1 && f.isLightStatusGreen == 1 && f.isSpeakerStatusGreen == 1"]
 [if exp="f.isStageStatusGreen == 1 && f.isLightStatusGreen == 1 && f.isSpeakerStatusGreen == 1"]
-    [eval exp="f.isMikeGet = 1"]
+    [iscript]
+        f.isEpisode1Clear = 1
+        f.isMikeGet = 1
+    [endscript]
 [endif]
 ; 思い出2へ移動する
 [jump storage="Gimmick/episode2.ks" cond="f.isEpisode1Clear == 1"]
@@ -238,13 +245,17 @@
     [MenuButton]
 [endif]
 [if exp="f.isClickedWiringDoor_first == 'true' "]
-    [eval exp="f.isClickedWiringDoor_first = 'false' "]
+    [iscript]
+        f.isClickedWiringDoor_first = 'false'
+    [endscript]
 [endif]
 [ItemMenuButton cond="f.isCableGet == 1"]
 [JumpStageRoom cond="f.isCableGet == 0"]
 *SelectItemOfCable
 [messageFalse]
-[eval exp="f.isUsing = 1"]
+[iscript]
+    f.isUsing = 1
+[endscript]
 [if exp="f.isUsing == 1"]
     [ItemBox]
     [SelectItemClickable target_1="*NotUseCable" target_2="*UseCable" target_3="*NotUseCable" target_4="*NotUseCable" target_5="*NotUseCable" target_6="*NotUseCable" target_7="*NotUseCable"]
@@ -284,12 +295,16 @@
     [layer3False]
     [MenuButton]
 [endif]
-[eval exp="f.isCableGet = -1"]
-[eval exp="f.isStageStatusGreen = 1"]
+[iscript]
+    f.isCableGet = -1
+    f.isStageStatusGreen = 1
+[endscript]
 [free layer="2" name="cable"]
 ; ライトの初回クリックフラグをリセットする
 [if exp="f.isClickedLight_first == 'false' "]
-    [eval exp="f.isClickedLight_first = 'true' "]
+    [iscript]
+        f.isClickedLight_first = 'true'
+    [endscript]
 [endif]
 [JumpStageRoom]
 
@@ -324,7 +339,9 @@
         [MenuButton]
     [endif]
     [if exp="f.isClickedToolBox_first == 'true' "]
-        [eval exp="f.isClickedToolBox_first = 'false' "]
+        [iscript]
+            f.isClickedToolBox_first = 'false'
+        [endscript]
     [endif]
     [free layer="1" name="leftdial"]
     [free layer="1" name="centerdial"]
@@ -351,34 +368,54 @@
 
 *LeftDialTurn
 [if exp="f.leftNum == 0"]
-    [eval exp="f.leftNum = 1"]
+    [iscript]
+        f.leftNum = 1
+    [endscript]
     [button graphic="episode1/dial/dialnumber_1.png" x="440" y="400" width="200" height="400" exp="f.leftNum = 1" fix="true" target="*LeftDialTurn"]
 [elsif exp="f.leftNum == 1"]
-    [eval exp="f.leftNum = 2"]
+    [iscript]
+        f.leftNum = 2
+    [endscript]
     [button graphic="episode1/dial/dialnumber_2.png" x="440" y="400" width="200" height="400" exp="f.leftNum = 2" fix="true" target="*LeftDialTurn"]
 [elsif exp="f.leftNum == 2"]
-    [eval exp="f.leftNum = 3"]
+    [iscript]
+        f.leftNum = 3
+    [endscript]
     [button graphic="episode1/dial/dialnumber_3.png" x="440" y="400" width="200" height="400" exp="f.leftNum = 3" fix="true" target="*LeftDialTurn"]
 [elsif exp="f.leftNum == 3"]
-    [eval exp="f.leftNum = 4"]
+    [iscript]
+        f.leftNum = 4
+    [endscript]
     [button graphic="episode1/dial/dialnumber_4.png" x="440" y="400" width="200" height="400" exp="f.leftNum = 4" fix="true" target="*LeftDialTurn"]
 [elsif exp="f.leftNum == 4"]
-    [eval exp="f.leftNum = 5"]
+    [iscript]
+        f.leftNum = 5
+    [endscript]
     [button graphic="episode1/dial/dialnumber_5.png" x="440" y="400" width="200" height="400" exp="f.leftNum = 5" fix="true" target="*LeftDialTurn"]
 [elsif exp="f.leftNum == 5"]
-    [eval exp="f.leftNum = 6"]
+    [iscript]
+        f.leftNum = 6
+    [endscript]
     [button graphic="episode1/dial/dialnumber_6.png" x="440" y="400" width="200" height="400" exp="f.leftNum = 6" fix="true" target="*LeftDialTurn"]
 [elsif exp="f.leftNum == 6"]
-    [eval exp="f.leftNum = 7"]
+    [iscript]
+        f.leftNum = 7
+    [endscript]
     [button graphic="episode1/dial/dialnumber_7.png" x="440" y="400" width="200" height="400" exp="f.leftNum = 7" fix="true" target="*LeftDialTurn"]
 [elsif exp="f.leftNum == 7"]
-    [eval exp="f.leftNum = 8"]
+    [iscript]
+        f.leftNum = 8
+    [endscript]
     [button graphic="episode1/dial/dialnumber_8.png" x="440" y="400" width="200" height="400" exp="f.leftNum = 8" fix="true" target="*LeftDialTurn"]
 [elsif exp="f.leftNum == 8"]
-    [eval exp="f.leftNum = 9"]
+    [iscript]
+        f.leftNum = 9
+    [endscript]
     [button graphic="episode1/dial/dialnumber_9.png" x="440" y="400" width="200" height="400" exp="f.leftNum = 9" fix="true" target="*LeftDialTurn"]
 [elsif exp="f.leftNum == 9"]
-    [eval exp="f.leftNum = 0"]
+    [iscript]
+        f.leftNum = 0
+    [endscript]
     [button graphic="episode1/dial/dialnumber_0.png" x="440" y="400" width="200" height="400" exp="f.leftNum = 0" fix="true" target="*LeftDialTurn"]
 [endif]
 [PlayTurnDial]
@@ -387,34 +424,54 @@
 
 *CenterDialTurn
 [if exp="f.centerNum == 0"]
-    [eval exp="f.centerNum = 1"]
+    [iscript]
+        f.centerNum = 1
+    [endscript]
     [button graphic="episode1/dial/dialnumber_1.png" x="850" y="400" width="200" height="400" exp="f.centerNum = 1" fix="true" target="*CenterDialTurn"]
 [elsif exp="f.centerNum == 1"]
-    [eval exp="f.centerNum = 2"]
+    [iscript]
+        f.centerNum = 2
+    [endscript]
     [button graphic="episode1/dial/dialnumber_2.png" x="850" y="400" width="200" height="400" exp="f.centerNum = 2" fix="true" target="*CenterDialTurn"]
 [elsif exp="f.centerNum == 2"]
-    [eval exp="f.centerNum = 3"]
+    [iscript]
+        f.centerNum = 3
+    [endscript]
     [button graphic="episode1/dial/dialnumber_3.png" x="850" y="400" width="200" height="400" exp="f.centerNum = 3" fix="true" target="*CenterDialTurn"]
 [elsif exp="f.centerNum == 3"]
-    [eval exp="f.centerNum = 4"]
+    [iscript]
+        f.centerNum = 4
+    [endscript]
     [button graphic="episode1/dial/dialnumber_4.png" x="850" y="400" width="200" height="400" exp="f.centerNum = 4" fix="true" target="*CenterDialTurn"]
 [elsif exp="f.centerNum == 4"]
-    [eval exp="f.centerNum = 5"]
+    [iscript]
+        f.centerNum = 5
+    [endscript]
     [button graphic="episode1/dial/dialnumber_5.png" x="850" y="400" width="200" height="400" exp="f.centerNum = 5" fix="true" target="*CenterDialTurn"]
 [elsif exp="f.centerNum == 5"]
-    [eval exp="f.centerNum = 6"]
+    [iscript]
+        f.centerNum = 6
+    [endscript]
     [button graphic="episode1/dial/dialnumber_6.png" x="850" y="400" width="200" height="400" exp="f.centerNum = 6" fix="true" target="*CenterDialTurn"]
 [elsif exp="f.centerNum == 6"]
-    [eval exp="f.centerNum = 7"]
+    [iscript]
+        f.centerNum = 7
+    [endscript]
     [button graphic="episode1/dial/dialnumber_7.png" x="850" y="400" width="200" height="400" exp="f.centerNum = 7" fix="true" target="*CenterDialTurn"]
 [elsif exp="f.centerNum == 7"]
-    [eval exp="f.centerNum = 8"]
+    [iscript]
+        f.centerNum = 8
+    [endscript]
     [button graphic="episode1/dial/dialnumber_8.png" x="850" y="400" width="200" height="400" exp="f.centerNum = 8" fix="true" target="*CenterDialTurn"]
 [elsif exp="f.centerNum == 8"]
-    [eval exp="f.centerNum = 9"]
+    [iscript]
+        f.centerNum = 9
+    [endscript]
     [button graphic="episode1/dial/dialnumber_9.png" x="850" y="400" width="200" height="400" exp="f.centerNum = 9" fix="true" target="*CenterDialTurn"]
 [elsif exp="f.centerNum == 9"]
-    [eval exp="f.centerNum = 0"]
+    [iscript]
+       f.centerNum = 0 
+    [endscript]
     [button graphic="episode1/dial/dialnumber_0.png" x="850" y="400" width="200" height="400" exp="f.centerNum = 0" fix="true" target="*CenterDialTurn"]
 [endif]
 [PlayTurnDial]
@@ -423,34 +480,54 @@
 
 *RightDialTurn
 [if exp="f.rightNum == 0"]
-    [eval exp="f.rightNum = 1"]
+    [iscript]
+        f.rightNum = 1
+    [endscript]
     [button graphic="episode1/dial/dialnumber_1.png" x="1250" y="400" width="200" height="400" exp="f.rightNum = 1" fix="true" target="*RightDialTurn"]
 [elsif exp="f.rightNum == 1"]
-    [eval exp="f.rightNum = 2"]
+    [iscript]
+        f.rightNum = 2
+    [endscript]
     [button graphic="episode1/dial/dialnumber_2.png" x="1250" y="400" width="200" height="400" exp="f.rightNum = 2" fix="true" target="*RightDialTurn"]
 [elsif exp="f.rightNum == 2"]
-    [eval exp="f.rightNum = 3"]
+    [iscript]
+        f.rightNum = 3
+    [endscript]
     [button graphic="episode1/dial/dialnumber_3.png" x="1250" y="400" width="200" height="400" exp="f.rightNum = 3" fix="true" target="*RightDialTurn"]
 [elsif exp="f.rightNum == 3"]
-    [eval exp="f.rightNum = 4"]
+    [iscript]
+        f.rightNum = 4
+    [endscript]
     [button graphic="episode1/dial/dialnumber_4.png" x="1250" y="400" width="200" height="400" exp="f.rightNum = 4" fix="true" target="*RightDialTurn"]
 [elsif exp="f.rightNum == 4"]
-    [eval exp="f.rightNum = 5"]
+    [iscript]
+        f.rightNum = 5
+    [endscript]
     [button graphic="episode1/dial/dialnumber_5.png" x="1250" y="400" width="200" height="400" exp="f.rightNum = 5" fix="true" target="*RightDialTurn"]
 [elsif exp="f.rightNum == 5"]
-    [eval exp="f.rightNum = 6"]
+    [iscript]
+        f.rightNum = 6
+    [endscript]
     [button graphic="episode1/dial/dialnumber_6.png" x="1250" y="400" width="200" height="400" exp="f.rightNum = 6" fix="true" target="*RightDialTurn"]
 [elsif exp="f.rightNum == 6"]
-    [eval exp="f.rightNum = 7"]
+    [iscript]
+        f.rightNum = 7
+    [endscript]
     [button graphic="episode1/dial/dialnumber_7.png" x="1250" y="400" width="200" height="400" exp="f.rightNum = 7" fix="true" target="*RightDialTurn"]
 [elsif exp="f.rightNum == 7"]
-    [eval exp="f.rightNum = 8"]
+    [iscript]
+        f.rightNum = 8
+    [endscript]
     [button graphic="episode1/dial/dialnumber_8.png" x="1250" y="400" width="200" height="400" exp="f.rightNum = 8" fix="true" target="*RightDialTurn"]
 [elsif exp="f.rightNum == 8"]
-    [eval exp="f.rightNum = 9"]
+    [iscript]
+        f.rightNum =9
+    [endscript]
     [button graphic="episode1/dial/dialnumber_9.png" x="1250" y="400" width="200" height="400" exp="f.rightNum = 9" fix="true" target="*RightDialTurn"]
 [elsif exp="f.rightNum == 9"]
-    [eval exp="f.rightNum = 0"]
+    [iscript]
+        f.rightNum = 0
+    [endscript]
     [button graphic="episode1/dial/dialnumber_0.png" x="1250" y="40 0" width="200" height="400" exp="f.rightNum = 0" fix="true" target="*RightDialTurn"]
 [endif]
 [PlayTurnDial]
@@ -496,9 +573,13 @@
     [MenuButton]
 [endif]
 [if exp="f.isClickedToolBox_first == 'true' "]
-    [eval exp="f.isClickedToolBox_first = 'false' "]
+    [iscript]
+        f.isClickedToolBox_first = 'false'
+    [endscript]
 [endif]
-[eval exp="f.isCableGet = 1"]
+[iscript]
+    f.isCableGet = 1
+[endscript]
 [iscript]
     delete f.leftNum;
     delete f.centerNum;
@@ -507,20 +588,26 @@
 [endscript]
 ; 制御盤の初回クリックフラグをリセットする
 [if exp="f.isClickedWiringDoor_first == 'false' "]
-    [eval exp="f.isClickedWiringDoor_first = 'true' "]
+    [iscript]
+        f.isClickedWiringDoor_first = 'true'
+    [endscript]
 [endif]
 [JumpStageRoom]
 
 *DialUnlock_back
 [cm]
 [clearfix]
-[eval exp="tf.dialUnlock = 'true' "]
+[iscript]
+    tf.dialUnlock = 'true'
+[endscript]
 [free layer="1" name="cable"]
 [JumpStageRoom]
 
 *GetDriver
 [PlayGetItem]
-[eval exp="f.isDriverGet = 1"]
+[iscript]
+    f.isDriverGet = 1
+[endscript]
 [free layer="2" name="driver"]
 [JumpStageRoom]
 
@@ -536,7 +623,9 @@
     [layer3False]
 [endif]
 [if exp="f.isClickedLight_first == 'true' "]
-    [eval exp="f.isClickedLight_first = 'false' "]
+    [iscript]
+        f.isClickedLight_first = 'false'
+    [endscript]
 [endif]
 [if exp="f.isStageStatusGreen == 0 || f.isStageStatusGreen == 1 && f.isLightCoverGet == 0"]
     [JumpStageRoom]
@@ -544,9 +633,13 @@
     *SelectItemOfLightCover
     [messageFalse]
     [if exp="f.isUsing == 0"]
-        [eval exp="f.isUsing = 1"]
+        [iscript]
+            f.isUsing = 1
+        [endscript]
     [else]
-        [eval exp="f.isUsing = 0"]
+        [iscript]
+            f.isUsing = 0
+        [endscript]
         [FreeItemBox]
     [endif]
     [if exp="f.isUsing == 1"]
@@ -581,11 +674,17 @@
     [layer3False]
 [endif]
 [if exp="f.isClickedLight_first == 'true' "]
-    [eval exp="f.isClickedLight_first = 'false' "]
+    [iscript]
+        f.isClickedLight_first = 'false'
+    [endscript]
 [endif]
-[eval exp="f.isLightCoverGet = -1"]
+[iscript]
+    f.isLightCoverGet = -1
+[endscript]
 [free layer="2" name="lightcover"]
-[eval exp="f.isLightStatusGreen = 1"]
+[iscript]
+    f.isLightStatusGreen = 1
+[endscript]
 [JumpStageRoom]
 
 *IncorrectItemOfLightCover
@@ -596,11 +695,15 @@
 
 *GetLightCover
 [PlayGetItem]
-[eval exp="f.isLightCoverGet = 1"]
+[iscript]
+    f.isLightCoverGet = 1
+[endscript]
 [free layer="1" name="lightcover"]
 ; ライトの初回クリックフラグをリセットする
 [if exp="f.isClickedLight_first == 'false' && f.isStageStatusGreen == 1"]
-    [eval exp="f.isClickedLight_first = 'true' "]
+    [iscript]
+        f.isClickedLight_first = 'true'
+    [endscript]
 [endif]
 [JumpStageRoom]
 
@@ -616,15 +719,21 @@
     [layer3False]
 [endif]
 [if exp="f.isClickedSpeaker_first == 'true' "]
-    [eval exp="f.isClickedSpeaker_first = 'false' "]
+    [iscript]
+        f.isClickedSpeaker_first = 'false'
+    [endscript]
 [endif]
 [JumpStageRoom cond="f.isDriverGet == 0"]
 *SelectItemOfDriver
 [messageFalse]
 [if exp="f.isUsing == 0"]
-    [eval exp="f.isUsing = 1"]
+    [iscript]
+        f.isUsing = 1
+    [endscript]
 [else]
-    [eval exp="f.isUsing = 0"]
+    [iscript]
+        f.isUsing = 0
+    [endscript]
     [FreeItemBox]
 [endif]
 [if exp="f.isUsing == 1"]
@@ -657,7 +766,9 @@
     [endnolog]
     [layer3False]
 [endif]
-[eval exp="f.isSpeakerStatusGreen = 1"]
+[iscript]
+    f.isSpeakerStatusGreen = 1
+[endscript]
 [free layer="1" name="speaker"]
 [JumpStageRoom]
 
