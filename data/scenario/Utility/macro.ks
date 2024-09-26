@@ -330,6 +330,11 @@
     [playse storage="../bgm/se/openchest.m4a" loop="false"]
 [endmacro]
 
+; ペンで紙を擦るSEを再生する
+[macro name="PlayScrubPencil"]
+    [playse storage="../bgm/se/scrubpencil.m4a" loop="false"]
+[endmacro]
+
 ; 電気のスイッチを切り替えるSEを再生する
 [macro name="PlaySwitching"]
     [playse storage="../bgm/se/switching.m4a" loop="false"]
