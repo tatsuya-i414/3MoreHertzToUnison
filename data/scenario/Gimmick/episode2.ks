@@ -91,7 +91,7 @@
 [if exp="f.isDressGet == 0 || f.isCurtainGet == 0"]
     [clickJudgment x="1395" y="475" width="50" height="30" target="*SearchChest"]
 [endif]
-; 簡易着替え場所
+; 簡易更衣室
 [if exp="f.isHangerGet != 0 && f.isCurtainGet != -1 && f.isDressGet != -1"]
     [clickJudgment x="140" y="210" width="135" height="750" target="*SearchFittingRoom"]
 [endif]
@@ -739,102 +739,67 @@
 [JumpStudioRoom]
 
 *SearchFittingRoom
-[if exp="f.isCurtainGet == 0 && f.isDressGet == 0"]
+[if exp="f.scn_skip == 0"]
     [ControlButtons]
     [layer3True]
     [ShowNormalSakuraAndMiyuki]
     [messageTrue]
     [nolog]
-    #深雪と桜良
-    これってカーテンが必要だよね[p]
+    [call storage="Conversation/episode2/episode2_03.ks"]
     [endnolog]
     [messageFalse]
     [layer3False]
+    [cancelskip]
+    [clearfix]
+    [ItemMenuButton]
     [MenuButton]
-    [JumpStudioRoom]
-[elsif exp="f.isCurtainGet == 1 && f.isDressGet == 0"]
-    [ControlButtons]
-    [layer3True]
-    [ShowNormalSakuraAndMiyuki]
-    [messageTrue]
-    [nolog]
-    #深雪と桜良
-    ドレスはここで着替えるんだろうな[p]
-    [endnolog]
-    [messageFalse]
-    [layer3False]
-    [MenuButton]
-    [JumpStudioRoom]
-[elsif exp="f.isCurtainGet == 0 && f.isDressGet == 1"]
-    [ControlButtons]
-    [layer3True]
-    [ShowNormalSakuraAndMiyuki]
-    [messageTrue]
-    [nolog]
-    #深雪と桜良
-    目隠しなしで着替えるのは恥ずかしいね[p]
-    [endnolog]
-    [messageFalse]
-    [layer3False]
-    [MenuButton]
-    [JumpStudioRoom]
-[elsif exp="f.isCurtainGet == 1 && f.isDressGet == 1"]
-    *SelectItemOfCurtain
-    [messageFalse]
-    [iscript]
-        f.isUsing = 1
-    [endscript]
-    [if exp="f.isUsing == 1"]
-        [ItemBox]
-        [SelectItemClickable target_1="*NotUseCurtain" target_2="*NotUseCurtain" target_3="*NotUseCurtain" target_4="*NotUseCurtain" target_5="*UseCurtain" target_6="*NotUseCurtain" target_7="*NotUseCurtain"]
-    [endif]
-    [s]
 [endif]
+[if exp="f.isClickedFittingRoom_first == 'true' "]
+    [iscript]
+        f.isClickedFittingRoom_first = 'false'
+    [endscript]
+[endif]
+[messageFalse]
+[iscript]
+    f.isUsing = 1
+[endscript]
+[if exp="f.isUsing == 1"]
+    [ItemBox]
+    [SelectItemClickable target_1="*NotUseCurtain" target_2="*NotUseCurtain" target_3="*NotUseCurtain" target_4="*NotUseCurtain" target_5="*UseCurtain" target_6="*NotUseCurtain" target_7="*NotUseCurtain"]
+[endif]
+[s]
 
 *UseCurtain
 [messageTrue]
 [ConfirmUseItem]
-[YesNoButton target_yes="*ValidItemOfCurtain" target_no="*SelectItemOfCurtain"]
+[YesNoButton target_yes="*ValidItemOfCurtain" storage_no="Conversation/episode2/episode2_03.ks" target_no="*NotUseCurtain"]
 [s]
 
 *NotUseCurtain
 [messageTrue]
 [ConfirmUseItem]
-[YesNoButton target_yes="*IncorrectItemOfCurtain" target_no="*SelectItemOfCurtain"]
+[YesNoButton target_yes="*IncorrectItemOfCurtain" storage_no="Conversation/episode2/episode2_03.ks" target_no="*NotUseCurtain"]
 [s]
 
 *ValidItemOfCurtain
 [FreeItemBox]
-[ControlButtons]
+[if exp="f.scn_skip == 0"]
+    [ControlButtons]
+    [layer3True]
+    [ShowNormalSakuraAndMiyuki]
+    [messageTrue]
+    [nolog]
+    [call storage="Conversation/episode2/episode2_03.ks" target="*UseCurtain"]
+    [endnolog]
+    [layer3False]
+[endif]
 [iscript]
     f.isCurtainGet = -1
-[endscript]
-[layer3True]
-[ShowNormalSakuraAndMiyuki]
-[messageTrue]
-[nolog]
-#深雪と桜良
-衣装を着よう！[p]
-[endnolog]
-[messageFalse]
-[layer3False]
-
-[blackout exp="f.isHangerGet == -1" storage_1="episode2/studioroom_tentdown.png" storage_2="episode2/studioroom.png"]
-
-; ごそごそ物音がする効果音を追加
-[layer3True]
-[ShowNormalSakuraAndMiyuki]
-[messageTrue]
-[nolog]
-#深雪と桜良
-衣装に着替えた！[p]
-[endnolog]
-[messageFalse]
-[layer3False]
-[iscript]
     f.isDressGet = -1
 [endscript]
-[MenuButton]
+; 以下、シナリオ側に移行予定
+;[blackout exp="f.isHangerGet == -1" storage_1="episode2/studioroom_tentdown.png" storage_2="episode2/studioroom.png"]
+; ごそごそ物音がする効果音を追加
 [JumpStudioRoom]
 
 *IncorrectItemOfCurtain

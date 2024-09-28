@@ -20,6 +20,8 @@
     f.isClickedTent_first = 'true'
     f.isClickedPaper_first = 'true'
     f.isClickedSpeaker_first_whenPencilGetting = 'true'
+    f.isClickedFittingRoom_first = 'true'
+    f.isClickedFittingRoom_first_whenCurtainGetting = 'true'
     // シナリオ既読判定
     f.scn_episode1_OP = 'false'
     f.scn_episode2_OP = 'false'
