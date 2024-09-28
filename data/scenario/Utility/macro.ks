@@ -83,7 +83,11 @@
         ; 背景パーツを表示
         [if exp="f.itemVisible[0] == 'true' && f.itemVisible[1] == 'episode1' " ]
             [image storage="../image/episode1/lightcover_item.png" layer="1" x="450" y="770" name="lightcover"]
-            [image storage="../image/episode1/speaker_beforerepair.png" layer="1" x="1" y="110" name="speaker"]
+            [if exp="f.isSpeakerStatusGreen == 1"]
+                [image storage="../image/episode1/speaker_afterrepair.png" layer="1" x="1" y="125" name="speaker"]
+            [else]
+                [image storage="../image/episode1/speaker_beforerepair.png" layer="1" x="1" y="110" name="speaker"]
+            [endif]
         [elsif exp="f.itemVisible[0] == 'true' && f.itemVisible[1] == 'episode2' "]
             [image storage="../image/episode2/block.png" layer="1" x="295" y="527" name="block"]
             [image storage="../image/episode2/hanger.png" layer="1" x="186" y="409" name="hanger"]
@@ -442,7 +446,7 @@
         [iscript]
             tf.usingItemInventory2 = 1
         [endscript]
-        [image storage="../image/episode2/hangar_item.png" layer="2" x="1780" y="250" width="100" height="100" visible="true" name="hanger"]
+        [image storage="../image/episode2/hanger_item.png" layer="2" x="1780" y="250" width="100" height="100" visible="true" name="hanger"]
     [endif]
     [if exp="f.isPencilGet == 1"]
         [iscript]
