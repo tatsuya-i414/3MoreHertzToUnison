@@ -8,9 +8,9 @@
 [bg storage="share/debug.png" time="100"]
 
 ; ボタン
-[button graphic="../others/plugin/theme_kopanda_bth_06_blue/image/config/back.png" enterimg="../others/plugin/theme_kopanda_bth_06_blue/image/config/back2.png" target="*Backtitle" x="1680" y="60" clickse="../bgm/se/cancel.m4a"]
-[glink color="bth06" target="*Flagdetail" text="フラグ別詳細" x="1380" y="960" width="150" height="24" size="24" clickse="../bgm/se/decision.m4a" bold="true"]
-[button graphic="debug/sysbtn_02_qsave.png" enterimg="debug/sysbtn_02_qsave_hover.png" target="*Save" x="1680" y="960" clickse="../bgm/se/itemdecision.m4a"]
+[button graphic="../others/plugin/theme_kopanda_bth_06_blue/image/config/back.png" enterimg="../others/plugin/theme_kopanda_bth_06_blue/image/config/back2.png" target="*Backtitle" x="1680" y="60" clickse="../sound/se/cancel.m4a"]
+[glink color="bth06" target="*Flagdetail" text="フラグ別詳細" x="1380" y="960" width="150" height="24" size="24" clickse="../sound/se/decision.m4a" bold="true"]
+[button graphic="debug/sysbtn_02_qsave.png" enterimg="debug/sysbtn_02_qsave_hover.png" target="*Save" x="1680" y="960" clickse="../sound/se/itemdecision.m4a"]
 
 ; ゲーム変数_Episode1
 [if exp="f.isEpisode1Clear == 0"]
@@ -70,10 +70,10 @@
 [else]
     [edit name="f.isDressGet" initial="&f.isDressGet" left="1010" top="445" color="0x666666" size="36" width="150" maxchars="2"]
 [endif]
-[if exp="f.isHungerGet == 0"]
-    [edit name="f.isHungerGet" initial="0" left="1010" top="500" color="0x666666" size="36" width="150" maxchars="2"]
+[if exp="f.isHangerGet == 0"]
+    [edit name="f.isHangerGet" initial="0" left="1010" top="500" color="0x666666" size="36" width="150" maxchars="2"]
 [else]
-    [edit name="f.isHungerGet" initial="&f.isHungerGet" left="1010" top="500" color="0x666666" size="36" width="150" maxchars="2"]
+    [edit name="f.isHangerGet" initial="&f.isHangerGet" left="1010" top="500" color="0x666666" size="36" width="150" maxchars="2"]
 [endif]
 [if exp="f.isPaperDown == 0"]
     [edit name="f.isPaperDown" initial="0" left="1010" top="555" color="0x666666" size="36" width="150" maxchars="1"]
@@ -179,7 +179,7 @@
 [commit name="f.isEpisode2Clear"]
 [commit name="f.isTentDown"]
 [commit name="f.isDressGet"]
-[commit name="f.isHungerGet"]
+[commit name="f.isHangerGet"]
 [commit name="f.isPaperDown"]
 [commit name="f.isPencilGet"]
 [commit name="f.isRedBlockGet"]
@@ -250,7 +250,7 @@
         f.isLightCoverGet = -1
         f.isDriverGet = 1
         f.isMikeGet = 1
-        f.isHungerGet = -1
+        f.isHangerGet = -1
         f.isPaperDown = 1
     [endscript]
 [endif]
@@ -267,7 +267,7 @@
         f.isDriverGet = 1
         f.isMikeGet = 1
         f.isTentDown = 1
-        f.isHungerGet = -1
+        f.isHangerGet = -1
         f.isPaperDown = 1
     [endscript]
 [endif]
@@ -303,7 +303,7 @@
         f.isMikeGet = 1
         f.isTentDown = 1
         f.isDressGet = -1
-        f.isHungerGet = -1
+        f.isHangerGet = -1
         f.isPaperDown = 1
         f.isPencilGet = -1
         f.isRedBlockGet = -1
@@ -328,7 +328,7 @@
         f.isEpisode2Clear = 1
         f.isTentDown = 1
         f.isDressGet = -1
-        f.isHungerGet = -1
+        f.isHangerGet = -1
         f.isPaperDown = 1
         f.isPencilGet = -1
         f.isRedBlockGet = -1
@@ -353,7 +353,7 @@
         f.isEpisode2Clear = 1
         f.isTentDown = 1
         f.isDressGet = -1
-        f.isHungerGet = -1
+        f.isHangerGet = -1
         f.isPaperDown = 1
         f.isPencilGet = -1
         f.isRedBlockGet = -1
@@ -378,7 +378,7 @@
         f.isEpisode2Clear = 1
         f.isTentDown = 1
         f.isDressGet = -1
-        f.isHungerGet = -1
+        f.isHangerGet = -1
         f.isPaperDown = 1
         f.isPencilGet = -1
         f.isRedBlockGet = -1
@@ -405,7 +405,7 @@
         f.isEpisode2Clear = 1
         f.isTentDown = 1
         f.isDressGet = -1
-        f.isHungerGet = -1
+        f.isHangerGet = -1
         f.isPaperDown = 1
         f.isPencilGet = -1
         f.isRedBlockGet = -1

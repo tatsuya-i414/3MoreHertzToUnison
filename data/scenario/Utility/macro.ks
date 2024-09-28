@@ -82,11 +82,21 @@
     [if exp="%exp"]
         ; 背景パーツを表示
         [if exp="f.itemVisible[0] == 'true' && f.itemVisible[1] == 'episode1' " ]
-            [image storage="../image/episode1/lightcover_item.png" layer="1" x="450" y="770" name="lightcover"]
-            [image storage="../image/episode1/speaker_beforerepair.png" layer="1" x="1" y="110" name="speaker"]
+            [if exp="f.isLightCoverGet == 0"]
+                [image storage="../image/episode1/lightcover_item.png" layer="1" x="450" y="770" name="lightcover"]
+            [endif]
+            [if exp="f.isSpeakerStatusGreen == 1"]
+                [image storage="../image/episode1/speaker_afterrepair.png" layer="1" x="1" y="125" name="speaker"]
+            [else]
+                [image storage="../image/episode1/speaker_beforerepair.png" layer="1" x="1" y="110" name="speaker"]
+            [endif]
         [elsif exp="f.itemVisible[0] == 'true' && f.itemVisible[1] == 'episode2' "]
-            [image storage="../image/episode2/block.png" layer="1" x="295" y="527" name="block"]
-            [image storage="../image/episode2/hanger.png" layer="1" x="186" y="409" name="hanger"]
+            [if exp="f.isRedBlockGet == 0 && f.isBlueBlockGet == 0 && f.isGreenBlockGet == 0"]
+                [image storage="../image/episode2/block.png" layer="1" x="295" y="527" name="block"]
+            [endif]
+            [if exp="f.isHangerGet == 0"]
+                [image storage="../image/episode2/hanger.png" layer="1" x="186" y="409" name="hanger"]
+            [endif]
         [endif]
         [bg storage="%storage_1" time="%time_2|100"]
     [else]
@@ -192,152 +202,157 @@
 
 ; タイトル画面決定音のSEを再生する
 [macro name="PlayTitleDecision"]
-    [playse storage="../bgm/se/titledecision.m4a" loop="false"]
+    [playse storage="../sound/se/titledecision.m4a" loop="false"]
 [endmacro]
 
 ; 通常ボタンを押下するSEを再生する
 [macro name="PlayDecision"]
-    [playse storage="../bgm/se/decision.m4a" loop="false"]
+    [playse storage="../sound/se/decision.m4a" loop="false"]
 [endmacro]
 
 ; 戻るボタンを押下するSEを再生する
 [macro name="PlayCancel"]
-    [playse storage="../bgm/se/cancel.m4a" loop="false"]
+    [playse storage="../sound/se/cancel.m4a" loop="false"]
 [endmacro]
 
 ; ページ移動ボタンを押下するSEを再生する
 [macro name="PlayPageChange"]
-    [playse storage="../bgm/se/pagechange.m4a" loop="false"]
+    [playse storage="../sound/se/pagechange.m4a" loop="false"]
 [endmacro]
 
 ; Config画面の各種ボタンを押下するSEを再生する
 [macro name="PlayDecision3"]
-    [playse storage="../bgm/se/decision3.m4a" loop="false"]
+    [playse storage="../sound/se/decision3.m4a" loop="false"]
 [endmacro]
 
 ; 全画面ボタン/オートボタン/バックログボタン/スキップボタン/アイテムメニューボタンを押下するSEを再生する
 [macro name="PlayDecision2"]
-    [playse storage="../bgm/se/decision2.m4a" loop="false"]
+    [playse storage="../sound/se/decision2.m4a" loop="false"]
 [endmacro]
 
 ; アイテム取得時のSEを再生する
 [macro name="PlayGetItem"]
-    [playse storage="../bgm/se/getitem.m4a" loop="false"]
+    [playse storage="../sound/se/getitem.m4a" loop="false"]
 [endmacro]
 
 ; 使用アイテム決定時のSEを再生する
 [macro name="PlayUsingItemDecision"]
-    [playse storage="../bgm/se/itemdecision.m4a" loop="false"]
+    [playse storage="../sound/se/itemdecision.m4a" loop="false"]
 [endmacro]
 
 ; ゴソゴソするSEを再生する
 [macro name="PlayGosoGoso"]
-    [playse storage="../bgm/se/gosogoso.m4a" loop="false"]
+    [playse storage="../sound/se/gosogoso.m4a" loop="false"]
 [endmacro]
 
 ; 制御盤のボタンを押下するSEを再生する
 [macro name="PlayControlPanelButtonClick"]
-    [playse storage="../bgm/se/controlpanelbuttonclick.m4a" loop="false"]
+    [playse storage="../sound/se/controlpanelbuttonclick.m4a" loop="false"]
 [endmacro]
 
 ; 制御盤のランプが変化するSEを再生する
 [macro name="PlayChangeControlPanelLamp"]
-    [playse storage="../bgm/se/changecontrolpanellamp.m4a" loop="false"]
+    [playse storage="../sound/se/changecontrolpanellamp.m4a" loop="false"]
 [endmacro]
 
 ; 配線扉を開けるSEを再生する
 [macro name="PlayOpenDoor"]
-    [playse storage="../bgm/se/opendoor.m4a" loop="false"]
+    [playse storage="../sound/se/opendoor.m4a" loop="false"]
 [endmacro]
 
 ; ケーブルを接続するSEを再生する
 [macro name="PlayConnectCable"]
-    [playse storage="../bgm/se/connectcable.m4a" loop="false"]
+    [playse storage="../sound/se/connectcable.m4a" loop="false"]
 [endmacro]
 
 ; ステージがせり上がるSEを再生する
 [macro name="PlayRisingStage"]
-    [playse storage="../bgm/se/risingstage.m4a" loop="false"]
+    [playse storage="../sound/se/risingstage.m4a" loop="false"]
 [endmacro]
 
 ; ダイヤルを回すSEを再生する
 [macro name="PlayTurnDial"]
-    [playse storage="../bgm/se/turndial.m4a" loop="false"]
+    [playse storage="../sound/se/turndial.m4a" loop="false"]
 [endmacro]
 
 ; 開錠するSEを再生する
 [macro name="PlayUnlockKey"]
-    [playse storage="../bgm/se/unlockkey.m4a" loop="false"]
+    [playse storage="../sound/se/unlockkey.m4a" loop="false"]
 [endmacro]
 
 ; 箱を開けるSEを再生する
 [macro name="PlayOpenBox"]
-    [playse storage="../bgm/se/openbox.m4a" loop="false"]
+    [playse storage="../sound/se/openbox.m4a" loop="false"]
 [endmacro]
 
 ; ライトカバーを取り付けるSEを再生する
 [macro name="PlayMountLightCover"]
-    [playse storage="../bgm/se/mountlightcover.m4a" loop="false"]
+    [playse storage="../sound/se/mountlightcover.m4a" loop="false"]
 [endmacro]
 
 ; ドライバーを回すSEを再生する
 [macro name="PlayTurnScrew"]
-    [playse storage="../bgm/se/turnscrew.m4a" loop="false"]
+    [playse storage="../sound/se/turnscrew.m4a" loop="false"]
 [endmacro]
 
 ; 電気を消すSEを再生する
 [macro name="PlayTurnOffLight"]
-    [playse storage="../bgm/se/turnofflight.m4a" loop="false"]
+    [playse storage="../sound/se/turnofflight.m4a" loop="false"]
 [endmacro]
 
 ; スポットライトが点灯するSEを再生する
 [macro name="PlaySpotLightOn"]
-    [playse storage="../bgm/se/spotlighton.m4a" loop="false"]
+    [playse storage="../sound/se/spotlighton.m4a" loop="false"]
 [endmacro]
 
 ; 足音がするSEを再生する
 [macro name="PlayFootStep"]
-    [playse storage="../bgm/se/footstep.m4a" loop="false"]
+    [playse storage="../sound/se/footstep.m4a" loop="false"]
 [endmacro]
 
 ; ピカッと音が鳴るSEを再生する
 [macro name="PlayBell"]
-    [playse storage="../bgm/se/bell.m4a" loop="false"]
+    [playse storage="../sound/se/bell.m4a" loop="false"]
 [endmacro]
 
 ; 衣が擦れるSEを再生する
 [macro name="PlayRustlingClothes"]
-    [playse storage="../bgm/se/rustlingclothes.m4a" loop="false"]
+    [playse storage="../sound/se/rustlingclothes.m4a" loop="false"]
 [endmacro]
 
 ; カチャッと音がするSEを再生する
 [macro name="PlayKacha"]
-    [playse storage="../bgm/se/kacha.m4a" loop="false"]
+    [playse storage="../sound/se/kacha.m4a" loop="false"]
 [endmacro]
 
 ; 一眼レフで撮影するSEを再生する
 [macro name="PlayPhotographing"]
-    [playse storage="../bgm/se/camerashutter.m4a" loop="false"]
+    [playse storage="../sound/se/camerashutter.m4a" loop="false"]
 [endmacro]
 
 ; 何かをはめ込むSEを再生する
 [macro name="PlayEmbed"]
-    [playse storage="../bgm/se/embed.m4a" loop="false"]
+    [playse storage="../sound/se/embed.m4a" loop="false"]
 [endmacro]
 
 ; チェストを開けるSEを再生する
 [macro name="PlayOpenChest"]
-    [playse storage="../bgm/se/openchest.m4a" loop="false"]
+    [playse storage="../sound/se/openchest.m4a" loop="false"]
+[endmacro]
+
+; ペンで紙を擦るSEを再生する
+[macro name="PlayScrubPencil"]
+    [playse storage="../sound/se/scrubpencil.m4a" loop="false"]
 [endmacro]
 
 ; 電気のスイッチを切り替えるSEを再生する
 [macro name="PlaySwitching"]
-    [playse storage="../bgm/se/switching.m4a" loop="false"]
+    [playse storage="../sound/se/switching.m4a" loop="false"]
 [endmacro]
 
 ; 絨毯をめくるSEを再生する
 [macro name="PlayTurnOver"]
-    [playse storage="../bgm/se/turnover.m4a" loop="false"]
+    [playse storage="../sound/se/turnover.m4a" loop="false"]
 [endmacro]
 
 ; ------------------------------
@@ -437,7 +452,7 @@
         [iscript]
             tf.usingItemInventory2 = 1
         [endscript]
-        [image storage="../image/episode2/hangar_item.png" layer="2" x="1780" y="250" width="100" height="100" visible="true" name="hanger"]
+        [image storage="../image/episode2/hanger_item.png" layer="2" x="1780" y="250" width="100" height="100" visible="true" name="hanger"]
     [endif]
     [if exp="f.isPencilGet == 1"]
         [iscript]
@@ -567,8 +582,8 @@
 
 ; アイテム使用時の「はい」「いいえ」ボタン
 [macro name="YesNoButton"]
-    [glink color="bth06" storage="%storage_yes" target="%target_yes" width="80" x="240" y="980" size="24" text="はい" clickse="../bgm/se/decision.m4a"]
-    [glink color="bth06" storage="%storage_no" target="%target_no" width="80" x="470" y="980" size="24" text="いいえ" clickse="../bgm/se/cancel.m4a"]
+    [glink color="bth06" storage="%storage_yes" target="%target_yes" width="80" x="240" y="980" size="24" text="はい" clickse="../sound/se/decision.m4a"]
+    [glink color="bth06" storage="%storage_no" target="%target_no" width="80" x="470" y="980" size="24" text="いいえ" clickse="../sound/se/cancel.m4a"]
 [endmacro]
 
 ; 正しくないアイテムを使用した時のメッセージ
@@ -613,22 +628,22 @@
 
 ; メッセージウィンドウ非表示ボタン
 [macro name="hiddenMessageWindow"]
-    [button graphic="share/sysbtn_02_screen.png" enterimg="share/sysbtn_02_screen_hover.png" x="1420" y="20" clickse="../bgm/se/decision2.m4a" fix="true" role="window"]
+    [button graphic="share/sysbtn_02_screen.png" enterimg="share/sysbtn_02_screen_hover.png" x="1420" y="20" clickse="../sound/se/decision2.m4a" fix="true" role="window"]
 [endmacro]
 
 ; オートボタン
 [macro name="AutoButton"]
-    [button graphic="share/sysbtn_02_auto.png" enterimg="share/sysbtn_02_auto_hover.png" x="1540" y="20" clickse="../bgm/se/decision2.m4a" fix="true" role="auto" hint="AUTO"]
+    [button graphic="share/sysbtn_02_auto.png" enterimg="share/sysbtn_02_auto_hover.png" x="1540" y="20" clickse="../sound/se/decision2.m4a" fix="true" role="auto" hint="AUTO"]
 [endmacro]
 
 ; バックログボタン
 [macro name="BacklogButton"]
-    [button graphic="share/sysbtn_02_log.png" enterimg="share/sysbtn_02_log_hover.png" x="1660" y="20" clickse="../bgm/se/decision2.m4a" fix="true" role="backlog" hint="LOG"]
+    [button graphic="share/sysbtn_02_log.png" enterimg="share/sysbtn_02_log_hover.png" x="1660" y="20" clickse="../sound/se/decision2.m4a" fix="true" role="backlog" hint="LOG"]
 [endmacro]
 
 ; スキップボタン
 [macro name="SkipButton"]
-    [button graphic="share/sysbtn_02_skip.png" enterimg="share/sysbtn_02_skip_hover.png" x="1780" y="20" clickse="../bgm/se/decision2.m4a" fix="true" role="skip" hint="SKIP"]
+    [button graphic="share/sysbtn_02_skip.png" enterimg="share/sysbtn_02_skip_hover.png" x="1780" y="20" clickse="../sound/se/decision2.m4a" fix="true" role="skip" hint="SKIP"]
 [endmacro]
 
 ; シナリオパート開始時に操作ボタン類を表示する
@@ -649,7 +664,7 @@
 
 ; アイテムメニューボタン
 [macro name="ItemMenuButton"]
-    [button graphic="share/sysbtn_item.png" storage="Gimmick/itemmenu.ks" target="*ItemMenu" x="1650" y="20" clickse="../bgm/se/decision2.m4a" fix="true" role="sleepgame"]
+    [button graphic="share/sysbtn_item.png" storage="Gimmick/itemmenu.ks" target="*ItemMenu" x="1650" y="20" clickse="../sound/se/decision2.m4a" fix="true" role="sleepgame"]
 [endmacro]
 
 ; 背景を変更する
