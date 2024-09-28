@@ -192,157 +192,157 @@
 
 ; タイトル画面決定音のSEを再生する
 [macro name="PlayTitleDecision"]
-    [playse storage="../bgm/se/titledecision.m4a" loop="false"]
+    [playse storage="../sound/se/titledecision.m4a" loop="false"]
 [endmacro]
 
 ; 通常ボタンを押下するSEを再生する
 [macro name="PlayDecision"]
-    [playse storage="../bgm/se/decision.m4a" loop="false"]
+    [playse storage="../sound/se/decision.m4a" loop="false"]
 [endmacro]
 
 ; 戻るボタンを押下するSEを再生する
 [macro name="PlayCancel"]
-    [playse storage="../bgm/se/cancel.m4a" loop="false"]
+    [playse storage="../sound/se/cancel.m4a" loop="false"]
 [endmacro]
 
 ; ページ移動ボタンを押下するSEを再生する
 [macro name="PlayPageChange"]
-    [playse storage="../bgm/se/pagechange.m4a" loop="false"]
+    [playse storage="../sound/se/pagechange.m4a" loop="false"]
 [endmacro]
 
 ; Config画面の各種ボタンを押下するSEを再生する
 [macro name="PlayDecision3"]
-    [playse storage="../bgm/se/decision3.m4a" loop="false"]
+    [playse storage="../sound/se/decision3.m4a" loop="false"]
 [endmacro]
 
 ; 全画面ボタン/オートボタン/バックログボタン/スキップボタン/アイテムメニューボタンを押下するSEを再生する
 [macro name="PlayDecision2"]
-    [playse storage="../bgm/se/decision2.m4a" loop="false"]
+    [playse storage="../sound/se/decision2.m4a" loop="false"]
 [endmacro]
 
 ; アイテム取得時のSEを再生する
 [macro name="PlayGetItem"]
-    [playse storage="../bgm/se/getitem.m4a" loop="false"]
+    [playse storage="../sound/se/getitem.m4a" loop="false"]
 [endmacro]
 
 ; 使用アイテム決定時のSEを再生する
 [macro name="PlayUsingItemDecision"]
-    [playse storage="../bgm/se/itemdecision.m4a" loop="false"]
+    [playse storage="../sound/se/itemdecision.m4a" loop="false"]
 [endmacro]
 
 ; ゴソゴソするSEを再生する
 [macro name="PlayGosoGoso"]
-    [playse storage="../bgm/se/gosogoso.m4a" loop="false"]
+    [playse storage="../sound/se/gosogoso.m4a" loop="false"]
 [endmacro]
 
 ; 制御盤のボタンを押下するSEを再生する
 [macro name="PlayControlPanelButtonClick"]
-    [playse storage="../bgm/se/controlpanelbuttonclick.m4a" loop="false"]
+    [playse storage="../sound/se/controlpanelbuttonclick.m4a" loop="false"]
 [endmacro]
 
 ; 制御盤のランプが変化するSEを再生する
 [macro name="PlayChangeControlPanelLamp"]
-    [playse storage="../bgm/se/changecontrolpanellamp.m4a" loop="false"]
+    [playse storage="../sound/se/changecontrolpanellamp.m4a" loop="false"]
 [endmacro]
 
 ; 配線扉を開けるSEを再生する
 [macro name="PlayOpenDoor"]
-    [playse storage="../bgm/se/opendoor.m4a" loop="false"]
+    [playse storage="../sound/se/opendoor.m4a" loop="false"]
 [endmacro]
 
 ; ケーブルを接続するSEを再生する
 [macro name="PlayConnectCable"]
-    [playse storage="../bgm/se/connectcable.m4a" loop="false"]
+    [playse storage="../sound/se/connectcable.m4a" loop="false"]
 [endmacro]
 
 ; ステージがせり上がるSEを再生する
 [macro name="PlayRisingStage"]
-    [playse storage="../bgm/se/risingstage.m4a" loop="false"]
+    [playse storage="../sound/se/risingstage.m4a" loop="false"]
 [endmacro]
 
 ; ダイヤルを回すSEを再生する
 [macro name="PlayTurnDial"]
-    [playse storage="../bgm/se/turndial.m4a" loop="false"]
+    [playse storage="../sound/se/turndial.m4a" loop="false"]
 [endmacro]
 
 ; 開錠するSEを再生する
 [macro name="PlayUnlockKey"]
-    [playse storage="../bgm/se/unlockkey.m4a" loop="false"]
+    [playse storage="../sound/se/unlockkey.m4a" loop="false"]
 [endmacro]
 
 ; 箱を開けるSEを再生する
 [macro name="PlayOpenBox"]
-    [playse storage="../bgm/se/openbox.m4a" loop="false"]
+    [playse storage="../sound/se/openbox.m4a" loop="false"]
 [endmacro]
 
 ; ライトカバーを取り付けるSEを再生する
 [macro name="PlayMountLightCover"]
-    [playse storage="../bgm/se/mountlightcover.m4a" loop="false"]
+    [playse storage="../sound/se/mountlightcover.m4a" loop="false"]
 [endmacro]
 
 ; ドライバーを回すSEを再生する
 [macro name="PlayTurnScrew"]
-    [playse storage="../bgm/se/turnscrew.m4a" loop="false"]
+    [playse storage="../sound/se/turnscrew.m4a" loop="false"]
 [endmacro]
 
 ; 電気を消すSEを再生する
 [macro name="PlayTurnOffLight"]
-    [playse storage="../bgm/se/turnofflight.m4a" loop="false"]
+    [playse storage="../sound/se/turnofflight.m4a" loop="false"]
 [endmacro]
 
 ; スポットライトが点灯するSEを再生する
 [macro name="PlaySpotLightOn"]
-    [playse storage="../bgm/se/spotlighton.m4a" loop="false"]
+    [playse storage="../sound/se/spotlighton.m4a" loop="false"]
 [endmacro]
 
 ; 足音がするSEを再生する
 [macro name="PlayFootStep"]
-    [playse storage="../bgm/se/footstep.m4a" loop="false"]
+    [playse storage="../sound/se/footstep.m4a" loop="false"]
 [endmacro]
 
 ; ピカッと音が鳴るSEを再生する
 [macro name="PlayBell"]
-    [playse storage="../bgm/se/bell.m4a" loop="false"]
+    [playse storage="../sound/se/bell.m4a" loop="false"]
 [endmacro]
 
 ; 衣が擦れるSEを再生する
 [macro name="PlayRustlingClothes"]
-    [playse storage="../bgm/se/rustlingclothes.m4a" loop="false"]
+    [playse storage="../sound/se/rustlingclothes.m4a" loop="false"]
 [endmacro]
 
 ; カチャッと音がするSEを再生する
 [macro name="PlayKacha"]
-    [playse storage="../bgm/se/kacha.m4a" loop="false"]
+    [playse storage="../sound/se/kacha.m4a" loop="false"]
 [endmacro]
 
 ; 一眼レフで撮影するSEを再生する
 [macro name="PlayPhotographing"]
-    [playse storage="../bgm/se/camerashutter.m4a" loop="false"]
+    [playse storage="../sound/se/camerashutter.m4a" loop="false"]
 [endmacro]
 
 ; 何かをはめ込むSEを再生する
 [macro name="PlayEmbed"]
-    [playse storage="../bgm/se/embed.m4a" loop="false"]
+    [playse storage="../sound/se/embed.m4a" loop="false"]
 [endmacro]
 
 ; チェストを開けるSEを再生する
 [macro name="PlayOpenChest"]
-    [playse storage="../bgm/se/openchest.m4a" loop="false"]
+    [playse storage="../sound/se/openchest.m4a" loop="false"]
 [endmacro]
 
 ; ペンで紙を擦るSEを再生する
 [macro name="PlayScrubPencil"]
-    [playse storage="../bgm/se/scrubpencil.m4a" loop="false"]
+    [playse storage="../sound/se/scrubpencil.m4a" loop="false"]
 [endmacro]
 
 ; 電気のスイッチを切り替えるSEを再生する
 [macro name="PlaySwitching"]
-    [playse storage="../bgm/se/switching.m4a" loop="false"]
+    [playse storage="../sound/se/switching.m4a" loop="false"]
 [endmacro]
 
 ; 絨毯をめくるSEを再生する
 [macro name="PlayTurnOver"]
-    [playse storage="../bgm/se/turnover.m4a" loop="false"]
+    [playse storage="../sound/se/turnover.m4a" loop="false"]
 [endmacro]
 
 ; ------------------------------
