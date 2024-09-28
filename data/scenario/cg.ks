@@ -49,7 +49,7 @@ tf.cg_thumbnail_height = 243; // サムネイルの高さ
 [cm]
 
 ; ギャラリーモード終了
-[button graphic="append_theme/gallery_close.png" enterimg="append_theme/gallery_close2.png" target="*backtitle" x="20" y="900" clickse="../bgm/se/cancel.m4a"]
+[button graphic="append_theme/gallery_close.png" enterimg="append_theme/gallery_close2.png" target="*backtitle" x="20" y="900" clickse="../sound/se/cancel.m4a"]
 
 ; tf.page変数を利用して個別閲覧ボタン作成ラベルにジャンプします
 [jump target="& 'page_' + tf.page "]
@@ -74,7 +74,7 @@ tf.cg_thumbnail_height = 243; // サムネイルの高さ
 [cg_image_button graphic="" thumb="" no_graphic="../image/append_theme/lock.png" x="&tf.cg_posx[2]" y="&tf.cg_posy[1]" width="&tf.cg_thumbnail_width" height="&tf.cg_thumbnail_height"]
 
 ; 次ページへ
-[button graphic="append_theme/gallery_next.png" enterimg="append_theme/gallery_next2.png" target="*nextpage" x="1752" y="540" clickse="../bgm/se/pagechange.m4a"]
+[button graphic="append_theme/gallery_next.png" enterimg="append_theme/gallery_next2.png" target="*nextpage" x="1752" y="540" clickse="../sound/se/pagechange.m4a"]
 
 ; ページネーション
 [pagination]
@@ -99,10 +99,10 @@ tf.cg_thumbnail_height = 243; // サムネイルの高さ
 
 
 ; 前のページへ
-[button graphic="append_theme/gallery_prev.png" enterimg="append_theme/gallery_prev2.png" target="*backpage" x="150" y="540" clickse="../bgm/se/pagechange.m4a"]
+[button graphic="append_theme/gallery_prev.png" enterimg="append_theme/gallery_prev2.png" target="*backpage" x="150" y="540" clickse="../sound/se/pagechange.m4a"]
 
 ; 次のページへ
-[button graphic="append_theme/gallery_next.png" enterimg="append_theme/gallery_next2.png" target="*nextpage" x="1752" y="540" clickse="../bgm/se/pagechange.m4a"]
+[button graphic="append_theme/gallery_next.png" enterimg="append_theme/gallery_next2.png" target="*nextpage" x="1752" y="540" clickse="../sound/se/pagechange.m4a"]
 
 [pagination]
 
@@ -126,7 +126,7 @@ tf.cg_thumbnail_height = 243; // サムネイルの高さ
 
 
 ; 前ページへ
-[button graphic="append_theme/gallery_prev.png" enterimg="append_theme/gallery_prev2.png" target="*backpage" x="150" y="540" clickse="../bgm/se/pagechange.m4a"]
+[button graphic="append_theme/gallery_prev.png" enterimg="append_theme/gallery_prev2.png" target="*backpage" x="150" y="540" clickse="../sound/se/pagechange.m4a"]
 
 [pagination]
 

@@ -572,8 +572,8 @@
 
 ; アイテム使用時の「はい」「いいえ」ボタン
 [macro name="YesNoButton"]
-    [glink color="bth06" storage="%storage_yes" target="%target_yes" width="80" x="240" y="980" size="24" text="はい" clickse="../bgm/se/decision.m4a"]
-    [glink color="bth06" storage="%storage_no" target="%target_no" width="80" x="470" y="980" size="24" text="いいえ" clickse="../bgm/se/cancel.m4a"]
+    [glink color="bth06" storage="%storage_yes" target="%target_yes" width="80" x="240" y="980" size="24" text="はい" clickse="../sound/se/decision.m4a"]
+    [glink color="bth06" storage="%storage_no" target="%target_no" width="80" x="470" y="980" size="24" text="いいえ" clickse="../sound/se/cancel.m4a"]
 [endmacro]
 
 ; 正しくないアイテムを使用した時のメッセージ
@@ -618,22 +618,22 @@
 
 ; メッセージウィンドウ非表示ボタン
 [macro name="hiddenMessageWindow"]
-    [button graphic="share/sysbtn_02_screen.png" enterimg="share/sysbtn_02_screen_hover.png" x="1420" y="20" clickse="../bgm/se/decision2.m4a" fix="true" role="window"]
+    [button graphic="share/sysbtn_02_screen.png" enterimg="share/sysbtn_02_screen_hover.png" x="1420" y="20" clickse="../sound/se/decision2.m4a" fix="true" role="window"]
 [endmacro]
 
 ; オートボタン
 [macro name="AutoButton"]
-    [button graphic="share/sysbtn_02_auto.png" enterimg="share/sysbtn_02_auto_hover.png" x="1540" y="20" clickse="../bgm/se/decision2.m4a" fix="true" role="auto" hint="AUTO"]
+    [button graphic="share/sysbtn_02_auto.png" enterimg="share/sysbtn_02_auto_hover.png" x="1540" y="20" clickse="../sound/se/decision2.m4a" fix="true" role="auto" hint="AUTO"]
 [endmacro]
 
 ; バックログボタン
 [macro name="BacklogButton"]
-    [button graphic="share/sysbtn_02_log.png" enterimg="share/sysbtn_02_log_hover.png" x="1660" y="20" clickse="../bgm/se/decision2.m4a" fix="true" role="backlog" hint="LOG"]
+    [button graphic="share/sysbtn_02_log.png" enterimg="share/sysbtn_02_log_hover.png" x="1660" y="20" clickse="../sound/se/decision2.m4a" fix="true" role="backlog" hint="LOG"]
 [endmacro]
 
 ; スキップボタン
 [macro name="SkipButton"]
-    [button graphic="share/sysbtn_02_skip.png" enterimg="share/sysbtn_02_skip_hover.png" x="1780" y="20" clickse="../bgm/se/decision2.m4a" fix="true" role="skip" hint="SKIP"]
+    [button graphic="share/sysbtn_02_skip.png" enterimg="share/sysbtn_02_skip_hover.png" x="1780" y="20" clickse="../sound/se/decision2.m4a" fix="true" role="skip" hint="SKIP"]
 [endmacro]
 
 ; シナリオパート開始時に操作ボタン類を表示する
@@ -654,7 +654,7 @@
 
 ; アイテムメニューボタン
 [macro name="ItemMenuButton"]
-    [button graphic="share/sysbtn_item.png" storage="Gimmick/itemmenu.ks" target="*ItemMenu" x="1650" y="20" clickse="../bgm/se/decision2.m4a" fix="true" role="sleepgame"]
+    [button graphic="share/sysbtn_item.png" storage="Gimmick/itemmenu.ks" target="*ItemMenu" x="1650" y="20" clickse="../sound/se/decision2.m4a" fix="true" role="sleepgame"]
 [endmacro]
 
 ; 背景を変更する
