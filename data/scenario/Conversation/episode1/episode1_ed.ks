@@ -1,5 +1,5 @@
 [PlayTurnOffLight]
-; スタンドマイクが出現
+[image storage="../image/episode1/mikestand.png" layer="1" name="mikestand"]
 [ChangeBackGround storage="episode1/spotlight.png"]
 [wait time="500"]
 [PlaySpotLightOn]
@@ -189,5 +189,6 @@
 桜良！[p]
 
 [messageFalse]
+[free layer="1" name="mikestand"]
 [wait time="200"]
 [return]

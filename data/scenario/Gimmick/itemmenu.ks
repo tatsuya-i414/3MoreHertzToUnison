@@ -60,7 +60,7 @@
     [iscript]
         tf.usingItemInventory2 = 1
     [endscript]
-    [image storage="../image/episode2/hangar_item.png" layer="2" x="710" y="350" width="140" height="140" visible="true" name="hanger"]
+    [image storage="../image/episode2/hanger_item.png" layer="2" x="710" y="350" width="140" height="140" visible="true" name="hanger"]
 [endif]
 [if exp="f.isPencilGet == 1"]
     [iscript]
