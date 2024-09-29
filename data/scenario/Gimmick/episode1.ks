@@ -65,7 +65,7 @@
 ; 背景パーツ
 ; ライト
 [if exp="f.isLightStatusGreen == 1"]
-    [image storage="../image/episode1/lightcover_mount.png" layer="1" x="670" y="20" name="light"]
+    [image storage="../image/episode1/lightcover_mount.png" layer="1" x="695" y="20" name="light"]
 [endif]
 ; スピーカー
 [if exp="f.isSpeakerStatusGreen == 1"]
@@ -77,15 +77,15 @@
 ; クリック判定
 ; 制御盤
 [if exp="f.isEpisode1Clear == 0 && f.isUsing == 0"]
-    [clickJudgment x="200" y="530" width="140" height="130" target="*SearchControlPanel"]
+    [clickJudgment x="210" y="530" width="150" height="130" target="*SearchControlPanel"]
 [endif]
 ; 配線扉
 [if exp="f.isStageStatusGreen == 0"]
-    [clickJudgment x="1590" y="990" width="150" height="90" target="*SearchWiringDoor"]
+    [clickJudgment x="1640" y="990" width="155" height="90" target="*SearchWiringDoor"]
 [endif]
 ; 道具箱
 [if exp="f.isCableGet == 0"]
-    [clickJudgment x="1580" y="630" width="160" height="130" target="*SearchToolBox"]
+    [clickJudgment x="1630" y="630" width="165" height="130" target="*SearchToolBox"]
 [endif]
 ; ドライバー
 [if exp="f.isStageStatusGreen == 1 && f.isDriverGet == 0 && f.isUsing == 0"]
@@ -94,16 +94,16 @@
 [endif]
 ; ライト
 [if exp="f.isLightStatusGreen == 0 && f.isUsing == 0"]
-    [clickJudgment x="710" y="40" width="60" height="60" target="*SearchLight"]
+    [clickJudgment x="733" y="40" width="60" height="60" target="*SearchLight"]
 [endif]
 ; ライトカバー
 [if exp="f.isLightCoverGet == 0 && f.isUsing == 0"]
     [image storage="../image/episode1/lightcover_item.png" layer="1" x="450" y="770" name="lightcover"]
-    [clickJudgment x="450" y="770" width="150" height="150" target="*GetLightCover"]
+    [clickJudgment x="440" y="770" width="150" height="150" target="*GetLightCover"]
 [endif]
 ; スピーカー
 [if exp="f.isSpeakerStatusGreen == 0 && f.isUsing == 0"]
-    [clickJudgment x="10" y="120" width="220" height="320" target="*SearchSpeaker"]
+    [clickJudgment x="20" y="120" width="220" height="320" target="*SearchSpeaker"]
 [endif]
 
 ; アイテムメニュー
@@ -128,19 +128,19 @@
 
 ; ランプ（赤or緑）
 [if exp="f.isStageStatusGreen == 1"]
-    [image storage="../image/episode1/controlpanel/controlpanel_green_lamp.png" layer="1" x="780" y="245" name="stage_redlamp"]
+    [image storage="../image/episode1/controlpanel/controlpanel_green_lamp.png" layer="1" x="840" y="245" name="stage_redlamp"]
 [else]
-    [image storage="../image/episode1/controlpanel/controlpanel_red_lamp.png" layer="1" x="780" y="245" name="stage_greenlamp"]
+    [image storage="../image/episode1/controlpanel/controlpanel_red_lamp.png" layer="1" x="840" y="245" name="stage_greenlamp"]
 [endif]
 [if exp="f.isLightStatusGreen == 1"]
-    [image storage="../image/episode1/controlpanel/controlpanel_green_lamp.png" layer="1" x="780" y="335" name="light_redlamp"]
+    [image storage="../image/episode1/controlpanel/controlpanel_green_lamp.png" layer="1" x="840" y="335" name="light_redlamp"]
 [else]
-    [image storage="../image/episode1/controlpanel/controlpanel_red_lamp.png" layer="1" x="780" y="335" name="light_greenlamp"]
+    [image storage="../image/episode1/controlpanel/controlpanel_red_lamp.png" layer="1" x="840" y="335" name="light_greenlamp"]
 [endif]
 [if exp="f.isSpeakerStatusGreen == 1"]
-    [image storage="../image/episode1/controlpanel/controlpanel_green_lamp.png" layer="1" x="780" y="425" name="speaker_redlamp"]
+    [image storage="../image/episode1/controlpanel/controlpanel_green_lamp.png" layer="1" x="840" y="425" name="speaker_redlamp"]
 [else]
-    [image storage="../image/episode1/controlpanel/controlpanel_red_lamp.png" layer="1" x="780" y="425" name="speaker_greenlamp"]
+    [image storage="../image/episode1/controlpanel/controlpanel_red_lamp.png" layer="1" x="840" y="425" name="speaker_greenlamp"]
 [endif]
 
 ; 戻るボタン
@@ -225,7 +225,7 @@
     [messageFalse]
 [endif]
 [ChangeBackGround storage="episode1/disconnectedwiring.png"]
-[clickJudgment x="575" y="485" width="745" height="105" target="*SearchWiringDoor_Decision"]
+[clickJudgment width="1920" height="1080" target="*SearchWiringDoor_Decision"]
 ; 戻るボタン
 [BackFromEnlargedMap target="*SearchWiringDoor_back"]
 [s]
@@ -348,8 +348,8 @@
     [free layer="1" name="rightdial"]
     ; ダイヤル（ボタンで表示）
     [button graphic="episode1/dial/dialnumber_0.png" x="440" y="400" width="200" height="400" exp="f.leftNum = 0" fix="true" target="*LeftDialTurn"]
-    [button graphic="episode1/dial/dialnumber_0.png" x="850" y="400" width="200" height="400" exp="f.centerNum = 0" fix="true" target="*CenterDialTurn"]
-    [button graphic="episode1/dial/dialnumber_0.png" x="1250" y="400" width="200" height="400" exp="f.rightNum = 0" fix="true" target="*RightDialTurn"]
+    [button graphic="episode1/dial/dialnumber_0.png" x="860" y="400" width="200" height="400" exp="f.centerNum = 0" fix="true" target="*CenterDialTurn"]
+    [button graphic="episode1/dial/dialnumber_0.png" x="1270" y="400" width="200" height="400" exp="f.rightNum = 0" fix="true" target="*RightDialTurn"]
     ; 戻るボタン
     [BackFromEnlargedMap target="*SearchToolBox_back"]
 [endif]
@@ -427,52 +427,52 @@
     [iscript]
         f.centerNum = 1
     [endscript]
-    [button graphic="episode1/dial/dialnumber_1.png" x="850" y="400" width="200" height="400" exp="f.centerNum = 1" fix="true" target="*CenterDialTurn"]
+    [button graphic="episode1/dial/dialnumber_1.png" x="860" y="400" width="200" height="400" exp="f.centerNum = 1" fix="true" target="*CenterDialTurn"]
 [elsif exp="f.centerNum == 1"]
     [iscript]
         f.centerNum = 2
     [endscript]
-    [button graphic="episode1/dial/dialnumber_2.png" x="850" y="400" width="200" height="400" exp="f.centerNum = 2" fix="true" target="*CenterDialTurn"]
+    [button graphic="episode1/dial/dialnumber_2.png" x="860" y="400" width="200" height="400" exp="f.centerNum = 2" fix="true" target="*CenterDialTurn"]
 [elsif exp="f.centerNum == 2"]
     [iscript]
         f.centerNum = 3
     [endscript]
-    [button graphic="episode1/dial/dialnumber_3.png" x="850" y="400" width="200" height="400" exp="f.centerNum = 3" fix="true" target="*CenterDialTurn"]
+    [button graphic="episode1/dial/dialnumber_3.png" x="860" y="400" width="200" height="400" exp="f.centerNum = 3" fix="true" target="*CenterDialTurn"]
 [elsif exp="f.centerNum == 3"]
     [iscript]
         f.centerNum = 4
     [endscript]
-    [button graphic="episode1/dial/dialnumber_4.png" x="850" y="400" width="200" height="400" exp="f.centerNum = 4" fix="true" target="*CenterDialTurn"]
+    [button graphic="episode1/dial/dialnumber_4.png" x="860" y="400" width="200" height="400" exp="f.centerNum = 4" fix="true" target="*CenterDialTurn"]
 [elsif exp="f.centerNum == 4"]
     [iscript]
         f.centerNum = 5
     [endscript]
-    [button graphic="episode1/dial/dialnumber_5.png" x="850" y="400" width="200" height="400" exp="f.centerNum = 5" fix="true" target="*CenterDialTurn"]
+    [button graphic="episode1/dial/dialnumber_5.png" x="860" y="400" width="200" height="400" exp="f.centerNum = 5" fix="true" target="*CenterDialTurn"]
 [elsif exp="f.centerNum == 5"]
     [iscript]
         f.centerNum = 6
     [endscript]
-    [button graphic="episode1/dial/dialnumber_6.png" x="850" y="400" width="200" height="400" exp="f.centerNum = 6" fix="true" target="*CenterDialTurn"]
+    [button graphic="episode1/dial/dialnumber_6.png" x="860" y="400" width="200" height="400" exp="f.centerNum = 6" fix="true" target="*CenterDialTurn"]
 [elsif exp="f.centerNum == 6"]
     [iscript]
         f.centerNum = 7
     [endscript]
-    [button graphic="episode1/dial/dialnumber_7.png" x="850" y="400" width="200" height="400" exp="f.centerNum = 7" fix="true" target="*CenterDialTurn"]
+    [button graphic="episode1/dial/dialnumber_7.png" x="860" y="400" width="200" height="400" exp="f.centerNum = 7" fix="true" target="*CenterDialTurn"]
 [elsif exp="f.centerNum == 7"]
     [iscript]
         f.centerNum = 8
     [endscript]
-    [button graphic="episode1/dial/dialnumber_8.png" x="850" y="400" width="200" height="400" exp="f.centerNum = 8" fix="true" target="*CenterDialTurn"]
+    [button graphic="episode1/dial/dialnumber_8.png" x="860" y="400" width="200" height="400" exp="f.centerNum = 8" fix="true" target="*CenterDialTurn"]
 [elsif exp="f.centerNum == 8"]
     [iscript]
         f.centerNum = 9
     [endscript]
-    [button graphic="episode1/dial/dialnumber_9.png" x="850" y="400" width="200" height="400" exp="f.centerNum = 9" fix="true" target="*CenterDialTurn"]
+    [button graphic="episode1/dial/dialnumber_9.png" x="860" y="400" width="200" height="400" exp="f.centerNum = 9" fix="true" target="*CenterDialTurn"]
 [elsif exp="f.centerNum == 9"]
     [iscript]
        f.centerNum = 0 
     [endscript]
-    [button graphic="episode1/dial/dialnumber_0.png" x="850" y="400" width="200" height="400" exp="f.centerNum = 0" fix="true" target="*CenterDialTurn"]
+    [button graphic="episode1/dial/dialnumber_0.png" x="860" y="400" width="200" height="400" exp="f.centerNum = 0" fix="true" target="*CenterDialTurn"]
 [endif]
 [PlayTurnDial]
 [call target="*DialUnlock"]
@@ -483,52 +483,52 @@
     [iscript]
         f.rightNum = 1
     [endscript]
-    [button graphic="episode1/dial/dialnumber_1.png" x="1250" y="400" width="200" height="400" exp="f.rightNum = 1" fix="true" target="*RightDialTurn"]
+    [button graphic="episode1/dial/dialnumber_1.png" x="1270" y="400" width="200" height="400" exp="f.rightNum = 1" fix="true" target="*RightDialTurn"]
 [elsif exp="f.rightNum == 1"]
     [iscript]
         f.rightNum = 2
     [endscript]
-    [button graphic="episode1/dial/dialnumber_2.png" x="1250" y="400" width="200" height="400" exp="f.rightNum = 2" fix="true" target="*RightDialTurn"]
+    [button graphic="episode1/dial/dialnumber_2.png" x="1270" y="400" width="200" height="400" exp="f.rightNum = 2" fix="true" target="*RightDialTurn"]
 [elsif exp="f.rightNum == 2"]
     [iscript]
         f.rightNum = 3
     [endscript]
-    [button graphic="episode1/dial/dialnumber_3.png" x="1250" y="400" width="200" height="400" exp="f.rightNum = 3" fix="true" target="*RightDialTurn"]
+    [button graphic="episode1/dial/dialnumber_3.png" x="1270" y="400" width="200" height="400" exp="f.rightNum = 3" fix="true" target="*RightDialTurn"]
 [elsif exp="f.rightNum == 3"]
     [iscript]
         f.rightNum = 4
     [endscript]
-    [button graphic="episode1/dial/dialnumber_4.png" x="1250" y="400" width="200" height="400" exp="f.rightNum = 4" fix="true" target="*RightDialTurn"]
+    [button graphic="episode1/dial/dialnumber_4.png" x="1270" y="400" width="200" height="400" exp="f.rightNum = 4" fix="true" target="*RightDialTurn"]
 [elsif exp="f.rightNum == 4"]
     [iscript]
         f.rightNum = 5
     [endscript]
-    [button graphic="episode1/dial/dialnumber_5.png" x="1250" y="400" width="200" height="400" exp="f.rightNum = 5" fix="true" target="*RightDialTurn"]
+    [button graphic="episode1/dial/dialnumber_5.png" x="1270" y="400" width="200" height="400" exp="f.rightNum = 5" fix="true" target="*RightDialTurn"]
 [elsif exp="f.rightNum == 5"]
     [iscript]
         f.rightNum = 6
     [endscript]
-    [button graphic="episode1/dial/dialnumber_6.png" x="1250" y="400" width="200" height="400" exp="f.rightNum = 6" fix="true" target="*RightDialTurn"]
+    [button graphic="episode1/dial/dialnumber_6.png" x="1270" y="400" width="200" height="400" exp="f.rightNum = 6" fix="true" target="*RightDialTurn"]
 [elsif exp="f.rightNum == 6"]
     [iscript]
         f.rightNum = 7
     [endscript]
-    [button graphic="episode1/dial/dialnumber_7.png" x="1250" y="400" width="200" height="400" exp="f.rightNum = 7" fix="true" target="*RightDialTurn"]
+    [button graphic="episode1/dial/dialnumber_7.png" x="1270" y="400" width="200" height="400" exp="f.rightNum = 7" fix="true" target="*RightDialTurn"]
 [elsif exp="f.rightNum == 7"]
     [iscript]
         f.rightNum = 8
     [endscript]
-    [button graphic="episode1/dial/dialnumber_8.png" x="1250" y="400" width="200" height="400" exp="f.rightNum = 8" fix="true" target="*RightDialTurn"]
+    [button graphic="episode1/dial/dialnumber_8.png" x="1270" y="400" width="200" height="400" exp="f.rightNum = 8" fix="true" target="*RightDialTurn"]
 [elsif exp="f.rightNum == 8"]
     [iscript]
         f.rightNum =9
     [endscript]
-    [button graphic="episode1/dial/dialnumber_9.png" x="1250" y="400" width="200" height="400" exp="f.rightNum = 9" fix="true" target="*RightDialTurn"]
+    [button graphic="episode1/dial/dialnumber_9.png" x="1270" y="400" width="200" height="400" exp="f.rightNum = 9" fix="true" target="*RightDialTurn"]
 [elsif exp="f.rightNum == 9"]
     [iscript]
         f.rightNum = 0
     [endscript]
-    [button graphic="episode1/dial/dialnumber_0.png" x="1250" y="40 0" width="200" height="400" exp="f.rightNum = 0" fix="true" target="*RightDialTurn"]
+    [button graphic="episode1/dial/dialnumber_0.png" x="1270" y="400" width="200" height="400" exp="f.rightNum = 0" fix="true" target="*RightDialTurn"]
 [endif]
 [PlayTurnDial]
 [call target="*DialUnlock"]
