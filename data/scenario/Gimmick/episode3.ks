@@ -77,19 +77,19 @@
 ; クリック判定
 ; ベッド
 [if exp="f.isUsing == 0"]
-    [clickJudgment x="360" y="440" width="350" height="80" target="*SearchBed"]
+    [clickJudgment x="340" y="440" width="350" height="80" target="*SearchBed"]
 [endif]
 ; 収納ボックス
 [if exp="f.isFutonGet == 0 && f.isUsing == 0"]
-    [clickJudgment x="295" y="705" width="315" height="178" target="*SearchBox"]
+    [clickJudgment x="275" y="705" width="315" height="178" target="*SearchBox"]
 [endif]
 ; 鞄（コンパス）
 [if exp="f.isCompassGet == 0 && f.isUsing == 0"]
-    [clickJudgment x="740" y="640" width="150" height="225" target="*GetCompass"]
+    [clickJudgment x="720" y="640" width="160" height="225" target="*GetCompass"]
 [endif]
 ; 張り紙
 [if exp="f.isUsing == 0"]
-    [clickJudgment x="522" y="166" width="142" height="198" target="*SearchPoster"]
+    [clickJudgment x="502" y="166" width="145" height="198" target="*SearchPoster"]
 [endif]
 ; 帽子
 [if exp="f.isUsing == 0"]
@@ -109,7 +109,7 @@
 [endif]
 ; 昼夜切り替えスイッチ
 [if exp="f.isUsing == 0"]
-    [clickJudgment x="1790" y="413" width="65" height="130" target="*SearchRoomLight"]
+    [clickJudgment x="1810" y="413" width="65" height="130" target="*SearchRoomLight"]
 [endif]
 
 ; アイテムメニュー
@@ -211,9 +211,9 @@
     ; 上矢印ボタン
     [clickJudgment x="870" y="210" width="130" height="120" target="*PushTopButton"]
     ; 下矢印ボタン
-    [clickJudgment x="875" y="780" width="130" height="110" target="*PushUnderButton"]
+    [clickJudgment x="870" y="780" width="130" height="110" target="*PushUnderButton"]
     ; 左矢印ボタン
-    [clickJudgment x="615" y="475" width="95" height="155" target="*PushLeftButton"]
+    [clickJudgment x="595" y="475" width="95" height="155" target="*PushLeftButton"]
     ; 右矢印ボタン
     [clickJudgment x="1165" y="480" width="95" height="155" target="*PushRightButton"]
     ; 戻るボタン

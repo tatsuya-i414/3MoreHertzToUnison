@@ -53,15 +53,15 @@
 ; 背景パーツ
 ; ハンガー
 [if exp="f.isHangerGet == 0"]
-    [image storage="../image/episode2/hanger.png" layer="1" x="186" y="409" name="hanger"]
+    [image storage="../image/episode2/hanger.png" layer="1" x="148" y="410" name="hanger"]
 [endif]
 ; ブロック
 [if exp="f.isBlueBlockGet == 0 && f.isRedBlockGet == 0 && f.isGreenBlockGet == 0"]
-    [image storage="../image/episode2/block.png" layer="1" x="295" y="527" name="block"]
+    [image storage="../image/episode2/block.png" layer="1" x="265" y="527" name="block"]
 [endif]
 ; カーテン
 [if exp="f.isCurtainGet == -1"]
-    [image storage="../image/episode2/curtain.png" layer="1" x="238" y="227" name="curtain"]
+    [image storage="../image/episode2/curtain.png" layer="1" x="223" y="227" name="curtain"]
 [endif]
 
 ; クリック判定
@@ -69,31 +69,31 @@
 [clickJudgment x="860" y="330" width="210" height="160" target="*SearchCamera"]
 ; 天幕
 [if exp="f.isTentDown == 0"]
-    [clickJudgment x="770" y="80" width="550" height="40" target="*SearchTent"]
+    [clickJudgment x="755" y="80" width="570" height="40" target="*SearchTent"]
 [endif]
 ; ハンガー
 [if exp="f.isHangerGet == 0"]
-    [clickJudgment x="185" y="410" width="100" height="80" target="*GetHanger"]
+    [clickJudgment x="150" y="410" width="100" height="80" target="*GetHanger"]
 [endif]
 ; 紙
 [if exp="f.isTentDown == 1"]
-    [clickJudgment x="690" y="840" width="110" height="90" target="*SearchPaper"]
+    [clickJudgment x="685" y="840" width="110" height="90" target="*SearchPaper"]
 [endif]
 ; メイクボックス
 [if exp="f.isPencilGet == 0"]
-    [clickJudgment x="1740" y="590" width="150" height="150" target="*SearchMakeBox"]
+    [clickJudgment x="1765" y="590" width="150" height="150" target="*SearchMakeBox"]
 [endif]
 ; ブロック
 [if exp="f.isBlueBlockGet == 0 && f.isRedBlockGet == 0 && f.isGreenBlockGet == 0"]
-    [clickJudgment x="295" y="527" width="100" height="100" target="*GetBlock"]
+    [clickJudgment x="265" y="527" width="100" height="100" target="*GetBlock"]
 [endif]
 ; タンス
 [if exp="f.isDressGet == 0 || f.isCurtainGet == 0"]
-    [clickJudgment x="1395" y="475" width="50" height="30" target="*SearchChest"]
+    [clickJudgment x="1410" y="475" width="50" height="30" target="*SearchChest"]
 [endif]
 ; 簡易更衣室
 [if exp="f.isHangerGet != 0 && f.isCurtainGet != -1 && f.isDressGet != -1"]
-    [clickJudgment x="140" y="210" width="135" height="750" target="*SearchFittingRoom"]
+    [clickJudgment x="1" y="210" width="265" height="750" target="*SearchFittingRoom"]
 [endif]
 
 ; アイテムメニュー
@@ -384,13 +384,13 @@
         [SelectItemClickable target_1="*NotUseBlock" target_2="*NotUseBlock" target_3="*NotUseBlock" target_4="*UseBlueBlock" target_5="*UseRedBlock" target_6="*UseGreenBlock" target_7="*NotUseBlock"]
         ; 一度はめたブロックを戻すためのクリック判定
         [if exp="f.dimple[0] != '' "]
-            [clickJudgment x="495" y="388" width="275" height="300" target="*ReturnLeftSideBlock"]
+            [clickJudgment x="485" y="388" width="275" height="300" target="*ReturnLeftSideBlock"]
         [endif]
         [if exp="f.dimple[1] != '' "]
             [clickJudgment x="795" y="388" width="275" height="300" target="*ReturnCenterSideBlock"]
         [endif]
         [if exp="f.dimple[2] != '' "]
-            [clickJudgment x="1098" y="388" width="275" height="300" target="*ReturnRightSideBlock"]
+            [clickJudgment x="1118" y="388" width="275" height="300" target="*ReturnRightSideBlock"]
         [endif]
         [BackFromEnlargedMap target="*SearchChest_back"]
     [endif]
@@ -587,13 +587,13 @@
     [free layer="2" name="greenblock"]
 [endif]
 [if exp="f.dimple[0] == '' "]
-    [clickJudgment x="495" y="388" width="275" height="300" target="*LeftDimple"]
+    [clickJudgment x="485" y="388" width="275" height="300" target="*LeftDimple"]
 [endif]
 [if exp="f.dimple[1] == '' "]
     [clickJudgment x="795" y="388" width="275" height="300" target="*CenterDimple"]
 [endif]
 [if exp="f.dimple[2] == '' "]
-    [clickJudgment x="1098" y="388" width="275" height="300" target="*RightDimple"]
+    [clickJudgment x="1118" y="388" width="275" height="300" target="*RightDimple"]
 [endif]
 [s]
 
@@ -608,17 +608,17 @@
 *LeftDimple
 [PlayEmbed]
 [if exp="f.blockColor == 'blue' "]
-    [image storage="../image/episode2/blueblock.png" layer="1" x="495" y="389" width="278" height="293" name="blue"]
+    [image storage="../image/episode2/blueblock.png" layer="1" x="485" y="389" width="278" height="293" name="blue"]
     [iscript]
         f.dimple[0] = 'blue'
     [endscript]
 [elsif exp="f.blockColor == 'red' "]
-    [image storage="../image/episode2/redblock.png" layer="1" x="495" y="389" width="278" height="293" name="red"]
+    [image storage="../image/episode2/redblock.png" layer="1" x="485" y="389" width="278" height="293" name="red"]
     [iscript]
         f.dimple[0] = 'red'
     [endscript]
 [elsif exp="f.blockColor == 'green' "]
-    [image storage="../image/episode2/greenblock.png" layer="1" x="495" y="389" width="278" height="293" name="green"]
+    [image storage="../image/episode2/greenblock.png" layer="1" x="485" y="389" width="278" height="293" name="green"]
     [iscript]
         f.dimple[0] = 'green'
     [endscript]
@@ -648,17 +648,17 @@
 *RightDimple
 [PlayEmbed]
 [if exp="f.blockColor == 'blue' "]
-    [image storage="../image/episode2/blueblock.png" layer="1" x="1095" y="389" width="278" height="293" name="blue"]
+    [image storage="../image/episode2/blueblock.png" layer="1" x="1108" y="389" width="278" height="293" name="blue"]
     [iscript]
         f.dimple[2] = 'blue'
     [endscript]
 [elsif exp="f.blockColor == 'red' "]
-    [image storage="../image/episode2/redblock.png" layer="1" x="1095" y="389" width="278" height="293" name="red"]
+    [image storage="../image/episode2/redblock.png" layer="1" x="1108" y="389" width="278" height="293" name="red"]
     [iscript]
         f.dimple[2] = 'red'
     [endscript]
 [elsif exp="f.blockColor == 'green' "]
-    [image storage="../image/episode2/greenblock.png" layer="1" x="1095" y="389" width="278" height="293" name="green"]
+    [image storage="../image/episode2/greenblock.png" layer="1" x="1108" y="389" width="278" height="293" name="green"]
     [iscript]
         f.dimple[2] = 'green'
     [endscript]
