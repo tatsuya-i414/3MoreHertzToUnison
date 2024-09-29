@@ -10,6 +10,7 @@
         "./data/bgm/episode1_ed.m4a",
         "./data/bgm/episode2_op.m4a",
         "./data/bgm/episode2.m4a",
+        "./data/bgm/episode2_ed.m4a",
         "./data/bgm/episode3.m4a",
         "./data/sound/se/bell.m4a",
         "./data/sound/se/cancel.m4a",

@@ -1,15 +1,17 @@
 [iscript]
-    // ゲームデータの読み込み
+    // ゲームデータ読み込み
     f.loadData = 'false'
-    // BGMの再生
+    // BGM再生
     f.isPlayingBGM = 'false'
     // 会話パートをスキップする
     f.scn_skip = 0
-    // 背景パーツの表示
+    // 背景パーツ表示
     f.itemVisible = ['false', '']
     // アイテム使用時
     f.isUsing = 0
-    // 初回クリックの判定
+    // 衣装変更判定
+    f.isChangeDress = 'false'
+    // 初回クリック判定
     f.isClickedControlPanel_first = 'true'
     f.isClickedWiringDoor_first = 'true'
     f.isClickedSpeaker_first = 'true'
@@ -21,10 +23,10 @@
     f.isClickedPaper_first = 'true'
     f.isClickedSpeaker_first_whenPencilGetting = 'true'
     f.isClickedFittingRoom_first = 'true'
-    f.isClickedFittingRoom_first_whenCurtainGetting = 'true'
     // シナリオ既読判定
     f.scn_episode1_OP = 'false'
     f.scn_episode2_OP = 'false'
+    f.scn_episode2_07 = 'false'
     f.scn_episode3_OP = 'false'
     // 思い出1
     f.isEpisode1Clear = 0
