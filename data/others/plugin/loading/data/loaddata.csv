@@ -24,7 +24,9 @@ bgimage\episode3,hut.png
 bgimage\episode3,hut_night.png
 bgimage\episode3,poster.png
 bgimage\episode3,poster_night.png
+bgimage\share,credit.png
 bgimage\share,debug.png
+bgimage\share,extra.png
 bgimage\share,itemmenu.png
 bgimage\share,title.png
 bgimage\share,top.png
@@ -103,8 +105,8 @@ image\share,sysbtn_02_skip_hover.png
 image\share,sysbtn_item.png
 image\title,button_config.png
 image\title,button_config_hover.png
-image\title,button_gallery.png
-image\title,button_gallery_hover.png
+image\title,button_extra.png
+image\title,button_extra_hover.png
 image\title,button_loadgame.png
 image\title,button_loadgame_hover.png
 image\title,button_newgame.png

@@ -153,7 +153,7 @@ tf.cg_thumbnail_height = 243; // サムネイルの高さ
 [freeimage layer="1"]
 
 ; 別のシナリオにジャンプする場合はここを変更
-[jump storage="title.ks" target="*TopPage"]
+[jump storage="Extra/extra.ks"]
 
 
 ;-----------------------------------------------------------
@@ -218,7 +218,7 @@ tf.storage = tf.selected_cg_image[tf.cg_index];
 
 ; まだ表示すべき差分画像が残っているなら、このラベルに飛びなおします。
 [if exp=" tf.selected_cg_image.length > tf.cg_index "]
-  [jump target="cg_next_image"]
+  [jump target="*cg_next_image"]
 
 [else]
   [freeimage layer="1" page="back"]
