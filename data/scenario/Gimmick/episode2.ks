@@ -113,6 +113,7 @@
     [endnolog]
     [messageFalse]
     [layer3False]
+    [cancelskip]
 [endif]
 [if exp="f.isTentDown == 1 && f.isDressGet == -1"]
     ; 画像を削除する
@@ -121,16 +122,14 @@
     ; シナリオ_思い出2終盤
     [if exp="f.scn_skip == 0"]
         [ControlButtons]
-        [FadeoutBGM fadeoutTime="500" waitTime="500"]
+        [FadeoutBGM]
         [if exp="f.isPlayingBGM == 'false' "]
-            ; 思い出2終盤のBGMを再生
+            [PlayEpisode2_EdBGM]
         [endif]
         [layer3True]
         [ShowNormalSakuraAndMiyuki]
         [messageTrue]
-        [nolog]
-        ;[call storage="Conversation/episode2/episode2_ed.ks"]
-        [endnolog]
+        [call storage="Conversation/episode2/episode2_ed.ks"]
         [layer3False]
         [cancelskip]
         [ItemMenuButton]
@@ -679,6 +678,29 @@
     [PlayOpenChest]
     *GetAnotherItem
     [ChangeBackGround storage="episode2/dressandcurtain.png"]
+    ; アイブロウペンシル未使用時のみ発生
+    [if exp="f.isPencilGet != -1 && f.scn_episode2_07 == 'false' "]
+        [if exp="f.scn_skip == 0"]
+            [ControlButtons]
+            [layer3True]
+            [ShowNormalSakuraAndMiyuki]
+            [messageTrue]
+            [nolog]
+            [call storage="Conversation/episode2/episode2_07.ks"]
+            [endnolog]
+            [messageFalse]
+            [layer3False]
+            [cancelskip]
+            [clearfix]
+            [ItemMenuButton]
+            [MenuButton]
+        [endif]
+    [endif]
+    [if exp="f.scn_episode2_07 == 'false' "]
+        [iscript]
+            f.scn_episode2_07 = 'true'
+        [endscript]
+    [endif]
     ; 衣装
     [if exp="f.isDressGet == 0"]
         [clickJudgment x="230" y="150" width="690" height="510" target="*GetDress"]
@@ -732,6 +754,12 @@
     f.isCurtainGet = 1
 [endscript]
 [free layer="1" name="curtain"]
+; 簡易更衣室の初回クリックフラグをリセットする
+[if exp="f.isClickedFittingRoom_first == 'false' "]
+    [iscript]
+        f.isClickedFittingRoom_first = 'true'
+    [endscript]
+[endif]
 [jump target="*GetAnotherItem"]
 
 *OpenChest_back
@@ -793,13 +821,13 @@
     [endnolog]
     [layer3False]
 [endif]
-[iscript]
-    f.isCurtainGet = -1
-    f.isDressGet = -1
-[endscript]
-; 以下、シナリオ側に移行予定
-;[blackout exp="f.isHangerGet == -1" storage_1="episode2/studioroom_tentdown.png" storage_2="episode2/studioroom.png"]
-; ごそごそ物音がする効果音を追加
+[if exp="f.isCurtainGet == 1 && f.isDressGet == 1"]
+    [iscript]
+        f.isCurtainGet = -1
+        f.isDressGet = -1
+        f.isChangeDress = 'true'
+    [endscript]
+[endif]
 [JumpStudioRoom]
 
 *IncorrectItemOfCurtain

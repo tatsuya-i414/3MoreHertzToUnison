@@ -97,6 +97,8 @@
             [if exp="f.isHangerGet == 0"]
                 [image storage="../image/episode2/hanger.png" layer="1" x="148" y="410" name="hanger"]
             [endif]
+        [elsif exp="f.itemVisible[0] == 'true' && f.itemVisible[1] == 'episode2_dress' "]
+            ; 追加予定
         [endif]
         [bg storage="%storage_1" time="%time_2|100"]
     [else]
@@ -166,6 +168,14 @@
 ; 思い出2通常BGMを再生する
 [macro name="PlayEpisode2BGM"]
     [playbgm storage="episode2.m4a" loop="true" restart="false"]
+    [iscript]
+        f.isPlayingBGM = 'true'
+    [endscript]
+[endmacro]
+
+; 思い出2終盤BGMを再生する
+[macro name="PlayEpisode2_EdBGM"]
+    [playbgm storage="episode2_ed.m4a" loop="true" restart="false"]
     [iscript]
         f.isPlayingBGM = 'true'
     [endscript]
