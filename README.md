@@ -11,11 +11,11 @@
 # 開発環境
 - Visual Studio Code
 - TyranoScript syntax（拡張機能）
-- TyranoStudio V120
+- TyranoStudio (Ver.1.20)
 <br>
 
 # 使用言語
-TyranoScript V521k
+TyranoScript (Ver.521k)
 <br><br>
 
 # プラグイン
