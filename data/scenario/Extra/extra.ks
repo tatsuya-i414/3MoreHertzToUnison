@@ -1,19 +1,12 @@
 [cm]
 [clearfix]
-
-[bg storage="share/extra.png" time="100"]
+[bg storage="extra/extra.png" time="100"]
 [button graphic="../others/plugin/theme_kopanda_bth_06_blue/image/config/back.png" enterimg="../others/plugin/theme_kopanda_bth_06_blue/image/config/back2.png" target="*Backtitle" x="1680" y="60" clickse="../sound/se/cancel.m4a"]
 
 [glink color="bth06" storage="cg.ks" text="<br>CG" x="700" y="200" width="250" height="150" clickse="../sound/se/decision.m4a" size="50" bold="true"]
-[glink color="bth06" storage="" target="*Glossary" text="<br>用語解説" x="1200" y="200" width="250" height="150" clickse="../sound/se/decision.m4a" size="50" bold="true"]
+[glink color="bth06" storage="Extra/glossary.ks" target="" text="<br>用語解説" x="1200" y="200" width="250" height="150" clickse="../sound/se/decision.m4a" size="50" bold="true"]
 [glink color="bth06" storage="Extra/credit.ks" text="<br>クレジット" x="700" y="500" width="250" height="150" clickse="../sound/se/decision.m4a" size="50" bold="true"]
 [s]
-
-*Glossary
-[iscript]
-    alert("この機能は現在開発中です");
-[endscript]
-[jump storage="Extra/extra.ks"]
 
 *Backtitle
 [cm]
