@@ -12,7 +12,7 @@
     // 配色一覧
     sf.colorScheme = ['0x444444', '0x196D7D', '0x89DAE3'] //[黒],[濃緑],[水色]
     // 配布形式
-    sf.distribution = 'WEB'
+    sf.distribution = $.isElectron() // PCアプリの場合True
     // 起動モード
     sf.bootMode = 'develop'
     // エクストラページの表示
