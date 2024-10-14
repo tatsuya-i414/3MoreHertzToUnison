@@ -1,0 +1,64 @@
+/*---------------------------------------------------------------------------------*/
+/* remodal-default-theme.css */
+/*---------------------------------------------------------------------------------*/
+
+/* Ver.UP時はremodal-default-theme.cssの【background: #fff】を削除する */
+.remodal {
+    height: 100%;
+    color: #444444;
+    cursor: default;
+    background-image: url(“../../../../image/modal/modalwindow.png);
+}
+
+.remodal_title {
+    margin-top: 100px;
+    font-size: 16pt;
+    font-family: JKG-M_3;
+}
+
+.remodal-confirm,
+.remodal-cancel {
+    margin-top: 60px;
+    min-width: 128px;
+    min-height: 52px;
+    background-color: #fff;
+}
+
+/* Ver.UP時はremodal-default-theme.cssの該当箇所を削除する */
+.remodal-confirm {
+    margin-right: 30px;
+    background-image: url(“../../../../image/modal/button_yes.png);
+}
+
+/* Ver.UP時はremodal-default-theme.cssの該当箇所を削除する */    
+.remodal-confirm:hover,
+.remodal-confirm:focus {
+    background-image: url(“../../../../image/modal/button_yes_hover.png);
+}
+
+/* Ver.UP時はremodal-default-theme.cssの該当箇所を削除する */
+.remodal-cancel {
+    margin-left: 30px;
+    background-image: url(“../../../../image/modal/button_no.png);
+}
+
+/* Ver.UP時はremodal-default-theme.cssの該当箇所を削除する */
+.remodal-cancel:hover,
+.remodal-cancel:focus {
+    background-image: url(“../../../../image/modal/button_no_hover.png);
+}
+
+@media only screen and (min-width: 500px) {
+    .remodal {
+      max-width: 520px;
+      max-height: 340px;
+    }
+}
+
+/*---------------------------------------------------------------------------------*/
+/* font.css */
+/*---------------------------------------------------------------------------------*/
+@font-face {
+	font-family:"JKG-M_3";
+	src:url("../../data/others/JKG-M_3.ttf") format("truetype");
+}

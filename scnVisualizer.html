@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Tyrano Scenario Visualizer</title>
+
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="viewport" content=" user-scalable=no" />
+        <meta name="robots" content="noindex,nofollow" />
+        <script src="//cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis.min.js" type="text/javascript" ></script>
+        <link href="//cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis-network.min.css" rel="stylesheet" type="text/css" />
+        <style type="text/css">
+        html,body{
+            margin: 0;
+            height: 100%;
+            overflow: hidden;
+        }
+        #mynetwork {
+            width:100%;
+            height:100%;
+            border: 1px solid lightgray;
+        }
+        .spinner {
+            width: 40px;
+            height: 40px;
+            background-color: #333;
+            margin: 100px auto;
+            -webkit-animation: sk-rotateplane 1.2s infinite ease-in-out;
+            animation: sk-rotateplane 1.2s infinite ease-in-out;
+        }
+
+        @-webkit-keyframes sk-rotateplane {
+            0% { -webkit-transform: perspective(120px) }
+            50% { -webkit-transform: perspective(120px) rotateY(180deg) }
+            100% { -webkit-transform: perspective(120px) rotateY(180deg)  rotateX(180deg) }
+        }
+
+        @keyframes sk-rotateplane {
+            0% { 
+                transform: perspective(120px) rotateX(0deg) rotateY(0deg);
+                -webkit-transform: perspective(120px) rotateX(0deg) rotateY(0deg) 
+            } 50% { 
+                transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg);
+                -webkit-transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg) 
+            } 100% { 
+                transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);
+                -webkit-transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);
+            }
+        }  
+        </style>
+
+        <script type="text/javascript" src="./tyrano/libs/jquery-3.4.1.min.js"></script>
+        <script type="text/javascript" src="./tyrano/libs/jquery-ui.min.js"></script>
+        <script type="text/javascript" src="./tyrano/libs/jquery.a3d.js"></script>
+        <script type="text/javascript" src="./tyrano/libs/jsrender.min.js"></script>
+        <script type="text/javascript" src="./tyrano/libs/alertify/alertify.min.js"></script>
+        <script src="./tyrano/libs/remodal/remodal.js"></script>
+        <script type="text/javascript" src="./tyrano/libs/html2canvas.js"></script>
+        <script type="text/javascript" src="./data/system/KeyConfig.js"></script>
+        <script type="text/javascript" src="./tyrano/lang.js" ></script>
+        <script type="text/javascript" src="./tyrano/libs.js" ></script>
+        <script type="text/javascript" src="./tyrano/tyrano.js" ></script>
+        <script type="text/javascript">
+            $(document).ready(function() {
+                alert("ready");
+            });
+            // stop the ready handler
+            $.isReady = true;
+        </script>
+        <script type="text/javascript" src="./tyrano/tyrano.base.js" ></script>
+        <script type="text/javascript" src="./tyrano/plugins/kag/kag.js" ></script>
+        <script type="text/javascript" src="./tyrano/plugins/kag/kag.event.js" ></script>
+        <script type="text/javascript" src="./tyrano/plugins/kag/kag.key_mouse.js" ></script>
+        <script type="text/javascript" src="./tyrano/plugins/kag/kag.layer.js" ></script>
+        <script type="text/javascript" src="./tyrano/plugins/kag/kag.menu.js" ></script>
+        <script type="text/javascript" src="./tyrano/plugins/kag/kag.parser.js" ></script>
+        <script type="text/javascript" src="./tyrano/plugins/kag/kag.rider.js" ></script>
+        <script type="text/javascript" src="./tyrano/plugins/kag/kag.tag_audio.js" ></script>
+        <script type="text/javascript" src="./tyrano/plugins/kag/kag.tag_camera.js" ></script>
+        <script type="text/javascript" src="./tyrano/plugins/kag/kag.tag_ext.js" ></script>
+        <script type="text/javascript" src="./tyrano/plugins/kag/kag.tag_system.js" ></script>
+        <!--script type="text/javascript" src="./tyrano/plugins/kag/kag.tag_system_mod.js" ></!--script-->
+        <script type="text/javascript" src="./tyrano/plugins/kag/kag.tag.js" ></script>
+        <script type="text/javascript" src="./tyrano/libs/lz-string.min.js"></script>
+        <!-- <script type="text/javascript" src="./tools/graph.js"></script>
+        <script type="text/javascript" src="./tools/tyrano_analysis_for_web.js"></script> -->
+        <script type="text/javascript">
+            function ScenarioGraph(){
+                this.node = {};
+                this.edge = {};
+                this.addNode = function(nodename){
+                    if(this.node[nodename]){
+                        return false;
+                    }
+                    this.node[nodename] = nodename;
+                    return true;
+                }
+                this.addEdge = function(nodename, child){
+                    if(!this.edge[nodename]){
+                        this.edge[nodename] = [];
+                    }
+                    if(this.edge[nodename].indexOf(child) == -1){
+                        this.edge[nodename].push(child);
+                    }
+                }
+                this.get_vis_edges = function(){
+                    var edges = [];
+                    for(var n in this.edge){
+                        var child_nodes = this.edge[n];
+                        for(var i in child_nodes){
+                            var child = child_nodes[i];
+                            edges.push({from: n, to: child, arrows:'to'});
+                        }
+                    }
+                    return edges;
+                }
+                this.get_vis_nodes = function(){
+                    var nodes = [];
+                    for(var n in this.node){
+                        nodes.push({id: n, label: n });
+                    }
+                    return nodes;
+                }
+            }
+            if (typeof module !== 'undefined'){
+                module.exports = ScenarioGraph;
+            }
+
+            var start_file_name = "first.ks";
+            var scenarioDir = "./data/scenario/";
+            var reqCnt = 0;
+            function createGraph(filename){
+                var g = new ScenarioGraph();
+                seekDAG(g, filename);
+                return g;
+            }
+
+            function seekDAG(graph, filename){
+                if(!filename){
+                    console.log(filename);  
+                    return;  
+                }
+                var isNew = graph.addNode(filename);
+                if(!isNew){
+                    console.log("already exists " + filename);  
+                    return;  
+                }
+
+                var fullpath = scenarioDir + filename;
+                console.log(fullpath);
+                reqCnt++;
+                $.loadText(fullpath,function(text_str){
+                    var scenario = this.tyrano.plugin.kag.parser.parseScenario(text_str);
+                    var child_list = [];
+                    for(var i = scenario.array_s.length-1; 0 <= i ; i--){
+                        var result_obj = scenario.array_s[i];
+                        //console.log(scenario);
+                        if(["jump","A","B","glink","link"].includes(result_obj.name)){
+                            if(result_obj.pm){
+                                var child_filename =  result_obj.pm.storage;
+                                if(child_filename){
+                                    child_list.push(child_filename);
+                                }
+                            }
+                        }
+                    }
+                    for(var i=0; i<child_list.length; i++){
+                        var child_filename = child_list[i];
+                        graph.addEdge(filename, child_filename);
+                        seekDAG(graph, child_filename);
+                    }
+                    reqCnt--;
+                });
+            }
+
+            function loadVis(document_id, g){
+                if(0 < reqCnt){
+                    console.log("loading scenario files not complete ... ");
+                    return false;        
+                }
+                var nodes = new vis.DataSet(g.get_vis_nodes());
+                var edges = new vis.DataSet(g.get_vis_edges());
+                var container = document.getElementById(document_id);
+                var data = {
+                    nodes: nodes,
+                    edges: edges
+                };
+                var options = {};
+                var network = new vis.Network(container, data, options);
+                $(".spinner").remove();
+                return true;
+            }
+
+            function wait_and_load_vis(document_id, g, cnt){
+                if(cnt > 10){
+                    console.log("loading text timeout " + cnt);
+                    return;
+                }
+                console.log("("+ cnt +"/10) waiting 0.5 second and retry create graph ");
+                setTimeout(function(){
+                    var ret = loadVis(document_id, g);
+                    if(!ret){
+                        wait_and_load_vis(document_id, g, cnt+1);    
+                    }
+                },500);
+            }
+
+            function create_vis(document_id){
+                var g = createGraph(start_file_name);
+                wait_and_load_vis(document_id, g, 0);
+            }
+        </script>
+    </head>
+    <body>
+        <!-- <div id="tyrano_base" class="tyrano_base" style="overflow:hidden" unselectable="on" ondragstart="return false" ></div> -->
+        <div id="mynetwork">
+            <div class="spinner"></div>
+            Now Loading...
+        </div>
+
+        <script type="text/javascript">
+            window.onload = function() {
+                create_vis("mynetwork");
+            }
+        </script> 
+    </body>
+</html>

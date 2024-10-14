@@ -2,6 +2,8 @@
 
 ; 標準ライブラリ群
 [call storage="Utility/tyrano.ks"]
+; 標準ライブラリからカスタムした部分を取得
+[loadcss file="data/others/css/tyranocustom.css"]
 ; ローディング画面表示プラグインの呼び出し
 [plugin name="loading"]
 ; メニューSE追加プラグインの呼び出し
@@ -22,8 +24,8 @@
 ; メニューSEのパラメータを読み込み
 [call storage="Plugin/menuse.ks"]
 
-; 配布形式が「WEB」の時、起動時にゲームデータを読み込む
-[if exp="sf.distribution == 'WEB' "]
+; 実行環境がブラウザ版の場合、起動時にゲームデータを一括読み込み
+[if exp="sf.distribution == false "]
     [call storage="Plugin/loading.ks"]
     [call storage="Plugin/loadingshow.ks"]
 [else]

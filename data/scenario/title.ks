@@ -1,5 +1,6 @@
 [cm]
 [clearstack]
+[layer1True]
 [bg storage="share/title.png" time="100"]
 ; タイトル名
 [ptext layer="fix" text="&sf.gameTitle" x="140" y="100" size="100" color="black"]
@@ -8,6 +9,8 @@
 [ptext layer="fix" text="&sf.sysVersion" x="1810" y="30" size="20" color="black" bold="bold" edge="white"]
 ; クレジット表記
 [ptext layer="fix" text="&sf.credit" x="850" y="1000" size="20" face="sans-serif" color="black" bold="bold" edge="white"]
+; サークルロゴ
+[image storage="../image/logo/circlelogo.png" layer="1" x="1720" y="850" width="130" height="184" name="circlelogo"]
 [if exp="sf.bootMode == 'develop' || sf.bootMode == 'kenshou' "]
     ; ティラノスクリプトバージョン表記
     [ptext layer="fix" text="ティラノスクリプトVer." x="1590" y="60" size="20" color="black" bold="bold" edge="white"]
@@ -23,8 +26,8 @@
     [ptext layer="fix" text="使用端末：" x="1708" y="120" size="20" color="black" bold="bold" edge="white" align="right"]
     [ptext layer="fix" text="&sf.usingDevice" x="1810" y="120" size="20" color="black" bold="bold" edge="white" align="right"]
     ; 使用ブラウザ表記
-    [ptext layer="fix" text="使用ブラウザ：" x="1570" y="150" size="20" color="black" bold="bold" edge="white" align="right"]
-    [ptext layer="fix" text="&sf.usingBrowser" x="1715" y="150" size="20" color="black" bold="bold" edge="white" align="right"]
+    [ptext layer="fix" text="使用ブラウザ：" x="1640" y="150" size="20" color="black" bold="bold" edge="white" align="right"]
+    [ptext layer="fix" text="&sf.usingBrowser" x="1785" y="150" size="20" color="black" bold="bold" edge="white" align="right"]
 [endif]
 [l]
 [PlayTitleDecision]
@@ -33,6 +36,7 @@
 ; クリックしたらトップ画面を表示する
 *TopPage
 [clearfix]
+[free layer="1" name="circlelogo"]
 [bg storage="share/top.png" time="100"]
 ; タイトル名
 [ptext layer="fix" text="&sf.gameTitle" x="140" y="100" size="100" color="black"]
@@ -51,7 +55,7 @@
     [endif]
     ; ショートカット
     [ptext layer="fix" text="[ショートカット]" x="170" y="280" size="20" color="black" bold="bold" edge="white"]
-    [glink color="bth06" storage="Utility/debug.ks" target="*Save" text="思い出1" x="120" y="330" width="150" height="24" clickse="../sound/se/itemdecision.m4a" size="24"  bold="true" exp="f.isEpisode1Clear = 1"]
+    [glink color="bth06" storage="Utility/debug.ks" target="*Save" text="思い出1" x="120" y="330" width="150" height="24" clickse="../sound/se/itemdecision.m4a" size="24" bold="true" exp="f.isEpisode1Clear = 1"]
     [glink color="bth06" storage="Utility/debug.ks" target="*Save" text="思い出2" x="120" y="410" width="150" height="24" clickse="../sound/se/itemdecision.m4a" size="24" bold="true" exp="f.isEpisode2Clear = 1"]
     [glink color="bth06" storage="Utility/debug.ks" target="*Save" text="思い出3" x="120" y="490" width="150" height="24" clickse="../sound/se/itemdecision.m4a" size="24" bold="true" exp="f.isEpisode3Clear = 1"]
     [glink color="bth06" storage="Utility/debug.ks" target="*Save" text="会話パートをスキップ" x="120" y="570" width="150" height="45" clickse="../sound/se/itemdecision.m4a" size="24" bold="true" exp="f.scn_skip = 1"]

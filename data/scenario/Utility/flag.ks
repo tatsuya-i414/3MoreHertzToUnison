@@ -9,8 +9,18 @@
     f.itemVisible = ['false', '']
     // アイテム使用時
     f.isUsing = 0
-    // 衣装変更判定
+    // 衣装変更判定(思い出2)
     f.isChangeDress = 'false'
+    // 用語の既読判定
+    f.isReadDesc_01 = 'false'
+    f.isReadDesc_02 = 'false'
+    f.isReadDesc_03 = 'false'
+    f.isReadDesc_04 = 'false'
+    f.isReadDesc_05 = 'false'
+    f.isReadDesc_06 = 'false'
+    f.isReadDesc_07 = 'false'
+    f.isReadDesc_08 = 'false'
+    f.isReadDesc_09 = 'false'
     // 初回クリック判定
     f.isClickedControlPanel_first = 'true'
     f.isClickedWiringDoor_first = 'true'
