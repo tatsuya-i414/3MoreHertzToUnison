@@ -99,6 +99,25 @@
             [endif]
         [elsif exp="f.itemVisible[0] == 'true' && f.itemVisible[1] == 'episode2_dress' "]
             ; 追加予定
+        [elsif exp="f.itemVisible[0] == 'true' && f.itemVisible[1] == 'episode3' "]
+            [if exp="f.isJacketGet == 0"]
+                [image storage="../image/episode3/jacket.png" layer="1" x="1150" y="750" name="jacket"]
+            [endif]
+            [if exp="f.isJacketGet == -1 && f.isRoomLightNight == 0"]
+                [image storage="../image/episode3/wallhanger_onjacket.png" layer="1" x="1427" y="90" name="wallhanger_onjacket"]
+            [elsif exp="f.isJacketGet == -1 && f.isRoomLightNight == 1"]
+                [image storage="../image/episode3/wallhanger_onjacket_night.png" layer="1" x="1411" y="107" name="wallhanger_onjacket_night"]
+            [else]
+                [image storage="../image/episode3/wallhanger_onhanger.png" layer="1" x="1414" y="111" name="wallhanger_onhanger"]
+            [endif]
+            [if exp="f.isJutanOpen == 1"]
+                [image storage="../image/episode3/jutan_turnedup.png" layer="1" x="585" y="908" name="jutan_turndup"]
+                [if exp="f.isRoomLightNight == 1"]
+                    [image storage="../image/episode3/mark_underjutan.png" layer="1" x="1175" y="915" name="mark"]
+                [endif]
+            [else]
+                [image storage="../image/episode3/jutan.png" layer="1" x="585" y="908" name="jutan"]
+            [endif]
         [endif]
         [bg storage="%storage_1" time="%time_2|100"]
     [else]
@@ -184,6 +203,14 @@
 ; 思い出3通常BGMを再生する
 [macro name="PlayEpisode3BGM"]
     [playbgm storage="episode3.m4a" loop="true" restart="false"]
+    [iscript]
+        f.isPlayingBGM = 'true'
+    [endscript]
+[endmacro]
+
+; 思い出3序盤BGMを再生する
+[macro name="PlayEpisode3_OpBGM"]
+    [playbgm storage="episode3_op.m4a" loop="true" restart="false"]
     [iscript]
         f.isPlayingBGM = 'true'
     [endscript]
@@ -353,6 +380,16 @@
 ; ペンで紙を擦るSEを再生する
 [macro name="PlayScrubPencil"]
     [playse storage="../sound/se/scrubpencil.m4a" loop="false"]
+[endmacro]
+
+; 木が軋むSEを再生する
+[macro name="PlayCreak"]
+    [playse storage="../sound/se/creak.m4a" loop="false"]
+[endmacro]
+
+; 鞄の中のものを漁るSEを再生する
+[macro name="PlayGosoGoso2"]
+    [playse storage="../sound/se/gosogoso2.m4a" loop="false"]
 [endmacro]
 
 ; 電気のスイッチを切り替えるSEを再生する

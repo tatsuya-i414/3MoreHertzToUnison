@@ -19,29 +19,31 @@
 
 ; シナリオ_思い出3序盤
 [if exp="f.scn_skip == 0 && f.scn_episode3_OP == 'false' "]
-    [ChangeBackGround storage="episode3/bedroom.png" time="2000" method="vanishIn"]
-    ; 背景パーツを表示
-    [image storage="../image/episode3/jacket.png" layer="1" x="1150" y="750" name="jacket"]
-    [image storage="../image/episode3/wallhanger_onhanger.png" layer="1" x="1414" y="111" name="wallhanger_onhanger"]
-    [image storage="../image/episode3/jutan.png" layer="1" x="585" y="908" name="jutan"]
+    [cm]
+    [iscript]
+        f.itemVisible[0] = 'true'
+        f.itemVisible[1] = 'episode3'
+    [endscript]
+    [if exp="f.isRoomLightNight == 0"]
+        [blackout exp="f.isEpisode2Clear == 1" storage_1="episode3/bedroom.png" storage_2="episode2/studioroom.png"]
+    [else]
+        [blackout exp="f.isEpisode2Clear == 1" storage_1="episode3/bedroom_night.png" storage_2="episode2/studioroom.png"]
+    [endif]
     [ControlButtons]
     [FadeoutBGM]
-    ; 思い出3序盤のBGM再生
+    [PlayEpisode3_OpBGM]
     [messageTrue]
-    [call storage="Conversation/episode3/episode3.ks" target="*Introduction"]
+    [call storage="Conversation/episode3/episode3_op.ks"]
     [iscript]
         f.scn_episode3_OP = 'true'
+        f.itemVisible[0] = 'false'
     [endscript]
     [clearfix]
     [messageFalse]
     [MenuButton]
     [ItemMenuButton]
     [FadeoutBGM]
-    ; 背景パーツを削除
-    [free layer="1" name="jacket"]
-    [free layer="1" name="wallhanger_onhanger"]
-    [free layer="1" name="jutan"]
-    [jump target="*BedRoom"]
+    [JumpBedRoom]
 [endif]
 
 ; 背景
@@ -68,7 +70,7 @@
 [if exp="f.isJutanOpen == 1"]
     [image storage="../image/episode3/jutan_turnedup.png" layer="1" x="585" y="908" name="jutan_turndup"]
     [if exp="f.isRoomLightNight == 1"]
-        [image storage="../image/episode3/mark_underjutan.png" layer="1" x="1180" y="915" name="mark"]
+        [image storage="../image/episode3/mark_underjutan.png" layer="1" x="1175" y="915" name="mark"]
     [endif]
 [else]
     [image storage="../image/episode3/jutan.png" layer="1" x="585" y="908" name="jutan"]
@@ -384,20 +386,24 @@
 [JumpBedRoom]
 
 *GetCompass
-[ControlButtons]
-[layer3True]
-[ShowNormalSakuraAndMiyuki]
-[messageTrue]
-[nolog]
-#深雪と桜良
-コンパスだ！[p]
-[endnolog]
-[messageFalse]
-[layer3False]
+[if exp="f.scn_skip == 0"]
+    [ControlButtons]
+    [layer3True]
+    [ShowNormalSakuraAndMiyuki]
+    [messageTrue]
+    [nolog]
+    [call storage="Conversation/episode3/episode3_01.ks"]
+    [endnolog]
+    [messageFalse]
+    [layer3False]
+    [cancelskip]
+    [clearfix]
+    [ItemMenuButton]
+    [MenuButton]
+[endif]
 [iscript]
     f.isCompassGet = 1
 [endscript]
-[MenuButton]
 [JumpBedRoom]
 
 *SearchPoster

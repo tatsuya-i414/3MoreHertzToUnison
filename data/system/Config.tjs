@@ -49,7 +49,7 @@
 
 // カメラ機能を使えるようにするかを設定
 // trueで有効　false で無効です。
-;useCamera = false;
+;useCamera = true;
 
 // 3D機能を利用できるようにする
 // trueで有効　false で無効です。
