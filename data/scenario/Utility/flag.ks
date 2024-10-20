@@ -33,6 +33,9 @@
     f.isClickedPaper_first = 'true'
     f.isClickedSpeaker_first_whenPencilGetting = 'true'
     f.isClickedFittingRoom_first = 'true'
+    f.isClickedPoster_first = 'true'
+    f.isClickedHat_first = 'true'
+    f.isClickedSwitch_first = 'true'
     // シナリオ既読判定
     f.scn_episode1_OP = 'false'
     f.scn_episode2_OP = 'false'
