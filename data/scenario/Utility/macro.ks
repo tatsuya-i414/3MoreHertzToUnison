@@ -641,6 +641,25 @@
     [endnolog]
 [endmacro]
 
+; 昼夜切り替えスイッチ押下時に元の画像を削除
+[macro name="FreeImagesWhenSwitching"]
+    [if exp="f.isJutanOpen == 1"]
+        [free layer="1" name="jutan_turndup"]
+    [else]
+        [free layer="1" name="jutan"]
+    [endif]
+    [if exp="f.isJacketGet == -1"]
+        [free layer="1" name="wallhanger_onjacket"]
+    [else]
+        [free layer="1" name="wallhanger_onhanger"]
+        [free layer="1" name="jacket"]
+    [endif]
+    [if exp="f.isRoomLightNight == 1"]
+        [free layer="1" name="wallhanger_onjacket_night"]
+        [free layer="1" name="mark"]
+    [endif]
+[endmacro]
+
 ; ------------------------------
 ; 画面遷移
 ; ------------------------------
@@ -717,6 +736,15 @@
 ; 背景を変更する
 [macro name="ChangeBackGround"]
     [bg storage="%storage" time="%time|100" method="%method"]
+[endmacro]
+
+; 背景を変更する（思い出3専用）
+[macro name="ChangeBackGroundOfEpisode3"]
+    [if exp="f.isRoomLightNight == 0"]
+        [ChangeBackGround storage="%storage_noon"]
+    [else]
+        [ChangeBackGround storage="%storage_night"]
+    [endif]
 [endmacro]
 
 ; 通常のクリック判定
