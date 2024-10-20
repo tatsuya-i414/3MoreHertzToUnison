@@ -19,6 +19,7 @@ TyranoScript (Ver.521k)
 <br><br>
 
 # プラグイン
+- [AUTO/SKIPアイコン表示プラグイン](https://tarowimo.outside-i.com/?p=326)
 - [ローディング画面表示プラグイン](https://mamecho.booth.pm/items/3011729)
 - [メニューSE追加プラグイン](https://memocho.booth.pm/items/3008345)
 - [システムスワイププラグイン](https://note.com/milkcat/n/naaeade56fcf5)
