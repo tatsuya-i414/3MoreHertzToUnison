@@ -1,0 +1,35 @@
+/* SKIP AUTO */
+#announce_layer div{
+  position: absolute;
+  z-index: 9999;
+  top: 35px;
+  left: 45px;
+  font-family: "JKG-M_3";
+}
+
+.a_s_fla{
+  animation: flash_an 3s linear infinite;
+}
+@keyframes flash_an {
+  0%,100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
+}
+#an_skip{
+  display: none;
+	font-size: 4em;
+  font-weight: bold;
+  color: #00BCD4;
+  text-shadow: 2px 2px #fff, 5px 5px rgba(0, 188, 212, 0.4);
+}
+#an_auto{
+  display: none;
+	font-size: 4em;
+  font-weight: bold;
+  color: #e45aca;
+  text-shadow: 2px 2px #fff, 5px 5px rgba(212, 0, 203, 0.4);
+}

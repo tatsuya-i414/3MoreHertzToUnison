@@ -4,6 +4,8 @@
 [call storage="Utility/tyrano.ks"]
 ; 標準ライブラリからカスタムした部分を取得
 [loadcss file="data/others/css/tyranocustom.css"]
+; AUTO/SKIPアイコン表示プラグインの呼び出し
+[plugin name="a_s_ico"]
 ; ローディング画面表示プラグインの呼び出し
 [plugin name="loading"]
 ; メニューSE追加プラグインの呼び出し
