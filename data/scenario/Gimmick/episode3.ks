@@ -3,22 +3,12 @@
 [clearstack]
 [start_keyconfig]
 
-[if exp="f.scn_skip == 1"]
+[if exp="sf.scn_episode3OP_Skip == 'true' "]
     [FadeoutBGM]
 [endif]
 
-*BedRoom
-[clearfix]
-[messageFalse]
-[layer1True]
-[layer2True]
-[MenuButton]
-[if exp="f.isPlayingBGM == 'false' "]
-    [PlayEpisode3BGM]
-[endif]
-
 ; シナリオ_思い出3序盤
-[if exp="f.scn_skip == 0 && f.scn_episode3_OP == 'false' "]
+[if exp="f.scn_skip == 0 && sf.scn_episode3OP_Skip == 'false' && f.scn_episode3_OP == 'false' "]
     [cm]
     [iscript]
         f.itemVisible[0] = 'true'
@@ -44,6 +34,16 @@
     [ItemMenuButton]
     [FadeoutBGM]
     [JumpBedRoom]
+[endif]
+
+*BedRoom
+[clearfix]
+[messageFalse]
+[layer1True]
+[layer2True]
+[MenuButton]
+[if exp="f.isPlayingBGM == 'false' "]
+    [PlayEpisode3BGM]
 [endif]
 
 ; 背景

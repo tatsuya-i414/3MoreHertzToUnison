@@ -17,6 +17,18 @@
     sf.bootMode = 'develop'
     // エクストラページの表示
     sf.isExtraPage = 'true'
+    // 導入パートのシナリオスキップ
+    sf.scn_episodeOP_Skip = 'false'
+    // 思い出1序盤のシナリオスキップ
+    sf.scn_episode1OP_Skip = 'false'
+    // 思い出1終盤のシナリオスキップ
+    sf.scn_episode1ED_Skip = 'false'
+    // 思い出2序盤のシナリオスキップ
+    sf.scn_episode2OP_Skip = 'false'
+    // 思い出2終盤のシナリオスキップ
+    sf.scn_episode2ED_Skip = 'false'
+    // 思い出3序盤のシナリオスキップ
+    sf.scn_episode3OP_Skip = 'false'
 [endscript]
 
 ; キャラクター設定
