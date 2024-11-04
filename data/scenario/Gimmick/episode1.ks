@@ -3,8 +3,12 @@
 [clearstack]
 [start_keyconfig]
 
+[if exp="sf.scn_episodeOP_Skip == 'true' "]
+    [FadeoutBGM]
+[endif]
+
 ; シナリオ_導入パート
-[if exp="f.scn_skip == 0"]
+[if exp="f.scn_skip == 0 && sf.scn_episodeOP_Skip == 'false' "]
     [blackout exp="f.scn_skip == 0" storage_1="episode1/omoide1_introduction.jpg" storage_2="share/top.png"]
     [ControlButtons]
     [FadeoutBGM]
@@ -13,22 +17,15 @@
     [endif]
     [messageTrue]
     [call storage="Conversation/episode_op.ks"]
-[else]
+    [messageFalse]
+[endif]
+
+[if exp="sf.scn_episode1OP_Skip == 'true' "]
     [FadeoutBGM]
 [endif]
 
-*StageRoom
-[clearfix]
-[messageFalse]
-[layer1True]
-[layer2True]
-[MenuButton]
-[if exp="f.isPlayingBGM == 'false' "]
-    [PlayEpisode1BGM]
-[endif]
-
 ; シナリオ_思い出1序盤
-[if exp="f.scn_skip == 0 && f.scn_episode1_OP == 'false' "]
+[if exp="f.scn_skip == 0 && sf.scn_episode1OP_Skip == 'false' && f.scn_episode1_OP == 'false' "]
     [cm]
     [iscript]
         f.itemVisible[0] = 'true'
@@ -51,7 +48,17 @@
     [MenuButton]
     [ItemMenuButton]
     [FadeoutBGM]
-    [jump target="*StageRoom"]
+    [JumpStageRoom]
+[endif]
+
+*StageRoom
+[clearfix]
+[messageFalse]
+[layer1True]
+[layer2True]
+[MenuButton]
+[if exp="f.isPlayingBGM == 'false' "]
+    [PlayEpisode1BGM]
 [endif]
 
 ; 背景
@@ -176,7 +183,7 @@
 [free layer="1" name="speaker_greenlamp"]
 [free layer="1" name="speaker_redlamp"]
 ; シナリオ_思い出1終盤
-[if exp="f.scn_skip == 0"]
+[if exp="f.scn_skip == 0 && sf.scn_episode1ED_Skip == 'false' "]
     [ControlButtons]
     [FadeoutBGM fadeoutTime="500" waitTime="500"]
     [if exp="f.isPlayingBGM == 'false' "]

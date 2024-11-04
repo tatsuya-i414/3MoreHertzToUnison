@@ -3,22 +3,12 @@
 [clearstack]
 [start_keyconfig]
 
-[if exp="f.scn_skip == 1"]
+[if exp="sf.scn_episode2OP_Skip == 'true' "]
     [FadeoutBGM]
 [endif]
 
-*StudioRoom
-[clearfix]
-[messageFalse]
-[layer1True]
-[layer2True]
-[MenuButton]
-[if exp="f.isPlayingBGM == 'false' "]
-    [PlayEpisode2BGM]
-[endif]
-
 ; シナリオ_思い出2序盤
-[if exp="f.scn_skip == 0 && f.scn_episode2_OP == 'false' "]
+[if exp="f.scn_skip == 0 && sf.scn_episode2OP_Skip == 'false' && f.scn_episode2_OP == 'false' "]
     [cm]
     [iscript]
         f.itemVisible[0] = 'true'
@@ -40,6 +30,16 @@
     [ItemMenuButton]
     [FadeoutBGM]
     [JumpStudioRoom]
+[endif]
+
+*StudioRoom
+[clearfix]
+[messageFalse]
+[layer1True]
+[layer2True]
+[MenuButton]
+[if exp="f.isPlayingBGM == 'false' "]
+    [PlayEpisode2BGM]
 [endif]
 
 ; 背景
@@ -120,7 +120,7 @@
     [free layer="1" name="paper"]
     [free layer="1" name="curtain"]
     ; シナリオ_思い出2終盤
-    [if exp="f.scn_skip == 0"]
+    [if exp="f.scn_skip == 0 && sf.scn_episode2ED_Skip == 'false'"]
         [ControlButtons]
         [FadeoutBGM]
         [if exp="f.isPlayingBGM == 'false' "]
