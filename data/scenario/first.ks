@@ -8,6 +8,8 @@
 [plugin name="a_s_ico"]
 ; ローディング画面表示プラグインの呼び出し
 [plugin name="loading"]
+; ループクェイクプラグインの呼び出し
+[plugin name="loop_quake"]
 ; メニューSE追加プラグインの呼び出し
 [plugin name="menu_se"]
 ; システムスワイププラグインの呼び出し

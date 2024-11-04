@@ -8,7 +8,7 @@
     tf.staff = [300, 800] // [「担当」のX座標], [「名前」のX座標]
     tf.usedMaterial = 1300 // 使用素材名のX座標
     tf.characterSetting = [40, 400] // [文字サイズ], [テキストの横幅]
-    tf.creators = ['国語丸', '伊勢', 'ひろさきたま'] // スタッフ一覧
+    tf.creators = ['国語丸', 'PON茶屋', 'ひろさきたま'] // スタッフ一覧
 [endscript]
 
  ; スタッフ

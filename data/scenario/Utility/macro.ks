@@ -118,6 +118,19 @@
             [else]
                 [image storage="../image/episode3/jutan.png" layer="1" x="585" y="908" name="jutan"]
             [endif]
+        [elsif exp="f.itemVisible[0] == 'true' && f.itemVisible[1] == 'episode3_jacket' "]
+            [free layer="1" name="wallhanger_onhanger"]
+            [if exp="f.isRoomLightNight == 0"]
+                [image storage="../image/episode3/wallhanger_onjacket.png" layer="1" x="1427" y="90" name="wallhanger_onjacket"]
+            [elsif exp="f.isRoomLightNight == 1"]
+                [image storage="../image/episode3/wallhanger_onjacket_night.png" layer="1" x="1411" y="107" name="wallhanger_onjacket_night"]
+            [endif]
+        [elsif exp="f.itemVisible[0] == 'true' && f.itemVisible[1] == 'episode3_bed' "]
+            [free layer="1" name="wallhanger_onjacket"]
+            [image storage="../image/episode3/wallhanger_onjacket_night.png" layer="1" x="1411" y="107" name="wallhanger_onjacket_night"]
+            [if exp="f.isJutanOpen == 1"]
+                [image storage="../image/episode3/mark_underjutan.png" layer="1" x="1175" y="915" name="mark"]
+            [endif]
         [endif]
         [bg storage="%storage_1" time="%time_2|100"]
     [else]
@@ -392,6 +405,16 @@
     [playse storage="../sound/se/gosogoso2.m4a" loop="false"]
 [endmacro]
 
+; ガチャガチャするSEを再生する
+[macro name="PlayGachaGacha"]
+    [playse storage="../sound/se/gachagacha.m4a" loop="false"]
+[endmacro]
+
+; 素振りするSEを再生する
+[macro name="PlaySwing"]
+    [playse storage="../sound/se/swing.m4a" loop="false"]
+[endmacro]
+
 ; 電気のスイッチを切り替えるSEを再生する
 [macro name="PlaySwitching"]
     [playse storage="../sound/se/switching.m4a" loop="false"]
@@ -400,6 +423,11 @@
 ; 絨毯をめくるSEを再生する
 [macro name="PlayTurnOver"]
     [playse storage="../sound/se/turnover.m4a" loop="false"]
+[endmacro]
+
+; 駆け足のSEを再生する
+[macro name="PlayRun"]
+    [playse storage="../sound/se/run.m4a" loop="false"]
 [endmacro]
 
 ; ------------------------------
