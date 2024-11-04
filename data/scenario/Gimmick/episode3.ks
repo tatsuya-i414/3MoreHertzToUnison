@@ -102,7 +102,7 @@
     [clickJudgment x="1160" y="760" width="130" height="130" target="*GetJacket"]
 [endif]
 ; 備え付けハンガー
-[if exp="f.isJacketGet == 1"]
+[if exp="f.isJacketGet != -1"]
     [clickJudgment x="1500" y="210" width="160" height="120" target="*SearchHanger"]
 [endif]
 ; 絨毯
@@ -119,56 +119,83 @@
 [s]
 
 *SearchBed
-[if exp="f.isFutonGet == 0"]
+[if exp="tf.selectOfSleeporNot == 'true' "]
+    [messageTrue]
+    [nolog]
+    #
+    布団で一緒に寝ますか？
+    [endnolog]
+    [glink color="bth06" storage="Conversation/episode3/episode3_08.ks" target="*Sleep" width="180" x="240" y="980" size="24" text="一緒に寝る" clickse="../sound/se/decision.m4a"]
+    [glink color="bth06" storage="Conversation/episode3/episode3_08.ks" target="*NotSleep" width="180" x="570" y="980" size="24" text="もう少し待って！" clickse="../sound/se/cancel.m4a"]
+    [s]
+[endif]
+[if exp="f.scn_skip == 0"]
     [ControlButtons]
     [layer3True]
     [ShowNormalSakuraAndMiyuki]
     [messageTrue]
     [nolog]
-    #深雪と桜良
-    布団がいるね[p]
+    [call storage="Conversation/episode3/episode3_08.ks"]
     [endnolog]
     [messageFalse]
     [layer3False]
-    [MenuButton]
-    [JumpBedRoom]
-[elsif exp="f.isFutonGet == 1 && f.isRoomLightNight == 0"]
-    [ControlButtons]
-    [layer3True]
-    [ShowNormalSakuraAndMiyuki]
-    [messageTrue]
-    [nolog]
-    #深雪と桜良
-    明るくて眠れないよ[p]
-    [endnolog]
-    [messageFalse]
-    [layer3False]
-    [MenuButton]
-    [JumpBedRoom]
-[elsif exp="f.isFutonGet == 1 && f.isRoomLightNight == 1"]
-    [if exp="f.scn_skip == 0"]
-        [ControlButtons]
-        [FadeoutBGM]
-        ; 思い出3終盤のBGM再生
-        [layer3True]
-        [ShowNormalSakuraAndMiyuki]
-        [messageTrue]
-        [nolog]
-        #深雪と桜良
-        思い出3のエンドイベント[p]
-        [endnolog]
-        [messageFalse]
-        [layer3False]
-    [endif]
-    [iscript]
-        f.isFutonGet = -1
-        f.isYoukanGet = 1
-        f.isEpisode3Clear = 1
-    [endscript]
+    [cancelskip]
     [clearfix]
+    [ItemMenuButton]
+    [MenuButton]
+[endif]
+[if exp="f.isClickedBed_first == 'true' "]
+    [iscript]
+        f.isClickedBed_first = 'false'
+    [endscript]
+[endif]
+[JumpBedRoom]
+
+*TurnOffTheLightAndSleep
+[iscript]
+    f.isFutonGet = -1
+    delete tf.selectOfSleeporNot
+[endscript]
+
+; 思い出3終盤のシナリオ追加したら削除する
+[if exp="f.isFutonGet == -1"]
+    [messageTrue]
+    [nolog]
+    #
+    思い出3終盤へ続く[p]
+    [endnolog]
+    [messageFalse]
+    [clearfix]
+    [ItemMenuButton]
     [MenuButton]
     [s]
 [endif]
+[s]
+
+; 画像を削除する
+; シナリオ_思い出3終盤
+[if exp="f.scn_skip == 0"]
+    [ControlButtons]
+    [FadeoutBGM]
+    [if exp="f.isPlayingBGM == 'false' "]
+        ; 思い出3終盤のBGMを再生する
+    [endif]
+    [layer3True]
+    [ShowNormalSakuraAndMiyuki]
+    [messageTrue]
+    [call storage="Conversation/episode2/episode3_ed.ks"]
+    [layer3False]
+    [cancelskip]
+    [ItemMenuButton]
+    [MenuButton]
+[endif]
+[iscript]
+    f.isYoukanGet = 1
+    f.isEpisode3Clear = 1
+[endscript]
+; シナリオ_エンディングパートへ移動する
+[call storage="Conversation/episode_ed.ks"]
+
 
 *SearchBox
 [FreeImagesWhenSwitching]
@@ -332,6 +359,12 @@
             f.isFutonGet = 1
         [endscript]
         [free layer="1" name="compass_set"]
+        ; ベッドの初回クリックフラグをリセットする
+        [if exp="f.isClickedBed_first == 'false' "]
+            [iscript]
+                f.isClickedBed_first = 'true'
+            [endscript]
+        [endif]
         [iscript]
             delete f.arrayElementsCount;
             delete f.buttonPushOrder;
@@ -468,6 +501,26 @@
 [JumpBedRoom]
 
 *SearchHanger
+[if exp="f.scn_skip == 0"]
+    [ControlButtons]
+    [layer3True]
+    [ShowNormalSakuraAndMiyuki]
+    [messageTrue]
+    [nolog]
+    [call storage="Conversation/episode3/episode3_06.ks"]
+    [endnolog]
+    [messageFalse]
+    [layer3False]
+    [cancelskip]
+    [clearfix]
+    [ItemMenuButton]
+    [MenuButton]
+[endif]
+[if exp="f.isClickedHanger_first == 'true' "]
+    [iscript]
+        f.isClickedHanger_first = 'false'
+    [endscript]
+[endif]
 [if exp="f.isJacketGet == 1"]
     *SelectItemOfJacket
     [messageFalse]
@@ -493,24 +546,37 @@
 *UseJacket
 [messageTrue]
 [ConfirmUseItem]
-[YesNoButton target_yes="*ValidItemOfJacket" target_no="*SelectItemOfJacket"]
+[YesNoButton target_yes="*ValidItemOfJacket" storage_no="Conversation/episode3/episode3_06.ks" target_no="*NotUseHanger"]
 [s]
 
 *NotUseJacket
 [messageTrue]
 [ConfirmUseItem]
-[YesNoButton target_yes="*IncorrectItemOfJacket" target_no="*SelectItemOfJacket"]
+[YesNoButton target_yes="*IncorrectItemOfJacket" storage_no="Conversation/episode3/episode3_06.ks" target_no="*NotUseHanger"]
 [s]
 
 *ValidItemOfJacket
 [FreeItemBox]
-[messageFalse]
-[free layer="1" name="wallhanger_onhanger"]
+[if exp="f.scn_skip == 0"]
+    [ControlButtons]
+    [layer3True]
+    [ShowNormalSakuraAndMiyuki]
+    [messageTrue]
+    [nolog]
+    [call storage="Conversation/episode3/episode3_06.ks" target="*UseHanger"]
+    [endnolog]
+    [layer3False]
+[else]
+    [messageFalse]
+    [iscript]
+        f.itemVisible[0] = 'true'
+        f.itemVisible[1] = 'episode3_jacket'
+    [endscript]
+    [blackout exp="f.isRoomLightNight == 1" storage_1="episode3/bedroom_night.png" storage_2="episode3/bedroom.png"]
+[endif]
 [iscript]
     f.isJacketGet = -1   
 [endscript]
-[free layer="1" name="jacket"]
-[blackout exp="f.isJacketGet = -1" storage_1="episode3/bedroom.png" storage_2="episode3/bedroom.png"]
 [JumpBedRoom]
 
 *IncorrectItemOfJacket
