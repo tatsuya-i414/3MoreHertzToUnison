@@ -21,11 +21,11 @@ if(TG.config.alreadyReadTextColor != "default"){
 [free name="chara_name_area" layer="message0"]
 
 ; メッセージウィンドウの設定
-[position layer="message0" width="1800" height="250" top="820" left="0"]
+[position layer="message0" width="1800" height="250" top="800" left="0"]
 [position layer="message0" frame="../others/plugin/theme_kopanda_bth_06_blue/image/frame_message.png" margint="75" marginl="230" marginr="70" marginb="60" opacity="&mp.frame_opacity" page="fore"]
 
 ; 名前枠の設定
-[ptext name="chara_name_area" layer="message0" color="&mp.name_color" size="34" bold="bold" x="130" y="840"]
+[ptext name="chara_name_area" layer="message0" color="&mp.name_color" size="34" bold="bold" x="130" y="820"]
 [chara_config ptext="chara_name_area"]
 
 ; デフォルトのフォントカラー指定
