@@ -3,6 +3,8 @@
     f.loadData = 'false'
     // BGM再生
     f.isPlayingBGM = 'false'
+    // [jump]タグ経由の画面遷移判定
+    f.isJumping = 'false'
     // 会話パートをスキップする
     f.scn_skip = 0
     // 背景パーツ表示

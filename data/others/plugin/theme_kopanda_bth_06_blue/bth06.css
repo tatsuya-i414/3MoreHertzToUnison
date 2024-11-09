@@ -13,6 +13,16 @@
 	max-height: 100%;
 }
 
+/* アイテム */
+.menu_itemMenu {
+	display: inline-block;
+	position: absolute;
+	margin: 0;
+	padding: 0;
+	top: 208px;
+	left: 738px;
+}
+
 /* セーブ */
 .menu_save {
 	display: inline-block;
@@ -20,7 +30,7 @@
 	margin: 0;
 	padding: 0;
 	top: 208px;
-	left: 738px;
+	left: 1022px;
 }
 
 /* ロード */
@@ -30,7 +40,7 @@
 	margin: 0;
 	padding: 0;
 	top: 208px;
-	left: 1022px;
+	left: 1306px;
 }
 
 /* コンフィグ */
@@ -43,6 +53,16 @@
 	left: 738px;
 }
 
+/* エキストラ */
+.menu_extra {
+	display: inline-block;
+	position: absolute;
+	margin: 0;
+	padding: 0;
+	top: 492px;
+	left: 1022px;
+}
+
 /* タイトルに戻る */
 .menu_back_title {
 	display: inline-block;
@@ -50,7 +70,7 @@
 	margin: 0;
 	padding: 0;
 	top: 492px;
-	left: 1022px;
+	left: 1306px;
 }
 
 

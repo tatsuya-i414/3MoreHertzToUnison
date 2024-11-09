@@ -173,7 +173,6 @@ image\share,sysbtn_02_screen.png
 image\share,sysbtn_02_screen_hover.png
 image\share,sysbtn_02_skip.png
 image\share,sysbtn_02_skip_hover.png
-image\share,sysbtn_item.png
 image\title,button_config.png
 image\title,button_config_hover.png
 image\title,button_extra.png
@@ -211,6 +210,10 @@ others\plugin\theme_kopanda_bth_06_blue\image\system,menu_button_close.png
 others\plugin\theme_kopanda_bth_06_blue\image\system,menu_button_close2.png
 others\plugin\theme_kopanda_bth_06_blue\image\system,menu_button_config.png
 others\plugin\theme_kopanda_bth_06_blue\image\system,menu_button_config2.png
+others\plugin\theme_kopanda_bth_06_blue\image\system,menu_button_extra.png
+others\plugin\theme_kopanda_bth_06_blue\image\system,menu_button_extra2.png
+others\plugin\theme_kopanda_bth_06_blue\image\system,menu_button_item.png
+others\plugin\theme_kopanda_bth_06_blue\image\system,menu_button_item2.png
 others\plugin\theme_kopanda_bth_06_blue\image\system,menu_button_load.png
 others\plugin\theme_kopanda_bth_06_blue\image\system,menu_button_load2.png
 others\plugin\theme_kopanda_bth_06_blue\image\system,menu_button_save.png

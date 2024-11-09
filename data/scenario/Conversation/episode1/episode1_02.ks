@@ -162,7 +162,6 @@
     [endnolog]
     [clearfix]
     [MenuButton]
-    [ItemMenuButton]
     [layer3False]
 [endif]
 [jump storage="Gimmick/episode1.ks" target="*SelectItemOfCable"]

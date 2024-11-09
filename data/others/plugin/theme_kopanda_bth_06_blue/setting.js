@@ -19,6 +19,38 @@ var myobj = {
       });
     }, 350);
   },
+
+  // アイテム画面遷移用のオブジェクト
+  item: function() {
+    if (tyrano.plugin.kag.tmp.sleep_game != null) {
+      return false;
+    }
+    tyrano.plugin.kag.ftag.startTag("sleepgame", {
+      storage: "../scenario/Gimmick/itemmenu.ks",
+      next: false
+    });
+    setTimeout(function() {
+      $('.layer.layer_menu').css({
+        'display': 'none'
+      });
+    }, 350);
+  },
+
+  // エクストラ画面遷移用のオブジェクト
+  extra: function() {
+    if (tyrano.plugin.kag.tmp.sleep_game != null) {
+      return false;
+    }
+    tyrano.plugin.kag.ftag.startTag("sleepgame", {
+      storage: "../scenario/Extra/extra.ks",
+      next: false
+    });
+    setTimeout(function() {
+      $('.layer.layer_menu').css({
+        'display': 'none'
+      });
+    }, 350);
+  },
 };
 
 //----------------------------------------------------------------------------

@@ -46,7 +46,6 @@
     [clearfix]
     [messageFalse]
     [MenuButton]
-    [ItemMenuButton]
     [FadeoutBGM]
     [JumpStageRoom]
 [endif]
@@ -112,9 +111,6 @@
 [if exp="f.isSpeakerStatusGreen == 0 && f.isUsing == 0"]
     [clickJudgment x="20" y="120" width="220" height="320" target="*SearchSpeaker"]
 [endif]
-
-; アイテムメニュー
-[ItemMenuButton]
 [s]
 
 *SearchControlPanel
@@ -197,7 +193,6 @@
     [endnolog]
     [layer3False]
     [cancelskip]
-    [ItemMenuButton]
     [MenuButton]
 [endif]
 [if exp="f.isStageStatusGreen == 1 && f.isLightStatusGreen == 1 && f.isSpeakerStatusGreen == 1"]
@@ -256,7 +251,6 @@
         f.isClickedWiringDoor_first = 'false'
     [endscript]
 [endif]
-[ItemMenuButton cond="f.isCableGet == 1"]
 [JumpStageRoom cond="f.isCableGet == 0"]
 *SelectItemOfCable
 [messageFalse]
@@ -342,7 +336,6 @@
         [layer3False]
         [cancelskip]
         [clearfix]
-        [ItemMenuButton]
         [MenuButton]
     [endif]
     [if exp="f.isClickedToolBox_first == 'true' "]
@@ -551,8 +544,6 @@
     [PlayOpenBox]
     [wait time="1000"]
     [clearfix]
-    ; アイテムメニューボタンを再度表示する
-    [ItemMenuButton]
     [ChangeBackGround storage="episode1/cablebundle.png"]
     [image storage="../image/episode1/cable.png" layer="1" x="500" y="115" width="800" height="800" name="cable"]
     [clickJudgment x="500" y="115" width="800" height="800" target="*GetCable"]
@@ -576,7 +567,6 @@
     [layer3False]
     [cancelskip]
     [clearfix]
-    [ItemMenuButton]
     [MenuButton]
 [endif]
 [if exp="f.isClickedToolBox_first == 'true' "]
