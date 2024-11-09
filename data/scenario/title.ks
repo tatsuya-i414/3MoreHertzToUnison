@@ -43,7 +43,7 @@
 [button x="700" y="330" width="540" height="86" graphic="title/button_newgame.png" enterimg="title/button_newgame_hover.png" target="*GameStart" clickse="../sound/se/decision.m4a"]
 [button x="700" y="460" width="540" height="86" graphic="title/button_loadgame.png" enterimg="title/button_loadgame_hover.png" role="load" clickse="../sound/se/decision.m4a"]
 [if exp="sf.isExtraPage == 'true' "]
-    [button x="700" y="590" width="540" height="86" graphic="title/button_extra.png" enterimg="title/button_extra_hover.png" storage="Extra/extra.ks" clickse="../sound/se/decision.m4a"]
+    [button x="700" y="590" width="540" height="86" graphic="title/button_extra.png" enterimg="title/button_extra_hover.png" storage="Extra/extra.ks" exp="f.isJumping = 'true' " clickse="../sound/se/decision.m4a"]
     [button x="700" y="720" width="540" height="86" graphic="title/button_config.png" enterimg="title/button_config_hover.png" role="sleepgame" storage="../others/plugin/theme_kopanda_bth_06_blue/config.ks" clickse="../sound/se/decision.m4a"]
 [else]
     [button x="700" y="590" width="540" height="86" graphic="title/button_config.png" enterimg="title/button_config_hover.png" role="sleepgame" storage="../others/plugin/theme_kopanda_bth_06_blue/config.ks" clickse="../sound/se/decision.m4a"]

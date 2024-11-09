@@ -756,11 +756,6 @@
     [cancelskip]
 [endmacro]
 
-; アイテムメニューボタン
-[macro name="ItemMenuButton"]
-    [button graphic="share/sysbtn_item.png" storage="Gimmick/itemmenu.ks" target="*ItemMenu" x="1650" y="20" clickse="../sound/se/decision2.m4a" fix="true" role="sleepgame"]
-[endmacro]
-
 ; 背景を変更する
 [macro name="ChangeBackGround"]
     [bg storage="%storage" time="%time|100" method="%method"]

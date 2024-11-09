@@ -1,5 +1,10 @@
 [cm]
+[messageFalse]
 [clearfix]
+[Freelayer1]
+[Freelayer2]
+[Freelayer3]
+[FreeItemBox]
 [bg storage="extra/extra.png" time="100"]
 [button graphic="../others/plugin/theme_kopanda_bth_06_blue/image/config/back.png" enterimg="../others/plugin/theme_kopanda_bth_06_blue/image/config/back2.png" target="*Backtitle" x="1680" y="60" clickse="../sound/se/cancel.m4a"]
 
@@ -9,13 +14,18 @@
 [s]
 
 *Backtitle
-[cm]
-[freeimage layer="1"]
-[iscript]
-    delete tf.header
-    delete tf.staff
-    delete tf.usedMaterial
-    delete tf.characterSetting
-    delete tf.creators
-[endscript]
-[jump storage="title.ks" target="*TopPage"]
+[if exp="f.isJumping == 'true' "]
+    [cm]
+    [freeimage layer="1"]
+    [iscript]
+        f.isJumping = 'false'
+        delete tf.header
+        delete tf.staff
+        delete tf.usedMaterial
+        delete tf.characterSetting
+        delete tf.creators
+    [endscript]
+    [jump storage="title.ks" target="*TopPage"]
+[else]
+    [awakegame]
+[endif]
