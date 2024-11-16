@@ -194,6 +194,25 @@
 [FreeImagesWhenSwitching]
 [jump target="*InsideOfBox" cond="f.buttonPushOrder[0] == 'N' && f.buttonPushOrder[1] == 'W' && f.buttonPushOrder[2] == 'E' && f.buttonPushOrder[3] == 'N' && f.buttonPushOrder[4] == 'S' "]
 [ChangeBackGroundOfEpisode3 storage_noon="episode3/boxkey.png" storage_night="episode3/boxkey_night.png"]
+[if exp="f.scn_skip == 0 && f.isCompassGet != -1"]
+    [ControlButtons]
+    [layer3True]
+    [ShowNormalSakuraAndMiyuki]
+    [messageTrue]
+    [nolog]
+    [call storage="Conversation/episode3/episode3_04.ks"]
+    [endnolog]
+    [messageFalse]
+    [layer3False]
+    [cancelskip]
+    [clearfix]
+    [MenuButton]
+    [if exp="f.isClickedBox_first == 'true' "]
+        [iscript]
+            f.isClickedBox_first = 'false'
+        [endscript]
+    [endif]
+[endif]
 [if exp="f.isCompassGet == 1"]
     *SelectItemOfCompass
     [messageFalse]
@@ -222,17 +241,6 @@
     [BackFromEnlargedMap target="*SearchBox_back"]
     [s]
 [else]
-    [ControlButtons]
-    [layer3True]
-    [ShowNormalSakuraAndMiyuki]
-    [messageTrue]
-    [nolog]
-    #深雪と桜良
-    ボタン押せないね、何かはめられそう[p]
-    [endnolog]
-    [messageFalse]
-    [layer3False]
-    [MenuButton]
     [JumpBedRoom]
 [endif]
 
@@ -261,23 +269,26 @@
 
 *ValidItemOfCompass
 [FreeItemBox]
-[messageFalse]
+[if exp="f.scn_skip == 0"]
+    [call storage="Conversation/episode3/episode3_04.ks" target="*UseCompass"]
+[endif]
 [iscript]
     f.isCompassGet = -1
-    // コンパスをはめこむ効果音を追加
     // 押下したボタンの順番を記録する配列を宣言
     f.arrayElementsCount = 0
     f.buttonPushOrder = []
 [endscript]
-[jump target="*PushBoxKeyButton"]
-[s]
+[JumpBedRoom]
 
 *IncorrectItemOfCompass
 [FreeItemBox]
-[MessageToUsingWrongItem]
+[if exp="f.scn_skip == 0"]
+    [call storage="Conversation/episode3/episode3_04.ks" target="*NotUseCompass"]
+[endif]
 [JumpBedRoom]
 
 *PushTopButton
+[PlayArrowButtonClick]
 [if exp="f.arrayElementsCount <= 4"]
     [iscript]
         f.buttonPushOrder[f.arrayElementsCount] = 'N'
@@ -288,6 +299,7 @@
 [jump target="*PushBoxKeyButton" cond="f.arrayElementsCount <= 4"]
 
 *PushUnderButton
+[PlayArrowButtonClick]
 [if exp="f.arrayElementsCount <= 4"]
     [iscript]
         f.buttonPushOrder[f.arrayElementsCount] = 'S'
@@ -298,6 +310,7 @@
 [jump target="*PushBoxKeyButton" cond="f.arrayElementsCount <= 4"]
 
 *PushLeftButton
+[PlayArrowButtonClick]
 [if exp="f.arrayElementsCount <= 4"]
     [iscript]
         f.buttonPushOrder[f.arrayElementsCount] = 'W'
@@ -308,6 +321,7 @@
 [jump target="*PushBoxKeyButton" cond="f.arrayElementsCount <= 4"]
 
 *PushRightButton
+[PlayArrowButtonClick]
 [if exp="f.arrayElementsCount <= 4"]
     [iscript]
         f.buttonPushOrder[f.arrayElementsCount] = 'E'
@@ -318,6 +332,8 @@
 [jump target="*PushBoxKeyButton" cond="f.arrayElementsCount <= 4"]
 
 *BoxUnlock
+[wait time="200"
+]
 [if exp="f.arrayElementsCount == 5"]
     ; ジャケットをハンガーに掛ける前に布団を獲得できないようにする例外処理
     [if exp="f.isJacketGet != -1"]
@@ -338,9 +354,26 @@
         [JumpBedRoom]
     [endif]
     [if exp="f.buttonPushOrder[0] == 'N' && f.buttonPushOrder[1] == 'W' && f.buttonPushOrder[2] == 'E' && f.buttonPushOrder[3] == 'N' && f.buttonPushOrder[4] == 'S' "]
+        [if exp="f.scn_skip == 0"]
+            [ControlButtons]
+            [layer3True]
+            [ShowNormalSakuraAndMiyuki]
+            [messageTrue]
+            [nolog]
+            [call storage="Conversation/episode3/episode3_04.ks" target="*UnlockKey"]
+            [endnolog]
+            [messageFalse]
+            [layer3False]
+            [cancelskip]
+            [clearfix]
+            [MenuButton]
+        [endif]
         [free layer="1" name="compass_set"]
-        ; 開錠する時の効果音を追加
         *InsideOfBox
+        [if exp="tf.boxUnlock == 'true' "]
+            [PlayOpenBox]
+            [wait time="200"]
+        [endif]
         [ChangeBackGroundOfEpisode3 storage_noon="episode3/futon_inbox.png" storage_night="episode3/futon_inbox_night.png"]
         [clickJudgment width="1920" height="1080" target="*GetFuton"]
         ; 戻るボタン
@@ -361,22 +394,29 @@
         [iscript]
             delete f.arrayElementsCount;
             delete f.buttonPushOrder;
+            delete tf.boxUnlock;
         [endscript]
         [JumpBedRoom]
     [else]
-        [ControlButtons]
-        [messageTrue]
-        [nolog]
-        #
-        ボタンを押す順番が違うようだ[p]
-        [endnolog]
-        [messageFalse]
+        [if exp="f.scn_skip == 0"]
+            [ControlButtons]
+            [layer3True]
+            [ShowNormalSakuraAndMiyuki]
+            [messageTrue]
+            [nolog]
+            [call storage="Conversation/episode3/episode3_04.ks" target="*NotUnlockKey"]
+            [endnolog]
+            [messageFalse]
+            [layer3False]
+            [cancelskip]
+            [clearfix]
+            [MenuButton]
+        [endif]
         [iscript]
             // 押下したボタンの順番を初期化
             f.arrayElementsCount = 0
             f.buttonPushOrder = []
         [endscript]
-        [MenuButton]
     [endif]
 [endif]
 [jump target="*PushBoxKeyButton" cond="f.buttonPushOrder[0] != 'N' && f.buttonPushOrder[1] != 'W' && f.buttonPushOrder[2] != 'E' && f.buttonPushOrder[3] != 'N' && f.buttonPushOrder[4] != 'S' "]
@@ -384,6 +424,9 @@
 
 *BoxUnlock_back
 [cm]
+[iscript]
+    tf.boxUnlock = 'true'
+[endscript]
 [JumpBedRoom]
 
 *GetCompass

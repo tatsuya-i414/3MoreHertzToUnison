@@ -13,6 +13,7 @@
         "./data/bgm/episode2_ed.m4a",
         "./data/bgm/episode3_op.m4a",
         "./data/bgm/episode3.m4a",
+        "./data/sound/se/arrowbuttonclick.m4a",
         "./data/sound/se/bell.m4a",
         "./data/sound/se/cancel.m4a",
         "./data/sound/se/camerashutter.m4a",
@@ -48,7 +49,8 @@
         "./data/sound/se/turnofflight.m4a",
         "./data/sound/se/turnover.m4a",
         "./data/sound/se/turnscrew.m4a",
-        "./data/sound/se/unlockkey.m4a"
+        "./data/sound/se/unlockkey.m4a",
+        "./data/sound/se/wrong.m4a"
     ];
 [endscript]
 [preload storage="&tf.audioFile" wait="true"]

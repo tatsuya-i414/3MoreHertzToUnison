@@ -405,6 +405,16 @@
     [playse storage="../sound/se/gosogoso2.m4a" loop="false"]
 [endmacro]
 
+; 矢印ボタンを押下するSEを再生する
+[macro name="PlayArrowButtonClick"]
+    [playse storage="../sound/se/arrowbuttonclick.m4a" loop="false"]
+[endmacro]
+
+; ボタンを押下する順番を間違えるSEを再生する
+[macro name="PlayWrong"]
+    [playse storage="../sound/se/wrong.m4a" loop="false"]
+[endmacro]
+
 ; ガチャガチャするSEを再生する
 [macro name="PlayGachaGacha"]
     [playse storage="../sound/se/gachagacha.m4a" loop="false"]

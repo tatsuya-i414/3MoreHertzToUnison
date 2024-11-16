@@ -37,6 +37,7 @@
     f.isClickedFittingRoom_first = 'true'
     f.isClickedPoster_first = 'true'
     f.isClickedHat_first = 'true'
+    f.isClickedBox_first = 'true'
     f.isClickedHanger_first = 'true'
     f.isClickedHanger_first_whenJacketGetting = 'true'
     f.isClickedSwitch_first = 'true'
