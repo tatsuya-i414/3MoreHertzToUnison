@@ -121,8 +121,8 @@
     #
     布団で一緒に寝ますか？
     [endnolog]
-    [glink color="bth06" storage="Conversation/episode3/episode3_08.ks" target="*Sleep" width="180" x="240" y="980" size="24" text="一緒に寝る" clickse="../sound/se/decision.m4a"]
-    [glink color="bth06" storage="Conversation/episode3/episode3_08.ks" target="*NotSleep" width="180" x="570" y="980" size="24" text="もう少し待って！" clickse="../sound/se/cancel.m4a"]
+    [glink color="bth06" storage="Conversation/episode3/episode3_08.ks" target="*Sleep" width="180" x="240" y="960" size="24" text="一緒に寝る" clickse="../sound/se/decision.m4a"]
+    [glink color="bth06" storage="Conversation/episode3/episode3_08.ks" target="*NotSleep" width="180" x="570" y="960" size="24" text="もう少し待って！" clickse="../sound/se/cancel.m4a"]
     [s]
 [endif]
 [if exp="f.scn_skip == 0"]
@@ -152,20 +152,6 @@
     delete tf.selectOfSleeporNot
 [endscript]
 
-; 思い出3終盤のシナリオ追加したら削除する
-[if exp="f.isFutonGet == -1"]
-    [messageTrue]
-    [nolog]
-    #
-    思い出3終盤へ続く[p]
-    [endnolog]
-    [messageFalse]
-    [clearfix]
-    [MenuButton]
-    [s]
-[endif]
-[s]
-
 ; 画像を削除する
 ; シナリオ_思い出3終盤
 [if exp="f.scn_skip == 0"]
@@ -177,18 +163,59 @@
     [layer3True]
     [ShowNormalSakuraAndMiyuki]
     [messageTrue]
-    [call storage="Conversation/episode2/episode3_ed.ks"]
+    [call storage="Conversation/episode3/episode3_ed.ks"]
+    [messageFalse]
     [layer3False]
     [cancelskip]
-    [MenuButton]
 [endif]
 [iscript]
     f.isYoukanGet = 1
     f.isEpisode3Clear = 1
 [endscript]
-; シナリオ_エンディングパートへ移動する
-[call storage="Conversation/episode_ed.ks"]
 
+; シナリオ_エンディングパート
+[if exp="f.scn_skip == 0"]
+    [ControlButtons]
+    [FadeoutBGM]
+    [if exp="f.isPlayingBGM == 'false' "]
+        ; エンディングパートのBGMを再生する
+    [endif]
+    [layer3True]
+    [ShowNormalSakuraAndMiyuki]
+    [messageTrue]
+    ; 隠し要素をすべて取っている場合はTrue Endへの分岐が現れる
+    ; 隠し要素をとっていない場合は選択肢自体が表示されず、強制的にNormal Endに突入する
+    [if exp="f.episode1_Secret == 'true' && f.episode1_Secret == 'true' && f.episode1_Secret == 'true' "]
+        ;[call storage="Conversation/episode_true_ed.ks"]
+    [else]
+        [call storage="Conversation/episode_normal_ed.ks"]
+    [endif]
+    [messageFalse]
+    [layer3False]
+    [cancelskip]
+[endif]
+[FadeoutBGM]
+[blackout exp="f.isRoomLightNight == 1" storage_1="episode3/bedroom_night.png" storage_2="episode3/bedroom.png"]
+
+; シナリオ_エピローグパート
+;[if exp="f.scn_skip == 0"]
+;    [ControlButtons]
+;    [FadeoutBGM]
+;    [if exp="f.isPlayingBGM == 'false' "]
+        ; エピローグのBGMを再生する
+;    [endif]
+;    [layer3True]
+;    [ShowNormalSakuraAndMiyuki]
+;    [messageTrue]
+    ; Normal End
+;    [call storage="Conversation/episode_normal_ep.ks"]
+;    [messageFalse]
+;    [layer3False]
+;    [cancelskip]
+    [clearfix]
+    [MenuButton]
+;[endif]
+[s]
 
 *SearchBox
 [FreeImagesWhenSwitching]
@@ -444,6 +471,7 @@
     [clearfix]
     [MenuButton]
 [endif]
+[PlayGetItem]
 [iscript]
     f.isCompassGet = 1
 [endscript]
@@ -588,6 +616,7 @@
 
 *ValidItemOfJacket
 [FreeItemBox]
+[free layer="1" name="wallhanger_onhanger"]
 [if exp="f.scn_skip == 0"]
     [ControlButtons]
     [layer3True]

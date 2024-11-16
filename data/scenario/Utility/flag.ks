@@ -76,5 +76,9 @@
     f.isJutanOpen = 0
     f.isRoomLightNight = 0
     f.isYoukanGet = 0
+    // 隠し要素
+    f.episode1_Secret = 'false'
+    f.episode2_Secret = 'false'
+    f.episode3_Secret = 'false'
 [endscript]
 [return]
