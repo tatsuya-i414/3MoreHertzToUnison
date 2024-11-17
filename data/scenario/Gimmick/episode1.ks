@@ -7,7 +7,7 @@
     [FadeoutBGM]
 [endif]
 
-; シナリオ_導入パート
+; シナリオ_オープニング
 [if exp="f.scn_skip == 0 && sf.scn_episodeOP_Skip == 'false' "]
     [blackout exp="f.scn_skip == 0" storage_1="episode1/omoide1_introduction.jpg" storage_2="share/top.png"]
     [ControlButtons]
