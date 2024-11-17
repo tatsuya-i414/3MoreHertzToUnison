@@ -157,7 +157,7 @@
     [endscript]
 [endmacro]
 
-; 導入パートBGMを再生する
+; オープニングBGMを再生する
 [macro name="PlayEpisodeOpBGM"]
     [playbgm storage="episode_op.m4a" loop="true" restart="false"]
     [iscript]
@@ -227,6 +227,46 @@
     [iscript]
         f.isPlayingBGM = 'true'
     [endscript]
+[endmacro]
+
+; 思い出3終盤BGMを再生する
+[macro name="PlayEpisode3_EdBGM"]
+    [playbgm storage="episode3_ed.m4a" loop="true" restart="false"]
+    [iscript]
+        f.isPlayingBGM = 'true'
+    [endscript]
+[endmacro]
+
+; エンディング(NormalEnd)BGMを再生する
+[macro name="PlayEpisodeNormalEdBGM"]
+    [playbgm storage="episode_ed_normal.m4a" loop="true" volume="95" restart="false"]
+    [iscript]
+        f.isPlayingBGM = 'true'
+    [endscript]
+[endmacro]
+
+; エンディング(TrueEnd)BGMを再生する
+[macro name="PlayEpisodeTrueEdBGM"]
+    [playbgm storage="episode_ed_true.m4a" loop="true" restart="false"]
+    [iscript]
+        f.isPlayingBGM = 'true'
+    [endscript]
+[endmacro]
+
+; エピローグ(NormalEnd)BGMを再生する
+[macro name="PlayEpisodeNormalEpBGM"]
+    [playbgm storage="episode_ep_normal.m4a" loop="true" restart="false"]
+    [iscript]
+        f.isPlayingBGM = 'true'
+    [endscript]
+[endmacro]
+
+; エピローグ(TrueEnd)BGMを再生する
+[macro name="PlayEpisodeTrueEpBGM"]
+    ;[playbgm storage="episode_ep_true.m4a" loop="true" restart="false"]
+    ;[iscript]
+    ;    f.isPlayingBGM = 'true'
+    ;[endscript]
 [endmacro]
 
 ; BGMの再生を停止する
@@ -438,6 +478,16 @@
 ; 駆け足のSEを再生する
 [macro name="PlayRun"]
     [playse storage="../sound/se/run.m4a" loop="false"]
+[endmacro]
+
+; 紙が落ちるSEを再生する
+[macro name="PlayFallOfPaper"]
+    [playse storage="../sound/se/fallofpaper.m4a" loop="false"]
+[endmacro]
+
+; 強めにドアを開けるSEを再生する
+[macro name="PlayOpenDoor2"]
+    [playse storage="../sound/se/opendoor2.m4a" loop="false"]
 [endmacro]
 
 ; ------------------------------

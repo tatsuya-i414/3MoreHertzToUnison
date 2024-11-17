@@ -116,11 +116,7 @@
 
 *SearchBed
 [if exp="tf.selectOfSleeporNot == 'true' "]
-    [messageTrue]
-    [nolog]
-    #
-    布団で一緒に寝ますか？
-    [endnolog]
+    [call storage="Conversation/episode3/episode3_08.ks" target="*SelectSleepOrNot"]
     [glink color="bth06" storage="Conversation/episode3/episode3_08.ks" target="*Sleep" width="180" x="240" y="960" size="24" text="一緒に寝る" clickse="../sound/se/decision.m4a"]
     [glink color="bth06" storage="Conversation/episode3/episode3_08.ks" target="*NotSleep" width="180" x="570" y="960" size="24" text="もう少し待って！" clickse="../sound/se/cancel.m4a"]
     [s]
@@ -138,6 +134,14 @@
     [cancelskip]
     [clearfix]
     [MenuButton]
+[else]
+    [if exp="f.isFutonGet == 1"]
+        [iscript]
+            f.isFutonGet = -1
+            tf.usingItemInventory4 = 0
+            tf.selectOfSleeporNot = 'true'
+        [endscript]
+    [endif]
 [endif]
 [if exp="f.isClickedBed_first == 'true' "]
     [iscript]
@@ -151,6 +155,7 @@
     f.isFutonGet = -1
     delete tf.selectOfSleeporNot
 [endscript]
+[messageFalse]
 
 ; 画像を削除する
 ; シナリオ_思い出3終盤
@@ -158,7 +163,7 @@
     [ControlButtons]
     [FadeoutBGM]
     [if exp="f.isPlayingBGM == 'false' "]
-        ; 思い出3終盤のBGMを再生する
+        [PlayEpisode3_EdBGM]
     [endif]
     [layer3True]
     [ShowNormalSakuraAndMiyuki]
@@ -176,45 +181,93 @@
 ; シナリオ_エンディングパート
 [if exp="f.scn_skip == 0"]
     [ControlButtons]
-    [FadeoutBGM]
-    [if exp="f.isPlayingBGM == 'false' "]
-        ; エンディングパートのBGMを再生する
-    [endif]
-    [layer3True]
     [ShowNormalSakuraAndMiyuki]
-    [messageTrue]
-    ; 隠し要素をすべて取っている場合はTrue Endへの分岐が現れる
-    ; 隠し要素をとっていない場合は選択肢自体が表示されず、強制的にNormal Endに突入する
+    ; 隠し要素を全て回収している場合はTrueEndへの分岐が現れる
+    ; 隠し要素を全て回収していない場合は選択肢自体が表示されず、強制的にNormalEndに突入する
     [if exp="f.episode1_Secret == 'true' && f.episode1_Secret == 'true' && f.episode1_Secret == 'true' "]
-        ;[call storage="Conversation/episode_true_ed.ks"]
+        [layer3True]
+        [messageTrue]
+        *SelecteRoute
+        [cancelskip]
+        [call storage="Conversation/ending/episode_true_ed.ks" target="*SelecteRoute"]
+        [cancelskip]
+        [glink color="bth06" storage="Conversation/ending/episode_true_ed.ks" target="*ConveyYourThoughts" width="280" x="240" y="960" size="24" text="勇気を出して思いを伝える" clickse="../sound/se/decision.m4a"]
+        [glink color="bth06" storage="Conversation/ending/episode_true_ed.ks" target="*Worry" width="280" x="670" y="960" size="24" text="伝えるか悩む" clickse="../sound/se/cancel.m4a"]
+        [s]
+        *ReSelection_Convey
+        [cancelskip]
+        [YesNoButton target_yes="*SelectedOfTrueRoute" target_no="*SelecteRoute"]
+        [s]
+        *ReSelection_Worry
+        [cancelskip]
+        [YesNoButton target_yes="*SelectedOfNormalRoute" target_no="*SelecteRoute"]
+        [s]
+        ; TrueEndルート
+        *SelectedOfTrueRoute
+        [messageFalse]
+        [iscript]
+            f.selectedEDRoute = 'True'
+        [endscript]
+        [FadeoutBGM]
+        [if exp="f.isPlayingBGM == 'false' "]
+            [PlayEpisodeTrueEdBGM]
+        [endif]
+        [layer3True]
+        [messageTrue]
+        [cancelskip]
+        [call storage="Conversation/ending/episode_true_ed.ks" target="*TrueEndRoute"]
     [else]
-        [call storage="Conversation/episode_normal_ed.ks"]
+        ; NormalEndルート
+        *SelectedOfNormalRoute
+        [messageFalse]
+        [iscript]
+            f.selectedEDRoute = 'Normal'
+        [endscript]
+        [FadeoutBGM]
+        [if exp="f.isPlayingBGM == 'false' "]
+            [PlayEpisodeNormalEdBGM]
+        [endif]
+        [layer3True]
+        [messageTrue]
+        [cancelskip]
+        [call storage="Conversation/ending/episode_normal_ed.ks"]
     [endif]
     [messageFalse]
     [layer3False]
     [cancelskip]
 [endif]
 [FadeoutBGM]
+; スチル未完成のため基準背景を仮配置
 [blackout exp="f.isRoomLightNight == 1" storage_1="episode3/bedroom_night.png" storage_2="episode3/bedroom.png"]
 
 ; シナリオ_エピローグパート
-;[if exp="f.scn_skip == 0"]
-;    [ControlButtons]
-;    [FadeoutBGM]
-;    [if exp="f.isPlayingBGM == 'false' "]
-        ; エピローグのBGMを再生する
-;    [endif]
-;    [layer3True]
-;    [ShowNormalSakuraAndMiyuki]
-;    [messageTrue]
-    ; Normal End
-;    [call storage="Conversation/episode_normal_ep.ks"]
-;    [messageFalse]
-;    [layer3False]
-;    [cancelskip]
+[if exp="f.scn_skip == 0"]
+    [ControlButtons]
+    [FadeoutBGM]
+    [if exp="f.selectedEDRoute == 'True' "]
+        ; エピローグパート_TrueのBGMを再生する
+    [else]
+        [PlayEpisodeNormalEpBGM]
+    [endif]
+    [layer3True]
+    [ShowNormalSakuraAndMiyuki]
+    [messageTrue]
+    ; TrueEndルート
+    [if exp="f.selectedEDRoute == 'True' "]
+        [call storage="Conversation/epilogue/episode_normal_ep.ks"]
+    ; NormalEndルート
+    [else]
+        [call storage="Conversation/epilogue/episode_normal_ep.ks"]
+    [endif]
+    [messageFalse]
+    [layer3False]
+    [cancelskip]
     [clearfix]
     [MenuButton]
-;[endif]
+[endif]
+[FadeoutBGM]
+; 画面がゆっくりと白くなっていく（2～3秒ほど）
+; エンドクレジットへ
 [s]
 
 *SearchBox
@@ -359,8 +412,7 @@
 [jump target="*PushBoxKeyButton" cond="f.arrayElementsCount <= 4"]
 
 *BoxUnlock
-[wait time="200"
-]
+[wait time="200"]
 [if exp="f.arrayElementsCount == 5"]
     ; ジャケットをハンガーに掛ける前に布団を獲得できないようにする例外処理
     [if exp="f.isJacketGet != -1"]
