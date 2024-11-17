@@ -217,6 +217,14 @@
 [clearstack]
 [JumpBedRoom]
 
+*SelectSleepOrNot
+[messageTrue]
+[nolog]
+#
+布団で一緒に寝ますか？
+[endnolog]
+[return]
+
 *Sleep
 [if exp="f.scn_skip == 0"]
     [ControlButtons]
