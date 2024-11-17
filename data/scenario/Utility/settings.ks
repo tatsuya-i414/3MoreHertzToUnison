@@ -11,11 +11,11 @@
     // クレジット
     sf.credit = '©️2024' + '　' + sf.circleName
     // 配色一覧
-    sf.colorScheme = ['0x444444', '0x196D7D', '0x89DAE3'] //[黒],[濃緑],[水色]
+    sf.colorScheme = ['0x444444', '0x196D7D', '0x89DAE3'] // [黒],[濃緑],[水色]
     // 配布形式
     sf.distribution = $.isElectron() // PCアプリの場合True
     // 起動モード
-    sf.bootMode = 'develop'
+    sf.bootMode = 'develop' // 開発:develop 検証:kenshou 通常:normal
     // エクストラページの表示
     sf.isExtraPage = 'true'
     // オープニングのシナリオスキップ
