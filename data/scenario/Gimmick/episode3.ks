@@ -159,7 +159,7 @@
 
 ; 画像を削除する
 ; シナリオ_思い出3終盤
-[if exp="f.scn_skip == 0"]
+[if exp="f.scn_skip == 0 && sf.scn_episode3ED_Skip == 'false' "]
     [ControlButtons]
     [FadeoutBGM]
     [if exp="f.isPlayingBGM == 'false' "]
@@ -178,8 +178,8 @@
     f.isEpisode3Clear = 1
 [endscript]
 
-; シナリオ_エンディングパート
-[if exp="f.scn_skip == 0"]
+; シナリオ_エンディング
+[if exp="f.scn_skip == 0 && sf.scn_episodeED_Skip == 'false' "]
     [ControlButtons]
     [ShowNormalSakuraAndMiyuki]
     ; 隠し要素を全て回収している場合はTrueEndへの分岐が現れる
@@ -240,12 +240,12 @@
 ; スチル未完成のため基準背景を仮配置
 [blackout exp="f.isRoomLightNight == 1" storage_1="episode3/bedroom_night.png" storage_2="episode3/bedroom.png"]
 
-; シナリオ_エピローグパート
-[if exp="f.scn_skip == 0"]
+; シナリオ_エピローグ
+[if exp="f.scn_skip == 0 && sf.scn_episodeEP_Skip == 'false' "]
     [ControlButtons]
     [FadeoutBGM]
     [if exp="f.selectedEDRoute == 'True' "]
-        ; エピローグパート_TrueのBGMを再生する
+        ; エピローグ(True)のBGMを再生する
     [else]
         [PlayEpisodeNormalEpBGM]
     [endif]
@@ -266,6 +266,8 @@
     [MenuButton]
 [endif]
 [FadeoutBGM]
+; スチル未完成のため基準背景を仮配置
+[blackout exp="f.isRoomLightNight == 1" storage_1="episode3/bedroom_night.png" storage_2="episode3/bedroom.png"]
 ; 画面がゆっくりと白くなっていく（2～3秒ほど）
 ; エンドクレジットへ
 [s]
