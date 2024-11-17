@@ -539,7 +539,7 @@
     [wait time="100"]
     [if exp="tf.dialUnlock != 'true' "]
         [PlayUnlockKey]
-        [wait time="500"]
+        [wait time="200"]
     [endif]
     [PlayOpenBox]
     [wait time="1000"]

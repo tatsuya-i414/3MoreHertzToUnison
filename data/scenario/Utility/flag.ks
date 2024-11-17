@@ -13,6 +13,8 @@
     f.isUsing = 0
     // 衣装変更判定(思い出2)
     f.isChangeDress = 'false'
+    // 選択したEDルート
+    f.selectedEDRoute = ''
     // 用語の既読判定
     f.isReadDesc_01 = 'false'
     f.isReadDesc_02 = 'false'
@@ -37,6 +39,7 @@
     f.isClickedFittingRoom_first = 'true'
     f.isClickedPoster_first = 'true'
     f.isClickedHat_first = 'true'
+    f.isClickedBox_first = 'true'
     f.isClickedHanger_first = 'true'
     f.isClickedHanger_first_whenJacketGetting = 'true'
     f.isClickedSwitch_first = 'true'
@@ -75,5 +78,9 @@
     f.isJutanOpen = 0
     f.isRoomLightNight = 0
     f.isYoukanGet = 0
+    // 隠し要素
+    f.episode1_Secret = 'false'
+    f.episode2_Secret = 'false'
+    f.episode3_Secret = 'false'
 [endscript]
 [return]

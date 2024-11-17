@@ -144,6 +144,7 @@
 [return]
 
 *UseHanger
+[messageFalse]
 [PlayConnectCable]
 [free layer="1" name="wallhanger_onhanger"]
 [if exp="f.isRoomLightNight == 0"]
@@ -152,6 +153,7 @@
     [image storage="../image/episode3/wallhanger_onjacket_night.png" layer="1" x="1411" y="107" name="wallhanger_onjacket_night"]
 [endif]
 [wait time="500"]
+[messageTrue]
 ; 深雪表情：通常
 #深雪
 これでよし、と。[p]
@@ -220,7 +222,7 @@
 
 #深雪
 （ボウリングをやってるだけで、[r]
-見えない手刀を出せるものかしら...？[p]）
+見えない手刀を出せるものかしら...？）[p]
 
 ; 深雪表情：困り
 #深雪

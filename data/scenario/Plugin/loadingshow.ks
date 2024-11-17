@@ -13,6 +13,11 @@
         "./data/bgm/episode2_ed.m4a",
         "./data/bgm/episode3_op.m4a",
         "./data/bgm/episode3.m4a",
+        "./data/bgm/episode3_ed.m4a",
+        "./data/bgm/episode_ed_normal.m4a",
+        "./data/bgm/episode_ed_true.m4a",
+        "./data/bgm/episode_ep_normal.m4a",
+        "./data/sound/se/arrowbuttonclick.m4a",
         "./data/sound/se/bell.m4a",
         "./data/sound/se/cancel.m4a",
         "./data/sound/se/camerashutter.m4a",
@@ -24,6 +29,7 @@
         "./data/sound/se/decision2.m4a",
         "./data/sound/se/decision3.m4a",
         "./data/sound/se/embed.m4a",
+        "./data/sound/se/fallofpaper.m4a",
         "./data/sound/se/footstep.m4a",
         "./data/sound/se/gachagacha.m4a",
         "./data/sound/se/getitem.m4a",
@@ -35,6 +41,7 @@
         "./data/sound/se/openbox.m4a",
         "./data/sound/se/openchest.m4a",
         "./data/sound/se/opendoor.m4a",
+        "./data/sound/se/opendoor2.m4a",
         "./data/sound/se/pagechange.m4a",
         "./data/sound/se/risingstage.m4a",
         "./data/sound/se/run.m4a",
@@ -48,7 +55,8 @@
         "./data/sound/se/turnofflight.m4a",
         "./data/sound/se/turnover.m4a",
         "./data/sound/se/turnscrew.m4a",
-        "./data/sound/se/unlockkey.m4a"
+        "./data/sound/se/unlockkey.m4a",
+        "./data/sound/se/wrong.m4a"
     ];
 [endscript]
 [preload storage="&tf.audioFile" wait="true"]
