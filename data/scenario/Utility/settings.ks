@@ -1,3 +1,4 @@
+[clearsysvar]
 [iscript]
     // タイトル名
     sf.gameTitle = 'ユニゾンまであと3ヘルツ'
@@ -17,7 +18,7 @@
     sf.bootMode = 'develop' // 開発:develop 検証:kenshou 通常:normal
     // エクストラページの表示
     sf.isExtraPage = 'true'
-    // 導入パートのシナリオスキップ
+    // オープニングのシナリオスキップ
     sf.scn_episodeOP_Skip = 'false'
     // 思い出1序盤のシナリオスキップ
     sf.scn_episode1OP_Skip = 'false'
@@ -29,6 +30,12 @@
     sf.scn_episode2ED_Skip = 'false'
     // 思い出3序盤のシナリオスキップ
     sf.scn_episode3OP_Skip = 'false'
+    // 思い出3終盤のシナリオスキップ
+    sf.scn_episode3ED_Skip = 'false'
+    // エンディングのシナリオスキップ
+    sf.scn_episodeED_Skip = 'false'
+    // エピローグのシナリオスキップ
+    sf.scn_episodeEP_Skip = 'false'
 [endscript]
 
 ; キャラクター設定
