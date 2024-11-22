@@ -1,4 +1,6 @@
 [stop_keyconfig]
+[clearsysvar]
+[clearvar]
 
 ; 標準ライブラリ群
 [call storage="Utility/tyrano.ks"]

@@ -1,4 +1,3 @@
-[clearsysvar]
 [iscript]
     // タイトル名
     sf.gameTitle = 'ユニゾンまであと3ヘルツ'

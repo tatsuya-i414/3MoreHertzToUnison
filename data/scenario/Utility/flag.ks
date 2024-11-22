@@ -1,4 +1,3 @@
-[clearvar]
 [iscript]
     // ゲームデータ読み込み
     f.loadData = 'false'
