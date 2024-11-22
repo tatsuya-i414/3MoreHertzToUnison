@@ -49,7 +49,7 @@ tf.cg_thumbnail_height = 243; // サムネイルの高さ
 [cm]
 
 ; ギャラリーモード終了
-[button graphic="append_theme/gallery_close.png" enterimg="append_theme/gallery_close2.png" target="*backtitle" x="20" y="900" clickse="../sound/se/cancel.m4a"]
+[button graphic="append_theme/gallery_close.png" enterimg="append_theme/gallery_close2.png" target="*backtitle" x="1680" y="60" clickse="../sound/se/cancel.m4a"]
 
 ; tf.page変数を利用して個別閲覧ボタン作成ラベルにジャンプします
 [jump target="& 'page_' + tf.page "]

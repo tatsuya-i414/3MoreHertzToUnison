@@ -154,7 +154,7 @@
 	[bg storage="&tf.img_path +'config_bg.png'" time="100"]
 
 ;	戻るボタン
-	[button fix="true" graphic="&tf.img_path + 'back.png'" enterimg="&tf.img_path + 'back2.png'" target="*backtitle" x="20" y="600" clickse="../sound/se/cancel.m4a"]
+	[button fix="true" graphic="&tf.img_path + 'back.png'" enterimg="&tf.img_path + 'back2.png'" target="*backtitle" x="1680" y="60" clickse="../sound/se/cancel.m4a"]
 
 [jump target="*config_page"]
 
