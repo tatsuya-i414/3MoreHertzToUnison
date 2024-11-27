@@ -16,4 +16,4 @@
     }
     $.setStorage(TYRANO.kag.config.projectID + "_tyrano_data", array_save, TYRANO.kag.config.configSave);
 [endscript]
-[jump storage="title.ks" target="*TopPage"]
+[return]
