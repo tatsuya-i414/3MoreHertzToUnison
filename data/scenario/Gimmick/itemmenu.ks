@@ -11,15 +11,7 @@
 [layer2True]
 
 [bg storage="share/itemmenu.png" time="100"]
-[button graphic="../others/plugin/theme_kopanda_bth_06_blue/image/config/back.png" enterimg="../others/plugin/theme_kopanda_bth_06_blue/image/config/back2.png" target="*Scenario_Back" x="20" y="600" clickse="../sound/se/cancel.m4a"]
-; 開発/検証用
-[if exp="sf.bootMode == 'develop' || sf.bootMode == 'kenshou' "]
-    [glink color="bth06" text="会話パートをスキップ" x="1560" y="880" width="150" height="45" size="24" bold="true" exp="f.scn_skip = 1" clickse="../sound/se/itemdecision.m4a" cond="f.scn_skip == 0"]
-    [glink color="bth06" text="会話パートをスキップ" x="1560" y="880" width="150" height="45" size="24" bold="true" exp="f.scn_skip = 0" clickse="../sound/se/itemdecision.m4a" cond="f.scn_skip == 1"]
-    [ptext layer="fix" text="会話パートのスキップ:" x="1450" y="60" size="20" color="black" bold="bold" edge="white"]
-    [ptext layer="fix" text="ON" x="1670" y="60" size="20" color="black" bold="bold" edge="white" cond="f.scn_skip == 1"]
-    [ptext layer="fix" text="OFF" x="1670" y="60" size="20" color="black" bold="bold" edge="white" cond="f.scn_skip == 0"]
-[endif]
+[button graphic="../others/plugin/theme_kopanda_bth_06_blue/image/config/back.png" enterimg="../others/plugin/theme_kopanda_bth_06_blue/image/config/back2.png" target="*Scenario_Back" x="1680" y="60" clickse="../sound/se/cancel.m4a"]
 
 ; 通常アイテム
 [image storage="../image/share/inventory.png" layer="1" x="560" y="350" width="140" height="140"]

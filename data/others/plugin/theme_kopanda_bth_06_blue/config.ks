@@ -1,79 +1,60 @@
 ;=========================================
 ; コンフィグ モード　画面作成
 ;=========================================
+; メッセージレイヤ0を不可視に
+[layopt layer="message0" visible="false"]
+; fixボタンをクリア
+[clearfix]
+; キーコンフィグの無効化
+[stop_keyconfig]
+; レイヤーモードの解放
+[free_layermode time="100" wait="true"]
+; カメラのリセット
+[reset_camera time="100" wait="true"]
+; 前景レイヤの中身をすべて空に
+[iscript]
+	$(".layer_camera").empty();
+	$("#bgmovie").remove();
+[endscript]
+; メニューボタン非表示
+[hidemenubutton]
 
-;	メッセージレイヤ0を不可視に
-	[layopt layer="message0" visible="false"]
-
-;	fixボタンをクリア
-	[clearfix]
-
-;	キーコンフィグの無効化
-	[stop_keyconfig]
-
-;	レイヤーモードの解放
-	[free_layermode time="100" wait="true"]
-
-;	カメラのリセット
-	[reset_camera time="100" wait="true"]
-
-;	前景レイヤの中身をすべて空に
-	[iscript]
-		$(".layer_camera").empty();
-		$("#bgmovie").remove();
-	[endscript]
-
-;	メニューボタン非表示
-	[hidemenubutton]
-
-	[iscript]
-
+[iscript]
 	TG.config.autoRecordLabel = "true"; // ラベル通過記録を有効に
-
 	tf.current_bgm_vol = parseInt(TG.config.defaultBgmVolume); // BGM音量
 	tf.current_se_vol = parseInt(TG.config.defaultSeVolume); // SE音量
-
 	tf.current_ch_speed = parseInt(TG.config.chSpeed); // テキスト表示速度
 	tf.current_auto_speed = parseInt(TG.config.autoSpeed); // オート時のテキスト表示速度
-
 	tf.text_skip ="ON"; // 未読スキップ
-	if(TG.config.unReadTextSkip != "true"){
+	if(TG.config.unReadTextSkip != "true") {
 		tf.text_skip ="OFF";
 	}
+[endscript]
 
-	[endscript]
-
-	[iscript]
-
+[iscript]
 	/* 画像類のパス */
 	tf.img_path = '../others/plugin/theme_kopanda_bth_06_blue/image/config/';
-
 	/* 画像類のパス（ボタン） */
 	tf.btn_path_off = tf.img_path + 'c_btn.gif';
 	tf.btn_path_on  = tf.img_path + 'set.png';
-
 	// ボタン画像の幅と高さ（※未読スキップ、ミュート除く）
 	tf.btn_width  = 95; // 幅
 	tf.btn_height = 25; // 高さ
-
 	// ボタンを表示する座標（tf.config_y_ch[0]とtf.config_y_auto[0]は未使用）
 	tf.config_x       = [1705, 575, 685, 793, 901, 1009, 1117, 1225, 1333, 1441, 1548]; // X座標（共通）
 	tf.config_y_bgm   = 353; // BGMのY座標
 	tf.config_y_se    = 443; // SEのY座標
 	tf.config_y_ch    = 533; // テキスト速度のY座標
 	tf.config_y_auto  = 623; // オート速度のY座標
-
 	// 上記の配列変数の添字を格納しておく変数。選択した音量や速度に対応。
 	tf.config_num_bgm;  // BGM
 	tf.config_num_se;   // SE
 	tf.config_num_ch;   // テキスト速度
 	tf.config_num_auto; // オート速度
-
 	// 既読スキップの画像ファイル名を格納しておく変数
 	tf.img_unread_skip;
-
 	// BGMの音量チェック
-	switch(tf.current_bgm_vol){
+	switch(tf.current_bgm_vol) {
 		case   0: tf.config_num_bgm =  0; break;
 		case  10: tf.config_num_bgm =  1; break;
 		case  20: tf.config_num_bgm =  2; break;
@@ -85,13 +66,10 @@
 		case  80: tf.config_num_bgm =  8; break;
 		case  90: tf.config_num_bgm =  9; break;
 		case 100: tf.config_num_bgm = 10; break;
-
 		default: break;
 	};
-
-
 	// SEの音量チェック
-	switch(tf.current_se_vol){
+	switch(tf.current_se_vol) {
 		case   0: tf.config_num_se =  0; break;
 		case  10: tf.config_num_se =  1; break;
 		case  20: tf.config_num_se =  2; break;
@@ -103,13 +81,10 @@
 		case  80: tf.config_num_se =  8; break;
 		case  90: tf.config_num_se =  9; break;
 		case 100: tf.config_num_se = 10; break;
-
 		default: break;
 	};
-
-
 	// テキスト速度のチェック
-	switch(tf.current_ch_speed){
+	switch(tf.current_ch_speed) {
 		case 100: tf.config_num_ch =  0; break;
 		case  80: tf.config_num_ch =  1; break;
 		case  50: tf.config_num_ch =  2; break;
@@ -120,13 +95,10 @@
 		case  11: tf.config_num_ch =  7; break;
 		case   8: tf.config_num_ch =  8; break;
 		case   5: tf.config_num_ch =  9; break;
-
 		default: break;
 	};
-
-
 	// オート時のテキスト速度のチェック
-	switch(tf.current_auto_speed){
+	switch(tf.current_auto_speed) {
 		case 5000: tf.config_num_auto =  0; break;
 		case 4500: tf.config_num_auto =  1; break;
 		case 4000: tf.config_num_auto =  2; break;
@@ -137,114 +109,138 @@
 		case 1300: tf.config_num_auto =  7; break;
 		case  800: tf.config_num_auto =  8; break;
 		case  500: tf.config_num_auto =  9; break;
-
 		default: break;
 	};
-
 	// ミュート用のBGM、SE音量管理
 	if( typeof f.prev_vol_list === 'undefined'){
 		f.prev_vol_list = [tf.current_bgm_vol, tf.config_num_bgm, tf.current_se_vol, tf.config_num_se];
 	}
-
-	[endscript]
-
+[endscript]
 [cm]
 
-;	コンフィグ用の背景を読み込んでトランジション
-	[bg storage="&tf.img_path +'config_bg.png'" time="100"]
+; コンフィグ用の背景を読み込んでトランジション
+[bg storage="&tf.img_path +'config_bg.png'" time="100"]
 
-;	戻るボタン
-	[button fix="true" graphic="&tf.img_path + 'back.png'" enterimg="&tf.img_path + 'back2.png'" target="*backtitle" x="20" y="600" clickse="../sound/se/cancel.m4a"]
+; デフォルト設定
+;[glink color="bth06" target="*returnDefaultSetting" text="デフォルト設定" x="700" y="80" width="170" height="30" size="24" bold="true" clickse="../sound/se/decision.m4a"]
 
+; 開発/検証用
+[if exp="sf.bootMode == 'develop' || sf.bootMode == 'kenshou' "]
+	[glink color="bth06" target="*kenshou" text="検証" x="1320" y="80" width="150" height="30" size="24" bold="true" clickse="../sound/se/decision.m4a"]
+	[if exp="sf.bootMode == 'develop' "]
+		[glink color="bth06" target="*debug" text="デバッグ" x="1020" y="80" width="150" height="30" size="24" bold="true" clickse="../sound/se/decision.m4a"]
+	[endif]
+[endif]
+
+; 戻るボタン
+[button fix="true" graphic="&tf.img_path + 'back.png'" enterimg="&tf.img_path + 'back2.png'" target="*backtitle" x="1680" y="60" clickse="../sound/se/cancel.m4a"]
 [jump target="*config_page"]
 
+*returnDefaultSetting
+[jump storage="../others/plugin/theme_kopanda_bth_06_blue/config.ks"]
+
+*debug
+[cm]
+[layopt layer="message1" visible="false"]
+[clearfix]
+[clearstack]
+[iscript]
+	$(".layer_camera").empty();
+	$("#bgmovie").remove();
+[endscript]
+[jump storage="Utility/debug.ks" cond="sf.bootMode == 'develop' "]
+
+*kenshou
+[cm]
+[layopt layer="message1" visible="false"]
+[clearfix]
+[clearstack]
+[iscript]
+	$(".layer_camera").empty();
+	$("#bgmovie").remove();
+[endscript]
+[jump storage="Utility/kenshou.ks" cond="sf.bootMode == 'develop' || sf.bootMode == 'kenshou' "]
 
 *config_page
 [clearstack]
 ;------------------------------------------------------------------------------------------------------
 ; BGM音量
 ;------------------------------------------------------------------------------------------------------
-	[button name="bgmvol,bgmvol_10"  fix="true" target="*vol_bgm_change" graphic="&tf.btn_path_off" enterimg="&tf.img_path + 'gauge_hover.png'" width="&tf.btn_width" height="&tf.btn_height" x="&tf.config_x[1]"  y="&tf.config_y_bgm" exp="tf.current_bgm_vol =  10; tf.config_num_bgm =  1" clickse="../sound/se/decision3.m4a"]
-	[button name="bgmvol,bgmvol_20"  fix="true" target="*vol_bgm_change" graphic="&tf.btn_path_off" enterimg="&tf.img_path + 'gauge_hover.png'" width="&tf.btn_width" height="&tf.btn_height" x="&tf.config_x[2]"  y="&tf.config_y_bgm" exp="tf.current_bgm_vol =  20; tf.config_num_bgm =  2" clickse="../sound/se/decision3.m4a"]
-	[button name="bgmvol,bgmvol_30"  fix="true" target="*vol_bgm_change" graphic="&tf.btn_path_off" enterimg="&tf.img_path + 'gauge_hover.png'" width="&tf.btn_width" height="&tf.btn_height" x="&tf.config_x[3]"  y="&tf.config_y_bgm" exp="tf.current_bgm_vol =  30; tf.config_num_bgm =  3" clickse="../sound/se/decision3.m4a"]
-	[button name="bgmvol,bgmvol_40"  fix="true" target="*vol_bgm_change" graphic="&tf.btn_path_off" enterimg="&tf.img_path + 'gauge_hover.png'" width="&tf.btn_width" height="&tf.btn_height" x="&tf.config_x[4]"  y="&tf.config_y_bgm" exp="tf.current_bgm_vol =  40; tf.config_num_bgm =  4" clickse="../sound/se/decision3.m4a"]
-	[button name="bgmvol,bgmvol_50"  fix="true" target="*vol_bgm_change" graphic="&tf.btn_path_off" enterimg="&tf.img_path + 'gauge_hover.png'" width="&tf.btn_width" height="&tf.btn_height" x="&tf.config_x[5]"  y="&tf.config_y_bgm" exp="tf.current_bgm_vol =  50; tf.config_num_bgm =  5" clickse="../sound/se/decision3.m4a"]
-	[button name="bgmvol,bgmvol_60"  fix="true" target="*vol_bgm_change" graphic="&tf.btn_path_off" enterimg="&tf.img_path + 'gauge_hover.png'" width="&tf.btn_width" height="&tf.btn_height" x="&tf.config_x[6]"  y="&tf.config_y_bgm" exp="tf.current_bgm_vol =  60; tf.config_num_bgm =  6" clickse="../sound/se/decision3.m4a"]
-	[button name="bgmvol,bgmvol_70"  fix="true" target="*vol_bgm_change" graphic="&tf.btn_path_off" enterimg="&tf.img_path + 'gauge_hover.png'" width="&tf.btn_width" height="&tf.btn_height" x="&tf.config_x[7]"  y="&tf.config_y_bgm" exp="tf.current_bgm_vol =  70; tf.config_num_bgm =  7" clickse="../sound/se/decision3.m4a"]
-	[button name="bgmvol,bgmvol_80"  fix="true" target="*vol_bgm_change" graphic="&tf.btn_path_off" enterimg="&tf.img_path + 'gauge_hover.png'" width="&tf.btn_width" height="&tf.btn_height" x="&tf.config_x[8]"  y="&tf.config_y_bgm" exp="tf.current_bgm_vol =  80; tf.config_num_bgm =  8" clickse="../sound/se/decision3.m4a"]
-	[button name="bgmvol,bgmvol_90"  fix="true" target="*vol_bgm_change" graphic="&tf.btn_path_off" enterimg="&tf.img_path + 'gauge_hover.png'" width="&tf.btn_width" height="&tf.btn_height" x="&tf.config_x[9]"  y="&tf.config_y_bgm" exp="tf.current_bgm_vol =  90; tf.config_num_bgm =  9" clickse="../sound/se/decision3.m4a"]
-	[button name="bgmvol,bgmvol_100" fix="true" target="*vol_bgm_change" graphic="&tf.btn_path_off" enterimg="&tf.img_path + 'gauge_hover.png'" width="&tf.btn_width" height="&tf.btn_height" x="&tf.config_x[10]" y="&tf.config_y_bgm" exp="tf.current_bgm_vol = 100; tf.config_num_bgm = 10" clickse="../sound/se/decision3.m4a"]
-
-;	BGMミュート
-	[button name="bgmvol,bgmvol_0"   fix="true" target="*vol_bgm_mute" graphic="&tf.btn_path_off" width="20" height="20" x="&tf.config_x[0]" y="&tf.config_y_bgm" clickse="../sound/se/decision3.m4a"]
+[button name="bgmvol,bgmvol_10" fix="true" target="*vol_bgm_change" graphic="&tf.btn_path_off" enterimg="&tf.img_path + 'gauge_hover.png'" width="&tf.btn_width" height="&tf.btn_height" x="&tf.config_x[1]" y="&tf.config_y_bgm" exp="tf.current_bgm_vol =  10; tf.config_num_bgm =  1" clickse="../sound/se/decision3.m4a"]
+[button name="bgmvol,bgmvol_20" fix="true" target="*vol_bgm_change" graphic="&tf.btn_path_off" enterimg="&tf.img_path + 'gauge_hover.png'" width="&tf.btn_width" height="&tf.btn_height" x="&tf.config_x[2]" y="&tf.config_y_bgm" exp="tf.current_bgm_vol =  20; tf.config_num_bgm =  2" clickse="../sound/se/decision3.m4a"]
+[button name="bgmvol,bgmvol_30" fix="true" target="*vol_bgm_change" graphic="&tf.btn_path_off" enterimg="&tf.img_path + 'gauge_hover.png'" width="&tf.btn_width" height="&tf.btn_height" x="&tf.config_x[3]" y="&tf.config_y_bgm" exp="tf.current_bgm_vol =  30; tf.config_num_bgm =  3" clickse="../sound/se/decision3.m4a"]
+[button name="bgmvol,bgmvol_40" fix="true" target="*vol_bgm_change" graphic="&tf.btn_path_off" enterimg="&tf.img_path + 'gauge_hover.png'" width="&tf.btn_width" height="&tf.btn_height" x="&tf.config_x[4]" y="&tf.config_y_bgm" exp="tf.current_bgm_vol =  40; tf.config_num_bgm =  4" clickse="../sound/se/decision3.m4a"]
+[button name="bgmvol,bgmvol_50" fix="true" target="*vol_bgm_change" graphic="&tf.btn_path_off" enterimg="&tf.img_path + 'gauge_hover.png'" width="&tf.btn_width" height="&tf.btn_height" x="&tf.config_x[5]" y="&tf.config_y_bgm" exp="tf.current_bgm_vol =  50; tf.config_num_bgm =  5" clickse="../sound/se/decision3.m4a"]
+[button name="bgmvol,bgmvol_60" fix="true" target="*vol_bgm_change" graphic="&tf.btn_path_off" enterimg="&tf.img_path + 'gauge_hover.png'" width="&tf.btn_width" height="&tf.btn_height" x="&tf.config_x[6]" y="&tf.config_y_bgm" exp="tf.current_bgm_vol =  60; tf.config_num_bgm =  6" clickse="../sound/se/decision3.m4a"]
+[button name="bgmvol,bgmvol_70" fix="true" target="*vol_bgm_change" graphic="&tf.btn_path_off" enterimg="&tf.img_path + 'gauge_hover.png'" width="&tf.btn_width" height="&tf.btn_height" x="&tf.config_x[7]" y="&tf.config_y_bgm" exp="tf.current_bgm_vol =  70; tf.config_num_bgm =  7" clickse="../sound/se/decision3.m4a"]
+[button name="bgmvol,bgmvol_80" fix="true" target="*vol_bgm_change" graphic="&tf.btn_path_off" enterimg="&tf.img_path + 'gauge_hover.png'" width="&tf.btn_width" height="&tf.btn_height" x="&tf.config_x[8]" y="&tf.config_y_bgm" exp="tf.current_bgm_vol =  80; tf.config_num_bgm =  8" clickse="../sound/se/decision3.m4a"]
+[button name="bgmvol,bgmvol_90" fix="true" target="*vol_bgm_change" graphic="&tf.btn_path_off" enterimg="&tf.img_path + 'gauge_hover.png'" width="&tf.btn_width" height="&tf.btn_height" x="&tf.config_x[9]" y="&tf.config_y_bgm" exp="tf.current_bgm_vol =  90; tf.config_num_bgm =  9" clickse="../sound/se/decision3.m4a"]
+[button name="bgmvol,bgmvol_100" fix="true" target="*vol_bgm_change" graphic="&tf.btn_path_off" enterimg="&tf.img_path + 'gauge_hover.png'" width="&tf.btn_width" height="&tf.btn_height" x="&tf.config_x[10]" y="&tf.config_y_bgm" exp="tf.current_bgm_vol = 100; tf.config_num_bgm = 10" clickse="../sound/se/decision3.m4a"]
+; BGMミュート
+[button name="bgmvol,bgmvol_0" fix="true" target="*vol_bgm_mute" graphic="&tf.btn_path_off" width="20" height="20" x="&tf.config_x[0]" y="&tf.config_y_bgm" clickse="../sound/se/decision3.m4a"]
 
 ;------------------------------------------------------------------------------------------------------
 ; SE音量
 ;------------------------------------------------------------------------------------------------------
-	[button name="sevol,sevol_10"  fix="true" target="*vol_se_change" graphic="&tf.btn_path_off" enterimg="&tf.img_path + 'gauge_hover.png'" width="&tf.btn_width" height="&tf.btn_height" x="&tf.config_x[1]"  y="&tf.config_y_se" exp="tf.current_se_vol =  10; tf.config_num_se =  1" clickse="../sound/se/decision3.m4a"]
-	[button name="sevol,sevol_20"  fix="true" target="*vol_se_change" graphic="&tf.btn_path_off" enterimg="&tf.img_path + 'gauge_hover.png'" width="&tf.btn_width" height="&tf.btn_height" x="&tf.config_x[2]"  y="&tf.config_y_se" exp="tf.current_se_vol =  20; tf.config_num_se =  2" clickse="../sound/se/decision3.m4a"]
-	[button name="sevol,sevol_30"  fix="true" target="*vol_se_change" graphic="&tf.btn_path_off" enterimg="&tf.img_path + 'gauge_hover.png'" width="&tf.btn_width" height="&tf.btn_height" x="&tf.config_x[3]"  y="&tf.config_y_se" exp="tf.current_se_vol =  30; tf.config_num_se =  3" clickse="../sound/se/decision3.m4a"]
-	[button name="sevol,sevol_40"  fix="true" target="*vol_se_change" graphic="&tf.btn_path_off" enterimg="&tf.img_path + 'gauge_hover.png'" width="&tf.btn_width" height="&tf.btn_height" x="&tf.config_x[4]"  y="&tf.config_y_se" exp="tf.current_se_vol =  40; tf.config_num_se =  4" clickse="../sound/se/decision3.m4a"]
-	[button name="sevol,sevol_50"  fix="true" target="*vol_se_change" graphic="&tf.btn_path_off" enterimg="&tf.img_path + 'gauge_hover.png'" width="&tf.btn_width" height="&tf.btn_height" x="&tf.config_x[5]"  y="&tf.config_y_se" exp="tf.current_se_vol =  50; tf.config_num_se =  5" clickse="../sound/se/decision3.m4a"]
-	[button name="sevol,sevol_60"  fix="true" target="*vol_se_change" graphic="&tf.btn_path_off" enterimg="&tf.img_path + 'gauge_hover.png'" width="&tf.btn_width" height="&tf.btn_height" x="&tf.config_x[6]"  y="&tf.config_y_se" exp="tf.current_se_vol =  60; tf.config_num_se =  6" clickse="../sound/se/decision3.m4a"]
-	[button name="sevol,sevol_70"  fix="true" target="*vol_se_change" graphic="&tf.btn_path_off" enterimg="&tf.img_path + 'gauge_hover.png'" width="&tf.btn_width" height="&tf.btn_height" x="&tf.config_x[7]"  y="&tf.config_y_se" exp="tf.current_se_vol =  70; tf.config_num_se =  7" clickse="../sound/se/decision3.m4a"]
-	[button name="sevol,sevol_80"  fix="true" target="*vol_se_change" graphic="&tf.btn_path_off" enterimg="&tf.img_path + 'gauge_hover.png'" width="&tf.btn_width" height="&tf.btn_height" x="&tf.config_x[8]"  y="&tf.config_y_se" exp="tf.current_se_vol =  80; tf.config_num_se =  8" clickse="../sound/se/decision3.m4a"]
-	[button name="sevol,sevol_90"  fix="true" target="*vol_se_change" graphic="&tf.btn_path_off" enterimg="&tf.img_path + 'gauge_hover.png'" width="&tf.btn_width" height="&tf.btn_height" x="&tf.config_x[9]"  y="&tf.config_y_se" exp="tf.current_se_vol =  90; tf.config_num_se =  9" clickse="../sound/se/decision3.m4a"]
-	[button name="sevol,sevol_100" fix="true" target="*vol_se_change" graphic="&tf.btn_path_off" enterimg="&tf.img_path + 'gauge_hover.png'" width="&tf.btn_width" height="&tf.btn_height" x="&tf.config_x[10]" y="&tf.config_y_se" exp="tf.current_se_vol = 100; tf.config_num_se = 10" clickse="../sound/se/decision3.m4a"]
-
-;	SEミュート
-	[button name="sevol,sevol_0"   fix="true" target="*vol_se_mute" graphic="&tf.btn_path_off" width="20" height="20" x="&tf.config_x[0]" y="&tf.config_y_se" clickse="../sound/se/decision3.m4a"]
+[button name="sevol,sevol_10" fix="true" target="*vol_se_change" graphic="&tf.btn_path_off" enterimg="&tf.img_path + 'gauge_hover.png'" width="&tf.btn_width" height="&tf.btn_height" x="&tf.config_x[1]" y="&tf.config_y_se" exp="tf.current_se_vol =  10; tf.config_num_se =  1" clickse="../sound/se/decision3.m4a"]
+[button name="sevol,sevol_20" fix="true" target="*vol_se_change" graphic="&tf.btn_path_off" enterimg="&tf.img_path + 'gauge_hover.png'" width="&tf.btn_width" height="&tf.btn_height" x="&tf.config_x[2]" y="&tf.config_y_se" exp="tf.current_se_vol =  20; tf.config_num_se =  2" clickse="../sound/se/decision3.m4a"]
+[button name="sevol,sevol_30" fix="true" target="*vol_se_change" graphic="&tf.btn_path_off" enterimg="&tf.img_path + 'gauge_hover.png'" width="&tf.btn_width" height="&tf.btn_height" x="&tf.config_x[3]" y="&tf.config_y_se" exp="tf.current_se_vol =  30; tf.config_num_se =  3" clickse="../sound/se/decision3.m4a"]
+[button name="sevol,sevol_40" fix="true" target="*vol_se_change" graphic="&tf.btn_path_off" enterimg="&tf.img_path + 'gauge_hover.png'" width="&tf.btn_width" height="&tf.btn_height" x="&tf.config_x[4]" y="&tf.config_y_se" exp="tf.current_se_vol =  40; tf.config_num_se =  4" clickse="../sound/se/decision3.m4a"]
+[button name="sevol,sevol_50" fix="true" target="*vol_se_change" graphic="&tf.btn_path_off" enterimg="&tf.img_path + 'gauge_hover.png'" width="&tf.btn_width" height="&tf.btn_height" x="&tf.config_x[5]" y="&tf.config_y_se" exp="tf.current_se_vol =  50; tf.config_num_se =  5" clickse="../sound/se/decision3.m4a"]
+[button name="sevol,sevol_60" fix="true" target="*vol_se_change" graphic="&tf.btn_path_off" enterimg="&tf.img_path + 'gauge_hover.png'" width="&tf.btn_width" height="&tf.btn_height" x="&tf.config_x[6]" y="&tf.config_y_se" exp="tf.current_se_vol =  60; tf.config_num_se =  6" clickse="../sound/se/decision3.m4a"]
+[button name="sevol,sevol_70" fix="true" target="*vol_se_change" graphic="&tf.btn_path_off" enterimg="&tf.img_path + 'gauge_hover.png'" width="&tf.btn_width" height="&tf.btn_height" x="&tf.config_x[7]" y="&tf.config_y_se" exp="tf.current_se_vol =  70; tf.config_num_se =  7" clickse="../sound/se/decision3.m4a"]
+[button name="sevol,sevol_80" fix="true" target="*vol_se_change" graphic="&tf.btn_path_off" enterimg="&tf.img_path + 'gauge_hover.png'" width="&tf.btn_width" height="&tf.btn_height" x="&tf.config_x[8]" y="&tf.config_y_se" exp="tf.current_se_vol =  80; tf.config_num_se =  8" clickse="../sound/se/decision3.m4a"]
+[button name="sevol,sevol_90" fix="true" target="*vol_se_change" graphic="&tf.btn_path_off" enterimg="&tf.img_path + 'gauge_hover.png'" width="&tf.btn_width" height="&tf.btn_height" x="&tf.config_x[9]" y="&tf.config_y_se" exp="tf.current_se_vol =  90; tf.config_num_se =  9" clickse="../sound/se/decision3.m4a"]
+[button name="sevol,sevol_100" fix="true" target="*vol_se_change" graphic="&tf.btn_path_off" enterimg="&tf.img_path + 'gauge_hover.png'" width="&tf.btn_width" height="&tf.btn_height" x="&tf.config_x[10]" y="&tf.config_y_se" exp="tf.current_se_vol = 100; tf.config_num_se = 10" clickse="../sound/se/decision3.m4a"]
+; SEミュート
+[button name="sevol,sevol_0"   fix="true" target="*vol_se_mute" graphic="&tf.btn_path_off" width="20" height="20" x="&tf.config_x[0]" y="&tf.config_y_se" clickse="../sound/se/decision3.m4a"]
 
 ;------------------------------------------------------------------------------------------------------
 ; テキスト速度
 ;------------------------------------------------------------------------------------------------------
-	[button name="ch,ch_100" fix="true" target="*ch_speed_change" graphic="&tf.btn_path_off" enterimg="&tf.img_path + 'gauge_hover.png'" width="&tf.btn_width" height="&tf.btn_height" x="&tf.config_x[1]"  y="&tf.config_y_ch" exp="tf.set_ch_speed =100; tf.config_num_ch = 0" clickse="../sound/se/decision3.m4a"]
-	[button name="ch,ch_80"  fix="true" target="*ch_speed_change" graphic="&tf.btn_path_off" enterimg="&tf.img_path + 'gauge_hover.png'" width="&tf.btn_width" height="&tf.btn_height" x="&tf.config_x[2]"  y="&tf.config_y_ch" exp="tf.set_ch_speed = 80; tf.config_num_ch = 1" clickse="../sound/se/decision3.m4a"]
-	[button name="ch,ch_50"  fix="true" target="*ch_speed_change" graphic="&tf.btn_path_off" enterimg="&tf.img_path + 'gauge_hover.png'" width="&tf.btn_width" height="&tf.btn_height" x="&tf.config_x[3]"  y="&tf.config_y_ch" exp="tf.set_ch_speed = 50; tf.config_num_ch = 2" clickse="../sound/se/decision3.m4a"]
-	[button name="ch,ch_40"  fix="true" target="*ch_speed_change" graphic="&tf.btn_path_off" enterimg="&tf.img_path + 'gauge_hover.png'" width="&tf.btn_width" height="&tf.btn_height" x="&tf.config_x[4]"  y="&tf.config_y_ch" exp="tf.set_ch_speed = 40; tf.config_num_ch = 3" clickse="../sound/se/decision3.m4a"]
-	[button name="ch,ch_30"  fix="true" target="*ch_speed_change" graphic="&tf.btn_path_off" enterimg="&tf.img_path + 'gauge_hover.png'" width="&tf.btn_width" height="&tf.btn_height" x="&tf.config_x[5]"  y="&tf.config_y_ch" exp="tf.set_ch_speed = 30; tf.config_num_ch = 4" clickse="../sound/se/decision3.m4a"]
-	[button name="ch,ch_25"  fix="true" target="*ch_speed_change" graphic="&tf.btn_path_off" enterimg="&tf.img_path + 'gauge_hover.png'" width="&tf.btn_width" height="&tf.btn_height" x="&tf.config_x[6]"  y="&tf.config_y_ch" exp="tf.set_ch_speed = 25; tf.config_num_ch = 5" clickse="../sound/se/decision3.m4a"]
-	[button name="ch,ch_20"  fix="true" target="*ch_speed_change" graphic="&tf.btn_path_off" enterimg="&tf.img_path + 'gauge_hover.png'" width="&tf.btn_width" height="&tf.btn_height" x="&tf.config_x[7]"  y="&tf.config_y_ch" exp="tf.set_ch_speed = 20; tf.config_num_ch = 6" clickse="../sound/se/decision3.m4a"]
-	[button name="ch,ch_11"  fix="true" target="*ch_speed_change" graphic="&tf.btn_path_off" enterimg="&tf.img_path + 'gauge_hover.png'" width="&tf.btn_width" height="&tf.btn_height" x="&tf.config_x[8]"  y="&tf.config_y_ch" exp="tf.set_ch_speed = 11; tf.config_num_ch = 7" clickse="../sound/se/decision3.m4a"]
-	[button name="ch,ch_8"   fix="true" target="*ch_speed_change" graphic="&tf.btn_path_off" enterimg="&tf.img_path + 'gauge_hover.png'" width="&tf.btn_width" height="&tf.btn_height" x="&tf.config_x[9]"  y="&tf.config_y_ch" exp="tf.set_ch_speed =  8; tf.config_num_ch = 8" clickse="../sound/se/decision3.m4a"]
-	[button name="ch,ch_5"   fix="true" target="*ch_speed_change" graphic="&tf.btn_path_off" enterimg="&tf.img_path + 'gauge_hover.png'" width="&tf.btn_width" height="&tf.btn_height" x="&tf.config_x[10]" y="&tf.config_y_ch" exp="tf.set_ch_speed =  5; tf.config_num_ch = 9" clickse="../sound/se/decision3.m4a"]
+[button name="ch,ch_100" fix="true" target="*ch_speed_change" graphic="&tf.btn_path_off" enterimg="&tf.img_path + 'gauge_hover.png'" width="&tf.btn_width" height="&tf.btn_height" x="&tf.config_x[1]" y="&tf.config_y_ch" exp="tf.set_ch_speed =100; tf.config_num_ch = 0" clickse="../sound/se/decision3.m4a"]
+[button name="ch,ch_80" fix="true" target="*ch_speed_change" graphic="&tf.btn_path_off" enterimg="&tf.img_path + 'gauge_hover.png'" width="&tf.btn_width" height="&tf.btn_height" x="&tf.config_x[2]" y="&tf.config_y_ch" exp="tf.set_ch_speed = 80; tf.config_num_ch = 1" clickse="../sound/se/decision3.m4a"]
+[button name="ch,ch_50" fix="true" target="*ch_speed_change" graphic="&tf.btn_path_off" enterimg="&tf.img_path + 'gauge_hover.png'" width="&tf.btn_width" height="&tf.btn_height" x="&tf.config_x[3]" y="&tf.config_y_ch" exp="tf.set_ch_speed = 50; tf.config_num_ch = 2" clickse="../sound/se/decision3.m4a"]
+[button name="ch,ch_40" fix="true" target="*ch_speed_change" graphic="&tf.btn_path_off" enterimg="&tf.img_path + 'gauge_hover.png'" width="&tf.btn_width" height="&tf.btn_height" x="&tf.config_x[4]" y="&tf.config_y_ch" exp="tf.set_ch_speed = 40; tf.config_num_ch = 3" clickse="../sound/se/decision3.m4a"]
+[button name="ch,ch_30" fix="true" target="*ch_speed_change" graphic="&tf.btn_path_off" enterimg="&tf.img_path + 'gauge_hover.png'" width="&tf.btn_width" height="&tf.btn_height" x="&tf.config_x[5]" y="&tf.config_y_ch" exp="tf.set_ch_speed = 30; tf.config_num_ch = 4" clickse="../sound/se/decision3.m4a"]
+[button name="ch,ch_25" fix="true" target="*ch_speed_change" graphic="&tf.btn_path_off" enterimg="&tf.img_path + 'gauge_hover.png'" width="&tf.btn_width" height="&tf.btn_height" x="&tf.config_x[6]" y="&tf.config_y_ch" exp="tf.set_ch_speed = 25; tf.config_num_ch = 5" clickse="../sound/se/decision3.m4a"]
+[button name="ch,ch_20" fix="true" target="*ch_speed_change" graphic="&tf.btn_path_off" enterimg="&tf.img_path + 'gauge_hover.png'" width="&tf.btn_width" height="&tf.btn_height" x="&tf.config_x[7]" y="&tf.config_y_ch" exp="tf.set_ch_speed = 20; tf.config_num_ch = 6" clickse="../sound/se/decision3.m4a"]
+[button name="ch,ch_11" fix="true" target="*ch_speed_change" graphic="&tf.btn_path_off" enterimg="&tf.img_path + 'gauge_hover.png'" width="&tf.btn_width" height="&tf.btn_height" x="&tf.config_x[8]" y="&tf.config_y_ch" exp="tf.set_ch_speed = 11; tf.config_num_ch = 7" clickse="../sound/se/decision3.m4a"]
+[button name="ch,ch_8" fix="true" target="*ch_speed_change" graphic="&tf.btn_path_off" enterimg="&tf.img_path + 'gauge_hover.png'" width="&tf.btn_width" height="&tf.btn_height" x="&tf.config_x[9]" y="&tf.config_y_ch" exp="tf.set_ch_speed =  8; tf.config_num_ch = 8" clickse="../sound/se/decision3.m4a"]
+[button name="ch,ch_5" fix="true" target="*ch_speed_change" graphic="&tf.btn_path_off" enterimg="&tf.img_path + 'gauge_hover.png'" width="&tf.btn_width" height="&tf.btn_height" x="&tf.config_x[10]" y="&tf.config_y_ch" exp="tf.set_ch_speed =  5; tf.config_num_ch = 9" clickse="../sound/se/decision3.m4a"]
 
 ;------------------------------------------------------------------------------------------------------
 ; オート速度
 ;------------------------------------------------------------------------------------------------------
-	[button name="auto,auto_5000" fix="true" target="*auto_speed_change" graphic="&tf.btn_path_off" enterimg="&tf.img_path + 'gauge_hover.png'" width="&tf.btn_width" height="&tf.btn_height" x="&tf.config_x[1]"  y="&tf.config_y_auto" exp="tf.set_auto_speed = 5000; tf.config_num_auto = 0" clickse="../sound/se/decision3.m4a"]
-	[button name="auto,auto_4500" fix="true" target="*auto_speed_change" graphic="&tf.btn_path_off" enterimg="&tf.img_path + 'gauge_hover.png'" width="&tf.btn_width" height="&tf.btn_height" x="&tf.config_x[2]"  y="&tf.config_y_auto" exp="tf.set_auto_speed = 4500; tf.config_num_auto = 1" clickse="../sound/se/decision3.m4a"]
-	[button name="auto,auto_4000" fix="true" target="*auto_speed_change" graphic="&tf.btn_path_off" enterimg="&tf.img_path + 'gauge_hover.png'" width="&tf.btn_width" height="&tf.btn_height" x="&tf.config_x[3]"  y="&tf.config_y_auto" exp="tf.set_auto_speed = 4000; tf.config_num_auto = 2" clickse="../sound/se/decision3.m4a"]
-	[button name="auto,auto_3500" fix="true" target="*auto_speed_change" graphic="&tf.btn_path_off" enterimg="&tf.img_path + 'gauge_hover.png'" width="&tf.btn_width" height="&tf.btn_height" x="&tf.config_x[4]"  y="&tf.config_y_auto" exp="tf.set_auto_speed = 3500; tf.config_num_auto = 3" clickse="../sound/se/decision3.m4a"]
-	[button name="auto,auto_3000" fix="true" target="*auto_speed_change" graphic="&tf.btn_path_off" enterimg="&tf.img_path + 'gauge_hover.png'" width="&tf.btn_width" height="&tf.btn_height" x="&tf.config_x[5]"  y="&tf.config_y_auto" exp="tf.set_auto_speed = 3000; tf.config_num_auto = 4" clickse="../sound/se/decision3.m4a"]
-	[button name="auto,auto_2500" fix="true" target="*auto_speed_change" graphic="&tf.btn_path_off" enterimg="&tf.img_path + 'gauge_hover.png'" width="&tf.btn_width" height="&tf.btn_height" x="&tf.config_x[6]"  y="&tf.config_y_auto" exp="tf.set_auto_speed = 2500; tf.config_num_auto = 5" clickse="../sound/se/decision3.m4a"]
-	[button name="auto,auto_2000" fix="true" target="*auto_speed_change" graphic="&tf.btn_path_off" enterimg="&tf.img_path + 'gauge_hover.png'" width="&tf.btn_width" height="&tf.btn_height" x="&tf.config_x[7]"  y="&tf.config_y_auto" exp="tf.set_auto_speed = 2000; tf.config_num_auto = 6" clickse="../sound/se/decision3.m4a"]
-	[button name="auto,auto_1300" fix="true" target="*auto_speed_change" graphic="&tf.btn_path_off" enterimg="&tf.img_path + 'gauge_hover.png'" width="&tf.btn_width" height="&tf.btn_height" x="&tf.config_x[8]"  y="&tf.config_y_auto" exp="tf.set_auto_speed = 1300; tf.config_num_auto = 7" clickse="../sound/se/decision3.m4a"]
-	[button name="auto,auto_800"  fix="true" target="*auto_speed_change" graphic="&tf.btn_path_off" enterimg="&tf.img_path + 'gauge_hover.png'" width="&tf.btn_width" height="&tf.btn_height" x="&tf.config_x[9]"  y="&tf.config_y_auto" exp="tf.set_auto_speed =  800; tf.config_num_auto = 8" clickse="../sound/se/decision3.m4a"]
-	[button name="auto,auto_500"  fix="true" target="*auto_speed_change" graphic="&tf.btn_path_off" enterimg="&tf.img_path + 'gauge_hover.png'" width="&tf.btn_width" height="&tf.btn_height" x="&tf.config_x[10]" y="&tf.config_y_auto" exp="tf.set_auto_speed =  500; tf.config_num_auto = 9" clickse="../sound/se/decision3.m4a"]
+[button name="auto,auto_5000" fix="true" target="*auto_speed_change" graphic="&tf.btn_path_off" enterimg="&tf.img_path + 'gauge_hover.png'" width="&tf.btn_width" height="&tf.btn_height" x="&tf.config_x[1]" y="&tf.config_y_auto" exp="tf.set_auto_speed = 5000; tf.config_num_auto = 0" clickse="../sound/se/decision3.m4a"]
+[button name="auto,auto_4500" fix="true" target="*auto_speed_change" graphic="&tf.btn_path_off" enterimg="&tf.img_path + 'gauge_hover.png'" width="&tf.btn_width" height="&tf.btn_height" x="&tf.config_x[2]" y="&tf.config_y_auto" exp="tf.set_auto_speed = 4500; tf.config_num_auto = 1" clickse="../sound/se/decision3.m4a"]
+[button name="auto,auto_4000" fix="true" target="*auto_speed_change" graphic="&tf.btn_path_off" enterimg="&tf.img_path + 'gauge_hover.png'" width="&tf.btn_width" height="&tf.btn_height" x="&tf.config_x[3]" y="&tf.config_y_auto" exp="tf.set_auto_speed = 4000; tf.config_num_auto = 2" clickse="../sound/se/decision3.m4a"]
+[button name="auto,auto_3500" fix="true" target="*auto_speed_change" graphic="&tf.btn_path_off" enterimg="&tf.img_path + 'gauge_hover.png'" width="&tf.btn_width" height="&tf.btn_height" x="&tf.config_x[4]" y="&tf.config_y_auto" exp="tf.set_auto_speed = 3500; tf.config_num_auto = 3" clickse="../sound/se/decision3.m4a"]
+[button name="auto,auto_3000" fix="true" target="*auto_speed_change" graphic="&tf.btn_path_off" enterimg="&tf.img_path + 'gauge_hover.png'" width="&tf.btn_width" height="&tf.btn_height" x="&tf.config_x[5]" y="&tf.config_y_auto" exp="tf.set_auto_speed = 3000; tf.config_num_auto = 4" clickse="../sound/se/decision3.m4a"]
+[button name="auto,auto_2500" fix="true" target="*auto_speed_change" graphic="&tf.btn_path_off" enterimg="&tf.img_path + 'gauge_hover.png'" width="&tf.btn_width" height="&tf.btn_height" x="&tf.config_x[6]" y="&tf.config_y_auto" exp="tf.set_auto_speed = 2500; tf.config_num_auto = 5" clickse="../sound/se/decision3.m4a"]
+[button name="auto,auto_2000" fix="true" target="*auto_speed_change" graphic="&tf.btn_path_off" enterimg="&tf.img_path + 'gauge_hover.png'" width="&tf.btn_width" height="&tf.btn_height" x="&tf.config_x[7]" y="&tf.config_y_auto" exp="tf.set_auto_speed = 2000; tf.config_num_auto = 6" clickse="../sound/se/decision3.m4a"]
+[button name="auto,auto_1300" fix="true" target="*auto_speed_change" graphic="&tf.btn_path_off" enterimg="&tf.img_path + 'gauge_hover.png'" width="&tf.btn_width" height="&tf.btn_height" x="&tf.config_x[8]" y="&tf.config_y_auto" exp="tf.set_auto_speed = 1300; tf.config_num_auto = 7" clickse="../sound/se/decision3.m4a"]
+[button name="auto,auto_800" fix="true" target="*auto_speed_change" graphic="&tf.btn_path_off" enterimg="&tf.img_path + 'gauge_hover.png'" width="&tf.btn_width" height="&tf.btn_height" x="&tf.config_x[9]" y="&tf.config_y_auto" exp="tf.set_auto_speed =  800; tf.config_num_auto = 8" clickse="../sound/se/decision3.m4a"]
+[button name="auto,auto_500" fix="true" target="*auto_speed_change" graphic="&tf.btn_path_off" enterimg="&tf.img_path + 'gauge_hover.png'" width="&tf.btn_width" height="&tf.btn_height" x="&tf.config_x[10]" y="&tf.config_y_auto" exp="tf.set_auto_speed =  500; tf.config_num_auto = 9" clickse="../sound/se/decision3.m4a"]
 
 ;------------------------------------------------------------------------------------------------------
 ; 未読スキップ
 ;------------------------------------------------------------------------------------------------------
-;	未読スキップ-ON
-	[button name="unread_on"  fix="true" target="*skip_on"  graphic="&tf.btn_path_off" enterimg="&tf.img_path + 'skip_hover.png'" width="175" height="53" x="578" y="717" clickse="../sound/se/decision3.m4a"]
-
-;	未読スキップ-OFF
-	[button name="unread_off" fix="true" target="*skip_off" graphic="&tf.btn_path_off" enterimg="&tf.img_path + 'skip_hover.png'" width="175" height="53" x="791" y="717" clickse="../sound/se/decision3.m4a"]
+; 未読スキップ-ON
+[button name="unread_on" fix="true" target="*skip_on" graphic="&tf.btn_path_off" enterimg="&tf.img_path + 'skip_hover.png'" width="175" height="53" x="578" y="717" clickse="../sound/se/decision3.m4a"]
+; 未読スキップ-OFF
+[button name="unread_off" fix="true" target="*skip_off" graphic="&tf.btn_path_off" enterimg="&tf.img_path + 'skip_hover.png'" width="175" height="53" x="791" y="717" clickse="../sound/se/decision3.m4a"]
 
 ;------------------------------------------------------------------------------------------------------
 ; コンフィグ起動時の画面更新
 ;------------------------------------------------------------------------------------------------------
-
-	[call target="*load_img"]
-	[call target="*icon_bgm"]
-	[call target="*icon_se"]
-	[call target="*icon_ch"]
-	[call target="*icon_auto"]
-	[call target="*load_skip_img"]
-
-	[test_message_start]
-
+[call target="*load_img"]
+[call target="*icon_bgm"]
+[call target="*icon_se"]
+[call target="*icon_ch"]
+[call target="*icon_auto"]
+[call target="*load_skip_img"]
+[test_message_start]
 [s]
 
 ;--------------------------------------------------------------------------------
@@ -252,21 +248,16 @@
 ;--------------------------------------------------------------------------------
 *backtitle
 [cm]
-
-;	テキスト速度のサンプル表示に使用していたメッセージレイヤを非表示に
-	[layopt layer="message1" visible="false"]
-
-;	fixボタンをクリア
-	[clearfix]
-
-;	キーコンフィグの有効化
-	[start_keyconfig]
-
-;	コールスタックのクリア
-	[clearstack]
-
-;	ゲーム復帰
-	[awakegame]
+; テキスト速度のサンプル表示に使用していたメッセージレイヤを非表示に
+[layopt layer="message1" visible="false"]
+; fixボタンをクリア
+[clearfix]
+; キーコンフィグの有効化
+[start_keyconfig]
+; コールスタックのクリア
+[clearstack]
+; ゲーム復帰
+[awakegame]
 
 ;================================================================================
 
@@ -277,7 +268,6 @@
 ; BGM音量
 ;--------------------------------------------------------------------------------
 *vol_bgm_mute
-
 [iscript]
 	// ミュート
 	if( tf.current_bgm_vol != 0 ){
@@ -285,27 +275,24 @@
 		f.prev_vol_list[1] = tf.config_num_bgm;
 		tf.current_bgm_vol = 0;
 		tf.config_num_bgm  = 0;
-
+	}
 	// 解除
-	} else {
+	else {
 		tf.current_bgm_vol = f.prev_vol_list[0];
 		tf.config_num_bgm  = f.prev_vol_list[1];
 	}
 [endscript]
 
 *vol_bgm_change
-
-	[free layer="0" name="bgmvol" time="0" wait="true"]
-	[call target="*icon_bgm"]
-	[bgmopt volume="&tf.current_bgm_vol"]
-
+[free layer="0" name="bgmvol" time="0" wait="true"]
+[call target="*icon_bgm"]
+[bgmopt volume="&tf.current_bgm_vol"]
 [return]
 
 ;--------------------------------------------------------------------------------
 ; SE音量
 ;--------------------------------------------------------------------------------
 *vol_se_mute
-
 [iscript]
 	// ミュート
 	if( tf.current_se_vol != 0 ){
@@ -313,54 +300,44 @@
 		f.prev_vol_list[3] = tf.config_num_se;
 		tf.current_se_vol = 0;
 		tf.config_num_se  = 0;
-
+	}
 	// 解除
-	} else {
+	else {
 		tf.current_se_vol = f.prev_vol_list[2];
 		tf.config_num_se  = f.prev_vol_list[3];
 	}
 [endscript]
 
 *vol_se_change
-
-	[free layer="0" name="sevol" time="0" wait="true"]
-	[call target="*icon_se"]
-	[seopt volume="&tf.current_se_vol"]
-
+[free layer="0" name="sevol" time="0" wait="true"]
+[call target="*icon_se"]
+[seopt volume="&tf.current_se_vol"]
 [return]
 
 ;---------------------------------------------------------------------------------
 ; テキスト速度
 ;--------------------------------------------------------------------------------
 *ch_speed_change
-
-	[iscript]
+[iscript]
 	tf.current_ch_speed = tf.set_ch_speed;
-	[endscript]
-
-	[free layer="0" name="ch" time="0" wait="true"]
-	[call target="*icon_ch"]
-	[configdelay speed="&tf.set_ch_speed"]
-
-	[test_message_reset]
-
+[endscript]
+[free layer="0" name="ch" time="0" wait="true"]
+[call target="*icon_ch"]
+[configdelay speed="&tf.set_ch_speed"]
+[test_message_reset]
 [return]
 
 ;--------------------------------------------------------------------------------
 ; オート速度
 ;--------------------------------------------------------------------------------
 *auto_speed_change
-
-	[iscript]
+[iscript]
 	tf.current_auto_speed = tf.set_auto_speed;
-	[endscript]
-
-	[free layer="0" name="auto" time="0" wait="true"]
-	[call target="*icon_auto"]
-	[autoconfig speed="&tf.set_auto_speed"]
-
+[endscript]
+[free layer="0" name="auto" time="0" wait="true"]
+[call target="*icon_auto"]
+[autoconfig speed="&tf.set_auto_speed"]
 [return]
-
 
 ;-------------------------------------------------------------------------------
 ; スキップ処理-ON
@@ -369,7 +346,6 @@
 [free layer="0" name="unread_off" time="10"]
 [image layer="0" name="unread_on" storage="../others/plugin/theme_kopanda_bth_06_blue/image/config/skip_on.png" x="576" y="713"]
 [config_record_label skip="true"]
-
 [return]
 
 ;-------------------------------------------------------------------------------
@@ -379,7 +355,6 @@
 [free layer="0" name="unread_on" time="10"]
 [image layer="0" name="unread_off" storage="../others/plugin/theme_kopanda_bth_06_blue/image/config/skip_off.png" x="788" y="713"]
 [config_record_label skip="false"]
-
 [return]
 
 ;================================================================================
@@ -393,11 +368,8 @@
 
 ;--------------------------------------------------------------------------------
 *icon_bgm
-
-	[iscript]
-
+[iscript]
 	// 設定した音量によって色付き画像の表示・非表示を切替える
-
 	$( ".bgm_img_0").css( "visibility", tf.config_num_bgm == 0 ? 'visible' : 'hidden' );
 	$( ".bgm_img_1").css( "visibility", tf.config_num_bgm >  0 ? 'visible' : 'hidden' );
 	$( ".bgm_img_2").css( "visibility", tf.config_num_bgm >  1 ? 'visible' : 'hidden' );
@@ -409,9 +381,7 @@
 	$( ".bgm_img_8").css( "visibility", tf.config_num_bgm >  7 ? 'visible' : 'hidden' );
 	$( ".bgm_img_9").css( "visibility", tf.config_num_bgm >  8 ? 'visible' : 'hidden' );
 	$(".bgm_img_10").css( "visibility", tf.config_num_bgm >  9 ? 'visible' : 'hidden' );
-
-	[endscript]
-
+[endscript]
 [return]
 
 ;--------------------------------------------------------------------------------
@@ -420,9 +390,7 @@
 
 ;--------------------------------------------------------------------------------
 *icon_se
-
-	[iscript]
-
+[iscript]
 	$(".se_img_0").css( "visibility", tf.config_num_se == 0 ? 'visible' : 'hidden');
 	$(".se_img_1").css( "visibility", tf.config_num_se >  0 ? 'visible' : 'hidden');
 	$(".se_img_2").css( "visibility", tf.config_num_se >  1 ? 'visible' : 'hidden');
@@ -434,9 +402,7 @@
 	$(".se_img_8").css( "visibility", tf.config_num_se >  7 ? 'visible' : 'hidden');
 	$(".se_img_9").css( "visibility", tf.config_num_se >  8 ? 'visible' : 'hidden');
 	$(".se_img_10").css("visibility", tf.config_num_se >  9 ? 'visible' : 'hidden');
-
-	[endscript]
-
+[endscript]
 [return]
 
 ;--------------------------------------------------------------------------------
@@ -445,9 +411,7 @@
 
 ;--------------------------------------------------------------------------------
 *icon_ch
-
-	[iscript]
-
+[iscript]
 	$(".ch_img_1").css( "visibility", tf.config_num_ch >= 0 ? 'visible' : 'hidden');
 	$(".ch_img_2").css( "visibility", tf.config_num_ch >  0 ? 'visible' : 'hidden');
 	$(".ch_img_3").css( "visibility", tf.config_num_ch >  1 ? 'visible' : 'hidden');
@@ -458,9 +422,7 @@
 	$(".ch_img_8").css( "visibility", tf.config_num_ch >  6 ? 'visible' : 'hidden');
 	$(".ch_img_9").css( "visibility", tf.config_num_ch >  7 ? 'visible' : 'hidden');
 	$(".ch_img_10").css("visibility", tf.config_num_ch >  8 ? 'visible' : 'hidden');
-
-	[endscript]
-
+[endscript]
 [return]
 
 ;--------------------------------------------------------------------------------
@@ -469,9 +431,7 @@
 
 ;--------------------------------------------------------------------------------
 *icon_auto
-
-	[iscript]
-
+[iscript]
 	$(".auto_img_1").css( "visibility", tf.config_num_auto >= 0 ? 'visible' : 'hidden');
 	$(".auto_img_2").css( "visibility", tf.config_num_auto >  0 ? 'visible' : 'hidden');
 	$(".auto_img_3").css( "visibility", tf.config_num_auto >  1 ? 'visible' : 'hidden');
@@ -482,9 +442,7 @@
 	$(".auto_img_8").css( "visibility", tf.config_num_auto >  6 ? 'visible' : 'hidden');
 	$(".auto_img_9").css( "visibility", tf.config_num_auto >  7 ? 'visible' : 'hidden');
 	$(".auto_img_10").css("visibility", tf.config_num_auto >  8 ? 'visible' : 'hidden');
-
-	[endscript]
-
+[endscript]
 [return]
 
 *load_skip_img
@@ -493,7 +451,6 @@
 [else]
 	[image layer="0" name="unread_off" storage="../others/plugin/theme_kopanda_bth_06_blue/image/config/skip_off.png" x="788" y="713"]
 [endif]
-
 [return]
 
 ;================================================================================
@@ -502,57 +459,51 @@
 
 ;================================================================================
 *load_img
-
-	[layopt layer="0" visible="true"]
-
-;	BGM
-	[image layer="0" name="bgm_img_0"  storage="&tf.img_path + 'mute_on.png'"  x="&tf.config_x[0]"  y="&tf.config_y_bgm"]
-	[image layer="0" name="bgm_img_1"  storage="&tf.img_path + 'set.png'"  x="&tf.config_x[1]"  y="&tf.config_y_bgm"]
-	[image layer="0" name="bgm_img_2"  storage="&tf.img_path + 'set.png'"  x="&tf.config_x[2]"  y="&tf.config_y_bgm"]
-	[image layer="0" name="bgm_img_3"  storage="&tf.img_path + 'set.png'"  x="&tf.config_x[3]"  y="&tf.config_y_bgm"]
-	[image layer="0" name="bgm_img_4"  storage="&tf.img_path + 'set.png'"  x="&tf.config_x[4]"  y="&tf.config_y_bgm"]
-	[image layer="0" name="bgm_img_5"  storage="&tf.img_path + 'set.png'"  x="&tf.config_x[5]"  y="&tf.config_y_bgm"]
-	[image layer="0" name="bgm_img_6"  storage="&tf.img_path + 'set.png'"  x="&tf.config_x[6]"  y="&tf.config_y_bgm"]
-	[image layer="0" name="bgm_img_7"  storage="&tf.img_path + 'set.png'"  x="&tf.config_x[7]"  y="&tf.config_y_bgm"]
-	[image layer="0" name="bgm_img_8"  storage="&tf.img_path + 'set.png'"  x="&tf.config_x[8]"  y="&tf.config_y_bgm"]
-	[image layer="0" name="bgm_img_9"  storage="&tf.img_path + 'set.png'"  x="&tf.config_x[9]"  y="&tf.config_y_bgm"]
-	[image layer="0" name="bgm_img_10" storage="&tf.img_path + 'set.png'"  x="&tf.config_x[10]" y="&tf.config_y_bgm"]
-
-;	SE
-	[image layer="0" name="se_img_0"  storage="&tf.img_path + 'mute_on.png'" x="&tf.config_x[0]"  y="&tf.config_y_se"]
-	[image layer="0" name="se_img_1"  storage="&tf.img_path + 'set.png'" x="&tf.config_x[1]"  y="&tf.config_y_se"]
-	[image layer="0" name="se_img_2"  storage="&tf.img_path + 'set.png'" x="&tf.config_x[2]"  y="&tf.config_y_se"]
-	[image layer="0" name="se_img_3"  storage="&tf.img_path + 'set.png'" x="&tf.config_x[3]"  y="&tf.config_y_se"]
-	[image layer="0" name="se_img_4"  storage="&tf.img_path + 'set.png'" x="&tf.config_x[4]"  y="&tf.config_y_se"]
-	[image layer="0" name="se_img_5"  storage="&tf.img_path + 'set.png'" x="&tf.config_x[5]"  y="&tf.config_y_se"]
-	[image layer="0" name="se_img_6"  storage="&tf.img_path + 'set.png'" x="&tf.config_x[6]"  y="&tf.config_y_se"]
-	[image layer="0" name="se_img_7"  storage="&tf.img_path + 'set.png'" x="&tf.config_x[7]"  y="&tf.config_y_se"]
-	[image layer="0" name="se_img_8"  storage="&tf.img_path + 'set.png'" x="&tf.config_x[8]"  y="&tf.config_y_se"]
-	[image layer="0" name="se_img_9"  storage="&tf.img_path + 'set.png'" x="&tf.config_x[9]"  y="&tf.config_y_se"]
-	[image layer="0" name="se_img_10" storage="&tf.img_path + 'set.png'" x="&tf.config_x[10]" y="&tf.config_y_se"]
-
-;	テキスト速度
-	[image layer="0" name="ch_img_1"  storage="&tf.img_path + 'set.png'" x="&tf.config_x[1]"  y="&tf.config_y_ch"]
-	[image layer="0" name="ch_img_2"  storage="&tf.img_path + 'set.png'" x="&tf.config_x[2]"  y="&tf.config_y_ch"]
-	[image layer="0" name="ch_img_3"  storage="&tf.img_path + 'set.png'" x="&tf.config_x[3]"  y="&tf.config_y_ch"]
-	[image layer="0" name="ch_img_4"  storage="&tf.img_path + 'set.png'" x="&tf.config_x[4]"  y="&tf.config_y_ch"]
-	[image layer="0" name="ch_img_5"  storage="&tf.img_path + 'set.png'" x="&tf.config_x[5]"  y="&tf.config_y_ch"]
-	[image layer="0" name="ch_img_6"  storage="&tf.img_path + 'set.png'" x="&tf.config_x[6]"  y="&tf.config_y_ch"]
-	[image layer="0" name="ch_img_7"  storage="&tf.img_path + 'set.png'" x="&tf.config_x[7]"  y="&tf.config_y_ch"]
-	[image layer="0" name="ch_img_8"  storage="&tf.img_path + 'set.png'" x="&tf.config_x[8]"  y="&tf.config_y_ch"]
-	[image layer="0" name="ch_img_9"  storage="&tf.img_path + 'set.png'" x="&tf.config_x[9]"  y="&tf.config_y_ch"]
-	[image layer="0" name="ch_img_10" storage="&tf.img_path + 'set.png'" x="&tf.config_x[10]" y="&tf.config_y_ch"]
-
-;	オート速度
-	[image layer="0" name="auto_img_1"  storage="&tf.img_path + 'set.png'"  x="&tf.config_x[1]"  y="&tf.config_y_auto"]
-	[image layer="0" name="auto_img_2"  storage="&tf.img_path + 'set.png'"  x="&tf.config_x[2]"  y="&tf.config_y_auto"]
-	[image layer="0" name="auto_img_3"  storage="&tf.img_path + 'set.png'"  x="&tf.config_x[3]"  y="&tf.config_y_auto"]
-	[image layer="0" name="auto_img_4"  storage="&tf.img_path + 'set.png'"  x="&tf.config_x[4]"  y="&tf.config_y_auto"]
-	[image layer="0" name="auto_img_5"  storage="&tf.img_path + 'set.png'"  x="&tf.config_x[5]"  y="&tf.config_y_auto"]
-	[image layer="0" name="auto_img_6"  storage="&tf.img_path + 'set.png'"  x="&tf.config_x[6]"  y="&tf.config_y_auto"]
-	[image layer="0" name="auto_img_7"  storage="&tf.img_path + 'set.png'"  x="&tf.config_x[7]"  y="&tf.config_y_auto"]
-	[image layer="0" name="auto_img_8"  storage="&tf.img_path + 'set.png'"  x="&tf.config_x[8]"  y="&tf.config_y_auto"]
-	[image layer="0" name="auto_img_9"  storage="&tf.img_path + 'set.png'"  x="&tf.config_x[9]"  y="&tf.config_y_auto"]
-	[image layer="0" name="auto_img_10" storage="&tf.img_path + 'set.png'"  x="&tf.config_x[10]" y="&tf.config_y_auto"]
-
+[layopt layer="0" visible="true"]
+; BGM
+[image layer="0" name="bgm_img_0" storage="&tf.img_path + 'mute_on.png'" x="&tf.config_x[0]" y="&tf.config_y_bgm"]
+[image layer="0" name="bgm_img_1" storage="&tf.img_path + 'set.png'" x="&tf.config_x[1]" y="&tf.config_y_bgm"]
+[image layer="0" name="bgm_img_2" storage="&tf.img_path + 'set.png'" x="&tf.config_x[2]" y="&tf.config_y_bgm"]
+[image layer="0" name="bgm_img_3" storage="&tf.img_path + 'set.png'" x="&tf.config_x[3]" y="&tf.config_y_bgm"]
+[image layer="0" name="bgm_img_4" storage="&tf.img_path + 'set.png'" x="&tf.config_x[4]" y="&tf.config_y_bgm"]
+[image layer="0" name="bgm_img_5" storage="&tf.img_path + 'set.png'" x="&tf.config_x[5]" y="&tf.config_y_bgm"]
+[image layer="0" name="bgm_img_6" storage="&tf.img_path + 'set.png'" x="&tf.config_x[6]" y="&tf.config_y_bgm"]
+[image layer="0" name="bgm_img_7" storage="&tf.img_path + 'set.png'" x="&tf.config_x[7]" y="&tf.config_y_bgm"]
+[image layer="0" name="bgm_img_8" storage="&tf.img_path + 'set.png'" x="&tf.config_x[8]" y="&tf.config_y_bgm"]
+[image layer="0" name="bgm_img_9" storage="&tf.img_path + 'set.png'" x="&tf.config_x[9]" y="&tf.config_y_bgm"]
+[image layer="0" name="bgm_img_10" storage="&tf.img_path + 'set.png'" x="&tf.config_x[10]" y="&tf.config_y_bgm"]
+; SE
+[image layer="0" name="se_img_0" storage="&tf.img_path + 'mute_on.png'" x="&tf.config_x[0]" y="&tf.config_y_se"]
+[image layer="0" name="se_img_1" storage="&tf.img_path + 'set.png'" x="&tf.config_x[1]" y="&tf.config_y_se"]
+[image layer="0" name="se_img_2" storage="&tf.img_path + 'set.png'" x="&tf.config_x[2]" y="&tf.config_y_se"]
+[image layer="0" name="se_img_3" storage="&tf.img_path + 'set.png'" x="&tf.config_x[3]" y="&tf.config_y_se"]
+[image layer="0" name="se_img_4" storage="&tf.img_path + 'set.png'" x="&tf.config_x[4]" y="&tf.config_y_se"]
+[image layer="0" name="se_img_5" storage="&tf.img_path + 'set.png'" x="&tf.config_x[5]" y="&tf.config_y_se"]
+[image layer="0" name="se_img_6" storage="&tf.img_path + 'set.png'" x="&tf.config_x[6]" y="&tf.config_y_se"]
+[image layer="0" name="se_img_7" storage="&tf.img_path + 'set.png'" x="&tf.config_x[7]" y="&tf.config_y_se"]
+[image layer="0" name="se_img_8" storage="&tf.img_path + 'set.png'" x="&tf.config_x[8]" y="&tf.config_y_se"]
+[image layer="0" name="se_img_9" storage="&tf.img_path + 'set.png'" x="&tf.config_x[9]" y="&tf.config_y_se"]
+[image layer="0" name="se_img_10" storage="&tf.img_path + 'set.png'" x="&tf.config_x[10]" y="&tf.config_y_se"]
+; テキスト速度
+[image layer="0" name="ch_img_1" storage="&tf.img_path + 'set.png'" x="&tf.config_x[1]" y="&tf.config_y_ch"]
+[image layer="0" name="ch_img_2" storage="&tf.img_path + 'set.png'" x="&tf.config_x[2]" y="&tf.config_y_ch"]
+[image layer="0" name="ch_img_3" storage="&tf.img_path + 'set.png'" x="&tf.config_x[3]" y="&tf.config_y_ch"]
+[image layer="0" name="ch_img_4" storage="&tf.img_path + 'set.png'" x="&tf.config_x[4]" y="&tf.config_y_ch"]
+[image layer="0" name="ch_img_5" storage="&tf.img_path + 'set.png'" x="&tf.config_x[5]" y="&tf.config_y_ch"]
+[image layer="0" name="ch_img_6" storage="&tf.img_path + 'set.png'" x="&tf.config_x[6]" y="&tf.config_y_ch"]
+[image layer="0" name="ch_img_7" storage="&tf.img_path + 'set.png'" x="&tf.config_x[7]" y="&tf.config_y_ch"]
+[image layer="0" name="ch_img_8" storage="&tf.img_path + 'set.png'" x="&tf.config_x[8]" y="&tf.config_y_ch"]
+[image layer="0" name="ch_img_9" storage="&tf.img_path + 'set.png'" x="&tf.config_x[9]" y="&tf.config_y_ch"]
+[image layer="0" name="ch_img_10" storage="&tf.img_path + 'set.png'" x="&tf.config_x[10]" y="&tf.config_y_ch"]
+; オート速度
+[image layer="0" name="auto_img_1" storage="&tf.img_path + 'set.png'" x="&tf.config_x[1]" y="&tf.config_y_auto"]
+[image layer="0" name="auto_img_2" storage="&tf.img_path + 'set.png'" x="&tf.config_x[2]" y="&tf.config_y_auto"]
+[image layer="0" name="auto_img_3" storage="&tf.img_path + 'set.png'" x="&tf.config_x[3]" y="&tf.config_y_auto"]
+[image layer="0" name="auto_img_4" storage="&tf.img_path + 'set.png'" x="&tf.config_x[4]" y="&tf.config_y_auto"]
+[image layer="0" name="auto_img_5" storage="&tf.img_path + 'set.png'" x="&tf.config_x[5]" y="&tf.config_y_auto"]
+[image layer="0" name="auto_img_6" storage="&tf.img_path + 'set.png'" x="&tf.config_x[6]" y="&tf.config_y_auto"]
+[image layer="0" name="auto_img_7" storage="&tf.img_path + 'set.png'" x="&tf.config_x[7]" y="&tf.config_y_auto"]
+[image layer="0" name="auto_img_8" storage="&tf.img_path + 'set.png'" x="&tf.config_x[8]" y="&tf.config_y_auto"]
+[image layer="0" name="auto_img_9" storage="&tf.img_path + 'set.png'" x="&tf.config_x[9]" y="&tf.config_y_auto"]
+[image layer="0" name="auto_img_10" storage="&tf.img_path + 'set.png'" x="&tf.config_x[10]" y="&tf.config_y_auto"]
 [return]
