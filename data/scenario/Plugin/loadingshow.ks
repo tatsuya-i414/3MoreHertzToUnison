@@ -17,6 +17,7 @@
         "./data/bgm/episode_ed_normal.m4a",
         "./data/bgm/episode_ed_true.m4a",
         "./data/bgm/episode_ep_normal.m4a",
+        "./data/bgm/episode_ep_true.m4a",
         "./data/sound/se/arrowbuttonclick.m4a",
         "./data/sound/se/bell.m4a",
         "./data/sound/se/cancel.m4a",

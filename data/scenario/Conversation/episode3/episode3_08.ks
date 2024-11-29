@@ -205,10 +205,19 @@
 ; 布団所持
 ; 二回目以降
 [elsif exp="f.isFutonGet == -1 && f.isClickedBed_first == 'false' "]
-    ; 桜良表情：通常
-    #桜良
-    ど、どうする？[r]
-    電気を消して寝てみる？[p]
+    ; 昼の場合
+    [if exp="f.isRoomLightNight == 0"]
+        ; 桜良表情：通常
+        #桜良
+        ど、どうする？[r]
+        電気を消して寝てみる？[p]
+    ; 夜の場合
+    [else]
+        ;桜良表情：通常
+        #桜良
+        ど、どうする？[r]
+        ちょうど夜になってるし、寝てみる？[p]
+    [endif]
     [iscript]
         tf.selectOfSleeporNot = 'true'
     [endscript]
@@ -245,17 +254,25 @@
     #深雪
     そ、うよね、[r]
     緊張し過ぎてた。[p]
-
-    #深雪
-    じゃあ電気、消すわね。[p]
+    ; 昼の場合
+    [if exp="f.isRoomLightNight == 0"]
+        #深雪
+        じゃあ電気、消すわね。[p]
+        [PlaySwitching]
+        [iscript]
+            f.isRoomLightNight = 1
+        [endscript]
+    ; 夜の場合
+    [else]
+        #深雪
+        じゃあ...失礼します...[p]
+    [endif]
     [endnolog]
     [messageFalse]
     [layer3False]
     [cancelskip]
 [endif]
-[PlaySwitching]
 [iscript]
-    f.isRoomLightNight = 1
     f.itemVisible[0] = 'true'
     f.itemVisible[1] = 'episode3_bed'
 [endscript]
