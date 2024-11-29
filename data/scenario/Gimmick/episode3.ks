@@ -245,7 +245,7 @@
     [ControlButtons]
     [FadeoutBGM]
     [if exp="f.selectedEDRoute == 'True' "]
-        ; エピローグ(True)のBGMを再生する
+        [PlayEpisodeTrueEpBGM]
     [else]
         [PlayEpisodeNormalEpBGM]
     [endif]
@@ -254,7 +254,7 @@
     [messageTrue]
     ; TrueEndルート
     [if exp="f.selectedEDRoute == 'True' "]
-        [call storage="Conversation/epilogue/episode_normal_ep.ks"]
+        [call storage="Conversation/epilogue/episode_true_ep.ks"]
     ; NormalEndルート
     [else]
         [call storage="Conversation/epilogue/episode_normal_ep.ks"]
@@ -416,24 +416,6 @@
 *BoxUnlock
 [wait time="200"]
 [if exp="f.arrayElementsCount == 5"]
-    ; ジャケットをハンガーに掛ける前に布団を獲得できないようにする例外処理
-    [if exp="f.isJacketGet != -1"]
-        [ControlButtons]
-        [messageTrue]
-        [nolog]
-        #
-        開錠することができないようだ[p]
-        [endnolog]
-        [messageFalse]
-        [iscript]
-            // 押下したボタンの順番を初期化
-            f.arrayElementsCount = 0
-            f.buttonPushOrder = []
-        [endscript]
-        [free layer="1" name="compass_set"]
-        [MenuButton]
-        [JumpBedRoom]
-    [endif]
     [if exp="f.buttonPushOrder[0] == 'N' && f.buttonPushOrder[1] == 'W' && f.buttonPushOrder[2] == 'E' && f.buttonPushOrder[3] == 'N' && f.buttonPushOrder[4] == 'S' "]
         [if exp="f.scn_skip == 0"]
             [ControlButtons]

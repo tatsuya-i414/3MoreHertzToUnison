@@ -131,6 +131,9 @@
             [if exp="f.isJutanOpen == 1"]
                 [image storage="../image/episode3/mark_underjutan.png" layer="1" x="1175" y="915" name="mark"]
             [endif]
+        [elsif exp="f.itemVisible[0] == 'true' && f.itemVisible[1] == 'epilogue_true' "]
+            [layer1True]
+            [layer3True]
         [endif]
         [bg storage="%storage_1" time="%time_2|100"]
     [else]
@@ -263,10 +266,10 @@
 
 ; エピローグ(TrueEnd)BGMを再生する
 [macro name="PlayEpisodeTrueEpBGM"]
-    ;[playbgm storage="episode_ep_true.m4a" loop="true" restart="false"]
-    ;[iscript]
-    ;    f.isPlayingBGM = 'true'
-    ;[endscript]
+    [playbgm storage="episode_ep_true.m4a" loop="true" restart="false"]
+    [iscript]
+        f.isPlayingBGM = 'true'
+    [endscript]
 [endmacro]
 
 ; BGMの再生を停止する
