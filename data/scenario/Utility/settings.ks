@@ -10,7 +10,7 @@
     // クレジット
     sf.credit = '©️2024' + '　' + sf.circleName
     // 配色一覧
-    sf.colorScheme = ['0x444444', '0x196D7D', '0x89DAE3'] // [黒],[濃緑],[水色]
+    sf.colorScheme = ['0x444444','0x196D7D','0x89DAE3','0x505050','0xF5F5F5'] // [黒],[濃緑],[水色],[灰色],[白色]
     // 配布形式
     sf.distribution = $.isElectron() // PCアプリの場合True
     // 起動モード

@@ -38,7 +38,7 @@ tf.cg_thumbnail_height = 243; // サムネイルの高さ
 [macro name="pagination"]
   [layopt layer="0" visible="true"]
   [free layer="0" name="pagination" time="1"]
-  [ptext layer="0" name="pagination" text="&tf.page + 1 + '/3'" x="330" y="890" size="18" color="0x333333" width="1280" align="center"]
+  [ptext layer="0" name="pagination" text="&tf.page + 1 + '/3'" x="330" y="890" size="18" color="&sf.colorScheme[0]" width="1280" align="center"]
   [endmacro]
 
 [jump target="*cgpage"]

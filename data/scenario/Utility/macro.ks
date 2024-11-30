@@ -79,7 +79,7 @@
 ; 会話中に場所を表記する
 [macro name="DispLocation"]
     [image storage="../image/share/button_select_02_hover.png" layer="1" x="-250" y="30" width="997" height="72" name="location"]
-    [ptext layer="1" text="%text" x="80" y="45" size="48" color="white" shadow="" overwrite="true" name="location_text"]
+    [ptext layer="1" text="%text" x="80" y="45" size="48" color="&sf.colorScheme[4]" shadow="" overwrite="true" name="location_text"]
 [endmacro]
 
 ; 表示している場所の表記を削除する
@@ -699,25 +699,25 @@
 ; アイテム使用時のクリック判定
 [macro name="SelectItemClickable"]
     [if exp="tf.usingItemInventory1 == 1"]
-        [clickable x="1780" y="150" width="100" height="100" target="%target_1" opacity="30" mouseopacity="50" color="0x505050"]
+        [clickable x="1780" y="150" width="100" height="100" target="%target_1" opacity="30" mouseopacity="50" color="&sf.colorScheme[3]"]
     [endif]
     [if exp="tf.usingItemInventory2 == 1"]
-        [clickable x="1780" y="250" width="100" height="100" target="%target_2" opacity="30" mouseopacity="50" color="0x505050"]
+        [clickable x="1780" y="250" width="100" height="100" target="%target_2" opacity="30" mouseopacity="50" color="&sf.colorScheme[3]"]
     [endif]
     [if exp="tf.usingItemInventory3 == 1"]
-        [clickable x="1780" y="350" width="100" height="100" target="%target_3" opacity="30" mouseopacity="50" color="0x505050"]
+        [clickable x="1780" y="350" width="100" height="100" target="%target_3" opacity="30" mouseopacity="50" color="&sf.colorScheme[3]"]
     [endif]
     [if exp="tf.usingItemInventory4 == 1"]
-        [clickable x="1780" y="450" width="100" height="100" target="%target_4" opacity="30" mouseopacity="50" color="0x505050"]
+        [clickable x="1780" y="450" width="100" height="100" target="%target_4" opacity="30" mouseopacity="50" color="&sf.colorScheme[3]"]
     [endif]
     [if exp="tf.usingItemInventory5 == 1"]
-        [clickable x="1780" y="550" width="100" height="100" target="%target_5" opacity="30" mouseopacity="50" color="0x505050"]
+        [clickable x="1780" y="550" width="100" height="100" target="%target_5" opacity="30" mouseopacity="50" color="&sf.colorScheme[3]"]
     [endif]
     [if exp="tf.usingItemInventory6 == 1"]
-        [clickable x="1780" y="650" width="100" height="100" target="%target_6" opacity="30" mouseopacity="50" color="0x505050"]
+        [clickable x="1780" y="650" width="100" height="100" target="%target_6" opacity="30" mouseopacity="50" color="&sf.colorScheme[3]"]
     [endif]
     [if exp="tf.usingItemInventory7 == 1"]
-        [clickable x="1780" y="750" width="100" height="100" target="%target_7" opacity="30" mouseopacity="50" color="0x505050"]
+        [clickable x="1780" y="750" width="100" height="100" target="%target_7" opacity="30" mouseopacity="50" color="&sf.colorScheme[3]"]
     [endif]
 [endmacro]
 
@@ -849,8 +849,8 @@
 ; 通常のクリック判定
 ; 開発/検証モード：灰色｜通常モード：透明
 [macro name="clickJudgment"]
-    [clickable x="%x" y="%y" width="%width" height="%height" target="%target" opacity="30" mouseopacity="50" color="0x505050" cond="sf.bootMode == 'develop' || sf.bootMode == 'kenshou' "]
-    [clickable x="%x" y="%y" width="%width" height="%height" target="%target" opacity="0" mouseopacity="0" color="0x505050" cond="sf.bootMode == 'normal' "]
+    [clickable x="%x" y="%y" width="%width" height="%height" target="%target" opacity="30" mouseopacity="50" color="&sf.colorScheme[3]" cond="sf.bootMode == 'develop' || sf.bootMode == 'kenshou' "]
+    [clickable x="%x" y="%y" width="%width" height="%height" target="%target" opacity="0" mouseopacity="0" color="&sf.colorScheme[3]" cond="sf.bootMode == 'normal' "]
 [endmacro]
 
 ; 選択した用語の詳細を表示する
