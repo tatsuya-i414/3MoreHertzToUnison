@@ -1,3 +1,4 @@
+[DispLocation text="ライブ会場"]
 ; 深雪登場　表情：悩み
 #深雪
 んん......あれ？[r]
@@ -145,4 +146,5 @@
 #桜良
 そうだね！[r]
 じゃあ早速いろいろ調べてみよう！[p]
+[DeleteDispLocation]
 [return]

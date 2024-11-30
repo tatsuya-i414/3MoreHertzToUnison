@@ -172,6 +172,8 @@
 [PlayFootStep]
 [wait time="4500"]
 [messageTrue]
+[autostop]
+[cancelskip]
 
 #深雪
 立つだけじゃダメみたいね。[r]
@@ -181,6 +183,8 @@
 [messageFalse]
 [wait time="500"]
 [messageTrue]
+[autostop]
+[cancelskip]
  
 #桜良
 キャッ！！[p]

@@ -143,7 +143,7 @@
 [messageFalse]
 [PlayMountLightCover]
 [wait time="500"]
-[image storage="../image/episode1/lightcover_mount.png" layer="1" x="670" y="20" name="light"]
+[image storage="../image/episode1/lightcover_mount.png" layer="1" x="695" y="20" name="light"]
 [wait time="1000"]
 [PlayChangeControlPanelLamp]
 [messageTrue]

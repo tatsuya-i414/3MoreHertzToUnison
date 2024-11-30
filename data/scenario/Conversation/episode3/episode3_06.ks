@@ -39,6 +39,7 @@
     [clearfix]
     [messageFalse]
     [layer3False]
+    [autostop]
     [cancelskip]
     [camera zoom="2" x="400" y="200" time="2000" wait="true"]
     [loop_quake layer="1" time="400" vmax="5"]

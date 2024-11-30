@@ -16,6 +16,8 @@
     #
     スイッチを押しますか？
     [endnolog]
+    [autostop]
+    [cancelskip]
     [YesNoButton target_yes="*PushSwitch" target_no="*NotPushSwitch"]
     [s]
 ; 準備未完了状態
@@ -130,6 +132,7 @@
     [endnolog]
     [layer3False]
     [messageFalse]
+    [autostop]
     [cancelskip]
     [clearfix]
     [MenuButton]

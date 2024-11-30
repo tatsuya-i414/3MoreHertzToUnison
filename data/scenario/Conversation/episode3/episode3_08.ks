@@ -50,8 +50,8 @@
     [PlayRun]
     [wait time="5000"]
     [messageTrue]
+    [autostop]
     [cancelskip]
-
     ; 深雪表情：困り
     #深雪
     もう...登山ロケなんて絶対行かない...[p]
@@ -135,7 +135,6 @@
     #深雪
     気にしないで大丈夫。[r]
     そうね、試してみましょう。[p]
-
     [messageFalse]
     [PlayGosoGoso]
     [blackout exp="f.isRoomLightNight == 1" storage_1="episode3/bedroom_night.png" storage_2="episode3/bedroom.png"]
@@ -143,9 +142,9 @@
         f.isFutonGet = -1
         tf.usingItemInventory4 = 0
     [endscript]
+    [autostop]
     [cancelskip]
     [messageTrue]
-
     ; 深雪表情：困り
     #深雪
     何も起きない...[r]
@@ -270,6 +269,7 @@
     [endnolog]
     [messageFalse]
     [layer3False]
+    [autostop]
     [cancelskip]
 [endif]
 [iscript]

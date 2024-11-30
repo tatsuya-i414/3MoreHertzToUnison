@@ -174,6 +174,7 @@
 行こ行こ！[p]
 
 ; 二人とも非表示
+[autostop]
 [cancelskip]
 [PlayFootStep]
 [messageFalse]
@@ -191,6 +192,7 @@
     f.itemVisible[1] = 'epilogue_true'
 [endscript]
 [messageFalse]
+[autostop]
 [cancelskip]
 [blackout exp="f.isRoomLightNight == 1" storage_1="episode3/bedroom_night.png" storage_2="episode3/bedroom.png"]
 [PlayPhotographing]
