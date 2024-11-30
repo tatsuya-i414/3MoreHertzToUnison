@@ -18,6 +18,8 @@
     [messageTrue]
     [call storage="Conversation/episode_op.ks"]
     [messageFalse]
+    [autostop]
+    [cancelskip]
 [endif]
 
 [if exp="sf.scn_episode1OP_Skip == 'true' "]

@@ -117,6 +117,8 @@
 [wait time="1000"]
 [PlayEpisode1BGM]
 [messageTrue]
+[autostop]
+[cancelskip]
 
 ; 深雪表情：通常
 #深雪
