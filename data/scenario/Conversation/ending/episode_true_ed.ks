@@ -12,6 +12,7 @@
 
 ;「勇気を出して思いを伝える」選択時
 *ConveyYourThoughts
+[autostop]
 [cancelskip]
 #深雪
 （私から踏み出して初めて、何かが変わるのかもしれない。伝えて、みようかしら...）
@@ -19,6 +20,7 @@
 
 ;「伝えるか悩む」選択時
 *Worry
+[autostop]
 [cancelskip]
 #深雪
 （気持ちを伝えないでおこうか？）

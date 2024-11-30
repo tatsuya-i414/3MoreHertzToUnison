@@ -1,3 +1,4 @@
+[DispLocation text="撮影スタジオ"]
 ; 深雪登場、表情は「困り」
 #深雪
 ううん...いったい何が...[p]
@@ -46,7 +47,8 @@
 #深雪
 一度調べてみましょうか。[p]
 
-[layer1False]
+[Freelayer1]
+[DispLocation text="撮影スタジオ"]
 [ChangeBackGround storage="episode2/cameramonitor.png" time="1000" method="zoomIn"]
 
 #深雪
@@ -110,4 +112,5 @@
 それもそうね。[r]
 部屋にヒントが隠されているかもしれない。[r]
 確認してみましょう。[p]
+[DeleteDispLocation]
 [return]

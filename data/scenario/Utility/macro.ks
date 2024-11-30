@@ -76,6 +76,18 @@
 ; 演出
 ; ------------------------------
 
+; 会話中に場所を表記する
+[macro name="DispLocation"]
+    [image storage="../image/share/button_select_02_hover.png" layer="1" x="-250" y="30" width="997" height="72" name="location"]
+    [ptext layer="1" text="%text" x="80" y="45" size="48" color="white" shadow="" overwrite="true" name="location_text"]
+[endmacro]
+
+; 表示している場所の表記を削除する
+[macro name="DeleteDispLocation"]
+    [free layer="1" name="location"]
+    [free layer="1" name="location_text"]
+[endmacro]
+
 ; 暗転
 [macro name="blackout"]
     [mask effect="fadeIn" time="%time_1|3000"]
@@ -817,6 +829,7 @@
 [macro name="MenuButton"]
     [showmenubutton]
     [cancelskip]
+    [autostop]
 [endmacro]
 
 ; 背景を変更する

@@ -130,6 +130,7 @@
     [endnolog]
     [layer3False]
     [messageFalse]
+    [autostop]
     [cancelskip]
     [clearfix]
     [MenuButton]
