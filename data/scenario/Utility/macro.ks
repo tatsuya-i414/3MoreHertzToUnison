@@ -509,40 +509,55 @@
 ; キャラクター
 ; ------------------------------
 
-; 桜良(通常)を画面右手に表示する
-[macro name="ShowNormalSakuraOnRight"]
-    [chara_show name="sakura" time="500" layer="3" width="730" height="1990" left="960" top="20"]
+; 桜良を画面右側に表示する
+[macro name="ShowSakura_Right"]
+    [chara_show name="sakura" time="1000" layer="3" wait="true" face="%face|normal" width="737" height="1990" left="960" top="120"]
 [endmacro]
 
-; 桜良(通常)を画面中央に表示する
-[macro name="ShowNormalSakuraOnCenter"]
-    [chara_show name="sakura" time="500" layer="3" width="730" height="1990" left="550" top="20"]
+; 桜良を画面中央に表示する
+[macro name="ShowSakura_Center"]
+    [chara_show name="sakura" time="1000" layer="3" wait="true" face="%face|normal" width="737" height="1990" left="550" top="120"]
 [endmacro]
 
-; 深雪(通常)を画面左手に表示する
-[macro name="ShowNormalMiyukiOnLeft"]
-    [chara_show name="miyuki" time="500" layer="3" width="730" height="1990" left="160" top="20"]
+; 深雪を画面左側に表示する
+[macro name="ShowMiyuki_Left"]
+    [chara_show name="miyuki" time="1000" layer="3" wait="true" face="%face|normal" width="737" height="1990" left="160" top="120"]
 [endmacro]
 
-; 深雪(通常)を画面中央に表示する
-[macro name="ShowNormalMiyukiOnCenter"]
-    [chara_show name="miyuki" time="500" layer="3" width="730" height="1990" left="550" top="20"]
+; 深雪を画面中央に表示する
+[macro name="ShowMiyuki_Center"]
+    [chara_show name="miyuki" time="1000" layer="3" wait="true" face="%face|normal" width="737" height="1990" left="550" top="120"]
 [endmacro]
 
-; 桜良(通常)と深雪(通常)を表示する
-[macro name="ShowNormalSakuraAndMiyuki"]
-    [ShowNormalSakuraOnRight]
-    [ShowNormalMiyukiOnLeft]
+; キャラクターの表情を切り替える
+[macro name="ChangeCharaFace"]
+    [chara_mod name="%name" face="%face" time="500" wait="true"]
 [endmacro]
 
-; レイヤー3に設定した桜良の画像を削除する
-[macro name="FreeSakura"]
-    [freeimage layer="3" name="sakura"]
+; キャラクターの立ち位置を移動する
+[macro name="ChangeCharaPosition"]
+    [if exp="f.charaPosition[1] == 'left' "]
+        [chara_move name="&f.charaPosition[0]" left="160" anim="true"]
+    [elsif exp="f.charaPosition[1] == 'center' "]
+        [chara_move name="&f.charaPosition[0]" left="550" anim="true"]
+    [elsif exp="f.charaPosition[1] == 'right' "]
+        [chara_move name="&f.charaPosition[0]" left="960" anim="true"]
+    [endif]
 [endmacro]
 
-; レイヤー3に設定した深雪の画像を削除する
-[macro name="FreeMiyuki"]
-    [freeimage layer="3" name="miyuki"]
+; 桜良を退場させる
+[macro name="HideSakura"]
+    [chara_hide name="sakura" time="500" wait="true" layer="3"]
+[endmacro]
+
+; 深雪を退場させる
+[macro name="HideMiyuki"]
+    [chara_hide name="sakura" time="500" wait="true" layer="3"]
+[endmacro]
+
+; キャラクターを全員退場させる
+[macro name="HideAll"]
+    [chara_hide_all time="500" wait="true" layer="3"]
 [endmacro]
 
 ; ------------------------------

@@ -64,7 +64,6 @@
             f.isClickedTent_first = 'false'
         [endscript]
     [endif]
-    [layer3False]
     [JumpStudioRoom]
 ; ハンガー未所持で二回目以降
 [elsif exp="f.isHangerGet == 0 && f.isClickedTent_first == 'false' "]
@@ -106,7 +105,6 @@
     ; 桜良表情：困り
     #桜良
     ダメかあ～...[p]
-    [layer3False]
     [JumpStudioRoom]
 ; ハンガー所持で初回クリック時
 [elsif exp="f.isHangerGet == 1 && f.isClickedTent_first == 'true' "]
@@ -241,14 +239,11 @@
 [if exp="f.scn_skip == 0"]
     [ControlButtons]
     [FreeItemBox]
-    [layer3True]
-    [ShowNormalSakuraAndMiyuki]
     [nolog]
     ; 深雪表情：通常
     #深雪
     とはいえ、まだ他も調べられるわ。[r]
     もう少し見てからにしましょうか。[p]
     [endnolog]
-    [layer3False]
 [endif]
 [JumpStudioRoom]

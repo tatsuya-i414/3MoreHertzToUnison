@@ -179,7 +179,6 @@
 [PlayFootStep]
 [messageFalse]
 [layer1False]
-[layer3False]
 [blackout exp="f.isRoomLightNight == 1" storage_1="epilogue/black.png" storage_2="epilogue/black.png"]
 [messageTrue]
 #桜良

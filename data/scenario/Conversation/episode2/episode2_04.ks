@@ -44,7 +44,6 @@
             f.isClickedPaper_first = 'false'
         [endscript]
     [endif]
-    [layer3False]
     [JumpStudioRoom]
 ; アイブロウペンシル未所持
 ; 二回目以降
@@ -81,7 +80,6 @@
     ; 深雪表情：笑顔
     #深雪
     わかったわ。お願いするわね。[p]
-    [layer3False]
     [JumpStudioRoom]
 ; アイブロウペンシル所持
 ; 二回目以降
@@ -306,8 +304,6 @@
 [if exp="f.scn_skip == 0"]
     [ControlButtons]
     [FreeItemBox]
-    [layer3True]
-    [ShowNormalSakuraAndMiyuki]
     [nolog]
     ; 深雪表情：通常
     #深雪
@@ -318,6 +314,5 @@
     わかった！[r]
     準備ができたら言ってね！[p]
     [endnolog]
-    [layer3False]
 [endif]
 [JumpStudioRoom]

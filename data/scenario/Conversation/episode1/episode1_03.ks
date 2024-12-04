@@ -4,22 +4,28 @@
 ; ドライバー未所持
 ; 初回クリック時
 [if exp="f.isClickedSpeaker_first == 'true' && f.isDriverGet == 0"]
-    ; 桜良表情：通常
+    [ShowSakura_Center]
     #桜良
     ......曲がってるね。[p]
 
+    [iscript]
+        f.charaPosition[0] = 'sakura'
+        f.charaPosition[1] = 'right'
+    [endscript]
+    [ChangeCharaPosition]
+    [ShowMiyuki_Left]
     #深雪
     曲がってるわね。[p]
 
-    ; 桜良表情：困り
+    [ChangeCharaFace name="sakura" face="trouble"]
     #桜良
     私、こういうのすっごく直したくなっちゃう。[p]
 
-    ; 深雪表情：尊い
+    [ChangeCharaFace name="miyuki" face="precious"]
     #深雪
     すごくわかる。[p]
 
-    ; 桜良表情：笑顔
+    [ChangeCharaFace name="sakura" face="smile"]
     #桜良
     だよね！むずむずするんだ～！[p]
 
@@ -29,41 +35,47 @@
     #桜良
     うーん、どこかにあればいいんだけどな。[p]
 ; ドライバー未所持
-; 2回目以降
+; 二回目以降
 [elsif exp="f.isClickedSpeaker_first == 'false' && f.isDriverGet == 0"]
-    ;桜良表情：困り
+    [ShowSakura_Center face="trouble"]
     #桜良
     やっぱり気になるなあ、この曲がり方。[p]
 ; ドライバー所持
 ; 初回クリック時（ドライバー未所持の時一度も調べていない場合）
 [elsif exp="f.isClickedSpeaker_first == 'true' && f.isDriverGet == 1"]
-    ; 桜良表情：通常
+    [ShowSakura_Center]
     #桜良
     ......曲がってるね。[p]
 
+    [iscript]
+        f.charaPosition[0] = 'sakura'
+        f.charaPosition[1] = 'right'
+    [endscript]
+    [ChangeCharaPosition]
+    [ShowMiyuki_Left]
     #深雪
     曲がってるわね。[p]
 
-    ; 桜良表情：困り
+    [ChangeCharaFace name="sakura" face="trouble"]
     #桜良
     私、こういうのすっごく直したくなっちゃう。[p]
 
-    ; 深雪表情：尊い
+    [ChangeCharaFace name="miyuki" face="precious"]
     #深雪
     すごくわかる。[p]
 
-    ; 桜良表情：笑顔
+    [ChangeCharaFace name="sakura" face="smile"]
     #桜良
     だよね！むずむずするんだ～！[p]
 
     #桜良
     そういえば、さっき拾ったもので直せそう！[p]
 
-    ; 深雪表情：通常
+    [ChangeCharaFace name="miyuki" face="normal"]
     #深雪
     そうね。まっすぐにしましょう。[p]
 
-    ; 深雪表情：困り
+    [ChangeCharaFace name="miyuki" face="trouble"]
     ねじを緩めるくらいならできるはず。[r]
     ......多分。[p]
 
@@ -71,7 +83,7 @@
     深雪ちゃん？[r]
     どうしたの？[p]
 
-    ; 深雪表情：通常
+    [ChangeCharaFace name="miyuki" face="normal"]
     #深雪
     な、なんでもない。[r]
     力加減に気を付けてゆっくりやれば......[p]
@@ -79,7 +91,7 @@
     #桜良
     横でスピーカー支えてるね！[p]
 
-    ; 深雪表情：尊い
+    [ChangeCharaFace name="miyuki" face="precious"]
     #深雪
     （ち、ちかい......[r]
     集中力が途切れる......）[p]
@@ -89,23 +101,28 @@
         [endscript]
     [endif]
 ; ドライバー所持
-; 2回目以降
+; 二回目以降
 [elsif exp="f.isClickedSpeaker_first_whenDriverGetting == 'false' && f.isDriverGet == 1"]
-    ;深雪表情：尊い
+    [ShowMiyuki_Center face="precious"]
     #深雪
     （落ち着いてやれば大丈夫、大丈夫......）[p]
 ; ドライバー所持
 ; 初回クリック時（ドライバー未所持の時一度調べている場合）
 [elsif exp="f.isClickedSpeaker_first == 'false' && f.isDriverGet == 1"]
-    ; 桜良表情：通常
+    [ShowSakura_Center]
     #桜良
     さっき拾ったもので直せるよ！[p]
 
-    ; 深雪表情：通常
+    [iscript]
+        f.charaPosition[0] = 'sakura'
+        f.charaPosition[1] = 'right'
+    [endscript]
+    [ChangeCharaPosition]
+    [ShowMiyuki_Left]
     #深雪
     そうね。まっすぐにしましょう。[p]
 
-    ; 深雪表情：困り
+    [ChangeCharaFace name="miyuki" face="trouble"]
     ねじを緩めるくらいならできるはず。[r]
     ......多分。[p]
 
@@ -113,7 +130,7 @@
     深雪ちゃん？[r]
     どうしたの？[p]
 
-    ; 深雪表情：通常
+    [ChangeCharaFace name="miyuki" face="normal"]
     #深雪
     な、なんでもない。[r]
     力加減に気を付けてゆっくりやれば......[p]
@@ -121,7 +138,7 @@
     #桜良
     横でスピーカー支えてるね！[p]
 
-    ; 深雪表情：尊い
+    [ChangeCharaFace name="miyuki" face="precious"]
     #深雪
     （ち、ちかい......[r]
     集中力が途切れる......）[p]
@@ -131,10 +148,10 @@
         [endscript]
     [endif]
 [endif]
+[HideAll]
 [return]
 
 *UseDriver
-; 深雪表情：通常
 [messageFalse]
 [PlayTurnScrew]
 [wait time="500"]
@@ -143,12 +160,18 @@
 [wait time="1000"]
 [PlayChangeControlPanelLamp]
 [messageTrue]
+[ShowMiyuki_Center]
 #深雪
 ふう。[r]
 （こ、壊さなくてよかった。[r]
 ねじ回す方向一度間違えたけど......）[p]
 
-; 桜良表情：笑顔
+[iscript]
+    f.charaPosition[0] = 'miyuki'
+    f.charaPosition[1] = 'left'
+[endscript]
+[ChangeCharaPosition]
+[ShowSakura_Right face="smile"]
 #桜良
 これでばっちりだね！[r]
 ライブステージなのにスピーカーが曲がってたら、[r]
@@ -162,7 +185,7 @@
 （桜良も上がるステージなのに、[r]
 不完全な状態なんて絶対に許されないもの）[p]
 
-; 桜良表情：通常
+[ChangeCharaFace name="sakura" face="normal"]
 #桜良
 深雪ちゃんってステージの演出にも興味あるの？[p]
 
@@ -170,7 +193,7 @@
 少しだけね。[r]
 みんなをよりよく見せるために、どんなことでもやりたいもの。[p]
 
-; 桜良表情：赤面
+[ChangeCharaFace name="sakura" face="blush"]
 #桜良
 かっこいい......[p]
 
@@ -178,28 +201,32 @@
 （決めた。[r]
 私、本格的にステージ演出勉強する）[p]
 
-; 深雪表情：尊い
+[ChangeCharaFace name="miyuki" face="precious"]
 #深雪
 （桜良が「かっこいい」って言ってくれたんだもの。[r]
 もっとかっこいい私になってみせるわ！）[p]
 [free layer="1" name="speaker"]
+[HideAll]
 [return]
 
 *NotUseDriver
 [if exp="f.scn_skip == 0"]
     [ControlButtons]
     [FreeItemBox]
-    [layer3True]
-    [ShowNormalSakuraAndMiyuki]
     [nolog]
-    ; 深雪表情：通常
+    [ShowMiyuki_Center]
     #深雪
     待って、作業のイメトレするから。[p]
 
-    ; 桜良表情：通常
+    [iscript]
+        f.charaPosition[0] = 'miyuki'
+        f.charaPosition[1] = 'left'
+    [endscript]
+    [ChangeCharaPosition]
+    [ShowSakura_Right]
     #桜良
     い、イメトレ......？[p]
     [endnolog]
-    [layer3False]
+    [HideAll]
 [endif]
 [jump storage="Gimmick/episode1.ks" target="*SelectItemOfDriver"]
