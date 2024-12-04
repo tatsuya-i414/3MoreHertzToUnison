@@ -2,7 +2,7 @@
 ; 導入パート
 ;-------------------------------------------------------
 [DispLocation text="楽屋"]
-;桜良登場、表情：通常
+[ShowSakura_Center]
 #桜良
 ようやく収録おわった～！[r]
 お疲れ様でした！[p]
@@ -15,7 +15,12 @@
 大丈夫ですよ！[r]
 まだまだ元気いっぱいですから！[p]
 
-;深雪登場　表情：通常
+[iscript]
+    f.charaPosition[0] = 'sakura'
+    f.charaPosition[1] = 'right'
+[endscript]
+[ChangeCharaPosition]
+[ShowMiyuki_Left]
 #深雪
 そうは言うけど、あれだけ喉を酷使したんだから、[r]
 休めるときに休んでおくことも重要よ。[p]
@@ -24,7 +29,7 @@
 あなた、気が付くとずっとおしゃべりしてるんだから。[r]
 これでも口に入れて静かにしておきなさい。[p]
 
-;桜良表情：笑顔
+[ChangeCharaFace name="sakura" face="smile"]
 #桜良
 のど飴？[r]
 わあ、ありがとう深雪ちゃん！[p]
@@ -32,7 +37,7 @@
 #深雪
 ......[p]
 
-;深雪表情：尊い
+[ChangeCharaFace name="miyuki" face="precious"]
 #深雪
 （くぅっ、不意打ちで浴びる桜良の笑顔、[r]
 疲れた体にダイレクトアタックだわ...[r]
@@ -52,7 +57,7 @@
 捨てるくらいなら私にくれないかしら？[r]
 永久保存版として目覚ましにするのに......）[p]
 
-;深雪表情：通常
+[ChangeCharaFace name="miyuki" face="normal"]
 #深雪
 大したことじゃないわ。[r]
 それよりマネージャー、[r]
@@ -62,7 +67,7 @@
 そうですね。[r]
 他の三人もばっちりでしたよ！[p]
 
-;桜良表情：困り
+[ChangeCharaFace name="sakura" face="trouble"]
 #桜良
 前みたいに全員で録れたらいいのになあ。[r]
 柚乃ちゃんに朱理ちゃん、帆南ちゃん...[r]
@@ -76,7 +81,7 @@
 それだけ必要としてもらえているのだから、[r]
 ありがたいことだわ。[p]
 
-;桜良表情：笑顔
+[ChangeCharaFace name="sakura" face="smile"]
 #桜良
 それもそっか。[r]
 それならみんなで集まれる時間は大切にしようね！[p]
@@ -101,7 +106,7 @@
 大きなボウリング施設があるらしく、[r]
 先方からぜひ来てほしいと。[p]
 
-;桜良表情：驚き
+[ChangeCharaFace name="sakura" face="surprise"]
 #桜良
 もしかして私のボウリング好きを知っていて！？[p]
 
@@ -109,12 +114,12 @@
 そのとおりです。[r]
 ぜひ腕前を披露してほしいとのことですよ。[p]
 
-;桜良表情：笑顔
+[ChangeCharaFace name="sakura" face="smile"]
 #桜良
 わあ！楽しみです！[r]
 頑張っちゃいますよ！[p]
 
-;深雪表情：尊い
+[ChangeCharaFace name="miyuki" face="precious"]
 #深雪
 （ボウリングしているときの表情、[r]
 いつだって真剣なのがいいのよね）[p]
@@ -130,7 +135,7 @@
 深雪さんは雑誌の撮影ですね。[r]
 朱理さんと合流して撮影を終えた後、インタビューがあります。[p]
 
-;深雪表情：通常
+[ChangeCharaFace name="miyuki" face="normal"]
 #深雪
 新曲とライブの宣伝、でしょう？[p]
 
@@ -148,7 +153,7 @@
 #深雪
 （でも、それでも...）[p]
 
-;深雪表情：尊い
+[ChangeCharaFace name="miyuki" face="precious"]
 #深雪
 （桜良の歌と笑顔に惹かれてこの業界に飛び込んだ以上、[r]
 もっと彼女と仕事がしたい...！）[p]
@@ -176,14 +181,21 @@
 #深雪
 行きましょう。[p]
 
-;画面から桜良が退場する。
-;桜良退場から二秒ほどウェイトしてから次のセリフ表示。
-
-;深雪表情：困り
+[HideSakura]
+[iscript]
+    f.charaPosition[0] = 'miyuki'
+    f.charaPosition[1] = 'center'
+[endscript]
+[ChangeCharaPosition]
+[messageFalse]
+[wait time="2000"]
+[ChangeCharaFace name="miyuki" face="trouble"]
+[messageTrue]
 #深雪
 ...はぁ。[p]
 
 #深雪
 （もっと桜良と一緒にいられたらいいのに...）[p]
+[HideAll]
 [DeleteDispLocation]
 [return]

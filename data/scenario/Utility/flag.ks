@@ -9,6 +9,8 @@
     f.scn_skip = 0
     // 背景パーツ表示
     f.itemVisible = ['false', '']
+    // 背景パーツ表示
+    f.charaPosition = ['', ''] // [キャラクター名],[位置]
     // アイテム使用時
     f.isUsing = 0
     // 衣装変更判定(思い出2)

@@ -42,5 +42,18 @@
 [chara_new name="miyuki" storage="chara/miyuki/normal.png" jname="深雪"]
 
 ; キャラクター表情設定
-;[chara_face name="" face="" storage=""]
+[chara_face name="sakura" face="blush" storage="chara/sakura/blush.png"]
+[chara_face name="sakura" face="normal" storage="chara/sakura/normal.png"]
+[chara_face name="sakura" face="smile" storage="chara/sakura/smile.png"]
+[chara_face name="sakura" face="surprise" storage="chara/sakura/surprise.png"]
+[chara_face name="sakura" face="trouble" storage="chara/sakura/trouble.png"]
+[chara_face name="miyuki" face="blush" storage="chara/miyuki/blush.png"]
+[chara_face name="miyuki" face="normal" storage="chara/miyuki/normal.png"]
+[chara_face name="miyuki" face="precious" storage="chara/miyuki/precious.png"]
+[chara_face name="miyuki" face="smile" storage="chara/miyuki/smile.png"]
+[chara_face name="miyuki" face="surprise" storage="chara/miyuki/surprise.png"]
+[chara_face name="miyuki" face="trouble" storage="chara/miyuki/trouble.png"]
+
+; キャラクター操作設定
+[chara_config pos_mode="false" emory="true" talk_focus="brightness" brightness_value="70"]
 [return]

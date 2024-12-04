@@ -4,24 +4,25 @@
 [wait time="500"]
 [PlaySpotLightOn]
 
-; 桜良表情：驚き
+[ChangeCharaFace name="sakura" face="surprise"]
 #桜良
 きゃっ、いきなり暗くなった！[p]
 
-; 深雪表情：困り
+[ChangeCharaFace name="miyuki" face="trouble"]
+#深雪
 停電？[r]
 いや、一か所だけスポットライトが当たってる......？[p]
 
-; 桜良表情：通常
+[ChangeCharaFace name="sakura" face="normal"]
 #桜良
 あれっ、スタンドマイクなんてあったっけ？[p]
 
-; 深雪表情：困り
+[ChangeCharaFace name="miyuki" face="trouble"]
 #深雪
 いつの間にかせりも下がってるわね。[r]
 何か見覚えがあるような......[p]
 
-; 深雪表情：驚き
+[ChangeCharaFace name="miyuki" face="surprise"]
 #深雪
 ......あっ。[p]
 
@@ -29,11 +30,11 @@
 どうしたの？[r]
 何かわかったの？[p]
 
-; 深雪表情：困り
+[ChangeCharaFace name="miyuki" face="trouble"]
 #深雪
 これ、トラブルだらけで大変だったライブの時のマイクだわ......[p]
 
-; 桜良表情：驚き
+[ChangeCharaFace name="sakura" face="surprise"]
 #桜良
 ああっ、本当だ！[r]
 このリボン、あの時の！[p]
@@ -49,7 +50,7 @@
 （挙句の果てには本番機材トラブルで停電なんて、[r]
 　もう一生思い出したくもないわね......）[p]
 
-; 桜良表情：困り
+[ChangeCharaFace name="sakura" face="trouble"]
 #桜良
 あのライブ、本当に大変だったよねえ......[p]
 
@@ -57,19 +58,19 @@
 ええ、悪夢だったわ。[r]
 いまだに夢に見て冷や汗ものよ。[p]
 
-; 深雪表情：通常
+[ChangeCharaFace name="miyuki" face="normal"]
 #深雪
 あの時の再現をしてくるなんて、[r]
 この部屋に放り込んだ人はよっぽど悪趣味なのね。[p]
 
-; 桜良表情：通常
+[ChangeCharaFace name="sakura" face="normal"]
 #桜良
 ......私は、嫌な思い出だけじゃない、かな。[p]
 
 #深雪
 どういうこと？[p]
 
-; 桜良表情：困り
+[ChangeCharaFace name="sakura" face="trouble"]
 #桜良
 停電でライトがほとんどつかなくなっちゃったとき、[r]
 お客さんも私たちも混乱しちゃってた。[p]
@@ -82,7 +83,7 @@
 仕方ないわ。[r]
 あの時の私たちはまだ場数も少なかったもの。[p]
 
-; 桜良表情：通常
+[ChangeCharaFace name="sakura" face="normal"]
 #桜良
 でも、深雪ちゃんはすっごく冷静だったよ！[p]
 
@@ -96,12 +97,12 @@
 ; ここでできればスチルを入れたい
 ; 深雪がスポットライトの下でアカペラを歌うシーン
 
-; 桜良表情：笑顔
+[ChangeCharaFace name="sakura" face="smile"]
 #桜良
 たった一人で音楽もない中歌い始めて、[r]
 すっごくカッコよかったんだよ！！[p]
 
-; 深雪表情：驚き
+[ChangeCharaFace name="miyuki" face="surprise"]
 #深雪
 あ、あれはただ、場をつなぐために必要だから。[p]
 
@@ -112,19 +113,19 @@
 #深雪
 （私、一生分の運を今日使ってるのかしら？？？）[p]
 
-; 桜良表情：赤面
+[ChangeCharaFace name="sakura" face="blush"]
 #桜良
 深雪ちゃんのあの姿が見られたのはよかったなって、[r]
-不謹慎かもしれないけど思っちゃった。
+不謹慎かもしれないけど思っちゃった。[p]
 
-; 桜良表情：通常
+[ChangeCharaFace name="sakura" face="normal"]
 #桜良
 だから、私の中だと悪いばっかりじゃないんだ。[p]
 
 #桜良
 深雪ちゃんからしたら、思い出したくないかもだけど......　[p]
 
-; 深雪表情：尊い
+[ChangeCharaFace name="miyuki" face="precious"]
 #深雪
 いえ、たった今人生で二番目くらいに[r]
 いい思い出にランクアップしたから、心配しないで。[p]
@@ -132,25 +133,25 @@
 #深雪
 （一番は今、目の前で褒めてもらっていることだけど）[p]
 
-; 桜良表情；通常
+[ChangeCharaFace name="sakura" face="normal"]
 #桜良
 えっ？そうなの？[p]
 
-; 深雪表情：笑顔
+[ChangeCharaFace name="miyuki" face="smile"]
 #深雪
 褒めてくれてありがとう。[r]
 あなたがそう言ってくれるなら、今後もかっこよくいないといけないわね。[p]
 
-; 桜良表情：赤面
+[ChangeCharaFace name="sakura" face="blush"]
 #桜良
 ......今も十分、かっこいいと思うけどな。[p]
 
-; 深雪表情：通常
+[ChangeCharaFace name="miyuki" face="normal"]
 #深雪
 今、何か言っていた？[r]
 ごめんなさい、よく聞こえなかったわ[p]
 
-; 桜良表情：驚き
+[ChangeCharaFace name="sakura" face="surprise"]
 #桜良
 う、ううん！[r]
 なんでもない！[p]
@@ -159,7 +160,7 @@
 さて、話を戻すわよ。[r]
 ひとまずこのマイクをどうにかすればよいのかしら。[p]
 
-; 桜良表情：通常
+[ChangeCharaFace name="sakura" face="normal"]
 #桜良
 そ、そうだね。[r]
 あの時みたいに、スポットライトの下に立ってみたらどうかな？[p]
@@ -195,4 +196,5 @@
 [messageFalse]
 [free layer="1" name="mikestand"]
 [wait time="200"]
+[HideAll]
 [return]
