@@ -47,7 +47,6 @@
             f.isClickedFittingRoom_first = 'false'
         [endscript]
     [endif]
-    [layer3False]
     [JumpStudioRoom]
 ; カーテン未所持
 ; 二回目以降
@@ -89,7 +88,6 @@
     #深雪
     （遊びに行くのは、まだダメね...[r]
     　それはそうよね...残念...）[p]
-    [layer3False]
     [JumpStudioRoom]
 ; カーテン所持
 ; 初回調査時
@@ -194,7 +192,6 @@
     ; 深雪表情：通常
     #深雪
     はっ、い、今行くわ！[p]
-    [layer3False]
     [JumpStudioRoom]
 ; 衣装を所持している場合
 [elsif exp="f.isDressGet == 1"]
@@ -279,8 +276,6 @@
 [if exp="f.scn_skip == 0"]
     [ControlButtons]
     [FreeItemBox]
-    [layer3True]
-    [ShowNormalSakuraAndMiyuki]
     [nolog]
     #深雪
     もうちょっと、もうちょっとだけ待って。[p]
@@ -305,6 +300,5 @@
     （うう、ごめんなさい桜良。[r]
     　今の私絶対変よね...）[p]
     [endnolog]
-    [layer3False]
 [endif]
 [JumpStudioRoom]

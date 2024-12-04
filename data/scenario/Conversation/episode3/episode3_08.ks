@@ -221,7 +221,6 @@
         tf.selectOfSleeporNot = 'true'
     [endscript]
 [endif]
-[layer3False]
 [clearstack]
 [JumpBedRoom]
 
@@ -237,8 +236,6 @@
 [if exp="f.scn_skip == 0"]
     [ControlButtons]
     [FreeItemBox]
-    [layer3True]
-    [ShowNormalSakuraAndMiyuki]
     [nolog]
     ; 深雪表情：照れ
     #深雪
@@ -268,7 +265,6 @@
     [endif]
     [endnolog]
     [messageFalse]
-    [layer3False]
     [autostop]
     [cancelskip]
 [endif]
@@ -283,8 +279,6 @@
 [if exp="f.scn_skip == 0"]
     [ControlButtons]
     [FreeItemBox]
-    [layer3True]
-    [ShowNormalSakuraAndMiyuki]
     [nolog]
     ; 深雪表情：照れ
     #深雪
@@ -297,7 +291,6 @@
     #桜良
     ま、まだダメそうだね！！[p]
     [endnolog]
-    [layer3False]
 [endif]
 [iscript]
     tf.selectOfSleeporNot = 'false'

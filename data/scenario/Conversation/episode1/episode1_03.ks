@@ -213,7 +213,6 @@
 [if exp="f.scn_skip == 0"]
     [ControlButtons]
     [FreeItemBox]
-    [layer3True]
     [nolog]
     [ShowMiyuki_Center]
     #深雪
@@ -229,6 +228,5 @@
     い、イメトレ......？[p]
     [endnolog]
     [HideAll]
-    [layer3False]
 [endif]
 [jump storage="Gimmick/episode1.ks" target="*SelectItemOfDriver"]

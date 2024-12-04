@@ -168,7 +168,6 @@
 *NotUseCable
 [if exp="f.scn_skip == 0"]
     [ControlButtons]
-    [layer3True]
     [nolog]
     [ShowSakura_Center]
     #桜良
@@ -186,6 +185,5 @@
     [HideAll]
     [clearfix]
     [MenuButton]
-    [layer3False]
 [endif]
 [jump storage="Gimmick/episode1.ks" target="*SelectItemOfCable"]

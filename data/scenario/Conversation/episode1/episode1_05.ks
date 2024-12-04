@@ -225,7 +225,6 @@
 [if exp="f.scn_skip == 0"]
     [ControlButtons]
     [FreeItemBox]
-    [layer3True]
     [ShowMiyuki_Center]
     [nolog]
     #深雪
@@ -244,6 +243,5 @@
     わかった、無理しないで！[p]
     [endnolog]
     [HideAll]
-    [layer3False]
 [endif]
 [jump storage="Gimmick/episode1.ks" target="*SelectItemOfLightCover"]

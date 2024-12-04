@@ -45,8 +45,6 @@
 *UseCompass
 [ControlButtons]
 [FreeItemBox]
-[layer3True]
-[ShowNormalSakuraAndMiyuki]
 [nolog]
 [image storage="../image/episode3/compass.png" layer="1" x="797" y="399" name="compass_set"]
 [PlayMountLightCover]
@@ -91,15 +89,12 @@
 となると、順番のヒントがあるかも！[r]
 探してみよう！[p]
 [endnolog]
-[layer3False]
 [free layer="1" name="compass_set"]
 [return]
 
 *NotUseCompass
 [ControlButtons]
 [FreeItemBox]
-[layer3True]
-[ShowNormalSakuraAndMiyuki]
 [nolog]
 ; 桜良表情：困り
 #桜良
@@ -129,14 +124,11 @@
 珍しがらないで。[r]
 もっと恥ずかしいから。[p]
 [endnolog]
-[layer3False]
 [return]
 
 *UnlockKey
 [ControlButtons]
 [FreeItemBox]
-[layer3True]
-[ShowNormalSakuraAndMiyuki]
 [nolog]
 [messageFalse]
 [wait time="200"]
@@ -250,14 +242,11 @@
 #深雪
 （まさか...ね）[p]
 [endnolog]
-[layer3False]
 [return]
 
 *NotUnlockKey
 [ControlButtons]
 [FreeItemBox]
-[layer3True]
-[ShowNormalSakuraAndMiyuki]
 [nolog]
 [PlayWrong]
 ; 深雪表情:通常
@@ -268,5 +257,4 @@
 #桜良
 もういっかいやってみよ！[p]
 [endnolog]
-[layer3False]
 [return]

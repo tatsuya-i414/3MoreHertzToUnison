@@ -234,8 +234,6 @@
 [if exp="f.scn_skip == 0"]
     [ControlButtons]
     [FreeItemBox]
-    [layer3True]
-    [ShowNormalSakuraAndMiyuki]
     [nolog]
     ; 深雪表情：通常
     #深雪
@@ -256,6 +254,5 @@
     #桜良
     いいよ！急いでるわけじゃないしね！[p]
     [endnolog]
-    [layer3False]
 [endif]
 [JumpBedRoom]

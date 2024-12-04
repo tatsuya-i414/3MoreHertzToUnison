@@ -153,8 +153,6 @@
 *NotTakeAPicture
 [if exp="f.scn_skip == 0"]
     [ControlButtons]
-    [layer3True]
-    [ShowNormalSakuraAndMiyuki]
     [nolog]
     #深雪
     まだ少しだけ部屋を見てみたいわ。[r]
@@ -164,6 +162,5 @@
     わかった！[r]
     準備ができたら言ってね！[p]
     [endnolog]
-    [layer3False]
 [endif]
 [JumpStudioRoom]
