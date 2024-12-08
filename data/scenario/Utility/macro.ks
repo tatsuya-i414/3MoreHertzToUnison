@@ -174,8 +174,10 @@
         [frame p="80%" y="100"]
         [frame p="100%" y="-20"]
     [endkeyframe]
+    [messageFalse]
     [kanim name="%name" keyframe="jump" time="2000"]
     [wa]
+    [messageTrue]
 [endmacro]
 
 ; ------------------------------
