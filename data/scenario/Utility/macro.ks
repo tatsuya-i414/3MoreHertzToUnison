@@ -160,6 +160,24 @@
     [mask_off effect="fadeOut" time="%outtime|160"]
 [endmacro]
 
+; 背景画面を暗くする
+[macro name="DarkenBackground"]
+    [filter layer="base" brightness="15" blur="10"]
+[endmacro]
+
+; キャラクターがジャンプする
+[macro name="Jumping"]
+    [keyframe name="jump"]
+        [frame p="20%" y="-100"]
+        [frame p="40%" y="100"]
+        [frame p="60%" y="-100"]
+        [frame p="80%" y="100"]
+        [frame p="100%" y="-20"]
+    [endkeyframe]
+    [kanim name="%name" keyframe="jump" time="2000"]
+    [wa]
+[endmacro]
+
 ; ------------------------------
 ; BGM
 ; ------------------------------
