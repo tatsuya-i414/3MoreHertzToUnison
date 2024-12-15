@@ -1,11 +1,16 @@
 ;-------------------------------------------------------
 ; ブロック
 ;-------------------------------------------------------
-; 深雪表情：通常
+[ShowMiyuki_Center]
 #深雪
 このブロック...[p]
 
-; 桜良表情；通常
+[iscript]
+    f.charaPosition[0] = 'miyuki'
+    f.charaPosition[1] = 'left'
+[endscript]
+[ChangeCharaPosition]
+[ShowSakura_Right]
 #桜良
 それ、積み木かな？[r]
 でもみんな同じ形だね。[p]
@@ -22,4 +27,5 @@
 
 #桜良
 だよねえ...[p]
+[HideAll]
 [return]

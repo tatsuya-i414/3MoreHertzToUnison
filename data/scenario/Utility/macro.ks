@@ -531,22 +531,22 @@
 
 ; 桜良を画面右側に表示する
 [macro name="ShowSakura_Right"]
-    [chara_show name="sakura" time="1000" layer="3" wait="true" face="%face|normal" width="737" height="1990" left="960" top="120"]
+    [chara_show name="sakura" time="1000" layer="3" wait="true" face="%face|normal" width="737" height="1990" left="960" top="%top|120"]
 [endmacro]
 
 ; 桜良を画面中央に表示する
 [macro name="ShowSakura_Center"]
-    [chara_show name="sakura" time="1000" layer="3" wait="true" face="%face|normal" width="737" height="1990" left="550" top="120"]
+    [chara_show name="sakura" time="1000" layer="3" wait="true" face="%face|normal" width="737" height="1990" left="550" top="%top|120"]
 [endmacro]
 
 ; 深雪を画面左側に表示する
 [macro name="ShowMiyuki_Left"]
-    [chara_show name="miyuki" time="1000" layer="3" wait="true" face="%face|normal" width="737" height="1990" left="160" top="120"]
+    [chara_show name="miyuki" time="1000" layer="3" wait="true" face="%face|normal" width="737" height="1990" left="160" top="%top|120"]
 [endmacro]
 
 ; 深雪を画面中央に表示する
 [macro name="ShowMiyuki_Center"]
-    [chara_show name="miyuki" time="1000" layer="3" wait="true" face="%face|normal" width="737" height="1990" left="550" top="120"]
+    [chara_show name="miyuki" time="1000" layer="3" wait="true" face="%face|normal" width="737" height="1990" left="550" top="%top|120"]
 [endmacro]
 
 ; キャラクターの表情を切り替える

@@ -1,27 +1,33 @@
 [DispLocation text="撮影スタジオ"]
-; 深雪登場、表情は「困り」
+[ShowMiyuki_Center face="trouble"]
 #深雪
 ううん...いったい何が...[p]
 
-; 深雪表情：驚き
+[ChangeCharaFace name="miyuki" face="surprise"]
 #深雪
 はっ、桜良！[p]
 
-; 桜良登場：表情：「困り」
-; もしできたら桜良の立ち絵の位置を、顔がセリフ枠の上に出るくらいで表示
+[iscript]
+    f.charaPosition[0] = 'miyuki'
+    f.charaPosition[1] = 'left'
+[endscript]
+[ChangeCharaPosition]
+[ShowSakura_Right face="trouble" top="450"]
+#桜良
 いたた、しりもちついちゃった...[p]
 
-; 深雪表情：通常
+[ChangeCharaFace name="miyuki" face="normal"]
 #深雪
 よかった、はぐれてなくて。[r]
 ほら、大丈夫？[p]
 
-; 桜良表情：通常
 [PlayRustlingClothes]
+[chara_move name="sakura" top="120"]
+[ChangeCharaFace name="sakura" face="normal"]
 #桜良
 うん！ありがとう！[p]
 
-; 桜良表情：驚き
+[ChangeCharaFace name="sakura" face="surprise"]
 #桜良
 あれっ、場所が変わってる！[r]
 撮影スタジオかな？[p]
@@ -31,7 +37,7 @@
 さっきマイクに触ったらここに飛ばされたから、[r]
 ステージクリアした、ということでいいと思うわ。[p]
 
-; 桜良表情：笑顔
+[ChangeCharaFace name="sakura" face="smile"]
 #桜良
 無事先に進めてるってことだね！[p]
 
@@ -39,7 +45,7 @@
 この調子でいきましょう。[r]
 でもこの部屋は何をすれば...[p]
 
-; 桜良表情：通常
+[ChangeCharaFace name="sakura" face="normal"]
 #桜良
 部屋の中央にカメラが置いてあるから、[r]
 写真を撮ればいいんじゃないかな？[p]
@@ -54,7 +60,7 @@
 #深雪
 撮影現場にあるにしては、少し安物のカメラみたいね。[p]
 
-; 桜良表情：驚き
+[ChangeCharaFace name="sakura" face="surprise"]
 #桜良
 見ただけでわかるの！？[p]
 
@@ -62,39 +68,48 @@
 写真が趣味だから、少しだけね。[r]
 それにしても...[p]
 
-; 深雪表情：困り
+[ChangeCharaFace name="miyuki" face="trouble"]
 #深雪
 このカメラ、シャッターが押せないみたい。[r]
 押しても感触がないわ。[p]
 
-; 桜良表情：困り
+[ChangeCharaFace name="sakura" face="trouble"]
 #桜良
 あ、本当だ。[r]
 固くて押せないね。[p]
 
 [PlayKacha]
-; 深雪表情：通常
+[ChangeCharaFace name="miyuki" face="normal"]
 #深雪
 あら...？[p]
 
 #深雪
 ちょっと桜良、そこに立ってくれる？[p]
 
-; 桜良表情：通常
+[ChangeCharaFace name="sakura" face="normal"]
 #桜良
 わ、わかった！[p]
 
-; 桜良退場
+[HideSakura]
+[iscript]
+    f.charaPosition[0] = 'miyuki'
+    f.charaPosition[1] = 'center'
+[endscript]
+[ChangeCharaPosition]
 
 #深雪
 これでよし...っと[p]
 
-; 深雪退場
+[HideAll]
+[messageFalse]
+[wait time="1000"]
 [PlayPhotographing]
 [flasheffect]
-; 二人登場
+[ShowSakura_Right]
+[ShowMiyuki_Left]
+[messageTrue]
 
-; 桜良表情：驚き
+[ChangeCharaFace name="sakura" face="surprise"]
 #桜良
 今のはもしかしてタイマー機能？[p]
 
@@ -103,7 +118,7 @@
 唯一使えそうだったから試しに二人で映ってみたのだけど、[r]
 特に何も起きなかったみたい。[p]
 
-; 桜良表情：通常
+[ChangeCharaFace name="sakura" face="normal"]
 #桜良
 でも、写真を撮るのは合ってそうだよね！[r]
 何を撮ればいいか部屋を調べてみよう！[p]
@@ -113,4 +128,5 @@
 部屋にヒントが隠されているかもしれない。[r]
 確認してみましょう。[p]
 [DeleteDispLocation]
+[HideAll]
 [return]
