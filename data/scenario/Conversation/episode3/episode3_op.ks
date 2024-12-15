@@ -1,38 +1,39 @@
 [DispLocation text="山小屋"]
-; 深雪と桜良登場　表情は二人とも「困り」
+[ShowSakura_Right face="trouble"]
+[ShowMiyuki_Left face="trouble"]
 #桜良
 ええっと...無事クリアできた、みたい？[p]
 
 #深雪
 部屋が変わっているから、そうでしょうね。[p]
 
-; 深雪表情：通常
+[ChangeCharaFace name="miyuki" face="normal"]
 #深雪
 もう、いきなり押すなんてびっくりしたじゃない。[p]
 
-; 桜良表情；照れ
+[ChangeCharaFace name="sakura" face="blush"]
 #桜良
 つ、次の部屋に早くいかなきゃって思って！！[p]
 
-; 深雪表情：驚き
+[ChangeCharaFace name="miyuki" face="surprise"]
 #深雪
 っ......！[p]
 
-; 深雪表情：照れ
+[ChangeCharaFace name="miyuki" face="blush"]
 #深雪
 （さっきの言葉、[r]
-お世辞じゃないってことなの！？）[p]
+_　お世辞じゃないってことなの！？）[p]
 
 #深雪
 あ、あの、そうね。[r]
 早くここから脱出しないといけないんだったわ。[p]
 
-; 桜良表情：通常
+[ChangeCharaFace name="sakura" face="normal"]
 #桜良
 そうそう！[r]
 ごめんね、急にボタン押して...[p]
 
-; 深雪表情：通常
+[ChangeCharaFace name="miyuki" face="normal"]
 #深雪
 大丈夫よ。次からは気を付けて。[r]
 探索に戻りましょう。[p]
@@ -40,7 +41,7 @@
 #深雪
 なんだか見覚えのある部屋のような気がするけど...[p]
 
-; 二人の通常立ち絵非表示
+[HideAll]
 [clearfix]
 [messageFalse]
 [cancelskip]
@@ -50,7 +51,8 @@
 [reset_camera]
 [messageTrue]
 [ControlButtons]
-; 深雪と桜良表情：驚き
+[ShowSakura_Right face="surprise"]
+[ShowMiyuki_Left face="surprise"]
 #桜良
 深雪ちゃん、ここって！[p]
 
@@ -58,47 +60,48 @@
 え、ええ。[r]
 まさか...[p]
 
-#二人
+#深雪・桜良
 「「登山ロケの山小屋！？」」[p]
 
 #深雪
 （まさかこんなものまで再現しているの！？[r]
-窓の外の風景は違うけれど、内装はそのままじゃない！）[p]
+_　窓の外の風景は違うけれど、内装はそのままじゃない！）[p]
 
 #桜良
 すごい、あの時の山小屋だ...！[p]
 
 [PlayCreak]
-; 桜良表情：笑顔
+[ChangeCharaFace name="sakura" face="smile"]
 #桜良
 わあ！板がきしむ場所まで同じだよ！[p]
 
 #深雪
 ここの壁のシミ、見覚えがある...[p]
 
-; 深雪表情：困り
+[ChangeCharaFace name="miyuki" face="trouble"]
 #深雪
 ここまで忠実に再現できるものなのかしら...？[p]
 
-; 桜良表情：困り
+[ChangeCharaFace name="sakura" face="trouble"]
 #桜良
 すごく大変だったろうなあ、[r]
 このお部屋つくるの...[p]
 
-; 深雪表情：通常
+[ChangeCharaFace name="miyuki" face="normal"]
 #深雪
 ......[p]
 
-; 深雪表情：尊い
+[ChangeCharaFace name="miyuki" face="precious"]
 #深雪
 （桜良が言うなら、そういうことにするわね）[p]
 
-; 深雪表情：通常
+[ChangeCharaFace name="miyuki" face="normal"]
 #深雪
 ひとまずこの部屋を見てみましょうか。[p]
 
-; 桜良表情：通常
+[ChangeCharaFace name="sakura" face="normal"]
 #桜良
 山小屋探索開始だね！[p]
 [DeleteDispLocation]
+[HideAll]
 [return]

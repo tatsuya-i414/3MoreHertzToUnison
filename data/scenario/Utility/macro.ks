@@ -572,7 +572,7 @@
 
 ; 深雪を退場させる
 [macro name="HideMiyuki"]
-    [chara_hide name="sakura" time="500" wait="true" layer="3"]
+    [chara_hide name="miyuki" time="500" wait="true" layer="3"]
 [endmacro]
 
 ; キャラクターを全員退場させる

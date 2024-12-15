@@ -4,34 +4,39 @@
 ; ジャケット未所持
 ; 初回調査時
 [if exp="f.isJacketGet == 0 && f.isClickedHanger_first == 'true' "]
-    ; 桜良表情：通常
+    [ShowSakura_Center]
     #桜良
     このハンガー掛け随分変なところに付いてるんだね。[r]
     壁のド真ん中だ...[p]
 
-    ; 深雪表情：通常
+    [iscript]
+        f.charaPosition[0] = 'sakura'
+        f.charaPosition[1] = 'right'
+    [endscript]
+    [ChangeCharaPosition]
+    [ShowMiyuki_Left]
     #深雪
     実際の山小屋には無かったから、[r]
     再現の限界といったところでしょうね。[p]
 
-    ; 桜良表情：驚き
+    [ChangeCharaFace name="sakura" face="surprise"]
     #桜良
     そうだったっけ、記憶力すごい...[p]
 
     #深雪
     （ええ、仔細まで覚えているわ、[r]
-    毎日寝る前にあのロケ映像を家で上映してるもの）[p]
+    _　毎日寝る前にあのロケ映像を家で上映してるもの）[p]
 
-    ; 深雪表情：尊い
+    [ChangeCharaFace name="miyuki" face="precious"]
     #深雪
     （...桜良の映っているところだけダイジェストで。[r]
-    未だに桜良と同じロケだったなんて夢みたい...）[p]
+    _　未だに桜良と同じロケだったなんて夢みたい...）[p]
 
-    ; 深雪表情：通常
+    [ChangeCharaFace name="miyuki" face="normal"]
     #深雪
     まぁ普通に考えてもここにあるのは不自然だけれど。[p]
 
-    ; 桜良表情：通常
+    [ChangeCharaFace name="sakura" face="normal"]
     #桜良
     また謎解きに関わってくるのかな？[r]
     ...あれっ[p]
@@ -51,7 +56,7 @@
     [messageTrue]
     [ControlButtons]
 
-    ; 桜良表情：驚き
+    [ChangeCharaFace name="sakura" face="surprise"]
     #桜良
     このハンガー取れないよ！？[p]
 
@@ -63,19 +68,24 @@
     ひとまずこれは置いておいて、[r]
     他も見てみましょう。[p]
 
-    ; 桜良表情：通常
+    [ChangeCharaFace name="sakura" face="normal"]
     #桜良
     そうだね。[r]
     これの使い方がわかるかもしれないし！[p]
 ; ジャケット未所持
 ; 二回目以降
 [elsif exp="f.isJacketGet == 0 && f.isClickedHanger_first == 'false' "]
-    ; 桜良表情：困り
+    [ShowSakura_Center face="trouble"]
     #桜良
     壁から取れないハンガーって不便だね。[r]
     あちこちに移動できるからいいのに。[p]
 
-    ; 深雪表情：通常
+    [iscript]
+        f.charaPosition[0] = 'sakura'
+        f.charaPosition[1] = 'right'
+    [endscript]
+    [ChangeCharaPosition]
+    [ShowMiyuki_Left]
     #深雪
     アイデンティティのうちのひとつは、[r]
     間違いなく失っているわね。[p]
@@ -83,7 +93,7 @@
     #桜良
     アイデンティティかあ...[p]
 
-    ; 桜良表情：通常
+    [ChangeCharaFace name="sakura" face="normal"]
     #桜良
     考えてみたら、私達も最初は迷走してたよね。[p]
 
@@ -91,12 +101,12 @@
     何故か商店街でライブしたり、[r]
     はたまたショートドラマつくったり！[p]
 
-    ; 深雪表情：困り
+    [ChangeCharaFace name="miyuki" face="trouble"]
     #深雪
     思い出させないで。[r]
     もはやデジタルタトゥーよ...[p]
 
-    ; 桜良表情：笑顔
+    [ChangeCharaFace name="sakura" face="smile"]
     #桜良
     深雪ちゃんのスケバン姿、可愛かったけどなあ！[p]
 
@@ -104,27 +114,32 @@
     あのドラマ撮って暫く渾名が姉御になったのよ、[r]
     勘弁して欲しいわね。[p]
 
-    ; 桜良表情：通常
+    [ChangeCharaFace name="sakura" face="normal"]
     #桜良
     でも、それも今の私たちに繋がってるんだよ！[p]
 
-    ; 深雪表情：笑顔
+    [ChangeCharaFace name="miyuki" face="smile"]
     #深雪
     まあね。結果良ければなんとやら、かしら。[p]
 ; ジャケット所持
 ; 初回調査時
 [elsif exp="f.isJacketGet == 1 && f.isClickedHanger_first_whenJacketGetting == 'true' "]
-    ; 深雪表情：通常
+    [ShowMiyuki_Center]
     #深雪
     この不自然なハンガー、[r]
     ちゃんと使い道があったようね。[p]
 
-    ; 桜良表情：通常
+    [iscript]
+        f.charaPosition[0] = 'miyuki'
+        f.charaPosition[1] = 'left'
+    [endscript]
+    [ChangeCharaPosition]
+    [ShowSakura_Right]
     #桜良
     壁にくっついてるし、[r]
     曲げたり伸ばしたりも出来なさそうだもんね。[p]
 
-    ; 深雪表情：困り
+    [ChangeCharaFace name="miyuki" face="trouble"]
     #深雪
     曲げ伸ばしの方が本来の使い方じゃないけれど。[p]
 
@@ -138,10 +153,11 @@
 ; ジャケット所持
 ; 二回目以降
 [elsif exp="f.isJacketGet == 1 && f.isClickedHanger_first_whenJacketGetting == 'false' "]
-    ; 桜良表情：通常
+    [ShowSakura_Center]
     #桜良
     深雪ちゃん、ハンガーを使う？[p]
 [endif]
+[HideAll]
 [return]
 
 *UseHanger
@@ -155,13 +171,18 @@
 [endif]
 [wait time="500"]
 [messageTrue]
-; 深雪表情：通常
+[ShowMiyuki_Center]
 #深雪
 これでよし、と。[p]
 
 ; 昼の場合
 [if exp="f.isRoomLightNight == 0"]
-    ; 桜良表情：通常
+    [iscript]
+        f.charaPosition[0] = 'miyuki'
+        f.charaPosition[1] = 'left'
+    [endscript]
+    [ChangeCharaPosition]
+    [ShowSakura_Right]
     #桜良
     うん、収まるところに収まった、って感じ！[p]
 
@@ -169,12 +190,11 @@
     この登山服、一体誰の何だろう？[r]
     私たちが着てたものでもなさそうだし。[p]
 
-    ; 深雪表情：通常
     #深雪
     さてね。[r]
     小道具と考えておきましょう。[p]
 
-    ; 桜良表情：笑顔
+    [ChangeCharaFace name="sakura" face="smile"]
     #桜良
     登山道具で思い出した！[r]
     深雪ちゃんって富士山登山の時の杖ってどうしてる？[p]
@@ -183,22 +203,26 @@
     ああ、焼き印入りのアレのことね。[p]
 ; 夜の場合
 [else]
-    ; 桜良表情：驚き
+    [iscript]
+        f.charaPosition[0] = 'miyuki'
+        f.charaPosition[1] = 'left'
+    [endscript]
+    [ChangeCharaPosition]
+    [ShowSakura_Right face="surprise"]
     #桜良
     なんだか奇抜な柄だね。[r]
     企業のロゴマークかな？[p]
 
-    ; 深雪表情：通常
     #深雪
     私は少なくとも見たことはないわね。[p]
 
-    ; 桜良表情：通常
+    [ChangeCharaFace name="sakura" face="normal"]
     #桜良
     マークに富士山となると...[r]
     焼き印のこと思い出すなあ。[p]
 [endif]
 
-; 桜良表情：笑顔
+[ChangeCharaFace name="sakura" face="smile"]
 #桜良
 まさか、杖に押すとは思わなかったな！[p]
 
@@ -209,12 +233,12 @@
 杖なら最初から持っていく物だから、[r]
 荷物にならず実用的よね。[p]
 
-; 桜良表情：通常
+[ChangeCharaFace name="sakura" face="normal"]
 #桜良
 登頂したとき、杖がなんだか相棒みたいに思えてね、[r]
 今私の家の玄関番になってるよ。[p]
 
-; 深雪表情：驚き
+[ChangeCharaFace name="sakura" face="surprise"]
 #深雪
 まさかの警棒扱い...[p]
 
@@ -226,33 +250,34 @@
 [flasheffect]
 [wait time="500"]
 [messageTrue]
-; 桜良表情：笑顔
+[ChangeCharaFace name="sakura" face="smile"]
 #桜良
 撃退できるかな？[p]
 
-; 深雪表情：通常
+[ChangeCharaFace name="miyuki" face="normal"]
 #深雪
 ......[p]
 
 #深雪
 桜良、貴方剣道をやっていたことは？[p]
 
-;桜良表情：驚き
+[ChangeCharaFace name="sakura" face="surprise"]
 #桜良
 え、無いよ？[p]
 
-; 桜良表情：笑顔
+[ChangeCharaFace name="sakura" face="smile"]
 #桜良
 ボウリング好きだから、[r]
 腕の使い方には自信あるけどね！[p]
 
 #深雪
 （ボウリングをやってるだけで、[r]
-見えない手刀を出せるものかしら...？）[p]
+_　見えない手刀を出せるものかしら...？）[p]
 
-; 深雪表情：困り
+[ChangeCharaFace name="miyuki" face="trouble"]
 #深雪
 過剰防衛にならないように気をつけるのよ...[p]
+[HideAll]
 [return]
 
 *NotUseHanger
@@ -260,12 +285,17 @@
     [ControlButtons]
     [FreeItemBox]
     [nolog]
-    ; 深雪表情：通常
+    [ShowMiyuki_Center]
     #深雪
     ちょっとまって、[r]
     これってどうやっても外れないのかしら？[p]
 
-    ; 桜良表情：驚き
+    [iscript]
+        f.charaPosition[0] = 'miyuki'
+        f.charaPosition[1] = 'left'
+    [endscript]
+    [ChangeCharaPosition]
+    [ShowSakura_Right face="surprise"]
     #桜良
     さわった感じ、ガッチリ壁にくっついてるよ！？[p]
 
@@ -275,9 +305,10 @@
     #深雪
     もう少しだけ観察してもいい？[p]
 
-    ; 桜良表情：通常
+    [ChangeCharaFace name="sakura" face="normal"]
     #桜良
     いいよ！急いでるわけじゃないしね！[p]
     [endnolog]
 [endif]
+[HideAll]
 [JumpBedRoom]

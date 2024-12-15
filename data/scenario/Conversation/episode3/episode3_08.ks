@@ -4,11 +4,16 @@
 ; 布団未所持
 ; 初回調査時
 [if exp="f.isFutonGet == 0 && f.isClickedBed_first == 'true' "]
-    ; 深雪表情：通常
+    [ShowMiyuki_Center]
     #深雪
     改めて見ると本当に狭く感じる...[p]
 
-    ; 桜良表情：笑顔
+    [iscript]
+        f.charaPosition[0] = 'miyuki'
+        f.charaPosition[1] = 'left'
+    [endscript]
+    [ChangeCharaPosition]
+    [ShowSakura_Right face="smile"]
     #桜良
     疲れきってると天国に見えるんだけどね〜！[p]
 
@@ -16,43 +21,44 @@
     そう言って布団に寝転ぼうとして、[r]
     思いっきり頭打ってたわよね。[p]
 
-    ; 桜良表情：困り
+    [ChangeCharaFace name="sakura" face="trouble"]
     #桜良
     あれは疲れてて体が上手く動かなかっただけ！[p]
 
-    ; 桜良表情：通常
+    [ChangeCharaFace name="sakura" face="normal"]
     #桜良
     そういう深雪ちゃんこそ、[r]
     ご飯食べながら寝落ちしてたよ！[p]
 
-    ; 深雪表情：通常
     #深雪
     あれは忘れて。[p]
 
-    ; 桜良表情：笑顔
+    [ChangeCharaFace name="sakura" face="smile"]
     #桜良
     忘れません！！[r]
     ちょっと白目むいてるうとうと深雪ちゃん、[r]
     とっても可愛かったよ！[p]
 
-    ; 深雪表情：照れ
+    [ChangeCharaFace name="miyuki" face="blush"]
     #深雪
     〜〜ッ！[r]
     わ、忘れなさいってば！！[p]
 
-    ; 深雪が桜良にヒュっと近づくが、触れる寸前で桜良が右に避ける
+    [chara_move name="miyuki" left="550" anim="true" time="500" wait="true"]
+    [wait time="100"]
+    [chara_move name="sakura" left="1100" anim="true" time="500" wait="true"]
     #桜良
     うふふ、いやでーす！[p]
 
-    ; 桜良は右に避けた位置からさらに右にズレていき、足音とともにそのまま画面外に消えていく
-    ; 深雪は画面中央あたりに残ったまま
+    [chara_move name="sakura" left="2000" anim="true" time="5000" wait="false"]
     [messageFalse]
     [PlayRun]
     [wait time="5000"]
+    [HideSakura]
     [messageTrue]
     [autostop]
     [cancelskip]
-    ; 深雪表情：困り
+    [ChangeCharaFace name="miyuki" face="trouble"]
     #深雪
     もう...登山ロケなんて絶対行かない...[p]
     [if exp="f.isClickedBed_first == 'true' "]
@@ -63,7 +69,7 @@
 ; 布団未所持
 ; 二回目以降
 [elsif exp="f.isFutonGet == 0 && f.isClickedBed_first == 'false' "]
-    ; 桜良表情：通常
+    [ShowSakura_Center]
     #桜良
     深雪ちゃんをからかうのはおいといて、[r]
     ベッドのことだけど。[p]
@@ -72,12 +78,17 @@
     普通はお布団とかシーツとか置いてあるのに、[r]
     何にもないね。[p]
 
-    ; 深雪表情：通常
+    [iscript]
+        f.charaPosition[0] = 'sakura'
+        f.charaPosition[1] = 'right'
+    [endscript]
+    [ChangeCharaPosition]
+    [ShowMiyuki_Left]
     #深雪
     この謎解きをしないと出られない部屋において、[r]
     何も無いということはないはずよ。[p]
 
-    ; 桜良表情：困り
+    [ChangeCharaFace name="sakura" face="trouble"]
     #桜良
     そうだよね。[r]
     でも、この部屋ってここだけぽっかり物が無いし...[p]
@@ -85,7 +96,7 @@
     #深雪
     物が無いことに意味があるともとれるわ。[p]
 
-    ; 桜良表情：驚き
+    [ChangeCharaFace name="sakura" face="surprise"]
     #桜良
     他の場所から物を持ってきたり？[p]
 
@@ -95,25 +106,27 @@
 ; 布団所持
 ; 初回調査時
 [elsif exp="f.isFutonGet == 1 && f.isClickedBed_first == 'true' "]
-    ; 深雪のみ表示、最初は中央に表示
-    ; 深雪表情：困り
+    [ShowMiyuki_Center face="trouble"]
     #深雪
     （布団が見つかった上に、[r]
-    これを使えそうな場所はここだけ）[p]
+    _　これを使えそうな場所はここだけ）[p]
 
     #深雪
     （つまり、この部屋の脱出条件は...）[p]
 
-    ; 桜良の台詞のみ、立ち絵なし
     #桜良
     深雪ちゃん！[p]
 
-    ; 深雪表情：驚き
+    [ChangeCharaFace name="miyuki" face="surprise"]
     #深雪
     ひゃい！？[p]
 
-    ; 深雪が左に移動し、桜良の立ち絵が右側に登場
-    ; 桜良表情：通常
+    [iscript]
+        f.charaPosition[0] = 'miyuki'
+        f.charaPosition[1] = 'left'
+    [endscript]
+    [ChangeCharaPosition]
+    [ShowSakura_Right]
     #桜良
     お布団が引けそうなのってここだけだよね？[r]
     早速引いてみようよ！[p]
@@ -125,7 +138,7 @@
     #深雪
     ...はっ。[p]
 
-    ; 深雪表情：通常
+    [ChangeCharaFace name="miyuki" face="normal"]
     #深雪
     ごめんなさい、雑念が混じってしまって。[p]
 
@@ -145,12 +158,11 @@
     [autostop]
     [cancelskip]
     [messageTrue]
-    ; 深雪表情：困り
+    [ChangeCharaFace name="miyuki" face="trouble"]
     #深雪
     何も起きない...[r]
     まだ満たしていない条件が...？[p]
 
-    ; 桜良表情：通常
     #桜良
     あ、あの、深雪ちゃん。[r]
     もしかしてなんだけど...[p]
@@ -162,35 +174,35 @@
     #桜良
     このお布団で一緒に寝てみる、とかどうかな？[p]
 
-    ; 深雪表情：驚き
+    [ChangeCharaFace name="miyuki" face="surprise"]
     #深雪
     えっ！！お布団横に並べて添い寝を！？[p]
 
-    ; 桜良表情：驚き
+    [ChangeCharaFace name="sakura" face="surprise"]
     #桜良
     そ、そうなるのかな！？[p]
 
     #深雪
     ......[p]
 
-    ; 深雪表情：尊い
+    [ChangeCharaFace name="miyuki" face="precious"]
     #深雪
     ......ッ！[p]
 
-    ; 深雪表情：困り
+    [ChangeCharaFace name="miyuki" face="trouble"]
     #深雪
     ぅ......[p]
 
-    ; 桜良表情：困り
+    [ChangeCharaFace name="sakura" face="trouble"]
     #桜良
     深雪ちゃん、顔色が赤くなったり青くなったり、[r]
     凄いけれど大丈夫...？[p]
 
-    ; 深雪表情：通常
+    [ChangeCharaFace name="miyuki" face="normal"]
     #深雪
     全く大丈夫ではないけど案はいいと思うわ一旦心の準備をさせて[p]
 
-    ; 桜良表情：通常
+    [ChangeCharaFace name="sakura" face="normal"]
     #桜良
     え、えと...待ってるね？[p]
     [if exp="f.isClickedBed_first == 'true' "]
@@ -206,13 +218,13 @@
 [elsif exp="f.isFutonGet == -1 && f.isClickedBed_first == 'false' "]
     ; 昼の場合
     [if exp="f.isRoomLightNight == 0"]
-        ; 桜良表情：通常
+        [ShowSakura_Center]
         #桜良
         ど、どうする？[r]
         電気を消して寝てみる？[p]
     ; 夜の場合
     [else]
-        ;桜良表情：通常
+        [ShowSakura_Center]
         #桜良
         ど、どうする？[r]
         ちょうど夜になってるし、寝てみる？[p]
@@ -222,6 +234,7 @@
     [endscript]
 [endif]
 [clearstack]
+[HideAll]
 [JumpBedRoom]
 
 *SelectSleepOrNot
@@ -237,16 +250,21 @@
     [ControlButtons]
     [FreeItemBox]
     [nolog]
-    ; 深雪表情：照れ
+    [ShowMiyuki_Center face="blush"]
     #深雪
     よろしくおねがいします。[p]
 
-    ; 桜良表情：笑顔
+    [iscript]
+        f.charaPosition[0] = 'miyuki'
+        f.charaPosition[1] = 'left'
+    [endscript]
+    [ChangeCharaPosition]
+    [ShowSakura_Right face="smile"]
     #桜良
-    もう！！なんでそんなに照れてるの〜！[r]
+    もう！！なんでそんなに照れてるのー！[r]
     お泊まり会みたいなものだよ！[p]
 
-    ; 深雪表情：通常
+    [ChangeCharaFace name="miyuki" face="normal"]
     #深雪
     そ、うよね、[r]
     緊張し過ぎてた。[p]
@@ -273,6 +291,7 @@
     f.itemVisible[1] = 'episode3_bed'
 [endscript]
 [blackout exp="f.isRoomLightNight == 1" storage_1="episode3/bedroom_night.png" storage_2="episode3/bedroom.png"]
+[HideAll]
 [jump storage="Gimmick/episode3.ks" target="*TurnOffTheLightAndSleep"]
 
 *NotSleep
@@ -280,14 +299,20 @@
     [ControlButtons]
     [FreeItemBox]
     [nolog]
-    ; 深雪表情：照れ
+    [ShowMiyuki_Center face="blush"]
     #深雪
     深呼吸...深呼吸...[p]
 
+    [iscript]
+        f.charaPosition[0] = 'miyuki'
+        f.charaPosition[1] = 'left'
+    [endscript]
+    [ChangeCharaPosition]
+    [ShowSakura_Right]
     #桜良
     えーと...[p]
 
-    ; 桜良表情：照れ
+    [ChangeCharaFace name="sakura" face="blush"]
     #桜良
     ま、まだダメそうだね！！[p]
     [endnolog]
@@ -295,4 +320,5 @@
 [iscript]
     tf.selectOfSleeporNot = 'false'
 [endscript]
+[HideAll]
 [JumpBedRoom]
