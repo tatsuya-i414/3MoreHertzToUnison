@@ -1,9 +1,14 @@
-; 深雪表情：通常
+[ShowMiyuki_Center]
 #深雪
 （触ったことのないカメラだけど、[r]
-　なんとか使えそう）[p]
+_　なんとか使えそう）[p]
 
-; 桜良表情；通常
+[iscript]
+    f.charaPosition[0] = 'miyuki'
+    f.charaPosition[1] = 'left'
+[endscript]
+[ChangeCharaPosition]
+[ShowSakura_Right]
 #桜良
 そういえばカメラを動かすのは大丈夫なんだね？[p]
 
@@ -22,15 +27,15 @@
 ねね、深雪ちゃん。[r]
 どんなポーズで写真撮る？[p]
 
-; 深雪表情：驚き
+[ChangeCharaFace name="miyuki" face="surprise"]
 #深雪
 ポー、ズ...？[p]
 
 #深雪
 （か、考えてなかった...[r]
-　二人同じ画角に入っていればそれでいいかと...）[p]
+_　二人同じ画角に入っていればそれでいいかと...）[p]
 
-; 桜良表情：笑顔
+[ChangeCharaFace name="sakura" face="smile"]
 #桜良
 考えてみたら、お仕事でもプライベートでも、[r]
 二人で写真を撮ったことないでしょ？[p]
@@ -48,36 +53,36 @@
 #深雪
 （よく考えなくても桜良とのツーショットよね！？）[p]
 
-; 深雪表情：尊い
+[ChangeCharaFace name="miyuki" face="precious"]
 #深雪
 二人で映れるならもうそれだけで幸せよ。[p]
 
-; 桜良表情：照れ
+[ChangeCharaFace name="sakura" face="blush"]
 #桜良
 ええっ、そんなことあるかな！？[p]
 
-; 深雪表情：驚き
+[ChangeCharaFace name="miyuki" face="surprise"]
 #深雪
 （しまった、本心がつい口から...）[p]
 
-; 深雪表情：通常
+[ChangeCharaFace name="miyuki" face="normal"]
 #深雪
 ごめんなさい、私はどんなポーズでも構わないわ。[p]
 
-; 桜良表情：困り
+[ChangeCharaFace name="sakura" face="trouble"]
 #桜良
 そっか、うーん...[p]
 
-; 深雪表情：笑顔
+[ChangeCharaFace name="miyuki" face="smile"]
 #深雪
 尊敬しているあなたと二人で写真を撮れるだなんて、[r]
 それだけでうれしいってことよ。[p]
 
-; 桜良表情：驚き
+[ChangeCharaFace name="sakura" face="surprise"]
 #桜良
 えっ...？[p]
 
-; 深雪表情：通常
+[ChangeCharaFace name="miyuki" face="normal"]
 #深雪
 今だから言えるけれど、[r]
 最初私はアイドルをやる気は全くなかったの。[p]
@@ -89,11 +94,11 @@
 ; スチル候補、事務所で初めて顔合わせしたときのシーン
 #深雪
 （事務所のアイドルプロジェクトに選ばれても、[r]
-　当時は興味なんてなくて、絶対に断ろうと思ってた）[p]
+_　当時は興味なんてなくて、絶対に断ろうと思ってた）[p]
 
 #深雪
 （頑なな私を見たマネージャーに、[r]
-　メンバーに会うだけはしてほしいといわれて...）[p]
+_　メンバーに会うだけはしてほしいといわれて...）[p]
 
 #深雪
 （そこで、あなたと出会ったんだわ）[p]
@@ -110,20 +115,20 @@
 #桜良
 そうだったんだ...[p]
 
-; 深雪表情：困り
+[ChangeCharaFace name="miyuki" face="surprise"]
 #深雪
 （正確にはあなたと仲良くなりたくて[r]
-　アイドルやることを決めたんだけど）[p]
+_　アイドルやることを決めたんだけど）[p]
 
-; 深雪表情：通常
+[ChangeCharaFace name="miyuki" face="normal"]
 #深雪
 （でも、尊敬しているのは事実よ）[p]
 
-; 桜良表情：笑顔
+[ChangeCharaFace name="sakura" face="smile"]
 #桜良
 えへへ...胸のあたりがくすぐったい。[p]
 
-; 桜良表情；困り
+[ChangeCharaFace name="sakura" face="trouble"]
 #桜良
 私ね、最初は自信なかったんだ。[p]
 
@@ -131,17 +136,17 @@
 みんなすっごくかわいくて美人で、[r]
 歌もダンスも上手で、私足引っ張らないかなって。[p]
 
-; 桜良表情：笑顔
+[ChangeCharaFace name="sakura" face="smile"]
 #桜良
 でも、深雪ちゃんがそう考えてくれてたって、[r]
 そう思ったらすごくうれしい。[p]
 
-; 深雪表情：笑顔
+[ChangeCharaFace name="miyuki" face="smile"]
 #深雪
 あなたは誰よりも魅力的なアイドルよ。[r]
 私が保証する。[p]
 
-; 桜良表情：照れ
+[ChangeCharaFace name="sakura" face="blush"]
 #桜良
 う、うん、ありがとう！[p]
 
@@ -149,7 +154,7 @@
 ...私だって、深雪ちゃんのこと、[r]
 誰よりもすごいアイドルって思ってるよ。[p]
 
-; 深雪表情：照れ
+[ChangeCharaFace name="miyuki" face="blush"]
 #深雪
 桜良、い、今なんて？[p]
 
@@ -157,7 +162,7 @@
 え、えーい！！[p]
 
 [PlayControlPanelButtonClick]
-; 桜良、深雪退場
+[HideAll]
 #深雪
 ちょ、ちょっと桜良！？[p]
 
