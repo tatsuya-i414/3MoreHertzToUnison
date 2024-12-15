@@ -94,7 +94,7 @@
     [ChangeCharaFace name="miyuki" face="precious"]
     #深雪
     （ち、ちかい......[r]
-    集中力が途切れる......）[p]
+    _　集中力が途切れる......）[p]
     [if exp="f.isClickedSpeaker_first_whenDriverGetting == 'true' "]
         [iscript]
             f.isClickedSpeaker_first_whenDriverGetting = 'false'
@@ -141,7 +141,7 @@
     [ChangeCharaFace name="miyuki" face="precious"]
     #深雪
     （ち、ちかい......[r]
-    集中力が途切れる......）[p]
+    _　集中力が途切れる......）[p]
     [if exp="f.isClickedSpeaker_first_whenDriverGetting == 'true' "]
         [iscript]
             f.isClickedSpeaker_first_whenDriverGetting = 'false'
@@ -164,7 +164,7 @@
 #深雪
 ふう。[r]
 （こ、壊さなくてよかった。[r]
-ねじ回す方向一度間違えたけど......）[p]
+_　ねじ回す方向一度間違えたけど......）[p]
 
 [iscript]
     f.charaPosition[0] = 'miyuki'
@@ -183,7 +183,7 @@
 
 #深雪
 （桜良も上がるステージなのに、[r]
-不完全な状態なんて絶対に許されないもの）[p]
+_　不完全な状態なんて絶対に許されないもの）[p]
 
 [ChangeCharaFace name="sakura" face="normal"]
 #桜良
@@ -199,12 +199,12 @@
 
 #深雪
 （決めた。[r]
-私、本格的にステージ演出勉強する）[p]
+_　私、本格的にステージ演出勉強する）[p]
 
 [ChangeCharaFace name="miyuki" face="precious"]
 #深雪
 （桜良が「かっこいい」って言ってくれたんだもの。[r]
-もっとかっこいい私になってみせるわ！）[p]
+_　もっとかっこいい私になってみせるわ！）[p]
 [free layer="1" name="speaker"]
 [HideAll]
 [return]

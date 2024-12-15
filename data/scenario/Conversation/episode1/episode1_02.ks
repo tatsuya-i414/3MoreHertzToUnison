@@ -153,7 +153,7 @@
 [ChangeCharaFace name="miyuki" face="blush"]
 #深雪
 （え、そ、そんなに喜ぶの？[r]
-初めて見る表情で心臓止まるかと思った）[p]
+_　初めて見る表情で心臓止まるかと思った）[p]
 
 [ChangeCharaFace name="miyuki" face="normal"]
 #深雪
