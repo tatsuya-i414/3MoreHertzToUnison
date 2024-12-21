@@ -91,7 +91,7 @@ _　永久保存版として目覚ましにするのに......）[p]
 それだけ必要としてもらえているのだから、[r]
 ありがたいことだわ。[p]
 
-[ChangeCharaFace name="sakura" face="smile"]
+[ChangeCharaFace name="sakura" face="close_mouth"]
 #桜良
 それもそっか。[r]
 それならみんなで集まれる時間は大切にしようね！[p]

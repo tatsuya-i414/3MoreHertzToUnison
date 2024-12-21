@@ -5,17 +5,17 @@
 [if exp="f.isStageStatusGreen == 1 && f.isLightStatusGreen == 1 && f.isSpeakerStatusGreen == 1"]
     [ShowMiyuki_Center]
     #深雪
-    ステータスがオールグリーンになっているわ。[r]
-    このスイッチを押したら何か起こるかもしれない。[p]
+    ステータスがオールグリーンになったわね。[r]
+    このスイッチを押したら何か起こるかも。[p]
 
     [iscript]
         f.charaPosition[0] = 'miyuki'
         f.charaPosition[1] = 'left'
     [endscript]
     [ChangeCharaPosition]
-    [ShowSakura_Right]
+    [ShowSakura_Right face="close_mouth"]
     #桜良
-    なら、私が押してもいいかな？[p]
+    なら、私が押してみてもいい？[p]
 
     [nolog]
     #
@@ -25,10 +25,9 @@
     [cancelskip]
     [YesNoButton target_yes="*PushSwitch" target_no="*NotPushSwitch"]
     [s]
-; 準備未完了状態
-; 初回クリック時
+; 準備未完了状態で初回クリック時
 [elsif exp="f.isClickedControlPanel_first == 'true' "]
-    [ShowSakura_Center face="smile"]
+    [ShowSakura_Center face="normal"]
     #桜良
     スイッチだ！[r]
     押してみるね！[p]
@@ -38,35 +37,36 @@
         f.charaPosition[1] = 'right'
     [endscript]
     [ChangeCharaPosition]
-    [ShowMiyuki_Left face="surprise"]
+    [ShowMiyuki_Left face="impatience"]
     #深雪
     ちょっ、待って！[p]
 
     [PlayControlPanelButtonClick]
-    [ChangeCharaFace name="sakura" face="trouble"]
+    [ChangeCharaFace name="sakura" face="surprise"]
     #桜良
-    何も起きないね？[p]
+    あれ、何も起きない...？[p]
 
-    [ChangeCharaFace name="miyuki" face="normal"]
+    ; 深雪漫符：ぐるぐる
+    [ChangeCharaFace name="miyuki" face="sigh"]
     #深雪
-    ふう......[r]
+    ふう...[r]
     今のところ危険はなさそうとはいえ、[r]
     軽率に押すのはよくないわよ。[p]
 
     [ChangeCharaFace name="sakura" face="normal"]
     #桜良
-    あはは、ごめんね。つい......[p]
+    あはは、ごめんね。つい...[p]
 
+    [ChangeCharaFace name="miyuki" face="normal"]
     #深雪
     まあいいけれど。[r]
-    画面を見て。ステージとライトとスピーカー......[r]
+    画面を見て。ステージとライトとスピーカー...[p]
 
-    [ChangeCharaFace name="sakura" face="trouble"]
     #桜良
     この三つをどうにかしないといけないのかな？[p]
 
     #深雪
-    そうかもしれない。[r]
+    そうかもしれないわね。[r]
     一度他を調べましょう。[p]
     [if exp="f.isClickedControlPanel_first == 'true' "]
         [iscript]
@@ -83,7 +83,7 @@
     [free layer="1" name="speaker_redlamp"]
     [HideAll]
     [JumpStageRoom]
-; 二回目以降
+; 準備未完了状態で二回目以降
 [elsif exp="f.isClickedControlPanel_first == 'false' "]
     [ShowMiyuki_Center]
     #深雪
@@ -101,7 +101,7 @@
 
     [ChangeCharaFace name="miyuki" face="precious"]
     #深雪
-    （桜良、わくわくしててかわいい......）[p]
+    （桜良、わくわくしててかわいい...）[p]
     [free layer="1" name="controlpanel_button"]
     [free layer="1" name="controlpanel_lamp"]
     [free layer="1" name="stage_greenlamp"]
@@ -114,10 +114,11 @@
     [JumpStageRoom]
 [endif]
 
+; 以下、キャラクターは新規で登場させずに表情差分の変更で始める
 *PushSwitch
 [nolog]
 #深雪
-このままここにいても埒があかないわ。[r]
+他に手がかりもなさそうだし、[r]
 押してみましょう。[p]
 
 #桜良
@@ -135,6 +136,7 @@
 [if exp="f.scn_skip == 0"]
     [ControlButtons]
     [nolog]
+    [ChangeCharaFace name="miyuki" face="close_eye"]
     #深雪
     いえ、もう少しだけ他を調べてからにしましょう。[p]
 
