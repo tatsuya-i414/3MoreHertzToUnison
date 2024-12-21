@@ -5,10 +5,12 @@
 私、寝てた......？[p]
 
 #深雪
-確か雑誌の撮影が終わって帰る途中だったはず......[p]
+確か雑誌の撮影が終わって帰る途中だったはず...[p]
 
+; 深雪漫符：はてな
+[ChangeCharaFace name="miyuki" face="sigh"]
 #深雪
-そもそも、ここはどこ？[p]
+そもそも、ここはどこなの？[p]
 
 [iscript]
     f.charaPosition[0] = 'miyuki'
@@ -17,78 +19,93 @@
 [ChangeCharaPosition]
 [ShowSakura_Right]
 #桜良
-うーん......[p]
+うーん...[p]
 
-[ChangeCharaFace name="miyuki" face="surprise"]
+[ChangeCharaFace name="miyuki" face="impatience"]
 #深雪
 桜良！！[p]
 
 [PlayGosoGoso]
 [ChangeCharaFace name="sakura" face="trouble"]
 #桜良
-あれ......？[r]
-おはよう深雪ちゃん......？[p]
+あれ...？[r]
+おはよう深雪ちゃん...？[p]
+
+[ChangeCharaFace name="miyuki" face="sigh"]
+#深雪
+ふう...ひとまず無事のようね。[p]
 
 [ChangeCharaFace name="miyuki" face="normal"]
 #深雪
-おはよう。[r]
 桜良、とりあえず起きて話しましょう。[p]
 
 #深雪
 いつの間にか見知らぬ部屋にいるけれど、[r]
 あなたはここについて何か知っている？[p]
 
+; 桜良漫符：はてなびっくり
 [ChangeCharaFace name="sakura" face="surprise"]
 #桜良
 ええ？[r]
 って、あれ？本当だ！！ここどこ！？[p]
 
-[ChangeCharaFace name="miyuki" face="trouble"]
+[ChangeCharaFace name="miyuki" face="seriously"]
 #深雪
 その様子だと知らないみたいね。[r]
-となると、私たち誘拐されたのかしら......[p]
+となると、私たち誘拐されたのかしら...[p]
 
+; 深雪漫符：もやもや
+[ChangeCharaFace name="miyuki" face="trouble"]
 #深雪
-（せめて桜良だけでも.....[r]
+（せめて桜良だけでも逃がせないか...[r]
 _　いや、そもそもこの部屋、出口らしき扉がない）[p]
 
 #深雪
 （壁を壊せそうなものでもあるかしら？）[p]
 
-[ChangeCharaFace name="sakura" face="normal"]
+[ChangeCharaFace name="sakura" face="close_mouth"]
 #桜良
 誘拐にしてはお部屋がかわいらしいね。[r]
 ステージみたいな感じ。[p]
 
+[ChangeCharaFace name="miyuki" face="seriously"]
 #深雪
 私たちはアイドルだから、[r]
 自分の好きなように躍らせたいのかもしれないわよ。[p]
 
+; 桜良漫符：ぐるぐる
 [ChangeCharaFace name="sakura" face="trouble"]
 #桜良
-それは嫌だな。[r]
+うーん...それは嫌かも...[r]
 みんなと一緒に歌って踊るから楽しいのにね。[p]
 
 [ChangeCharaFace name="miyuki" face="precious"]
 #深雪
-（こんな時にまで私の好感度を上げに来ないで！
+（本当にそのとおり！[r]
+_　特にステージの上のあなたは最高だもの！）[p]
+
+#深雪
+（こんな時にまで私の好感度を上げに来ないで！[r]
 _　きゅんきゅんしちゃうじゃない！）[p]
 
+; 桜良漫符：はてな
 [ChangeCharaFace name="sakura" face="surprise"]
 #桜良
-なら脱出の方法を探さないとね。[r]
-......あれ？[p]
+それなら脱出しないとだよね...あれ？[p]
 
 #深雪
 どうしたの？[p]
 
-[ChangeCharaFace name="sakura" face="normal"]
+[ChangeCharaFace name="sakura" face="close_mouth"]
 #桜良
 ポケットに何か入ってたみたい。[r]
 メッセージカード、かな？[p]
 
 #深雪
-見せて。[r]
+見せて。[p]
+
+; 画面に小画面でメッセージカード表示
+#深雪
 『仲良く謎解きしないと出られない部屋』？[p]
 
 #桜良
@@ -96,6 +113,7 @@ _　きゅんきゅんしちゃうじゃない！）[p]
 _　って小さく書いてあるね。[r]
 _　しっかりしてるなあ。[p]
 
+[ChangeCharaFace name="miyuki" face="sigh"]
 #深雪
 見ず知らずの誰かに感心しなくていいの。[p]
 
@@ -104,10 +122,14 @@ _　しっかりしてるなあ。[p]
 ということは、これってもしかして撮影なんじゃない？[r]
 ドッキリ企画ってこと！？[p]
 
+; 深雪漫符：びっくり
+[ChangeCharaFace name="miyuki" face="impatience"]
 #深雪
-まだそう決めつけるのは早いんじゃ......[r]
+まだそう決めつけるのは早いんじゃ...[r]
 あっ！[p]
 
+; 子画面で表示していたメッセージカードを非表示にする
+; 桜良漫符：びっくり
 [ChangeCharaFace name="sakura" face="surprise"]
 #桜良
 カード、消えちゃった！[p]
@@ -115,32 +137,32 @@ _　しっかりしてるなあ。[p]
 #深雪
 （なにこれ、どんな技術？）[p]
 
-[ChangeCharaFace name="sakura" face="smile"]
 #桜良
 すごい！[r]
 最新技術なのかなあ！！[r]
 これってやっぱり脱出ゲームの撮影なんだよ！[p]
 
+; 桜良漫符：キラキラ
+[ChangeCharaFace name="sakura" face="smile"]
 #桜良
-深雪ちゃん！[r]
-そうときまったら早くこの部屋を調べてみない？[r]
+ねえねえ深雪ちゃん、この部屋を調べてみない？[r]
 私ずっと脱出ゲームやってみたかったんだ！[p]
 
 [ChangeCharaFace name="miyuki" face="precious"]
 #深雪
-（あああその満面の笑みで私を見つめないで、[r]
-_　私が桜良を守らないといけないのに）[p]
+（あああ満面の笑みで私を見つめないで、[r]
+_　心臓が持たないわ...）[p]
 
+[ChangeCharaFace name="miyuki" face="seriously"]
 #深雪
 （でも、部屋を見ても危ないものはなさそうだし、[r]
 _　誰かが入ってくる様子もない。[r]
 _　本当に撮影なのかも。）[p]
 
-[ChangeCharaFace name="miyuki" face="smile"]
+[ChangeCharaFace name="miyuki" face="precious"]
 #深雪
-（それに......[r]
-_　桜良がすごく楽しそうだから、[r]
-_　まあいっか！）[p]
+（桜良もすごく楽しそうだし...[r]
+_　もう少し一緒にいても問題ないわよね？）[p]
 
 [ChangeCharaFace name="miyuki" face="normal"]
 #深雪
@@ -148,6 +170,7 @@ _　まあいっか！）[p]
 一旦、さっきのカードの言うとおりにしてみましょう。[r]
 何かわかるかもしれないしね。[p]
 
+[Jumping name="sakura"]
 #桜良
 そうだね！[r]
 じゃあ早速いろいろ調べてみよう！[p]
