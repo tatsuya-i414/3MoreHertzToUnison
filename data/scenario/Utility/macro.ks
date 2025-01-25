@@ -304,6 +304,14 @@
     [endscript]
 [endmacro]
 
+; エンドロールBGMを再生する
+[macro name="PlayEndrollBGM"]
+    [playbgm storage="endroll.m4a" loop="true" restart="false"]
+    [iscript]
+        f.isPlayingBGM = 'true'
+    [endscript]
+[endmacro]
+
 ; BGMの再生を停止する
 [macro name="StopPlayingBGM"]
     [stopbgm]

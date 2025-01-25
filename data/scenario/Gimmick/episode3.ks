@@ -259,14 +259,33 @@
     [autostop]
     [cancelskip]
     [clearfix]
-    [MenuButton]
 [endif]
 [FadeoutBGM]
-; スチル未完成のため基準背景を仮配置
-[blackout exp="f.isRoomLightNight == 1" storage_1="episode3/bedroom_night.png" storage_2="episode3/bedroom.png"]
-; 画面がゆっくりと白くなっていく（2～3秒ほど）
-; エンドクレジットへ
-[s]
+[Freelayer1]
+[iscript]
+    f.itemVisible[0] = ''
+    f.itemVisible[1] = ''
+[endscript]
+[blackout exp="f.isEpisode3Clear == 1" storage_1="epilogue/black.png" storage_2="episode3/bedroom.png"]
+
+; エンドロール再生
+[if exp="sf.endrollSkip == 'false' "]
+    [cancelskip]
+    ; TrueEndルート
+    ;[if exp="f.selectedEDRoute == 'True' "]
+        ;[call storage="Conversation/endroll/endroll_true.ks"]
+    ; NormalEndルート
+    ;[else]
+    ;    [call storage="Conversation/endroll/endroll_normal.ks"]
+    ;[endif]
+    [call storage="Conversation/endroll/endroll.ks"]
+[endif]
+[iscript]
+    f.isFirstGameClear = 'true'
+[endscript]
+[wait time="5000"]
+; エンドロール再生後、タイトル画面へ画面遷移
+[jump storage="title.ks" target="*TopPage"]
 
 *SearchBox
 [FreeImagesWhenSwitching]
