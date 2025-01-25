@@ -6,9 +6,9 @@
 [iscript]
     tf.prevPage = 'kenshou'
 [endscript]
-[bg storage="share/top.png" time="100"]
 
 *Kenshou
+[bg storage="share/top.png" time="100"]
 [button graphic="../others/plugin/theme_kopanda_bth_06_blue/image/config/back.png" enterimg="../others/plugin/theme_kopanda_bth_06_blue/image/config/back2.png" target="*Backtitle" x="1680" y="60" clickse="../sound/se/cancel.m4a"]
 ; シナリオ関連
 [ptext layer="fix" text="[シナリオ関連]" x="320" y="80" size="20" color="&sf.colorScheme[0]" bold="bold" edge="white"]
@@ -27,7 +27,9 @@
 [glink color="bth06" storage="Utility/debug.ks" target="*Save" text="思い出3終盤スキップ" x="420" y="130" width="150" height="45" clickse="../sound/se/itemdecision.m4a" size="24" bold="true" exp="sf.scn_episode3ED_Skip = 'true' "]
 [glink color="bth06" storage="Utility/debug.ks" target="*Save" text="EDスキップ" x="420" y="230" width="150" height="30" clickse="../sound/se/itemdecision.m4a" size="24" bold="true" exp="sf.scn_episodeED_Skip = 'true' "]
 [glink color="bth06" storage="Utility/debug.ks" target="*Save" text="EPスキップ" x="420" y="315" width="150" height="30" clickse="../sound/se/itemdecision.m4a" size="24" bold="true" exp="sf.scn_episodeEP_Skip = 'true' "]
-[glink color="bth06" target="*SelectTrueEnd" text="TrueEnd選択" x="420" y="315" width="150" height="30" clickse="../sound/se/itemdecision.m4a" size="24" bold="true"]
+[glink color="bth06" target="*SelectTrueEnd" text="TrueEnd選択" x="420" y="400" width="150" height="30" clickse="../sound/se/itemdecision.m4a" size="24" bold="true"]
+[glink color="bth06" target="*PlayEndroll_Normal"  text="エンドロール再生(Normal)" x="420" y="485" width="150" height="45" clickse="../sound/se/itemdecision.m4a" size="24" bold="true"]
+[glink color="bth06" target="*PlayEndroll_True"  text="エンドロール再生(True)" x="420" y="585" width="150" height="45" clickse="../sound/se/itemdecision.m4a" size="24" bold="true"]
 
 ; システム関連
 [ptext layer="fix" text="[システム関連]" x="770" y="80" size="20" color="&sf.colorScheme[0]" bold="bold" edge="white"]
@@ -40,6 +42,38 @@
     f.episode2_Secret = 'true'
     f.episode3_Secret = 'true'
 [endscript]
+
+*PlayEndroll_Normal
+[clearfix]
+[FadeoutBGM]
+[iscript]
+    f.selectedEDRoute = 'Normal'
+[endscript]
+[call storage="Conversation/endroll/endroll.ks"]
+[if exp="f.isPlayingBGM == 'false' "]
+    [PlayNormalBGM]
+[endif]
+; 選択したEDルートを初期化
+[iscript]
+    f.selectedEDRoute = ''
+[endscript]
+[jump target="*Kenshou"]
+
+*PlayEndroll_True
+[clearfix]
+[FadeoutBGM]
+[iscript]
+    f.selectedEDRoute = 'True'
+[endscript]
+[call storage="Conversation/endroll/endroll.ks"]
+[if exp="f.isPlayingBGM == 'false' "]
+    [PlayNormalBGM]
+[endif]
+; 選択したEDルートを初期化
+[iscript]
+    f.selectedEDRoute = ''
+[endscript]
+[jump target="*Kenshou"]
 
 *DeleteSaveData
 [call storage="Utility/deleteSaveData.ks" ]

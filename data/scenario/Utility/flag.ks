@@ -17,6 +17,8 @@
     f.isChangeDress = 'false'
     // 選択したEDルート
     f.selectedEDRoute = ''
+    // 初回ゲームクリア判定
+    f.isFirstGameClear = 'false'
     // 用語の既読判定
     f.isReadDesc_01 = 'false'
     f.isReadDesc_02 = 'false'
