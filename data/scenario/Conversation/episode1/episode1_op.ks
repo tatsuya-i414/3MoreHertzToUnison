@@ -1,8 +1,8 @@
 [DispLocation text="ライブ会場"]
 [ShowMiyuki_Center face="trouble"]
 #深雪
-んん......あれ？[r]
-私、寝てた......？[p]
+んん...あれ？[r]
+私、寝てた...？[p]
 
 #深雪
 確か雑誌の撮影が終わって帰る途中だったはず...[p]
@@ -17,7 +17,7 @@
     f.charaPosition[1] = 'left'
 [endscript]
 [ChangeCharaPosition]
-[ShowSakura_Right]
+[ShowSakura_Right face="trouble"]
 #桜良
 うーん...[p]
 
@@ -26,7 +26,6 @@
 桜良！！[p]
 
 [PlayGosoGoso]
-[ChangeCharaFace name="sakura" face="trouble"]
 #桜良
 あれ...？[r]
 おはよう深雪ちゃん...？[p]
@@ -93,6 +92,7 @@ _　きゅんきゅんしちゃうじゃない！）[p]
 #桜良
 それなら脱出しないとだよね...あれ？[p]
 
+[ChangeCharaFace name="miyuki" face="normal"]
 #深雪
 どうしたの？[p]
 

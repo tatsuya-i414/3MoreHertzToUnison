@@ -575,17 +575,17 @@
 
 ; 桜良を退場させる
 [macro name="HideSakura"]
-    [chara_hide name="sakura" time="500" wait="true" layer="3"]
+    [chara_hide name="sakura" time="%time|500" wait="true" layer="3"]
 [endmacro]
 
 ; 深雪を退場させる
 [macro name="HideMiyuki"]
-    [chara_hide name="miyuki" time="500" wait="true" layer="3"]
+    [chara_hide name="miyuki" time="%time|500" wait="true" layer="3"]
 [endmacro]
 
 ; キャラクターを全員退場させる
 [macro name="HideAll"]
-    [chara_hide_all time="500" wait="true" layer="3"]
+    [chara_hide_all time="%time|500" wait="true" layer="3"]
 [endmacro]
 
 ; ------------------------------
@@ -968,5 +968,18 @@
     [if exp="tf.isFirstPage == 'false' "]
         [button graphic="glossary/button_back_prev.png" enterimg="glossary/button_back_hover_prev.png" target="%target_prev" x="100" y="940" clickse="../sound/se/pagechange.m4a"]
     [endif]
+[endmacro]
+
+; セーブ選択画面の「はい」「いいえ」ボタン
+[macro name="SelectSave"]
+    [bg storage="episode1/white.png" time="100"]
+    [messageTrue]
+    [nolog]
+    #
+    これまでの出来事をセーブしますか？
+    [endnolog]
+    [glink color="bth06" storage="Utility/SelectSave.ks" target="*YesButton" width="80" x="240" y="960" size="24" text="はい" clickse="../sound/se/decision.m4a"]
+    [glink color="bth06" storage="Utility/SelectSave.ks" target="*NoButton" width="80" x="470" y="960" size="24" text="いいえ" clickse="../sound/se/cancel.m4a"]
+    [s]
 [endmacro]
 [return]

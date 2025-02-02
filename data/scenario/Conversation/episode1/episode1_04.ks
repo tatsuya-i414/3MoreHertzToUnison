@@ -3,9 +3,10 @@
 ;-------------------------------------------------------
 ; 箱未開封時
 [if exp="f.isClickedToolBox_first == 'true' && f.leftNum != 4 && f.centerNum != 5 && f.rightNum != 6"]
-    [ShowSakura_Center face="trouble"]
+    ; 桜良漫符：はてな
+    [ShowSakura_Center face="surprise"]
     #桜良
-    ダイヤル……？[r]
+    ダイヤル...？[r]
     数字なんてあったかな？[p]
 
     [iscript]
@@ -36,23 +37,25 @@
         f.charaPosition[1] = 'left'
     [endscript]
     [ChangeCharaPosition]
+    ; 桜良漫符：キラキラ
     [ShowSakura_Right face="smile"]
     #桜良
     深雪ちゃん、すごい！[r]
     ステージの装飾がヒントだったなんて、[r]
     私全然気づかなかった！[p]
 
+    [ChangeCharaFace name="miyuki" face="close_eye"]
     #深雪
     ……大したことじゃないわ。[p]
 
+    ; 深雪漫符：集中線
     [ChangeCharaFace name="miyuki" face="precious"]
     #深雪
-    （ああっ、桜良に褒められるなんて、[r]
-    _　明日槍でも降るのかしら！？）[p]
+    （...明日槍でも降るのかしら！？）[p]
 
     #深雪
-    （でも槍なんか降ったら桜良が危ないし、[r]
-    _　そんなこと絶対に起きないで欲しいけど！）[p]
+    （いえ、槍なんか降ったら桜良が危ないから、[r]
+    _　そんなことは起きなくていいんだけれど）[p]
 
     #桜良
     謙遜しなくてもいいのにー！[p]
@@ -62,6 +65,7 @@
     そういえば、この場所って[r]
     私たちのファーストライブ会場に似てるような気がしない？[p]
 
+    ; 深雪漫符：びっくり
     [ChangeCharaFace name="miyuki" face="normal"]
     #深雪
     言われてみればそうね。[r]
@@ -71,30 +75,34 @@
     あはは、小さいハコだったもんね。[r]
     あれでもマネージャーさん苦労したんだーって言ってたよ？[p]
 
+    [ChangeCharaFace name="miyuki" face="close_eye"]
     #深雪
     ステージの演出にこだわりが強いことだけは認めてあげるわ。[p]
 
+    [ChangeCharaFace name="sakura" face="smile"]
     #桜良
     もう！[r]
     素直じゃないなあ！[p]
 
+    [ChangeCharaFace name="miyuki" face="seriously"]
     #深雪
     （私たちのファーストライブ。[r]
-    _　ステージは確かに小さくて今から考えればクオリティも低いけれど）[p]
+    _　ステージは小さくて、今考えればクオリティも低いけれど）[p]
 
     [ChangeCharaFace name="miyuki" face="precious"]
     #深雪
     （桜良モチーフのヤドカリと私モチーフのクリオネが、[r]
-    _　かわいらし～く隣同士に装飾されていたのだけは、最高だったな...）[p]
+    _　かわいらしく隣同士に装飾されていたのだけは、最高だったわね...）[p]
 
-    [ChangeCharaFace name="miyuki" face="normal"]
+    [ChangeCharaFace name="miyuki" face="smile"]
     #深雪
-    ......ふふ。[p]
+    ...ふふ。[p]
 
-    [ChangeCharaFace name="sakura" face="normal"]
+    [ChangeCharaFace name="sakura" face="close_mouth"]
     #桜良
     ん？どうしたの？[p]
 
+    [ChangeCharaFace name="miyuki" face="normal"]
     #深雪
     なんでもないわ。[r]
     他を調べましょう。[p]

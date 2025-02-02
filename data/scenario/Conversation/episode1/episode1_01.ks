@@ -29,7 +29,7 @@
 [elsif exp="f.isClickedControlPanel_first == 'true' "]
     [ShowSakura_Center face="normal"]
     #桜良
-    スイッチだ！[r]
+    わあ、スイッチだ！[r]
     押してみるね！[p]
 
     [iscript]

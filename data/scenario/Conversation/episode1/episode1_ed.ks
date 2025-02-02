@@ -1,4 +1,5 @@
 [PlayTurnOffLight]
+
 [image storage="../image/episode1/mikestand.png" layer="1" name="mikestand"]
 [ChangeBackGround storage="episode1/spotlight.png"]
 [wait time="500"]
@@ -8,37 +9,39 @@
 #桜良
 きゃっ、いきなり暗くなった！[p]
 
-[ChangeCharaFace name="miyuki" face="trouble"]
+[ChangeCharaFace name="miyuki" face="seriously"]
 #深雪
 停電？[r]
-いや、一か所だけスポットライトが当たってる......？[p]
+いや、一か所だけスポットライトが当たってる...？[p]
 
-[ChangeCharaFace name="sakura" face="normal"]
 #桜良
 あれっ、スタンドマイクなんてあったっけ？[p]
 
 [ChangeCharaFace name="miyuki" face="trouble"]
 #深雪
 いつの間にかせりも下がってるわね。[r]
-何か見覚えがあるような......[p]
+何か見覚えがあるような...[p]
 
+; 深雪漫符：びっくり
 [ChangeCharaFace name="miyuki" face="surprise"]
 #深雪
-......あっ。[p]
+...あっ。[p]
 
+[ChangeCharaFace name="sakura" face="seriously"]
 #桜良
 どうしたの？[r]
 何かわかったの？[p]
 
-[ChangeCharaFace name="miyuki" face="trouble"]
 #深雪
-これ、トラブルだらけで大変だったライブの時のマイクだわ......[p]
+これ、トラブルだらけで大変だったライブの時のマイク...[p]
 
+; 桜良漫符：はてなびっくり
 [ChangeCharaFace name="sakura" face="surprise"]
 #桜良
 ああっ、本当だ！[r]
 このリボン、あの時の！[p]
 
+[ChangeCharaFace name="miyuki" face="trouble"]
 #深雪
 （正直あのライブはあんまり思い出したくない）[p]
 
@@ -46,39 +49,42 @@
 （前日のリハの時からスタッフ間でもめたり、[r]
 _　メンバーが転んで捻挫になりかかったり）[p]
 
+; 深雪漫符：ぐるぐる
+[ChangeCharaFace name="miyuki" face="sigh"]
 #深雪
 （挙句の果てには本番機材トラブルで停電なんて、[r]
-_　もう一生思い出したくもないわね......）[p]
+_　もう一生思い出したくもないわね...）[p]
 
 [ChangeCharaFace name="sakura" face="trouble"]
 #桜良
-あのライブ、本当に大変だったよねえ......[p]
+あのライブ、本当に大変だったよねえ...[p]
 
 #深雪
-ええ、悪夢だったわ。[r]
+悪夢だったわ。[r]
 いまだに夢に見て冷や汗ものよ。[p]
 
 [ChangeCharaFace name="miyuki" face="normal"]
 #深雪
 あの時の再現をしてくるなんて、[r]
-この部屋に放り込んだ人はよっぽど悪趣味なのね。[p]
+この部屋に放り込んだ人はよっぽど悪趣味ね。[p]
 
-[ChangeCharaFace name="sakura" face="normal"]
+[ChangeCharaFace name="sakura" face="close_mouth"]
 #桜良
-......私は、嫌な思い出だけじゃない、かな。[p]
+...私は、嫌な思い出だけじゃない、かな。[p]
 
+[ChangeCharaFace name="miyuki" face="surprise"]
 #深雪
 どういうこと？[p]
 
-[ChangeCharaFace name="sakura" face="trouble"]
 #桜良
-停電でライトがほとんどつかなくなっちゃったとき、[r]
-お客さんも私たちも混乱しちゃってた。[p]
+停電でライトがつかなくなっちゃったとき、[r]
+お客さんも私たちも混乱してたよね。[p]
 
 #桜良
 私もどうしたらいいかわかんなくて、[r]
-頭の中真っ白で......[p]
+頭の中真っ白で...[p]
 
+[ChangeCharaFace name="miyuki" face="seriously"]
 #深雪
 仕方ないわ。[r]
 あの時の私たちはまだ場数も少なかったもの。[p]
@@ -87,77 +93,99 @@ _　もう一生思い出したくもないわね......）[p]
 #桜良
 でも、深雪ちゃんはすっごく冷静だったよ！[p]
 
+; 深雪漫符：はてな
 #深雪
 そうかしら？[p]
 
 #桜良
-そして「私がなんとかします！」って言ったと思ったら、[r]
+「私がなんとかします！」って言ったと思ったら、[r]
 突然ステージに飛び出して行っちゃって！[p]
 
-; ここでできればスチルを入れたい
-; 深雪がスポットライトの下でアカペラを歌うシーン
-
-[ChangeCharaFace name="sakura" face="smile"]
+[messageFalse]
+[HideAll]
+; 画面演出：スチル表示
+[wait time="2000"]
+[messageTrue]
+[ShowMiyuki_Left face="seriously"]
+; 桜良漫符：キラキラ
+[ShowSakura_Right face="smile"]
 #桜良
 たった一人で音楽もない中歌い始めて、[r]
 すっごくカッコよかったんだよ！！[p]
 
-[ChangeCharaFace name="miyuki" face="surprise"]
+[ChangeCharaFace name="miyuki" face="trouble"]
 #深雪
-あ、あれはただ、場をつなぐために必要だから。[p]
+あ、あれはただ、場をつなぐために必要だったから。[p]
 
+[ChangeCharaFace name="sakura" face="close_mouth"]
+#桜良
+今だったら私もそうしたかもしれないけど、[r]
+でもあの時誰よりも勇気があったのは深雪ちゃんだったよ。[p]
+
+[ChangeCharaFace name="sakura" face="smile"]
+#桜良
+深雪ちゃんの後ろ姿がすごく大きくて、[r]
+輝いてるみたいだったんだ。[p]
+
+; 深雪漫符：汗
+[ChangeCharaFace name="miyuki" face="blush"]
 #深雪
 （え、何かしらこれは。[r]
-_　私、褒められてるの？桜良本人から？なんで？？？）[p]
+_　私、褒められてるの？桜良本人から？なんで？）[p]
 
 #深雪
 （私、一生分の運を今日使ってるのかしら？？？）[p]
 
-[ChangeCharaFace name="sakura" face="blush"]
+[ChangeCharaFace name="sakura" face="close_eye"]
 #桜良
 深雪ちゃんのあの姿が見られたのはよかったなって、[r]
 不謹慎かもしれないけど思っちゃった。[p]
 
-[ChangeCharaFace name="sakura" face="normal"]
+[ChangeCharaFace name="sakura" face="close_mouth"]
 #桜良
 だから、私の中だと悪いばっかりじゃないんだ。[p]
 
 #桜良
-深雪ちゃんからしたら、思い出したくないかもだけど......　[p]
+深雪ちゃんからしたら、思い出したくないかもだけど...[p]
 
-[ChangeCharaFace name="miyuki" face="precious"]
+; 画面演出解除：スチル表示
+; 深雪漫符：キラキラ
+[ChangeCharaFace name="miyuki" face="seriously"]
 #深雪
 いえ、たった今人生で二番目くらいに[r]
 いい思い出にランクアップしたから、心配しないで。[p]
 
 #深雪
-（一番は今、目の前で褒めてもらっていることだけど）[p]
+（一番は今、目の前で褒めてもらっていることだわ）[r]
+_　え、なんで私録音してなかったのかしら？）[p]
 
-[ChangeCharaFace name="sakura" face="normal"]
 #桜良
-えっ？そうなの？[p]
+そうなの？[p]
 
 [ChangeCharaFace name="miyuki" face="smile"]
 #深雪
 褒めてくれてありがとう。[r]
-あなたがそう言ってくれるなら、今後もかっこよくいないといけないわね。[p]
+あなたがそう言ってくれるなら、[r]
+今後もかっこよくいないといけないわね。[p]
 
 [ChangeCharaFace name="sakura" face="blush"]
 #桜良
-......今も十分、かっこいいと思うけどな。[p]
+...今も十分、かっこいいと思うけどな。[p]
 
+; 深雪漫符：はてな
 [ChangeCharaFace name="miyuki" face="normal"]
 #深雪
 今、何か言っていた？[r]
-ごめんなさい、よく聞こえなかったわ[p]
+ごめんなさい、よく聞こえなくて...[p]
 
-[ChangeCharaFace name="sakura" face="surprise"]
+; 桜良漫符：はてなびっくり
+[Jumping name="sakura"]
 #桜良
 う、ううん！[r]
 なんでもない！[p]
 
 #深雪
-さて、話を戻すわよ。[r]
+そう？なら話を戻すわよ。[r]
 ひとまずこのマイクをどうにかすればよいのかしら。[p]
 
 [ChangeCharaFace name="sakura" face="normal"]
@@ -170,6 +198,9 @@ _　私、褒められてるの？桜良本人から？なんで？？？）[p]
 わかったわ[p]
 
 [messageFalse]
+[chara_move name="miyuki" left="550" anim="true" time="4000" wait="false"]
+[wait time="100"]
+[chara_move name="sakura" left="1100" anim="true" time="4000" wait="false"]
 [PlayFootStep]
 [wait time="4500"]
 [messageTrue]
@@ -181,7 +212,11 @@ _　私、褒められてるの？桜良本人から？なんで？？？）[p]
 マイクに触れてみるわ。[p]
 
 [PlayBell]
+[flasheffect]
 [messageFalse]
+[Freelayer1]
+[HideAll time="100"]
+[bg storage="episode1/white.png" time="100"]
 [wait time="500"]
 [messageTrue]
 [autostop]
@@ -195,6 +230,6 @@ _　私、褒められてるの？桜良本人から？なんで？？？）[p]
 
 [messageFalse]
 [free layer="1" name="mikestand"]
-[wait time="200"]
-[HideAll]
+[wait time="2000"]
+[SelectSave]
 [return]

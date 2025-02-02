@@ -4,7 +4,7 @@
 ; 舞台なし
 ; 初回クリック時
 [if exp="f.isClickedLight_first == 'true' && f.isStageStatusGreen == 0"]
-    [ShowMiyuki_Center]
+    [ShowMiyuki_Center face="trouble"]
     #深雪
     あそこのライト、一つだけカバーが取れているわね。[p]
 
@@ -13,12 +13,18 @@
         f.charaPosition[1] = 'left'
     [endscript]
     [ChangeCharaPosition]
-    [ShowSakura_Right face="trouble"]
+    ; 桜良漫符：もやもや
+    [ShowSakura_Right face="seriously"]
     #桜良
-    直したいけど高すぎて届かないね......[p]
+    直したいけど高すぎて届かないね...[p]
 
+    [ChangeCharaFace name="sakura" face="close_mouth"]
+    #桜良
+    何か足場になりそうなものを探してみない？[p]
+
+    [ChangeCharaFace name="miyuki" face="seriously"]
     #深雪
-    足場になるものを探しましょう。[p]
+    賛成だわ。そうしましょう。[p]
 ; 舞台なし
 ; 二回目以降
 [elsif exp="f.isClickedLight_first == 'false' && f.isStageStatusGreen == 0"]
@@ -51,10 +57,10 @@
 ; ライトカバー未所持
 ; 二回目以降
 [elsif exp="f.isClickedLight_first == 'false' && f.isStageStatusGreen == 1 && f.isLightCoverGet == 0"]
-    [ShowSakura_Center face="trouble"]
+    [ShowSakura_Center face="seriously"]
     #桜良
     うーん[r]
-    そのあたりにあったはずなんだけどなあ......[p]
+    そのあたりにあったはずなんだけどなあ...[p]
 ; 舞台あり
 ; ライトカバー所持
 ; 初回クリック時
@@ -69,14 +75,16 @@
         f.charaPosition[1] = 'left'
     [endscript]
     [ChangeCharaPosition]
-    [ShowSakura_Right]
+    [ShowSakura_Right face="close_mouth"]
     #桜良
     やっと裸から戻してあげられるね！[p]
 
     [ChangeCharaFace name="sakura" face="trouble"]
     #桜良
-    ......うう。[p]
+    じゃあ登ってかぶせよっか...[r]
+    ...よし。[p]
 
+    [ChangeCharaFace name="miyuki" face="seriously"]
     #深雪
     ......[p]
 
@@ -87,9 +95,10 @@
     #深雪
     高いところ、苦手なんでしょう？[p]
 
+    ; 桜良漫符：はてなびっくり
     [ChangeCharaFace name="sakura" face="surprise"]
     #桜良
-    え、なんでわかったの！？[p]
+    え、なんで知ってるの！？[p]
 
     #桜良
     高所恐怖症なの誰にも言ったことないのに！[p]
@@ -99,36 +108,57 @@
 
     [ChangeCharaFace name="sakura" face="normal"]
     #桜良
-    そっか、バレてたのかあ......[p]
+    そっか、バレてたのかあ...[p]
 
+    [ChangeCharaFace name="sakura" face="trouble"]
+    #桜良
+    高所恐怖症って言っても、[r]
+    山の上とか高い建物の中とかは平気なんだけど...[p]
+
+    #桜良
+    橋の上とか、ちょっとでも身を乗り出したら落ちちゃう！[r]
+    って場所に立つとどうしても足が震えちゃって。[p]
+
+    [ChangeCharaFace name="miyuki" face="trouble"]
     #深雪
-    心配しなくて大丈夫。[r]
+    落ちる危険性が高いところが苦手なのね。[p]
+
+    ; 桜良漫符：ぷんぷん
+    [ChangeCharaFace name="sakura" face="seriously"]
+    #桜良
+    そう！だって一歩踏み間違えたら大けがだよ！？[p]
+
+    [ChangeCharaFace name="miyuki" face="close_eye"]
+    #深雪
+    そうね、でも安心して。[r]
     これからも容赦なくせりの上にのってもらったり、[r]
     バンジージャンプ飛んでもらったりするから。[p]
 
-    [ChangeCharaFace name="sakura" face="surprise"]
+    ; 桜良漫符：はてなびっくり
+    [ChangeCharaFace name="sakura" face="amazed"]
     #桜良
-    ええっ！[r]
-    高所恐怖症ってわかってるのに！？[p]
+    安心できる要素どこにもないよね！？[p]
 
     #深雪
     アイドルも体を張る時代よ。あきらめなさい。[p]
 
-    [ChangeCharaFace name="sakura" face="trouble"]
     #桜良
-    う、うそぉ～......[p]
+    そんなあー...[p]
 
+    ; 深雪漫符：もやもや
+    [ChangeCharaFace name="miyuki" face="seriously"]
     #深雪
     （本当は無理しないでほしいけれど、[r]
     _　そう言えばあなたは気にするでしょう？）[p]
 
     #深雪
-    だから、せめてプライベートでは頼って。[p]
+    仕事では頑張ってもらうけれど、[r]
+    せめてプライベートでは頼って。[p]
 
     [ChangeCharaFace name="sakura" face="smile"]
     #桜良
-    もう、お仕事でも頼りたいんだけどなあ。[r]
-    じゃあ、お願い！[p]
+    もう、お仕事でも頼りたいんだけどなあ！[r]
+    じゃあ、お願いするね！[p]
 ; 舞台あり
 ; ライトカバー所持
 ; 二回目以降
@@ -151,8 +181,10 @@
     #深雪
     これくらいなら壊さない、と思う。[p]
 
+    [ChangeCharaFace name="sakura" face="smile"]
     #桜良
-    深雪ちゃん、頑張って！[p]
+    深雪ちゃん、なら大丈夫だよ！[r]
+    頑張って！[p]
 
     [ChangeCharaFace name="miyuki" face="precious"]
     #深雪
@@ -186,27 +218,26 @@
 #深雪
 そう、ならよかった。[p]
 
+[ChangeCharaFace name="sakura" face="close_mouth"]
 #桜良
 深雪ちゃんは高いところ平気なの？[p]
 
 [ChangeCharaFace name="miyuki" face="normal"]
 #深雪
-むしろ得意なほう。[r]
+むしろ得意よ。[r]
 せりの上から見た景色は特に好きね。[p]
 
-#桜良
-そうなんだ、私は落ちたらどうしよう！って[r]
-どうしても考えちゃって......[p]
-
+; 桜良漫符：ワイワイ
 [ChangeCharaFace name="sakura" face="smile"]
 #桜良
-でも、せりの上から見るライブ会場は、[r]
-私も好きだなあ。[p]
+あっ、それはわかるかも！[r]
+私もせりの上から見るライブ会場は大好き！[p]
 
 #桜良
 ペンライトもみんなの笑顔も、[r]
-キラキラ光ってて、私も元気をもらえるから。[p]
+キラキラ光ってて元気をもらえるよね！[p]
 
+[ChangeCharaFace name="miyuki" face="smile"]
 #深雪
 アイドルをやっていてよかったって思える瞬間ね。[p]
 
@@ -225,7 +256,7 @@
 [if exp="f.scn_skip == 0"]
     [ControlButtons]
     [FreeItemBox]
-    [ShowMiyuki_Center]
+    [ShowMiyuki_Center face="trouble"]
     [nolog]
     #深雪
     思ったより取り付けが難しそうね。[p]
@@ -240,7 +271,7 @@
     [ChangeCharaPosition]
     [ShowSakura_Right]
     #桜良
-    わかった、無理しないで！[p]
+    わかった、無理しないでね！[p]
     [endnolog]
     [HideAll]
 [endif]
