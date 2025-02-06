@@ -4,12 +4,11 @@
 ; アイブロウペンシル未所持
 ; 初回調査時
 [if exp="f.isPencilGet == 0 && f.isClickedPaper_first == 'true' "]
-    [ShowSakura_Center]
+    [ShowSakura_Center face="close_mouth"]
     #桜良
     深雪ちゃん、バックスクリーンをおろしたときに、[r]
     何か紙が落ちたみたい。[p]
 
-    [ChangeCharaFace name="sakura" face="trouble"]
     #桜良
     白紙みたいだけど...[p]
 
@@ -18,7 +17,7 @@
         f.charaPosition[1] = 'right'
     [endscript]
     [ChangeCharaPosition]
-    [ShowMiyuki_Left]
+    [ShowMiyuki_Left face="trouble"]
     #深雪
     これは、メモ帳？[p]
 
@@ -26,10 +25,13 @@
     表面が少しだけぼこぼこしているみたいね。[r]
     何か書かれていたのかも。[p]
 
+    ; 桜良漫符：ぐるぐる
+    [ChangeCharaFace name="sakura" face="seriously"]
     #桜良
     何とかして読めないかな。[r]
     う～～～～～ん...[p]
 
+    [ChangeCharaFace name="miyuki" face="smile"]
     #深雪
     そんなに目を凝らしても見えないと思うわよ。[p]
 
@@ -37,10 +39,10 @@
     （しかめ面をしている桜良もいいわね。[r]
     _　レアだわ...）[p]
 
-    [ChangeCharaFace name="sakura" face="normal"]
     #桜良
     なんとかしてわからないかなあ。[p]
 
+    [ChangeCharaFace name="miyuki" face="normal"]
     #深雪
     使えそうな道具がないか、探してみましょう。[p]
     [if exp="f.isClickedPaper_first == 'true' "]
@@ -53,7 +55,7 @@
 ; アイブロウペンシル未所持
 ; 二回目以降
 [elsif exp="f.isPencilGet == 0 && f.isClickedPaper_first == 'false' "]
-    [ShowSakura_Center face="trouble"]
+    [ShowSakura_Center face="seriously"]
     #桜良
     ......[p]
 
@@ -73,28 +75,34 @@
 
     [ChangeCharaFace name="miyuki" face="precious"]
     #深雪
-    かわッ......[p]
+    かわッ...[p]
 
-    [ChangeCharaFace name="sakura" face="normal"]
+    [ChangeCharaFace name="sakura" face="surprise"]
     #桜良
     かわ？[p]
 
-    [ChangeCharaFace name="miyuki" face="normal"]
+    [ChangeCharaFace name="miyuki" face="close_eye"]
     #深雪
-    んんっ、なんでもない。[r]
-    あなたが解読してもいいけれど、私は別の方法を考えたいわ。[p]
+    んんっ、なんでもない。[p]
 
+    [ChangeCharaFace name="miyuki" face="seriously"]
+    #深雪
+    あなたが解読を試みている間、[r]
+    私も別の方法を考えるわね。[p]
+
+    [ChangeCharaFace name="sakura" face="normal"]
     #桜良
-    探索しながら私も頑張ってみるね！[p]
+    わかった、頑張ってみるね！[p]
 
-    [ChangeCharaFace name="miyuki" face="normal"]
+    [ChangeCharaFace name="miyuki" face="smile"]
     #深雪
-    わかったわ。お願いするわね。[p]
+    ええ、お願い。[p]
     [HideAll]
     [JumpStudioRoom]
 ; アイブロウペンシル所持
 ; 二回目以降
 [elsif exp="f.isPencilGet == 1 && f.isClickedSpeaker_first_whenPencilGetting == 'false' "]
+    ; 深雪漫符：もやもや
     [ShowMiyuki_Center face="trouble"]
     #深雪
     ......[p]
@@ -104,12 +112,12 @@
         f.charaPosition[1] = 'left'
     [endscript]
     [ChangeCharaPosition]
-    [ShowSakura_Right]
+    [ShowSakura_Right face="close_mouth"]
     #桜良
     深雪ちゃん、[r]
     そんなに紙を見つめてどうしたの？[p]
 
-    [ChangeCharaFace name="sakura" face="surprise"]
+    [ChangeCharaFace name="sakura" face="amazed"]
     #桜良
     というか、もはやにらみつけてるよね！？[p]
 
@@ -120,23 +128,25 @@
     #深雪
     私がやったら先をつぶしそうで...[p]
 
+    ; 桜良漫符：汗
     #桜良
     そ、そんなに覚悟を決めてたんだね...[p]
 
+    [ChangeCharaFace name="sakura" face="close_eye"]
     #桜良
     私、やるね。[p]
 
+    [ChangeCharaFace name="miyuki" face="sigh"]
     #深雪
     お願い。[p]
 ; アイブロウペンシル所持
 ; 初回調査時（ペンシル未所持の時に調べていない場合）
 [elsif exp="f.isPencilGet == 1 && f.isClickedPaper_first == 'true' "]
-    [ShowSakura_Center]
+    [ShowSakura_Center face="close_mouth"]
     #桜良
     深雪ちゃん、バックスクリーンをおろしたときに、[r]
     何か紙が落ちたみたい。[p]
 
-    [ChangeCharaFace name="sakura" face="trouble"]
     #桜良
     白紙みたいだけど...[p]
 
@@ -145,12 +155,12 @@
         f.charaPosition[1] = 'right'
     [endscript]
     [ChangeCharaPosition]
-    [ShowMiyuki_Left]
+    [ShowMiyuki_Left face="trouble"]
     #深雪
     表面が少しだけぼこぼこしているみたいね。[r]
     何か書かれていたのかも。[p]
 
-    [ChangeCharaFace name="sakura" face="normal"]
+    [ChangeCharaFace name="sakura" face="seriously"]
     #桜良
     なんとかしてわからないかなあ。[p]
 
@@ -216,7 +226,8 @@
     #桜良
     なにか浮かび上がってきたよ！[p]
 
-    [ChangeCharaFace name="sakura" face="normal"]
+    ; 桜良漫符：はてな
+    [ChangeCharaFace name="sakura" face="seriously"]
     #桜良
     「かおり」...？[r]
     この部屋に何か香りのするものってあったかな？[p]
@@ -230,6 +241,7 @@
     #深雪
     特になかったように思うけれど...[p]
 
+    ; 深雪漫符：電球
     [ChangeCharaFace name="miyuki" face="surprise"]
     #深雪
     ...あ。[p]
@@ -238,12 +250,12 @@
     #桜良
     何か思いついたの！？[p]
 
-    [ChangeCharaFace name="miyuki" face="normal"]
+    [ChangeCharaFace name="miyuki" face="seriously"]
     #深雪
     さっきブロックをはめてタンスを開けたでしょう？[r]
     その色の並びって覚えてる？[p]
 
-    [ChangeCharaFace name="sakura" face="normal"]
+    [ChangeCharaFace name="sakura" face="close_mouth"]
     #桜良
     確か左から赤、青、緑の順だったよね。[p]
 
@@ -251,17 +263,21 @@
     そう。そして、各色の最後の言葉だけ取ると、[r]
     あ｢か｣、あ「お」、みど「り」になる...[p]
 
+    ; 桜良漫符：びっくり
     [ChangeCharaFace name="sakura" face="surprise"]
     #桜良
     「かおり」って、そういうこと！？[p]
 
+    [ChangeCharaFace name="miyuki" face="close_eye"]
     #深雪
     恐らくね。[p]
 
-    [ChangeCharaFace name="sakura" face="trouble"]
+    ; 桜良漫符：汗
+    [ChangeCharaFace name="sakura" face="smile"]
     #桜良
     私たち、ヒント見ずに開けちゃったね。[p]
 
+    [ChangeCharaFace name="miyuki" face="normal"]
     #深雪
     運も実力のうち、ということにしておきましょう。[p]
 [else]
@@ -269,7 +285,8 @@
     #桜良
     なにか浮かび上がってきたよ！[p]
 
-    [ChangeCharaFace name="sakura" face="normal"]
+    ; 桜良漫符：はてな
+    [ChangeCharaFace name="sakura" face="seriously"]
     #桜良
     「かおり」...？[r]
     この部屋に何か香りのするものってあったかな？[p]
@@ -284,8 +301,9 @@
     特になかったように思うけれど...[r]
     この部屋のことだから、何かのヒントかも。[p]
 
+    [ChangeCharaFace name="sakura" face="close_mouth"]
     #桜良
-    それなら、いつでも見られるようにしておくね！[p]
+    それなら覚えておかなくちゃね！[p]
 
     #深雪
     それにしても、アイブロウペンシルが使えるなんてね。[p]
@@ -299,12 +317,12 @@
     さすがね。私じゃ思いつかなかったかも。[r]
     メイク道具は顔に使うもの、と思い込んでたから。[p]
 
-    [ChangeCharaFace name="sakura" face="blush"]
+    [ChangeCharaFace name="sakura" face="close_eye"]
     #桜良
     そ、そうかなあ...[r]
     メイクするの好きだから、たまたまだよ。[p]
 
-    [ChangeCharaFace name="miyuki" face="normal"]
+    [ChangeCharaFace name="miyuki" face="seriously"]
     #深雪
     桜良はメイクもいつも上手よね。[r]
     季節や服装に合わせて変えているのはすごい努力だと思う。[p]
@@ -320,13 +338,16 @@
     #深雪
     いつも似合っていてとても素敵よ。[p]
 
-    [ChangeCharaFace name="sakura" face="blush"]
     #桜良
     あ、えと...[p]
 
+    ; 桜良漫符：キラキラ
+    [ChangeCharaFace name="sakura" face="blush"]
     #桜良
-    ほめてくれてありがとう！！[p]
+    ほ、ほめてくれてありがとう！！[r]
+    すっごく嬉しい！！[p]
 
+    [PlayRun]
     [HideSakura]
     [iscript]
         f.charaPosition[0] = 'miyuki'
@@ -358,7 +379,7 @@
         f.charaPosition[1] = 'left'
     [endscript]
     [ChangeCharaPosition]
-    [ShowSakura_Right]
+    [ShowSakura_Right face="close_mouth"]
     #桜良
     わかった！[r]
     準備ができたら言ってね！[p]

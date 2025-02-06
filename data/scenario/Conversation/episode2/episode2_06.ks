@@ -10,21 +10,24 @@
     f.charaPosition[1] = 'left'
 [endscript]
 [ChangeCharaPosition]
-[ShowSakura_Right]
+[ShowSakura_Right face="close_mouth"]
 #桜良
 それ、積み木かな？[r]
 でもみんな同じ形だね。[p]
 
 #深雪
-おそらくこの「脱出ゲーム」のヒントになるものだと思う。[r]
+この「脱出ゲーム」のヒントになりそうね。[r]
 どこかで使うと思うけれど...[p]
 
 #桜良
-どこかに積んだり...？[p]
+どこかで積み木をしたり...？[p]
 
+[ChangeCharaFace name="miyuki" face="amazed"]
 #深雪
 しないと思うわよ。[p]
 
+; 桜良漫符：汗
+[ChangeCharaFace name="sakura" face="smile"]
 #桜良
 だよねえ...[p]
 [HideAll]
