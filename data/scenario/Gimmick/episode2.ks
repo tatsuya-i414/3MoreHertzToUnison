@@ -124,11 +124,12 @@
         [call storage="Conversation/episode2/episode2_ed.ks"]
         [autostop]
         [cancelskip]
-        [MenuButton]
     [endif]
     [iscript]
         f.isEpisode2Clear = 1
     [endscript]
+    [layer1True]
+    [SavePoint]
     ; 思い出3へ移動する
     [jump storage="Gimmick/episode3.ks"]
 [else]

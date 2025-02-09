@@ -42,6 +42,7 @@
     f.episode2_Secret = 'true'
     f.episode3_Secret = 'true'
 [endscript]
+[jump target="*Kenshou"]
 
 *PlayEndroll_Normal
 [clearfix]

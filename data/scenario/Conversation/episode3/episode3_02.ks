@@ -4,7 +4,7 @@
 ; 布団未所持
 ; 初回調査時
 [if exp="f.isFutonGet == 0 && f.isClickedPoster_first == 'true' "]
-    [ShowMiyuki_Center face="trouble"]
+    [ShowMiyuki_Center face="seriously"]
     #深雪
     張り紙...？[p]
 
@@ -13,7 +13,7 @@
         f.charaPosition[1] = 'left'
     [endscript]
     [ChangeCharaPosition]
-    [ShowSakura_Right face="trouble"]
+    [ShowSakura_Right face="seriously"]
     #桜良
     なんだろう、記号と矢印？[p]
 
@@ -21,6 +21,7 @@
     脱出のヒントだとは思うけれど...[r]
     桜良、何か心当たりはある？[p]
 
+    ; 桜良漫符：はてな
     #桜良
     まる、さんかく、しかく...？[p]
 
@@ -32,12 +33,14 @@
     この張り紙だけでは不十分ね。[r]
     他の場所も調べてみましょう。[p]
 
+    [PlayFootStep]
     [HideMiyuki]
     [iscript]
         f.charaPosition[0] = 'sakura'
         f.charaPosition[1] = 'center'
     [endscript]
     [ChangeCharaPosition]
+    ; 桜良漫符：もやもや
     #桜良
     ごろ合わせとかかな...？[p]
 
@@ -48,7 +51,7 @@
 ; 布団未所持
 ; 二回目以降
 [elsif exp="f.isFutonGet == 0 && f.isClickedPoster_first == 'false' "]
-    [ShowSakura_Center face="trouble"]
+    [ShowSakura_Center face="seriously"]
     #桜良
     なんで最後だけ「S」が入ってるのかな？[p]
 
@@ -57,12 +60,11 @@
         f.charaPosition[1] = 'right'
     [endscript]
     [ChangeCharaPosition]
-    [ShowMiyuki_Left]
+    [ShowMiyuki_Left face="trouble"]
     #深雪
     確かに、他は図形だけなのに、[r]
     一つだけ文字が入っているのも不自然ね。[p]
 
-    [ChangeCharaFace name="sakura" face="normal"]
     #桜良
     この「S」の意味って何だろう。[r]
     星の形だからスターの頭文字とか？[p]
@@ -71,16 +73,16 @@
     #深雪
     なるほど、そうかもしれないわ。[p]
 
-    [ChangeCharaFace name="miyuki" face="trouble"]
     #深雪
     問題はほかの図形に何も文字がないことだけれど。[p]
 
+    ; 桜良漫符：もやもや
     [ChangeCharaFace name="sakura" face="trouble"]
     #桜良
     そうだった...[r]
-    うう～～どうして文字が入ってないんだ～[p]
+    ううーどうして文字が入ってないんだー...[p]
 
-    [ChangeCharaFace name="miyuki" face="normal"]
+    [ChangeCharaFace name="miyuki" face="seriously"]
     #深雪
     （もしかしたら、図形に関するヒントがあるのかも。[r]
     _　もう一度部屋をよく見てみようかしら...）[p]
@@ -100,10 +102,11 @@
     部屋のあちこちにヒントを隠すなんて、[r]
     手の込んだことをするものね。[p]
 
+    ; 桜良漫符：汗
     [ChangeCharaFace name="sakura" face="trouble"]
     #桜良
     コンパスがなかったら、[r]
-    どれがどれだかわからなくなるところだったよ～[p]
+    どれがどれだかわからなくなるところだったよ。[p]
 
     #桜良
     方角の英語なんて覚えてないし...[p]
@@ -116,15 +119,16 @@
     登山ロケの時、コンパス無しで方角を当てて、[r]
     ガイドさんを驚かせていたじゃない。[p]
 
-    [ChangeCharaFace name="sakura" face="normal"]
+    [ChangeCharaFace name="sakura" face="close_mouth"]
     #桜良
-    あれはたまたまだよ～！[r]
+    あれはたまたま！[r]
     ぜんぶ勘で言ったら当たっただけ！[p]
 
     #桜良
-    深雪ちゃんだって、私がけがをしたとき、[r]
+    深雪ちゃんだって、私が腕を擦りむいたとき、[r]
     すごい速さで手当てしてくれたよね！[p]
 
+    ; 桜良漫符：ワイワイ
     [ChangeCharaFace name="sakura" face="smile"]
     #桜良
     あれも手際が良すぎるってガイドさんびっくりしてたよ！[p]
@@ -136,6 +140,7 @@
     #深雪
     （桜良の綺麗な肌に傷が残ってほしくないもの...）[p]
 
+    [ChangeCharaFace name="sakura" face="normal"]
     #桜良
     深雪ちゃんと一緒だったら、[r]
     もし遭難してもなんとかなるかも？[p]
@@ -149,18 +154,18 @@
     #深雪
     そうなったらあなたの方向感覚も役に立ちそう。[p]
 
-    [ChangeCharaFace name="sakura" face="smile"]
+    ; 桜良漫符：電球
     #桜良
-    えへへ、そういうことなら、[r]
+    そういうことなら、[r]
     これから方向感覚も鍛えてみたり？[p]
 
-    [ChangeCharaFace name="miyuki" face="normal"]
+    [ChangeCharaFace name="miyuki" face="amazed"]
     #深雪
     歌やダンスのレッスン最優先。[p]
 
-    [ChangeCharaFace name="sakura" face="trouble"]
+    [ChangeCharaFace name="sakura" face="amazed"]
     #桜良
-    そうだよねえ～...[p]
+    そうだよねえー...[p]
 [endif]
 [HideAll]
 [return]

@@ -162,7 +162,7 @@
 
 ; 背景画面を暗くする
 [macro name="DarkenBackground"]
-    [filter layer="base" brightness="15" blur="10"]
+    [filter layer="base" brightness="%brightness|15" blur="10"]
 [endmacro]
 
 ; キャラクターがジャンプする
@@ -775,8 +775,8 @@
 
 ; アイテム使用時の「はい」「いいえ」ボタン
 [macro name="YesNoButton"]
-    [glink color="bth06" storage="%storage_yes" target="%target_yes" width="80" x="240" y="960" size="24" text="はい" clickse="../sound/se/decision.m4a"]
-    [glink color="bth06" storage="%storage_no" target="%target_no" width="80" x="470" y="960" size="24" text="いいえ" clickse="../sound/se/cancel.m4a"]
+    [glink color="bth06" storage="%storage_yes" target="%target_yes" width="%width_yes|80" x="%x_yes|240" y="%y_yes|960" size="24" text="%text_yes|はい" clickse="../sound/se/decision.m4a" exp="%exp_yes|"]
+    [glink color="bth06" storage="%storage_no" target="%target_no" width="%width_no|80" x="%x_no|470" y="%y_no|960" size="24" text="%text_no|いいえ" clickse="../sound/se/cancel.m4a" exp="%exp_no|"]
 [endmacro]
 
 ; 正しくないアイテムを使用した時のメッセージ
@@ -970,16 +970,18 @@
     [endif]
 [endmacro]
 
-; セーブ選択画面の「はい」「いいえ」ボタン
-[macro name="SelectSave"]
-    [bg storage="episode1/white.png" time="100"]
-    [messageTrue]
-    [nolog]
-    #
-    これまでの出来事をセーブしますか？
-    [endnolog]
-    [glink color="bth06" storage="Utility/SelectSave.ks" target="*YesButton" width="80" x="240" y="960" size="24" text="はい" clickse="../sound/se/decision.m4a"]
-    [glink color="bth06" storage="Utility/SelectSave.ks" target="*NoButton" width="80" x="470" y="960" size="24" text="いいえ" clickse="../sound/se/cancel.m4a"]
-    [s]
+; セーブポイント
+[macro name="SavePoint"]
+    [clearfix]
+    [hidemenubutton]
+    [wait time="1500"]
+    [call storage="Utility/SelectSave.ks" target="*SelectSave"]
+    [wait time="1500"]
+[endmacro]
+
+; 選択肢ボタン
+[macro name="SelectOptionsButton"]
+    [glink color="bth06" storage="%storage_yes" target="%target_yes" width="1300" x="230" y="300" size="30" text="%text_yes" clickse="../sound/se/decision.m4a" exp="%exp_yes"]
+    [glink color="bth06" storage="%storage_no" target="%target_no" width="1300" x="230" y="500" size="30" text="%text_no" clickse="../sound/se/cancel.m4a" exp="%exp_no"]
 [endmacro]
 [return]

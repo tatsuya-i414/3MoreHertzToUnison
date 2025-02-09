@@ -117,8 +117,7 @@
 *SearchBed
 [if exp="tf.selectOfSleeporNot == 'true' "]
     [call storage="Conversation/episode3/episode3_08.ks" target="*SelectSleepOrNot"]
-    [glink color="bth06" storage="Conversation/episode3/episode3_08.ks" target="*Sleep" width="180" x="240" y="960" size="24" text="一緒に寝る" clickse="../sound/se/decision.m4a"]
-    [glink color="bth06" storage="Conversation/episode3/episode3_08.ks" target="*NotSleep" width="180" x="570" y="960" size="24" text="もう少し待って！" clickse="../sound/se/cancel.m4a"]
+    [SelectOptionsButton storage_yes="Conversation/episode3/episode3_08.ks" target_yes="*Sleep" text_yes="一緒に寝る" storage_no="Conversation/episode3/episode3_08.ks" target_no="*NotSleep" text_no="もう少し待って！"]
     [s]
 [endif]
 [if exp="f.scn_skip == 0"]
@@ -165,7 +164,6 @@
     [endif]
     [messageTrue]
     [call storage="Conversation/episode3/episode3_ed.ks"]
-    [messageFalse]
     [autostop]
     [cancelskip]
 [endif]
@@ -173,6 +171,12 @@
     f.isYoukanGet = 1
     f.isEpisode3Clear = 1
 [endscript]
+; セーブポイント時にアイテムが見えてしまうためレイヤー1を非表示にする
+[layer1False]
+[SavePoint]
+; スチル未完成のため基準背景を仮配置
+[layer1True]
+[ChangeBackGround storage="episode3/bedroom_night.png"]
 
 ; シナリオ_エンディング
 [if exp="f.scn_skip == 0 && sf.scn_episodeED_Skip == 'false' "]
@@ -184,43 +188,26 @@
         *SelecteRoute
         [autostop]
         [cancelskip]
+        [clearstack]
         [call storage="Conversation/ending/episode_true_ed.ks" target="*SelecteRoute"]
         [autostop]
         [cancelskip]
-        [glink color="bth06" storage="Conversation/ending/episode_true_ed.ks" target="*ConveyYourThoughts" width="280" x="240" y="960" size="24" text="勇気を出して思いを伝える" clickse="../sound/se/decision.m4a"]
-        [glink color="bth06" storage="Conversation/ending/episode_true_ed.ks" target="*Worry" width="280" x="670" y="960" size="24" text="伝えるか悩む" clickse="../sound/se/cancel.m4a"]
+        [SelectOptionsButton storage_yes="Conversation/ending/episode_true_ed.ks" target_yes="*ConveyYourThoughts" text_yes="勇気を出して思いを伝える" storage_no="Conversation/ending/episode_true_ed.ks" target_no="*Worry" text_no="伝えるか悩む"]
         [s]
         *ReSelection_Convey
         [autostop]
         [cancelskip]
-        [YesNoButton target_yes="*SelectedOfTrueRoute" target_no="*SelecteRoute"]
+        [SelectOptionsButton target_yes="*SelectedOfTrueRoute" text_yes="自分の気持ちを伝える！" target_no="*SelecteRoute" text_no="いや、もう少し考えよう"]
         [s]
         *ReSelection_Worry
         [autostop]
         [cancelskip]
-        [YesNoButton target_yes="*SelectedOfNormalRoute" target_no="*SelecteRoute"]
+        [SelectOptionsButton target_yes="*SelectedOfNormalRoute" text_yes="まだ勇気が出ない...やめておこう" target_no="*SelecteRoute" text_no="本当にこれでいいのかな？"]
         [s]
-        ; TrueEndルート
-        *SelectedOfTrueRoute
-        [messageFalse]
-        [iscript]
-            f.selectedEDRoute = 'True'
-        [endscript]
-        [FadeoutBGM]
-        [if exp="f.isPlayingBGM == 'false' "]
-            [PlayEpisodeTrueEdBGM]
-        [endif]
-        [messageTrue]
-        [autostop]
-        [cancelskip]
-        [call storage="Conversation/ending/episode_true_ed.ks" target="*TrueEndRoute"]
     [else]
         ; NormalEndルート
         *SelectedOfNormalRoute
         [messageFalse]
-        [iscript]
-            f.selectedEDRoute = 'Normal'
-        [endscript]
         [FadeoutBGM]
         [if exp="f.isPlayingBGM == 'false' "]
             [PlayEpisodeNormalEdBGM]
@@ -229,6 +216,19 @@
         [autostop]
         [cancelskip]
         [call storage="Conversation/ending/episode_normal_ed.ks"]
+    [endif]
+    ; TrueEndルート
+    *SelectedOfTrueRoute
+    [if exp="f.selectedEDRoute == 'True' "]
+        [messageFalse]
+        [FadeoutBGM]
+        [if exp="f.isPlayingBGM == 'false' "]
+            [PlayEpisodeTrueEdBGM]
+        [endif]
+        [messageTrue]
+        [autostop]
+        [cancelskip]
+        [call storage="Conversation/ending/episode_true_ed.ks" target="*TrueEndRoute"]
     [endif]
     [messageFalse]
     [autostop]

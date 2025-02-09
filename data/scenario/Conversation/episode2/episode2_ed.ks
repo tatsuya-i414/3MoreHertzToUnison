@@ -182,8 +182,5 @@ _　アイドルやることを決めたんだけど）[p]
 [PlayPhotographing]
 [flasheffect]
 [bg storage="episode1/white.png" time="100"]
-[wait time="2000"]
 ; 思い出3に画面遷移する前に、キャラの衣装を私服へ変更
-[layer1True]
-[SelectSave]
 [return]

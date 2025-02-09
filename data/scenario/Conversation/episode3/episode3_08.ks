@@ -4,7 +4,7 @@
 ; 布団未所持
 ; 初回調査時
 [if exp="f.isFutonGet == 0 && f.isClickedBed_first == 'true' "]
-    [ShowMiyuki_Center]
+    [ShowMiyuki_Center face="trouble"]
     #深雪
     改めて見ると本当に狭く感じる...[p]
 
@@ -13,23 +13,27 @@
         f.charaPosition[1] = 'left'
     [endscript]
     [ChangeCharaPosition]
+    ; 桜良漫符：汗
     [ShowSakura_Right face="smile"]
     #桜良
-    疲れきってると天国に見えるんだけどね〜！[p]
+    疲れきってると天国に見えるんだけどね！[p]
 
+    [ChangeCharaFace name="miyuki" face="amazed"]
     #深雪
     そう言って布団に寝転ぼうとして、[r]
     思いっきり頭打ってたわよね。[p]
 
-    [ChangeCharaFace name="sakura" face="trouble"]
+    [Jumping name="sakura"]
+    [ChangeCharaFace name="sakura" face="blush"]
     #桜良
     あれは疲れてて体が上手く動かなかっただけ！[p]
 
-    [ChangeCharaFace name="sakura" face="normal"]
+    [ChangeCharaFace name="sakura" face="seriously"]
     #桜良
     そういう深雪ちゃんこそ、[r]
     ご飯食べながら寝落ちしてたよ！[p]
 
+    [ChangeCharaFace name="miyuki" face="sigh"]
     #深雪
     あれは忘れて。[p]
 
@@ -39,6 +43,7 @@
     ちょっと白目むいてるうとうと深雪ちゃん、[r]
     とっても可愛かったよ！[p]
 
+    ; 深雪漫符：ぷんぷん
     [ChangeCharaFace name="miyuki" face="blush"]
     #深雪
     〜〜ッ！[r]
@@ -58,9 +63,13 @@
     [messageTrue]
     [autostop]
     [cancelskip]
-    [ChangeCharaFace name="miyuki" face="trouble"]
+    [ChangeCharaFace name="miyuki" face="precious"]
     #深雪
-    もう...登山ロケなんて絶対行かない...[p]
+    （桜良にはだらしないところを見せたくないのに...!）[p]
+
+    #深雪
+    （どうして覚えてるのよ、もう！[r]
+    _　ああ、穴があったら入りたい...）[p]
     [if exp="f.isClickedBed_first == 'true' "]
         [iscript]
             f.isClickedBed_first = 'false'
@@ -88,7 +97,8 @@
     この謎解きをしないと出られない部屋において、[r]
     何も無いということはないはずよ。[p]
 
-    [ChangeCharaFace name="sakura" face="trouble"]
+    ; 桜良表情：もやもや
+    [ChangeCharaFace name="sakura" face="seriously"]
     #桜良
     そうだよね。[r]
     でも、この部屋ってここだけぽっかり物が無いし...[p]
@@ -96,6 +106,7 @@
     #深雪
     物が無いことに意味があるともとれるわ。[p]
 
+    ; 桜良漫符：電球
     [ChangeCharaFace name="sakura" face="surprise"]
     #桜良
     他の場所から物を持ってきたり？[p]
@@ -112,11 +123,12 @@
     _　これを使えそうな場所はここだけ）[p]
 
     #深雪
-    （つまり、この部屋の脱出条件は...）[p]
+    （もしかして、脱出に必要なのって...）[p]
 
     #桜良
     深雪ちゃん！[p]
 
+    [Jumping name="miyuki"]
     [ChangeCharaFace name="miyuki" face="surprise"]
     #深雪
     ひゃい！？[p]
@@ -135,13 +147,15 @@
     ...あれ、深雪ちゃん？[r]
     おーい！[p]
 
+    ; 深雪漫符：びっくり
     #深雪
     ...はっ。[p]
 
-    [ChangeCharaFace name="miyuki" face="normal"]
+    [ChangeCharaFace name="miyuki" face="precious"]
     #深雪
     ごめんなさい、雑念が混じってしまって。[p]
 
+    ; 桜良漫符：はてな
     #桜良
     ざつねん？[p]
 
@@ -163,6 +177,11 @@
     何も起きない...[r]
     まだ満たしていない条件が...？[p]
 
+    #深雪
+    （これまでの部屋は準備を整えたあと、[r]
+    _　二人で何か行動する必要があった。ということは...）[p]
+
+    [ChangeCharaFace name="sakura" face="close_mouth"]
     #桜良
     あ、あの、深雪ちゃん。[r]
     もしかしてなんだけど...[p]
@@ -174,22 +193,29 @@
     #桜良
     このお布団で一緒に寝てみる、とかどうかな？[p]
 
-    [ChangeCharaFace name="miyuki" face="surprise"]
+    ; 深雪漫符：集中線
+    [ChangeCharaFace name="miyuki" face="precious"]
     #深雪
-    えっ！！お布団横に並べて添い寝を！？[p]
+    やっぱりそうなるわよね！？[p]
 
+    ; 桜良漫符：はてなびっくり
     [ChangeCharaFace name="sakura" face="surprise"]
     #桜良
-    そ、そうなるのかな！？[p]
+    そ、そうだと思うよ！？[r]
+    お布団でやることと言ったら、寝てみるくらいだし！[p]
 
+    ; 深雪漫符：もやもや
+    [ChangeCharaFace name="miyuki" face="trouble"]
     #深雪
     ......[p]
 
-    [ChangeCharaFace name="miyuki" face="precious"]
+    ; 深雪漫符：キラキラ
+    [ChangeCharaFace name="miyuki" face="blush"]
     #深雪
     ......ッ！[p]
 
-    [ChangeCharaFace name="miyuki" face="trouble"]
+    ; 深雪漫符：汗
+    [ChangeCharaFace name="miyuki" face="impatience"]
     #深雪
     ぅ......[p]
 
@@ -198,11 +224,23 @@
     深雪ちゃん、顔色が赤くなったり青くなったり、[r]
     凄いけれど大丈夫...？[p]
 
-    [ChangeCharaFace name="miyuki" face="normal"]
-    #深雪
-    全く大丈夫ではないけど案はいいと思うわ一旦心の準備をさせて[p]
+    #桜良
+    人と一緒に眠ったりするの、苦手だった？[r]
+    それなら別の方法を考え...[p]
 
-    [ChangeCharaFace name="sakura" face="normal"]
+    [ChangeCharaFace name="miyuki" face="seriously"]
+    #深雪
+    全く大丈夫ではないけど大丈夫だから心配しないで。[p]
+
+    #深雪
+    案はいいと思うわ。試してみましょう。[p]
+
+    [ChangeCharaFace name="miyuki" face="blush"]
+    #深雪
+    ただ、その、ちょっと待ってて。[r]
+    一旦心の準備をさせて。[p]
+
+    [ChangeCharaFace name="sakura" face="close_mouth"]
     #桜良
     え、えと...待ってるね？[p]
     [if exp="f.isClickedBed_first == 'true' "]
@@ -250,7 +288,7 @@
     [ControlButtons]
     [FreeItemBox]
     [nolog]
-    [ShowMiyuki_Center face="blush"]
+    [ShowMiyuki_Center face="seriously"]
     #深雪
     よろしくおねがいします。[p]
 
@@ -264,10 +302,10 @@
     もう！！なんでそんなに照れてるのー！[r]
     お泊まり会みたいなものだよ！[p]
 
-    [ChangeCharaFace name="miyuki" face="normal"]
+    [ChangeCharaFace name="miyuki" face="trouble"]
     #深雪
     そ、うよね、[r]
-    緊張し過ぎてた。[p]
+    緊張し過ぎもよくないわよね。[p]
     ; 昼の場合
     [if exp="f.isRoomLightNight == 0"]
         #深雪
@@ -290,8 +328,8 @@
     f.itemVisible[0] = 'true'
     f.itemVisible[1] = 'episode3_bed'
 [endscript]
-[blackout exp="f.isRoomLightNight == 1" storage_1="episode3/bedroom_night.png" storage_2="episode3/bedroom.png"]
 [HideAll]
+[blackout exp="f.isRoomLightNight == 1" storage_1="episode3/bedroom_night.png" storage_2="episode3/bedroom.png"]
 [jump storage="Gimmick/episode3.ks" target="*TurnOffTheLightAndSleep"]
 
 *NotSleep
