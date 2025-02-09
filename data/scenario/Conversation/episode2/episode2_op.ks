@@ -3,6 +3,7 @@
 #深雪
 ううん...いったい何が...[p]
 
+; 深雪漫符：はてなびっくり
 [ChangeCharaFace name="miyuki" face="surprise"]
 #深雪
 はっ、桜良！[p]
@@ -16,7 +17,7 @@
 #桜良
 いたた、しりもちついちゃった...[p]
 
-[ChangeCharaFace name="miyuki" face="normal"]
+[ChangeCharaFace name="miyuki" face="sigh"]
 #深雪
 よかった、はぐれてなくて。[r]
 ほら、大丈夫？[p]
@@ -27,17 +28,20 @@
 #桜良
 うん！ありがとう！[p]
 
+; 桜良漫符：びっくり
 [ChangeCharaFace name="sakura" face="surprise"]
 #桜良
 あれっ、場所が変わってる！[r]
-撮影スタジオかな？[p]
+ここは...撮影スタジオかな？[p]
 
+[ChangeCharaFace name="miyuki" face="seriously"]
 #深雪
 そうみたいね。[r]
-さっきマイクに触ったらここに飛ばされたから、[r]
-ステージクリアした、ということでいいと思うわ。[p]
+マイクに触ってここに飛ばされたから、[r]
+さっきのステージはクリアできたんでしょうね。[p]
 
-[ChangeCharaFace name="sakura" face="smile"]
+; 桜良漫符：音符
+[ChangeCharaFace name="sakura" face="close_mouth"]
 #桜良
 無事先に進めてるってことだね！[p]
 
@@ -45,7 +49,7 @@
 この調子でいきましょう。[r]
 でもこの部屋は何をすれば...[p]
 
-[ChangeCharaFace name="sakura" face="normal"]
+[ChangeCharaFace name="sakura" face="seriously"]
 #桜良
 部屋の中央にカメラが置いてあるから、[r]
 写真を撮ればいいんじゃないかな？[p]
@@ -57,6 +61,7 @@
 [DispLocation text="撮影スタジオ"]
 [ChangeBackGround storage="episode2/cameramonitor.png" time="1000" method="zoomIn"]
 
+[ChangeCharaFace name="miyuki" face="normal"]
 #深雪
 撮影現場にあるにしては、少し安物のカメラみたいね。[p]
 
@@ -79,6 +84,7 @@
 固くて押せないね。[p]
 
 [PlayKacha]
+; 深雪漫符：はてな
 [ChangeCharaFace name="miyuki" face="normal"]
 #深雪
 あら...？[p]
@@ -86,7 +92,7 @@
 #深雪
 ちょっと桜良、そこに立ってくれる？[p]
 
-[ChangeCharaFace name="sakura" face="normal"]
+[ChangeCharaFace name="sakura" face="surprise"]
 #桜良
 わ、わかった！[p]
 
@@ -100,7 +106,7 @@
 #深雪
 これでよし...っと[p]
 
-[HideAll]
+[HideMiyuki]
 [messageFalse]
 [wait time="1000"]
 [PlayPhotographing]
@@ -109,7 +115,7 @@
 [ShowMiyuki_Left]
 [messageTrue]
 
-[ChangeCharaFace name="sakura" face="surprise"]
+[ChangeCharaFace name="sakura" face="normal"]
 #桜良
 今のはもしかしてタイマー機能？[p]
 
@@ -118,7 +124,6 @@
 唯一使えそうだったから試しに二人で映ってみたのだけど、[r]
 特に何も起きなかったみたい。[p]
 
-[ChangeCharaFace name="sakura" face="normal"]
 #桜良
 でも、写真を撮るのは合ってそうだよね！[r]
 何を撮ればいいか部屋を調べてみよう！[p]

@@ -426,7 +426,7 @@
 [cm]
 [freeimage layer="1"]
 [if exp="tf.prevPage == 'kenshou' "]
-    [jump storage="Utility/kenshou.ks"]
+    [jump storage="develop/kenshou.ks"]
 [else]
     [jump target="*Debug"]
 [endif]

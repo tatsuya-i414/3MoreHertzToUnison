@@ -13,26 +13,27 @@
 [ShowSakura_Right]
 #桜良
 倉庫で眠ってるのちょっともったいないね。[r]
-せっかく似合ってたのにな～[p]
+せっかく似合ってたのになー。[p]
 
 [ChangeCharaFace name="miyuki" face="precious"]
 #深雪
 軽率に褒めないで頂戴、心臓止まるから。[p]
 
-[ChangeCharaFace name="sakura" face="surprise"]
+; 桜良漫符：はてなびっくり
+[ChangeCharaFace name="sakura" face="amazed"]
 #桜良
-素直な感想言っただけなのに...！[p]
+そんなこと言われたの初めてだよ！？[p]
 
 [ChangeCharaFace name="miyuki" face="normal"]
 #深雪
 丸まったままも気になるし、[r]
 畳むか何かしたいところね。[p]
 
-[ChangeCharaFace name="sakura" face="normal"]
+[ChangeCharaFace name="sakura" face="close_mouth"]
 #桜良
 ハンガーがあるから、そこにかけたらどうかな？[p]
 
 #深雪
-わかったわ。[p]
+確かに、それが良さそうね。[p]
 [HideAll]
 [return]

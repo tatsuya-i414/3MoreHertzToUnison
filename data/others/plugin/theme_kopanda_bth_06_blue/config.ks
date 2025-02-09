@@ -148,7 +148,7 @@
 	$(".layer_camera").empty();
 	$("#bgmovie").remove();
 [endscript]
-[jump storage="Utility/debug.ks" cond="sf.bootMode == 'develop' "]
+[jump storage="Develop/debug.ks" cond="sf.bootMode == 'develop' "]
 
 *kenshou
 [cm]
@@ -159,7 +159,7 @@
 	$(".layer_camera").empty();
 	$("#bgmovie").remove();
 [endscript]
-[jump storage="Utility/kenshou.ks" cond="sf.bootMode == 'develop' || sf.bootMode == 'kenshou' "]
+[jump storage="Develop/kenshou.ks" cond="sf.bootMode == 'develop' || sf.bootMode == 'kenshou' "]
 
 *config_page
 [clearstack]

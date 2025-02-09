@@ -186,12 +186,9 @@
         [PlayEpisode1_EdBGM]
     [endif]
     [messageTrue]
-    [nolog]
     [call storage="Conversation/episode1/episode1_ed.ks"]
-    [endnolog]
     [autostop]
     [cancelskip]
-    [MenuButton]
 [endif]
 [if exp="f.isStageStatusGreen == 1 && f.isLightStatusGreen == 1 && f.isSpeakerStatusGreen == 1"]
     [iscript]
@@ -199,9 +196,9 @@
         f.isMikeGet = 1
     [endscript]
 [endif]
+[SavePoint]
 ; 思い出2へ移動する
 [jump storage="Gimmick/episode2.ks" cond="f.isEpisode1Clear == 1"]
-[JumpStageRoom]
 
 *SearchControlPanel_back
 ; 画像を削除する

@@ -4,7 +4,7 @@
 ; ジャケット未所持
 ; 初回調査時
 [if exp="f.isJacketGet == 0 && f.isClickedHanger_first == 'true' "]
-    [ShowSakura_Center]
+    [ShowSakura_Center face="seriously"]
     #桜良
     このハンガー掛け随分変なところに付いてるんだね。[r]
     壁のド真ん中だ...[p]
@@ -23,6 +23,7 @@
     #桜良
     そうだったっけ、記憶力すごい...[p]
 
+    ; 深雪漫符：もやもや
     #深雪
     （ええ、仔細まで覚えているわ、[r]
     _　毎日寝る前にあのロケ映像を家で上映してるもの）[p]
@@ -32,11 +33,11 @@
     （...桜良の映っているところだけダイジェストで。[r]
     _　未だに桜良と同じロケだったなんて夢みたい...）[p]
 
-    [ChangeCharaFace name="miyuki" face="normal"]
+    [ChangeCharaFace name="miyuki" face="seriously"]
     #深雪
     まぁ普通に考えてもここにあるのは不自然だけれど。[p]
 
-    [ChangeCharaFace name="sakura" face="normal"]
+    [ChangeCharaFace name="sakura" face="close_mouth"]
     #桜良
     また謎解きに関わってくるのかな？[r]
     ...あれっ[p]
@@ -56,6 +57,7 @@
     [messageTrue]
     [ControlButtons]
 
+    ; 桜良漫符：汗
     [ChangeCharaFace name="sakura" face="surprise"]
     #桜良
     このハンガー取れないよ！？[p]
@@ -85,7 +87,7 @@
         f.charaPosition[1] = 'right'
     [endscript]
     [ChangeCharaPosition]
-    [ShowMiyuki_Left]
+    [ShowMiyuki_Left face="close_eye"]
     #深雪
     アイデンティティのうちのひとつは、[r]
     間違いなく失っているわね。[p]
@@ -93,7 +95,7 @@
     #桜良
     アイデンティティかあ...[p]
 
-    [ChangeCharaFace name="sakura" face="normal"]
+    [ChangeCharaFace name="sakura" face="close_mouth"]
     #桜良
     考えてみたら、私達も最初は迷走してたよね。[p]
 
@@ -101,17 +103,21 @@
     何故か商店街でライブしたり、[r]
     はたまたショートドラマつくったり！[p]
 
-    [ChangeCharaFace name="miyuki" face="trouble"]
+    ; 深雪漫符：ぐるぐる
+    [ChangeCharaFace name="miyuki" face="sigh"]
     #深雪
     思い出させないで。[r]
     もはやデジタルタトゥーよ...[p]
 
+    ; 桜良漫符：音符
     [ChangeCharaFace name="sakura" face="smile"]
     #桜良
     深雪ちゃんのスケバン姿、可愛かったけどなあ！[p]
 
+    ; 深雪漫符：ぷんぷん
+    [ChangeCharaFace name="miyuki" face="amazed"]
     #深雪
-    あのドラマ撮って暫く渾名が姉御になったのよ、[r]
+    あのドラマ撮ってしばらくは、渾名が姉御になったのよ、[r]
     勘弁して欲しいわね。[p]
 
     [ChangeCharaFace name="sakura" face="normal"]
@@ -187,7 +193,7 @@
     うん、収まるところに収まった、って感じ！[p]
 
     #桜良
-    この登山服、一体誰の何だろう？[r]
+    この登山服、一体誰のものなんだろう？[r]
     私たちが着てたものでもなさそうだし。[p]
 
     #深雪
@@ -226,6 +232,7 @@
 #桜良
 まさか、杖に押すとは思わなかったな！[p]
 
+[ChangeCharaFace name="miyuki" face="smile"]
 #深雪
 私もてっきり木の板か何かにするものだと思ってたわ。[p]
 
@@ -233,15 +240,17 @@
 杖なら最初から持っていく物だから、[r]
 荷物にならず実用的よね。[p]
 
-[ChangeCharaFace name="sakura" face="normal"]
+[ChangeCharaFace name="sakura" face="close_mouth"]
 #桜良
 登頂したとき、杖がなんだか相棒みたいに思えてね、[r]
 今私の家の玄関番になってるよ。[p]
 
-[ChangeCharaFace name="sakura" face="surprise"]
+; 深雪漫符：びっくり
+[ChangeCharaFace name="miyuki" face="impatience"]
 #深雪
 まさかの警棒扱い...[p]
 
+[ChangeCharaFace name="sakura" face="seriously"]
 #桜良
 不審者が来ても富士山登頂パワーでこう！[p]
 
@@ -250,31 +259,32 @@
 [flasheffect]
 [wait time="500"]
 [messageTrue]
+[ChangeCharaFace name="miyuki" face="surprise"]
 [ChangeCharaFace name="sakura" face="smile"]
 #桜良
 撃退できるかな？[p]
 
-[ChangeCharaFace name="miyuki" face="normal"]
 #深雪
 ......[p]
 
 #深雪
 桜良、貴方剣道をやっていたことは？[p]
 
+; 桜良漫符：はてな
 [ChangeCharaFace name="sakura" face="surprise"]
 #桜良
 え、無いよ？[p]
 
-[ChangeCharaFace name="sakura" face="smile"]
+[ChangeCharaFace name="sakura" face="close_mouth"]
 #桜良
 ボウリング好きだから、[r]
 腕の使い方には自信あるけどね！[p]
 
+[ChangeCharaFace name="miyuki" face="impatience"]
 #深雪
 （ボウリングをやってるだけで、[r]
 _　見えない手刀を出せるものかしら...？）[p]
 
-[ChangeCharaFace name="miyuki" face="trouble"]
 #深雪
 過剰防衛にならないように気をつけるのよ...[p]
 [HideAll]
@@ -285,7 +295,7 @@ _　見えない手刀を出せるものかしら...？）[p]
     [ControlButtons]
     [FreeItemBox]
     [nolog]
-    [ShowMiyuki_Center]
+    [ShowMiyuki_Center face="trouble"]
     #深雪
     ちょっとまって、[r]
     これってどうやっても外れないのかしら？[p]
@@ -295,7 +305,7 @@ _　見えない手刀を出せるものかしら...？）[p]
         f.charaPosition[1] = 'left'
     [endscript]
     [ChangeCharaPosition]
-    [ShowSakura_Right face="surprise"]
+    [ShowSakura_Right face="amazed"]
     #桜良
     さわった感じ、ガッチリ壁にくっついてるよ！？[p]
 
