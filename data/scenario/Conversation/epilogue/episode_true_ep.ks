@@ -235,7 +235,7 @@ _　あまりにも記憶が鮮明すぎる）[p]
 
 [Freelayer1]
 [HideAll]
-[bg storage="episode1/white.png" time="2000"]
+[ChangeBackGround storage="episode1/white.png" time="2000"]
 #謎のメッセージカード
 「脱出おめでとう！！[r]
 _　その勇気があれば、きっとこれからも大丈夫！」[p]
