@@ -316,7 +316,7 @@
             [iscript]
                 tf.isCharacter = 0
             [endscript]
-            [openDetailDescription graphic="glossary/glossary_select_07_click.png" y="780" enterimg="glossary/glossary_select_07_hover.png" exp="tf.selectedDescription = 7" descriptionNo="7" storage="../image/episode1/mike.png" furigana="" name="マイク" x="1410" age="" bloodtype="" birthday="" stature="" birthplace="" hobby="" specialskill="" motif="" description="※ここに説明を追加する"]
+            [openDetailDescription graphic="glossary/glossary_select_07_click.png" y="780" enterimg="glossary/glossary_select_07_hover.png" exp="tf.selectedDescription = 7" descriptionNo="7" storage="../image/episode1/mike_high.png" furigana="" name="マイク" x="1410" age="" bloodtype="" birthday="" stature="" birthplace="" hobby="" specialskill="" motif="" description="※ここに説明を追加する"]
         [else]
             [clearfix name="description_07"]
             [deleteDetailDescription]
@@ -345,7 +345,7 @@
             [iscript]
                 tf.isCharacter = 0
             [endscript]
-            [openDetailDescription graphic="glossary/glossary_select_08_click.png" y="860" enterimg="glossary/glossary_select_08_hover.png" exp="tf.selectedDescription = 8" descriptionNo="8" storage="../image/episode2/dress.png" furigana="" name="衣装" x="1410" age="" bloodtype="" birthday="" stature="" birthplace="" hobby="" specialskill="" motif="" description="※ここに説明を追加する"]
+            [openDetailDescription graphic="glossary/glossary_select_08_click.png" y="860" enterimg="glossary/glossary_select_08_hover.png" exp="tf.selectedDescription = 8" descriptionNo="8" storage="../image/episode2/dress.png" furigana="" image_x="850" image_y="380" width="500" height="500" name="衣装" x="1410" age="" bloodtype="" birthday="" stature="" birthplace="" hobby="" specialskill="" motif="" description="※ここに説明を追加する"]
         [else]
             [clearfix name="description_08"]
             [deleteDetailDescription]
