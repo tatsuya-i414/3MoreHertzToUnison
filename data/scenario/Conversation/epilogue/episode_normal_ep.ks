@@ -19,7 +19,9 @@
 #深雪
 えっ、これは...[p]
 
-; 画面演出：アイテム子画面表示：紙きれ（Normal End）
+;[autostop]
+;[skipstop]
+;[ItemDisp storage="../image/episode1/cable.png"]
 [ChangeCharaFace name="miyuki" face="trouble"]
 #深雪
 「おめでとう！[r]
@@ -31,7 +33,9 @@ _　脱出成功だよ！！」[p]
 #深雪
 「追伸：もっと勇気を出すといいことあるかも！」...？[p]
 
-; 画面演出解除：アイテム子画面表示：紙きれ（Normal End）
+;[autostop]
+;[skipstop]
+;[FreeItemDisp]
 ; 深雪漫符：ぐるぐる
 #深雪
 何なのこれは？[p]
@@ -331,5 +335,6 @@ _　桜良の笑顔が魅力的で目を合わせられない...）[p]
 [messageFalse]
 [Freelayer1]
 [HideAll]
+
 [ChangeBackGround storage="episode1/white.png" time="2000"]
 [return]

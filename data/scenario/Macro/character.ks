@@ -1,5 +1,5 @@
 ; ------------------------------------------------------------
-; キャラクター切り替え用マクロ
+; キャラクター用マクロ
 ; ------------------------------------------------------------
 ; 桜良を画面右側に表示する
 [macro name="ShowSakura_Right"]
@@ -50,5 +50,20 @@
 ; キャラクターを全員退場させる
 [macro name="HideAll"]
     [chara_hide_all time="%time|500" wait="true" layer="3"]
+[endmacro]
+
+; ジャンプ
+[macro name="Jumping"]
+    [keyframe name="jump"]
+        [frame p="20%" y="-100"]
+        [frame p="40%" y="100"]
+        [frame p="60%" y="-100"]
+        [frame p="80%" y="100"]
+        [frame p="100%" y="-20"]
+    [endkeyframe]
+    [messageFalse]
+    [kanim name="%name" keyframe="jump" time="2000"]
+    [wa]
+    [messageTrue]
 [endmacro]
 [return]

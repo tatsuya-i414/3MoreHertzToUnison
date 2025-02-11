@@ -104,7 +104,9 @@ _　きゅんきゅんしちゃうじゃない！）[p]
 #深雪
 見せて。[p]
 
-; 画面に小画面でメッセージカード表示
+;[autostop]
+;[skipstop]
+;[ItemDisp storage=""]
 #深雪
 『仲良く謎解きしないと出られない部屋』？[p]
 
@@ -128,7 +130,9 @@ _　しっかりしてるなあ。[p]
 まだそう決めつけるのは早いんじゃ...[r]
 あっ！[p]
 
-; 子画面で表示していたメッセージカードを非表示にする
+;[autostop]
+;[skipstop]
+;[FreeItemDisp]
 ; 桜良漫符：びっくり
 [ChangeCharaFace name="sakura" face="surprise"]
 #桜良

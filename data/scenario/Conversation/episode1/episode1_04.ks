@@ -39,6 +39,9 @@
     [ChangeCharaPosition]
     ; 桜良漫符：キラキラ
     [ShowSakura_Right face="smile"]
+    ;[autostop]
+    ;[skipstop]
+    ;[ItemDisp storage="../image/episode1/cable.png"]
     #桜良
     深雪ちゃん、すごい！[r]
     ステージの装飾がヒントだったなんて、[r]

@@ -15,6 +15,9 @@
 [ChangeCharaPosition]
 ; 深雪漫符：びっくり
 [ShowMiyuki_Left face="surprise"]
+;[autostop]
+;[skipstop]
+;[ItemDisp storage="../image/episode2/dreass.png"]
 #深雪
 よくある安物のコスプレ衣装でもないみたいね。[r]
 私たちが実際に使っていた本物だわ。[p]
