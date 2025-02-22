@@ -4,11 +4,13 @@
 ; 箱未開封時
 [if exp="f.isClickedToolBox_first == 'true' && f.leftNum != 4 && f.centerNum != 5 && f.rightNum != 6"]
     ; 桜良漫符：はてな
+    [DispQuestion_Center]
     [ShowSakura_Center face="surprise"]
     #桜良
     ダイヤル...？[r]
     数字なんてあったかな？[p]
 
+    [FreeDispQuestion]
     [iscript]
         f.charaPosition[0] = 'sakura'
         f.charaPosition[1] = 'right'
@@ -38,6 +40,7 @@
     [endscript]
     [ChangeCharaPosition]
     ; 桜良漫符：キラキラ
+    [DispSparkle_Right]
     [ShowSakura_Right face="smile"]
     ;[autostop]
     ;[skipstop]
@@ -47,15 +50,18 @@
     ステージの装飾がヒントだったなんて、[r]
     私全然気づかなかった！[p]
 
+    [FreeDispSparkle]
     [ChangeCharaFace name="miyuki" face="close_eye"]
     #深雪
     ……大したことじゃないわ。[p]
 
     ; 深雪漫符：集中線
+    [DispSaturatedLine_Left]
     [ChangeCharaFace name="miyuki" face="precious"]
     #深雪
     （...明日槍でも降るのかしら！？）[p]
 
+    [FreeDispSaturatedLine]
     #深雪
     （いえ、槍なんか降ったら桜良が危ないから、[r]
     _　そんなことは起きなくていいんだけれど）[p]
@@ -69,11 +75,13 @@
     私たちのファーストライブ会場に似てるような気がしない？[p]
 
     ; 深雪漫符：びっくり
+    [DispSurprised_Left]
     [ChangeCharaFace name="miyuki" face="normal"]
     #深雪
     言われてみればそうね。[r]
     この安っぽい装飾とか、いかにも初期の予算のなさを思い出すわ。[p]
 
+    [FreeDispSurprised]
     #桜良
     あはは、小さいハコだったもんね。[r]
     あれでもマネージャーさん苦労したんだーって言ってたよ？[p]

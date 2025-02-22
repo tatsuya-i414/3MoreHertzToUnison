@@ -25,10 +25,12 @@
     すごくわかるわ。[p]
 
     ; 桜良漫符：ワイワイ
+    [DispClamorously_Right]
     [ChangeCharaFace name="sakura" face="smile"]
     #桜良
     だよね！むずむずするんだ～！[p]
 
+    [FreeDispClamorously]
     [ChangeCharaFace name="miyuki" face="normal"]
     #深雪
     でも工具がないと角度調整は難しそうね。[p]
@@ -104,10 +106,12 @@
     ありがとう、桜良。[p]
 
     ; 深雪漫符：汗
+    [DispSweat_Left]
     [ChangeCharaFace name="miyuki" face="blush"]
     #深雪
     （いや、でもこの距離...桜良がちかい...[r]
     _　集中力が途切れる......）[p]
+    [FreeDispSweat]
     [if exp="f.isClickedSpeaker_first_whenDriverGetting == 'true' "]
         [iscript]
             f.isClickedSpeaker_first_whenDriverGetting = 'false'
@@ -162,10 +166,12 @@
     ありがとう、桜良。[p]
 
     ; 深雪漫符：汗
+    [DispSweat_Left]
     [ChangeCharaFace name="miyuki" face="blush"]
     #深雪
     （いや、でもこの距離...桜良がちかい...[r]
     _　集中力が途切れる...）[p]
+    [FreeDispSweat]
     [if exp="f.isClickedSpeaker_first_whenDriverGetting == 'true' "]
         [iscript]
             f.isClickedSpeaker_first_whenDriverGetting = 'false'
@@ -196,11 +202,13 @@ _　ねじ回す方向一度間違えたけど...）[p]
 [endscript]
 [ChangeCharaPosition]
 ; 桜良漫符：キラキラ
+[DispSparkle_Right]
 [ShowSakura_Right face="smile"]
 #桜良
 これでばっちりだね！[r]
 お疲れ様、深雪ちゃん！[p]
 
+[FreeDispSparkle]
 #桜良
 スピーカーが曲がったままだったら、[r]
 ライブステージなのに音楽を届けられないところだったね！[p]
@@ -231,11 +239,13 @@ _　不完全な状態なんて絶対に許されないもの）[p]
 _　私、本格的にステージ演出勉強する）[p]
 
 ; 深雪漫符：キラキラ
+[DispSparkle_Left]
 [ChangeCharaFace name="miyuki" face="precious"]
 #深雪
 （桜良が「かっこいい」って言ってくれたんだもの。[r]
 _　もうこれはやるしかないでしょう！）[p]
 
+[FreeDispSparkle]
 #深雪
 （ここから出たらすぐに調べないと...）[p]
 [free layer="1" name="speaker"]

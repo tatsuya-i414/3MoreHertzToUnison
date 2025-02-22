@@ -14,10 +14,12 @@
     [endscript]
     [ChangeCharaPosition]
     ; 桜良漫符：もやもや
+    [DispFuzzy_Right]
     [ShowSakura_Right face="seriously"]
     #桜良
     直したいけど高すぎて届かないね...[p]
 
+    [FreeDispFuzzy]
     [ChangeCharaFace name="sakura" face="close_mouth"]
     #桜良
     何か足場になりそうなものを探してみない？[p]
@@ -96,10 +98,12 @@
     高いところ、苦手なんでしょう？[p]
 
     ; 桜良漫符：はてなびっくり
+    [DispQS_Right]
     [ChangeCharaFace name="sakura" face="surprise"]
     #桜良
     え、なんで知ってるの！？[p]
 
+    [FreeDispQS]
     #桜良
     高所恐怖症なの誰にも言ったことないのに！[p]
 
@@ -124,10 +128,12 @@
     落ちる危険性が高いところが苦手なのね。[p]
 
     ; 桜良漫符：ぷんぷん
+    [DispAngry_Right]
     [ChangeCharaFace name="sakura" face="seriously"]
     #桜良
     そう！だって一歩踏み間違えたら大けがだよ！？[p]
 
+    [FreeDispAngry]
     [ChangeCharaFace name="miyuki" face="close_eye"]
     #深雪
     そうね、でも安心して。[r]
@@ -135,10 +141,12 @@
     バンジージャンプ飛んでもらったりするから。[p]
 
     ; 桜良漫符：はてなびっくり
+    [DispQS_Right]
     [ChangeCharaFace name="sakura" face="amazed"]
     #桜良
     安心できる要素どこにもないよね！？[p]
 
+    [FreeDispQS]
     #深雪
     アイドルも体を張る時代よ。あきらめなさい。[p]
 
@@ -146,11 +154,13 @@
     そんなあー...[p]
 
     ; 深雪漫符：もやもや
+    [DispFuzzy_Left]
     [ChangeCharaFace name="miyuki" face="seriously"]
     #深雪
     （本当は無理しないでほしいけれど、[r]
     _　そう言えばあなたは気にするでしょう？）[p]
 
+    [FreeDispFuzzy]
     #深雪
     仕事では頑張ってもらうけれど、[r]
     せめてプライベートでは頼って。[p]
@@ -167,7 +177,6 @@
     #桜良
     ライトカバーつけられそう？[p]
 
-    ; 深雪表情：通常
     [iscript]
         f.charaPosition[0] = 'sakura'
         f.charaPosition[1] = 'right'
@@ -228,11 +237,13 @@
 せりの上から見た景色は特に好きね。[p]
 
 ; 桜良漫符：ワイワイ
+[DispClamorously_Right]
 [ChangeCharaFace name="sakura" face="smile"]
 #桜良
 あっ、それはわかるかも！[r]
 私もせりの上から見るライブ会場は大好き！[p]
 
+[FreeDispClamorously]
 #桜良
 ペンライトもみんなの笑顔も、[r]
 キラキラ光ってて元気をもらえるよね！[p]

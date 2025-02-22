@@ -2,22 +2,26 @@
 ; 昼夜切り替えスイッチ
 ;-------------------------------------------------------
 ; 桜良漫符：はてなびっくり
+[DispQS_Center]
 [ShowSakura_Center face="surprise"]
 #桜良
 深雪ちゃん見て！[r]
 窓の外が！[p]
 
+[FreeDispQS]
 [iscript]
     f.charaPosition[0] = 'sakura'
     f.charaPosition[1] = 'right'
 [endscript]
 [ChangeCharaPosition]
 ; 深雪漫符：はてなびっくり
+[DispQS_Left]
 [ShowMiyuki_Left face="impatience"]
 #深雪
 夜になった...？[r]
 電気を消しただけなのに...[p]
 
+[FreeDispQS]
 [DarkenBackground brightness="50"]
 [ChangeCharaFace name="miyuki" face="trouble"]
 #深雪
@@ -52,8 +56,10 @@ _　窓の外の風景がリアルすぎるわ。）[p]
 （危険がない限りは黙っていましょう）[p]
 
 ; 深雪漫符：もやもや
+[DispFuzzy_Left]
 [ChangeCharaFace name="miyuki" face="close_eye"]
 #深雪
 （にしてもこの部屋はいったい...）[p]
+[FreeDispFuzzy]
 [HideAll]
 [return]

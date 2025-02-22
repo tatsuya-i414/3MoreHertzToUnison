@@ -59,9 +59,12 @@ _　お世辞じゃないってことなの！？）[p]
 まさか...[p]
 
 ; 桜良、深雪漫符：はてなびっくり
+[DispQS_Left]
+[DispQS_Right]
 #桜良と深雪
 「「登山ロケの山小屋！？」」[p]
 
+[FreeDispQS]
 [ChangeCharaFace name="miyuki" face="impatience"]
 #深雪
 （まさかこんなものまで再現しているの！？[r]
@@ -81,9 +84,11 @@ _　窓の外の風景は違うけれど、内装はそのままじゃない！�
 (ここの壁のシミ、見覚えがある...)[p]
 
 ; 深雪漫符：もやもや
+[DispFuzzy_Left]
 #深雪
 (ここまで忠実に再現できるものなのかしら...？)[p]
 
+[FreeDispFuzzy]
 [free_filter]
 [ChangeCharaFace name="sakura" face="close_mouth"]
 #桜良
@@ -91,21 +96,25 @@ _　窓の外の風景は違うけれど、内装はそのままじゃない！�
 このお部屋つくるの...[p]
 
 ; 桜良漫符：はてな
+[DispQuestion_Right]
 [ChangeCharaFace name="sakura" face="surprise"]
 #桜良
 あれっ、そういえば深雪ちゃん、[r]
 いつの間に服を着替えたの？[p]
 
+[FreeDispQuestion]
 [ChangeCharaFace name="miyuki" face="normal"]
 #深雪
 それを言うなら桜良もよ。[p]
 
 ; 桜良漫符：ワイワイ
+[DispClamorously_Right]
 [ChangeCharaFace name="sakura" face="smile"]
 #桜良
 本当だ！[r]
 いったいどうなってるんだろう、不思議！[p]
 
+[FreeDispClamorously]
 [ChangeCharaFace name="miyuki" face="seriously"]
 #深雪
 ......[p]
@@ -114,9 +123,11 @@ _　窓の外の風景は違うけれど、内装はそのままじゃない！�
 たぶん、最新技術よ。[p]
 
 ; 桜良漫符：キラキラ
+[DispSparkle_Right]
 #桜良
 す、すごすぎるね...！[p]
 
+[FreeDispSparkle]
 [ChangeCharaFace name="miyuki" face="sigh"]
 #深雪
 （そういうことにしておいたほうがよさそうね[r]

@@ -23,10 +23,12 @@
 何か見覚えがあるような...[p]
 
 ; 深雪漫符：びっくり
+[DispSurprised_Left]
 [ChangeCharaFace name="miyuki" face="surprise"]
 #深雪
 ...あっ。[p]
 
+[FreeDispSurprised]
 [ChangeCharaFace name="sakura" face="seriously"]
 #桜良
 どうしたの？[r]
@@ -36,11 +38,13 @@
 これ、トラブルだらけで大変だったライブの時のマイク...[p]
 
 ; 桜良漫符：はてなびっくり
+[DispQS_Right]
 [ChangeCharaFace name="sakura" face="surprise"]
 #桜良
 ああっ、本当だ！[r]
 このリボン、あの時の！[p]
 
+[FreeDispQS]
 [ChangeCharaFace name="miyuki" face="trouble"]
 #深雪
 （正直あのライブはあんまり思い出したくない）[p]
@@ -50,11 +54,13 @@
 _　メンバーが転んで捻挫になりかかったり）[p]
 
 ; 深雪漫符：ぐるぐる
+[DispTrouble_Left]
 [ChangeCharaFace name="miyuki" face="sigh"]
 #深雪
 （挙句の果てには本番機材トラブルで停電なんて、[r]
 _　もう一生思い出したくもないわね...）[p]
 
+[FreeDispTrouble]
 [ChangeCharaFace name="sakura" face="trouble"]
 #桜良
 あのライブ、本当に大変だったよねえ...[p]
@@ -94,9 +100,11 @@ _　もう一生思い出したくもないわね...）[p]
 でも、深雪ちゃんはすっごく冷静だったよ！[p]
 
 ; 深雪漫符：はてな
+[DispQuestion_Left]
 #深雪
 そうかしら？[p]
 
+[FreeDispQuestion]
 #桜良
 「私がなんとかします！」って言ったと思ったら、[r]
 突然ステージに飛び出して行っちゃって！[p]
@@ -108,11 +116,13 @@ _　もう一生思い出したくもないわね...）[p]
 [messageTrue]
 [ShowMiyuki_Left face="seriously"]
 ; 桜良漫符：キラキラ
+[DispSparkle_Right]
 [ShowSakura_Right face="smile"]
 #桜良
 たった一人で音楽もない中歌い始めて、[r]
 すっごくカッコよかったんだよ！！[p]
 
+[FreeDispSparkle]
 [ChangeCharaFace name="miyuki" face="trouble"]
 #深雪
 あ、あれはただ、場をつなぐために必要だったから。[p]
@@ -128,11 +138,13 @@ _　もう一生思い出したくもないわね...）[p]
 輝いてるみたいだったんだ。[p]
 
 ; 深雪漫符：汗
+[DispSweat_Left]
 [ChangeCharaFace name="miyuki" face="blush"]
 #深雪
 （え、何かしらこれは。[r]
 _　私、褒められてるの？桜良本人から？なんで？）[p]
 
+[FreeDispSweat]
 #深雪
 （私、一生分の運を今日使ってるのかしら？？？）[p]
 
@@ -150,11 +162,13 @@ _　私、褒められてるの？桜良本人から？なんで？）[p]
 
 ; 画面演出解除：スチル表示
 ; 深雪漫符：キラキラ
+[DispSparkle_Left]
 [ChangeCharaFace name="miyuki" face="seriously"]
 #深雪
 いえ、たった今人生で二番目くらいに[r]
 いい思い出にランクアップしたから、心配しないで。[p]
 
+[FreeDispSparkle]
 #深雪
 （一番は今、目の前で褒めてもらっていることだわ）[r]
 _　え、なんで私録音してなかったのかしら？）[p]
@@ -173,17 +187,21 @@ _　え、なんで私録音してなかったのかしら？）[p]
 ...今も十分、かっこいいと思うけどな。[p]
 
 ; 深雪漫符：はてな
+[DispQuestion_Left]
 [ChangeCharaFace name="miyuki" face="normal"]
 #深雪
 今、何か言っていた？[r]
 ごめんなさい、よく聞こえなくて...[p]
 
+[FreeDispQuestion]
 ; 桜良漫符：はてなびっくり
+[DispQS_Right]
 [Jumping name="sakura"]
 #桜良
 う、ううん！[r]
 なんでもない！[p]
 
+[FreeDispQS]
 #深雪
 そう？なら話を戻すわよ。[r]
 ひとまずこのマイクをどうにかすればよいのかしら。[p]

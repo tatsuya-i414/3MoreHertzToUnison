@@ -3,17 +3,20 @@
 ;-------------------------------------------------------
 ; 画面演出：アイテム子画面表示：衣装アイコン
 ; 桜良漫符：びっくり
+[DispSurprised_Center]
 [ShowSakura_Center face="surprise"]
 #桜良
 この衣装って、[r]
 私たちの一番最初の衣装！？[p]
 
+[FreeDispSurprised]
 [iscript]
     f.charaPosition[0] = 'sakura'
     f.charaPosition[1] = 'right'
 [endscript]
 [ChangeCharaPosition]
 ; 深雪漫符：びっくり
+[DispSurprised_Left]
 [ShowMiyuki_Left face="surprise"]
 ;[autostop]
 ;[skipstop]
@@ -22,6 +25,7 @@
 よくある安物のコスプレ衣装でもないみたいね。[r]
 私たちが実際に使っていた本物だわ。[p]
 
+[FreeDispSurprised]
 [ChangeCharaFace name="miyuki" face="seriously"]
 #深雪
 （これを用意するには[r]
@@ -44,11 +48,13 @@ _　私が見逃しているだけなのか、それとも...）[p]
 ご丁寧に簡易更衣室まで備え付けてあったから。[p]
 
 ; 桜良漫符：音符
+[DispMusicalNote_Right]
 [ChangeCharaFace name="sakura" face="close_eye"]
 #桜良
 そっか。[r]
 この衣装、着るの久しぶりだな。[p]
 
+[FreeDispMusicalNote]
 [ChangeCharaFace name="miyuki" face="smile"]
 #深雪
 アイドルを始めたばかりの頃の衣装だものね。[r]
@@ -75,21 +81,25 @@ _　私が見逃しているだけなのか、それとも...）[p]
 マネージャーに能面みたいって言われてなかった？[p]
 
 ; 桜良漫符：ぷんぷん
+[DispAngry_Right]
 [ChangeCharaFace name="sakura" face="blush"]
 #桜良
 し、仕方ないよ！[r]
 現場の雰囲気もピリピリしてたし...[p]
 
+[FreeDispAngry]
 [ChangeCharaFace name="sakura" face="seriously"]
 #桜良
 それを言うなら深雪ちゃんだって、[r]
 ロボットみたいになってたの覚えてるもの！[p]
 
 ; 深雪漫符：汗
+[DispSweat_Left]
 [ChangeCharaFace name="miyuki" face="blush"]
 #深雪
 あっ、あれは、その...！[p]
 
+[FreeDispSweat]
 #深雪
 （桜良と密着するようポーズを指示されて、[r]
 _　私が限界だったから...なんて言えるわけないでしょう！）[p]

@@ -20,10 +20,12 @@
 軽率に褒めないで頂戴、心臓止まるから。[p]
 
 ; 桜良漫符：はてなびっくり
+[DispQS_Right]
 [ChangeCharaFace name="sakura" face="amazed"]
 #桜良
 そんなこと言われたの初めてだよ！？[p]
 
+[FreeDispQS]
 [ChangeCharaFace name="miyuki" face="normal"]
 #深雪
 丸まったままも気になるし、[r]

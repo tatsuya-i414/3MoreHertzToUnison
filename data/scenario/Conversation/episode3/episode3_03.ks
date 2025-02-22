@@ -16,12 +16,14 @@
     #桜良
     ロケの時はすっごくお世話になったよね。[p]
     
-    ;  深雪漫符：ぐるぐる
+    ; 深雪漫符：ぐるぐる
+    [DispTrouble_Left]
     [ChangeCharaFace name="miyuki" face="sigh"]
     #深雪
     帽子をかぶって日焼け止めをあれだけ塗っても、[r]
     顔が真っ赤になるとは思わなかったけれどね...[p]
 
+    [FreeDispTrouble]
     [ChangeCharaFace name="sakura" face="trouble"]
     #桜良
     深雪ちゃん、顔赤くて痛そうだった...[p]
@@ -43,10 +45,12 @@
     これって帆南ちゃん企画したんだって話。[p]
 
     ; 深雪漫符：はてなびっくり
+    [DispQS_Left]
     [ChangeCharaFace name="miyuki" face="impatience"]
     #深雪
     ...帆南？[p]
 
+    [FreeDispQS]
     [ChangeCharaFace name="sakura" face="close_mouth"]
     #桜良
     もともとはアウトドア系の企画やりたいね、[r]
@@ -126,14 +130,18 @@
 
     [chara_move name="sakura" left="600" anim="true"]
     ; 桜良漫符：キラキラ
+    [DispSparkle_Right]
     #桜良
     絶対楽しいよ！[p]
 
+    [FreeDispSparkle]
     ; 深雪漫符：汗
+    [DispSweat_Left]
     [ChangeCharaFace name="miyuki" face="precious"]
     #深雪
     ...まあ、考えておくわ。[p]
 
+    [FreeDispSweat]
     [ChangeCharaFace name="sakura" face="smile"]
     #桜良
     言ったなー？[r]

@@ -10,11 +10,13 @@
 [endscript]
 [ChangeCharaPosition]
 ; 桜良漫符：音符
+[DispMusicalNote_Right]
 [ShowSakura_Right face="smile"]
 #桜良
 紅葉とか銀杏もいいけど、[r]
 ちょっと珍しくていい感じでしょ！[p]
 
+[FreeDispMusicalNote]
 [ChangeCharaFace name="miyuki" face="smile"]
 #深雪
 桜良に誘われなかったら、自分で知ることはなかったかもね。[p]
@@ -24,10 +26,12 @@
 ほらほら、れっつごー！[p]
 
 ; 深雪漫符：汗
+[DispSweat_Left]
 [ChangeCharaFace name="miyuki" face="surprise"]
 #深雪
 わっ、ちょっと桜良、待って！[p]
 
+[FreeDispSweat]
 ; 画面表示：スチル表示予定
 [HideAll]
 #桜良
@@ -59,25 +63,28 @@ _　うぬぼれてもいいのかしら？）[p]
 どこだって嬉しいに決まってるわ。[p]
 
 ; 桜良漫符：汗
+[DispSweat_Right]
 [ChangeCharaFace name="sakura" face="blush"]
 #桜良
 み、深雪ちゃんって時々すごいこと言うよね！？[p]
 
+[FreeDispSweat]
 [ChangeCharaFace name="miyuki" face="trouble"]
 #深雪
 全部本心なのだけど...[p]
 
-; 深雪表情：通常
 [ChangeCharaFace name="miyuki" face="normal"]
 #深雪
 でも風が気持ちいいし、一面の自然もきれいで、[r]
 着てよかったとは思っているわ。[p]
 
 ; 桜良漫符：キラキラ
+[DispSparkle_Right]
 [ChangeCharaFace name="sakura" face="smile"]
 #桜良
 それならよかった～！[p]
 
+[FreeDispSparkle]
 #桜良
 今度はお泊りも行きたいね！[r]
 この間の不思議な部屋じゃ、話したりなかったもん！[p]
@@ -104,10 +111,12 @@ _　うぬぼれてもいいのかしら？）[p]
 （ほっ...）[p]
 
 ; 桜良漫符：はてな
+[DispQuestion_Right]
 [ChangeCharaFace name="sakura" face="close_mouth"]
 #桜良
 それにしてもあの部屋って何だったんだろうね？[p]
 
+[FreeDispQuestion]
 #桜良
 気づいたら自分の部屋にいるし、[r]
 マネージャーさんは知らないって言うし。[p]

@@ -18,21 +18,25 @@
     [endscript]
     [ChangeCharaPosition]
     ; 桜良漫符：もやもや
+    [DispFuzzy_Right]
     [ShowSakura_Right face="trouble"]
     #桜良
     うーん...[p]
 
+    [FreeDispFuzzy]
     [ChangeCharaFace name="sakura" face="surprise"]
     #桜良
     あっ、肩車したらどうかな！[r]
     私意外と力強いんだよ！！[p]
 
     ; 深雪漫符：はてなびっくり
+    [DispQS_Left]
     [ChangeCharaFace name="miyuki" face="impatience"]
     #深雪
     だっ、だめに決まってるでしょ！[r]
     危ないじゃない！[p]
 
+    [FreeDispQS]
     #深雪
     それになぜ桜良が担ぐ前提なの！？[p]
 
@@ -61,9 +65,11 @@
     恥ずかしいからダメ！[p]
 
     ; 桜良漫符：ワイワイ
+    [DispClamorously_Right]
     #桜良
     ええ～楽しそうなのに～[p]
 
+    [FreeDispClamorously]
     [ChangeCharaFace name="miyuki" face="precious"]
     #深雪
     （主に私の心臓が持たないからよ！！）[p]
@@ -86,11 +92,13 @@
     [endscript]
     [ChangeCharaPosition]
     ; 深雪漫符：汗
+    [DispSweat_Left]
     [ShowMiyuki_Left face="impatience"]
     #深雪
     しないわよ。[r]
     というか、むしろあなたは何故そこまでやりたいのよ。[p]
 
+    [FreeDispSweat]
     [ChangeCharaFace name="sakura" face="surprise"]
     #桜良
     たのしそうだからだよ？[p]
@@ -100,17 +108,21 @@
     あっ、それでいうとお姫様抱っことかも憧れるよね！[p]
 
     ; 深雪漫符：はてなびっくり
+    [DispQS_Left]
     [ChangeCharaFace name="miyuki" face="surprise"]
     #深雪
     お姫様抱っこ！？[p]
 
+    [FreeDispQS]
     [Jumping name="sakura"]
     ; 桜良漫符：音符
+    [DispMusicalNote_Right]
     [ChangeCharaFace name="sakura" face="smile"]
     #桜良
     ライブでメンバーのみんなを抱っこしたら、[r]
     すっごく盛り上がると思うんだ！[p]
 
+    [FreeDispMusicalNote]
     [ChangeCharaFace name="miyuki" face="sigh"]
     #深雪
     抱っこされるほうじゃないのね...[p]
@@ -149,10 +161,12 @@
     少し加工する必要はあるけれどね。[p]
 
     ; 桜良漫符：びっくり
+    [DispSurprised_Right]
     [ChangeCharaFace name="sakura" face="normal"]
     #桜良
     あっ、もしかして「あれ」？[p]
 
+    [FreeDispSurprised]
     [ChangeCharaFace name="miyuki" face="smile"]
     #深雪
     「あれ」よ。[p]
@@ -172,10 +186,12 @@
     [endscript]
     [ChangeCharaPosition]
     ; 深雪漫符：ぐるぐる
+    [DispTrouble_Left]
     [ShowMiyuki_Left face="amazed"]
     #深雪
     流石に針金を引きちぎったりはできないわよ。[p]
 
+    [FreeDispTrouble]
     [ChangeCharaFace name="miyuki" face="sigh"]
     #深雪
     細かい力加減ができないってだけ。[r]
@@ -190,11 +206,13 @@
     そういえば開けられなくて困ったことないわね。[p]
 
     ; 桜良漫符：キラキラ
+    [DispSparkle_Right]
     [ChangeCharaFace name="sakura" face="surprise"]
     #桜良
     す、すごい。[r]
     私ときどき開けられなくて大変なのに！[p]
 
+    [FreeDispSparkle]
     [ChangeCharaFace name="sakura" face="smile"]
     #桜良
     今度蓋が開かなかった時は深雪ちゃんにお願いするね！[p]
@@ -227,11 +245,13 @@
 [PlayRustlingClothes]
 [messageTrue]
 ; 桜良漫符：キラキラ
+[DispSparkle_Right]
 [ShowSakura_Right face="smile"]
 [ShowMiyuki_Left]
 #桜良
 やった！届いた！[p]
 
+[FreeDispSparkle]
 #深雪
 背景の問題はこれで解決ね。[p]
 
@@ -244,20 +264,24 @@
 そういえば、深雪ちゃんっていつから写真を始めたの？[p]
 
 ; 深雪漫符：はてな
+[DispQuestion_Left]
 #深雪
 急になにかしら？[p]
 
+[FreeDispQuestion]
 [ChangeCharaFace name="sakura" face="trouble"]
 #桜良
 あ、その、純粋に気になって...[r]
 もしかして聞かれたくなかった？[p]
 
 ; 深雪漫符：はてなびっくり
+[DispQS_Left]
 [ChangeCharaFace name="miyuki" face="surprise"]
 #深雪
 違うわ！[r]
 興味を持ってくれたことに少し驚いただけ！[p]
 
+[FreeDispQS]
 [ChangeCharaFace name="sakura" face="close_mouth"]
 #桜良
 そっか、よかったあ...[p]
@@ -276,10 +300,12 @@
 まあ、本当に撮りたいものは、まだ撮ったことがないけれどね。[p]
 
 ; 桜良漫符：びっくり
+[DispSurprised_Right]
 [ChangeCharaFace name="sakura" face="surprise"]
 #桜良
 えっ、最近始めたわけじゃないんだよね？[p]
 
+[FreeDispSurprised]
 [ChangeCharaFace name="miyuki" face="seriously"]
 #深雪
 ええ。もう数年は続けてる。[p]
@@ -288,10 +314,12 @@
 そんなに撮るのが難しいものなの？[p]
 
 ; 深雪漫符：音符
+[DispMusicalNote_Left]
 [ChangeCharaFace name="miyuki" face="smile"]
 #深雪
 ふふ、内緒。[p]
 
+[FreeDispMusicalNote]
 [ChangeCharaFace name="sakura" face="amazed"]
 #桜良
 そ、そんなあ～！[p]

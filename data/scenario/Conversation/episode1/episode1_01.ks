@@ -47,12 +47,14 @@
     あれ、何も起きない...？[p]
 
     ; 深雪漫符：ぐるぐる
+    [DispTrouble_Left]
     [ChangeCharaFace name="miyuki" face="sigh"]
     #深雪
     ふう...[r]
     今のところ危険はなさそうとはいえ、[r]
     軽率に押すのはよくないわよ。[p]
 
+    [FreeDispTrouble]
     [ChangeCharaFace name="sakura" face="normal"]
     #桜良
     あはは、ごめんね。つい...[p]

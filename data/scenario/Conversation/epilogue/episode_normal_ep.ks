@@ -11,10 +11,12 @@
 あの部屋で桜良とたくさん話して...[p]
 
 ; 深雪漫符：びっくり
+[DispSurprised_Center]
 [ChangeCharaFace name="miyuki" face="surprise"]
 #深雪
 そうだ、桜良は！？[p]
 
+[FreeDispSurprised]
 [PlayFallOfPaper]
 #深雪
 えっ、これは...[p]
@@ -58,10 +60,12 @@ _　脱出成功だよ！！」[p]
 ; 背景画像は事務所のロビーのイメージ（フリー素材、余裕があれば作成）
 [PlayOpenDoor2]
 ; 深雪漫符：集中線
+[DispSaturatedLine_Center]
 [ShowMiyuki_Center face="seriously"]
 #深雪
 桜良！！[p]
 
+[FreeDispSaturatedLine]
 #マネージャー
 わっ、どうしたんですか深雪さん！？[p]
 
@@ -94,11 +98,13 @@ _　脱出成功だよ！！」[p]
 桜良、無事でよかった！[p]
 
 ; 桜良漫符：音符
+[DispMusicalNote_Right]
 [ChangeCharaFace name="sakura" face="smile"]
 #桜良
 あっ、深雪ちゃんおはよう！[r]
 昨日は楽しかったね！[p]
 
+[FreeDispMusicalNote]
 #深雪
 もう、こっちの気も知らないで...[p]
 
@@ -112,12 +118,16 @@ _　脱出成功だよ！！」[p]
 ...企画？そんな話聞いてないですが...[p]
 
 ; 桜良漫符：はてなびっくり
+[DispQS_Right]
 [ChangeCharaFace name="sakura" face="surprise"]
 ; 深雪漫符：びっくり
+[DispSurprised_Left]
 [ChangeCharaFace name="miyuki" face="seriously"]
 #桜良と深雪
 ！！[p]
 
+[FreeDispQS]
+[FreeDispSurprised]
 #マネージャー
 もしかして、夜遅くからお二人で[r]
 オンラインゲームでもされていたんですか？[p]
@@ -155,11 +165,13 @@ _　脱出成功だよ！！」[p]
 
 [ChangeCharaFace name="sakura" face="surprise"]
 ; 深雪漫符：もやもや
+[DispFuzzy_Left]
 [ChangeCharaFace name="miyuki" face="close_eye"]
 #マネージャー
 というか、お二人とも寝落ちするほど疲れているなんて...[r]
 マネージャー失格ですね。[p]
 
+[FreeDispFuzzy]
 #マネージャー
 大丈夫ですか、無理されていませんか？[p]
 
@@ -190,10 +202,12 @@ _　脱出成功だよ！！」[p]
 ; 場面転換
 ; 事務所の廊下のような背景（フリー素材）
 ; 桜良漫符：汗
+[DispSweat_Right]
 [ChangeCharaFace name="sakura" face="surprise"]
 #桜良
 み、深雪ちゃん、これって！[p]
 
+[FreeDispSweat]
 [ChangeCharaFace name="miyuki" face="trouble"]
 #深雪
 （まさか、本当に企画じゃなかったなんて...）[p]
@@ -215,10 +229,12 @@ _　脱出成功だよ！！」[p]
 じゃあ、二人で同じ夢を見てたってことなのかな？[p]
 
 ; 深雪漫符：びっくり
+[DispSurprised_Left]
 [ChangeCharaFace name="miyuki" face="surprise"]
 #深雪
 そう、なるのかしら。[p]
 
+[FreeDispSurprised]
 #深雪
 （マネージャーが嘘をつくとは思えない。[r]
 _　本当に私たち二人が眠ってしまって、[r]
@@ -228,10 +244,12 @@ _　自宅に送ってくれたのなら...）[p]
 昨日のことは、本当に私たちが一緒に見ていた夢？[p]
 
 ; 桜良漫符：キラキラ
+[DispSparkle_Right]
 [ChangeCharaFace name="sakura" face="smile"]
 #桜良
 わあ...！なんだかおとぎ話みたい！！[p]
 
+[FreeDispSparkle]
 [DarkenBackground]
 [ChangeCharaFace name="miyuki" face="seriously"]
 #深雪
@@ -258,10 +276,12 @@ _　これ以上考えても結論は出ないわね）[p]
 そうだね、流石に言っても信じてもらえないよね。[p]
 
 ; 桜良漫符：音符
+[DispMusicalNote_Right]
 [ChangeCharaFace name="sakura" face="smile"]
 #桜良
 でもでも、夢の中だけど二人で部屋を探索するの、楽しかったな！[p]
 
+[FreeDispMusicalNote]
 #桜良
 謎解きはほとんど深雪ちゃんに解いてもらったけど、[r]
 ソロライブとか、衣装着て写真撮ったりとか！[p]
@@ -284,10 +304,12 @@ _　今思い返すと...）[p]
 あ、うん。そうね。[p]
 
 ; 桜良漫符：はてな
+[DispQuestion_Right]
 [ChangeCharaFace name="sakura" face="surprise"]
 #桜良
 深雪ちゃん？[p]
 
+[FreeDispQuestion]
 [chara_move name="miyuki" left="80" anim="true" time="500" wait="true"]
 [wait time="100"]
 #深雪
@@ -306,11 +328,13 @@ _　桜良の笑顔が魅力的で目を合わせられない...）[p]
 [wait time="5000"]
 [messageTrue]
 ; 桜良漫符：はてなびっくり
+[DispQS_Right]
 [ChangeCharaFace name="sakura" face="amazed"]
 #桜良
 ええっ、深雪ちゃん！？[r]
 どうしたの急に！[p]
 
+[FreeDispQS]
 #桜良
 私何かしちゃった！？[p]
 

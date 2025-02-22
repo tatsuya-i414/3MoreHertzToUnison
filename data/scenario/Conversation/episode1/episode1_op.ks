@@ -8,10 +8,12 @@
 確か雑誌の撮影が終わって帰る途中だったはず...[p]
 
 ; 深雪漫符：はてな
+[DispQuestion_Center]
 [ChangeCharaFace name="miyuki" face="sigh"]
 #深雪
 そもそも、ここはどこなの？[p]
 
+[FreeDispQuestion]
 [iscript]
     f.charaPosition[0] = 'miyuki'
     f.charaPosition[1] = 'left'
@@ -43,22 +45,26 @@
 あなたはここについて何か知っている？[p]
 
 ; 桜良漫符：はてなびっくり
+[DispQS_Right]
 [ChangeCharaFace name="sakura" face="surprise"]
 #桜良
 ええ？[r]
 って、あれ？本当だ！！ここどこ！？[p]
 
+[FreeDispQS]
 [ChangeCharaFace name="miyuki" face="seriously"]
 #深雪
 その様子だと知らないみたいね。[r]
 となると、私たち誘拐されたのかしら...[p]
 
 ; 深雪漫符：もやもや
+[DispFuzzy_Left]
 [ChangeCharaFace name="miyuki" face="trouble"]
 #深雪
 （せめて桜良だけでも逃がせないか...[r]
 _　いや、そもそもこの部屋、出口らしき扉がない）[p]
 
+[FreeDispFuzzy]
 #深雪
 （壁を壊せそうなものでもあるかしら？）[p]
 
@@ -73,11 +79,13 @@ _　いや、そもそもこの部屋、出口らしき扉がない）[p]
 自分の好きなように躍らせたいのかもしれないわよ。[p]
 
 ; 桜良漫符：ぐるぐる
+[DispTrouble_Right]
 [ChangeCharaFace name="sakura" face="trouble"]
 #桜良
 うーん...それは嫌かも...[r]
 みんなと一緒に歌って踊るから楽しいのにね。[p]
 
+[FreeDispTrouble]
 [ChangeCharaFace name="miyuki" face="precious"]
 #深雪
 （本当にそのとおり！[r]
@@ -88,10 +96,12 @@ _　特にステージの上のあなたは最高だもの！）[p]
 _　きゅんきゅんしちゃうじゃない！）[p]
 
 ; 桜良漫符：はてな
+[DispQuestion_Right]
 [ChangeCharaFace name="sakura" face="surprise"]
 #桜良
 それなら脱出しないとだよね...あれ？[p]
 
+[FreeDispQuestion]
 [ChangeCharaFace name="miyuki" face="normal"]
 #深雪
 どうしたの？[p]
@@ -125,19 +135,23 @@ _　しっかりしてるなあ。[p]
 ドッキリ企画ってこと！？[p]
 
 ; 深雪漫符：びっくり
+[DispSurprised_Left]
 [ChangeCharaFace name="miyuki" face="impatience"]
 #深雪
 まだそう決めつけるのは早いんじゃ...[r]
 あっ！[p]
 
+[FreeDispSurprised]
 ;[autostop]
 ;[skipstop]
 ;[FreeItemDisp]
 ; 桜良漫符：びっくり
+[DispSurprised_Right]
 [ChangeCharaFace name="sakura" face="surprise"]
 #桜良
 カード、消えちゃった！[p]
 
+[FreeDispSurprised]
 #深雪
 （なにこれ、どんな技術？）[p]
 
@@ -147,11 +161,13 @@ _　しっかりしてるなあ。[p]
 これってやっぱり脱出ゲームの撮影なんだよ！[p]
 
 ; 桜良漫符：キラキラ
+[DispSparkle_Right]
 [ChangeCharaFace name="sakura" face="smile"]
 #桜良
 ねえねえ深雪ちゃん、この部屋を調べてみない？[r]
 私ずっと脱出ゲームやってみたかったんだ！[p]
 
+[FreeDispSparkle]
 [ChangeCharaFace name="miyuki" face="precious"]
 #深雪
 （あああ満面の笑みで私を見つめないで、[r]

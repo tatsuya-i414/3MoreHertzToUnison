@@ -12,10 +12,12 @@
 少し長引いたから疲れたでしょう？[p]
 
 ; 桜良漫符：キラキラ
+[DispSparkle_Center]
 #桜良
 大丈夫ですよ！[r]
 まだまだ元気いっぱいですから！[p]
 
+[FreeDispSparkle]
 [iscript]
     f.charaPosition[0] = 'sakura'
     f.charaPosition[1] = 'right'
@@ -40,6 +42,7 @@
 ......[p]
 
 ; 深雪漫符：集中線
+[DispSaturatedLine_Left]
 [DarkenBackground]
 [ChangeCharaFace name="miyuki" face="precious"]
 #深雪
@@ -47,6 +50,7 @@
 _　疲れた体にダイレクトアタックだわ...[r]
 _　うっかり昇天するかと思った...）[p]
 
+[FreeDispSaturatedLine]
 #深雪
 （さっきまで完璧な桜良の美声に[r]
 _　ケチばかりつけていたプロデューサーに[r]
@@ -74,10 +78,12 @@ _　永久保存版として目覚ましにするのに...）[p]
 他の三人もばっちりでしたよ！[p]
 
 ; 桜良漫符：もやもや
+[DispFuzzy_Right]
 [ChangeCharaFace name="sakura" face="trouble"]
 #桜良
 前みたいにメンバー全員で録れたらいいのになあ。[p]
 
+[FreeDispFuzzy]
 #桜良
 柚乃ちゃんに朱理ちゃん、帆南ちゃん...[r]
 みんなで歌うとあんなに楽しいのに。[p]
@@ -119,11 +125,13 @@ _　なんてとても言えないわね）[p]
 先方からぜひ来てほしいと。[p]
 
 ; 桜良漫符：はてなびっくり
+[DispQS_Right]
 [ChangeCharaFace name="sakura" face="surprise"]
 [Jumping name="sakura"]
 #桜良
 もしかして私のボウリング好きを知っていて！？[p]
 
+[FreeDispQS]
 #マネージャー
 そのとおりです。[r]
 ぜひ腕前を披露してほしいとのことですよ。[p]
@@ -175,11 +183,13 @@ _　クールでかっこよく、涼しげな姿が求められていること�
 （でも、それでも...）[p]
 
 ; 深雪漫符：集中線
+[DispSaturatedLine_Center]
 [ChangeCharaFace name="miyuki" face="precious"]
 #深雪
 （桜良の歌と笑顔に惹かれてこの業界に飛び込んだ以上、[r]
 _　もっと彼女と仕事がしたい...！）[p]
 
+[FreeDispSaturatedLine]
 [camera zoom="1.5" x="" y="50" time="1000" wait="true"]
 #深雪
 （なかなか近づく機会が少なくて[r]
@@ -234,10 +244,12 @@ _　いやでも、あのコミュ力の天才をどう見習えばいいのよ�
 あれ、深雪ちゃん？[p]
 
 ; 深雪漫符：びっくり
+[DispSurprised_Left]
 [ChangeCharaFace name="miyuki" face="surprise"]
 #深雪
 はっ。[p]
 
+[FreeDispSurprised]
 [ChangeCharaFace name="miyuki" face="normal"]
 #深雪
 ごめんなさい。少し考え事をしてて。[r]

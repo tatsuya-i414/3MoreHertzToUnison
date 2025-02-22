@@ -14,10 +14,12 @@
     [endscript]
     [ChangeCharaPosition]
     ; 桜良漫符：汗
+    [DispSweat_Right]
     [ShowSakura_Right face="smile"]
     #桜良
     疲れきってると天国に見えるんだけどね！[p]
 
+    [FreeDispSweat]
     [ChangeCharaFace name="miyuki" face="amazed"]
     #深雪
     そう言って布団に寝転ぼうとして、[r]
@@ -44,11 +46,13 @@
     とっても可愛かったよ！[p]
 
     ; 深雪漫符：ぷんぷん
+    [DispAngry_Left]
     [ChangeCharaFace name="miyuki" face="blush"]
     #深雪
     〜〜ッ！[r]
     わ、忘れなさいってば！！[p]
 
+    [FreeDispAngry]
     [chara_move name="miyuki" left="550" anim="true" time="500" wait="true"]
     [wait time="100"]
     [chara_move name="sakura" left="1100" anim="true" time="500" wait="true"]
@@ -98,19 +102,23 @@
     何も無いということはないはずよ。[p]
 
     ; 桜良表情：もやもや
+    [DispFuzzy_Right]
     [ChangeCharaFace name="sakura" face="seriously"]
     #桜良
     そうだよね。[r]
     でも、この部屋ってここだけぽっかり物が無いし...[p]
 
+    [FreeDispFuzzy]
     #深雪
     物が無いことに意味があるともとれるわ。[p]
 
     ; 桜良漫符：電球
+    [DispLighBulb_Right]
     [ChangeCharaFace name="sakura" face="surprise"]
     #桜良
     他の場所から物を持ってきたり？[p]
 
+    [FreeDispLighBulb]
     #深雪
     それは探索してみないと分からないわね。[r]
     色々と探してみましょう。[p]
@@ -148,17 +156,21 @@
     おーい！[p]
 
     ; 深雪漫符：びっくり
+    [DispSurprised_Left]
     #深雪
     ...はっ。[p]
 
+    [FreeDispSurprised]
     [ChangeCharaFace name="miyuki" face="precious"]
     #深雪
     ごめんなさい、雑念が混じってしまって。[p]
 
     ; 桜良漫符：はてな
+    [DispQuestion_Right]
     #桜良
     ざつねん？[p]
 
+    [FreeDispQuestion]
     #深雪
     気にしないで大丈夫。[r]
     そうね、試してみましょう。[p]
@@ -194,31 +206,41 @@
     このお布団で一緒に寝てみる、とかどうかな？[p]
 
     ; 深雪漫符：集中線
+    [DispSaturatedLine_Left]
     [ChangeCharaFace name="miyuki" face="precious"]
     #深雪
     やっぱりそうなるわよね！？[p]
 
+    [FreeDispSaturatedLine]
     ; 桜良漫符：はてなびっくり
+    [DispQS_Right]
     [ChangeCharaFace name="sakura" face="surprise"]
     #桜良
     そ、そうだと思うよ！？[r]
     お布団でやることと言ったら、寝てみるくらいだし！[p]
 
+    [FreeDispQS]
     ; 深雪漫符：もやもや
+    [DispFuzzy_Left]
     [ChangeCharaFace name="miyuki" face="trouble"]
     #深雪
     ......[p]
 
+    [FreeDispFuzzy]
     ; 深雪漫符：キラキラ
+    [DispSparkle_Left]
     [ChangeCharaFace name="miyuki" face="blush"]
     #深雪
     ......ッ！[p]
 
+    [FreeDispSparkle]
     ; 深雪漫符：汗
+    [DispSweat_Left]
     [ChangeCharaFace name="miyuki" face="impatience"]
     #深雪
     ぅ......[p]
 
+    [FreeDispSweat]
     [ChangeCharaFace name="sakura" face="trouble"]
     #桜良
     深雪ちゃん、顔色が赤くなったり青くなったり、[r]
