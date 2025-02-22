@@ -57,10 +57,12 @@
     私がやるよりいいわ、絶対。[p]
 
     ; 桜良漫符：はてな
+    [DispQuestion_Right]
     #桜良
     そうかなあ？[r]
     深雪ちゃん器用そうだけど。[p]
 
+    [FreeDispQuestion]
     #深雪
     DIY企画が前にあったじゃない？[r]
     帆南と柚乃が椅子を作った動画。覚えてるかしら。[p]
@@ -73,19 +75,23 @@
     #深雪
     ...あの企画、本当は私も参加する予定だったの。[p]
 
-    ; 桜良表情：はてなびっくり
+    ; 桜良漫符：はてなびっくり
+    [DispQS_Right]
     [ChangeCharaFace name="sakura" face="surprise"]
     #桜良
     そうだったの！？[p]
 
+    [FreeDispQS]
     #深雪
     企画の前に予行練習で軽く工具を使ったんだけど...[p]
 
     ; 深雪漫符：ぐるぐる
+    [DispTrouble_Left]
     #深雪
     釘は全部曲げるし、接着剤も多すぎたり少なすぎたり、[r]
     挙句の果てには自分の手と木材をくっつけて大騒ぎになるし。[p]
 
+    [FreeDispTrouble]
     #深雪
     放送事故になるってことで、[r]
     モノづくり系の企画NGにさせられたの。[p]
@@ -161,10 +167,12 @@
 で、でも役に立てたならよかった！[p]
 
 ; 桜良漫符：キラキラ
+[DispSparkle_Right]
 [ChangeCharaFace name="sakura" face="smile"]
 #桜良
 えへへ...[p]
 
+[FreeDispSparkle]
 [ChangeCharaFace name="miyuki" face="blush"]
 #深雪
 （え、そ、そんなに喜ぶの？[r]

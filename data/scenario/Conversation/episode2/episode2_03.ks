@@ -33,10 +33,12 @@
     そうする必要性があるということだと思うわ。[p]
 
     ; 桜良漫符：電球
+    [DispLighBulb_Right]
     [ChangeCharaFace name="sakura" face="smile"]
     #桜良
     ここで着替えてくださいね、ってことだね！[p]
 
+    [FreeDispLighBulb]
     [ChangeCharaFace name="sakura" face="close_mouth"]
     #桜良
     いくら深雪ちゃんと二人きりとはいえ、[r]
@@ -65,10 +67,12 @@
     深雪ちゃんって普段のお洋服もクールでかっこいいよね。[p]
 
     ; 桜良漫符：はてな
+    [DispQuestion_Center]
     #桜良
     普段お洋服を買うときってどうしてるの？[r]
     一人でじっくり悩んだり、お友達と買いに行ったり？[p]
 
+    [FreeDispQuestion]
     [iscript]
         f.charaPosition[0] = 'sakura'
         f.charaPosition[1] = 'right'
@@ -105,11 +109,13 @@
     そ、そうよね。不躾だったわ、ごめ...[p]
 
     ; 桜良漫符：汗
+    [DispSweat_Right]
     [ChangeCharaFace name="sakura" face="blush"]
     #桜良
     私の方が歳上なのに、[r]
     お部屋の片付けまで手伝ってもらうのは申し訳なさすぎるよ！！[p]
 
+    [FreeDispSweat]
     #深雪
     あっ、そういう意味...[p]
 
@@ -118,8 +124,10 @@
     ...気にしなくていいのに。[p]
 
     ; 桜良漫符：ぷんぷん
+    [DispAngry_Right]
     #桜良
     私が気にするのー！！[p]
+    [FreeDispAngry]
     [HideAll]
     [JumpStudioRoom]
 ; カーテン所持
@@ -158,10 +166,12 @@
     でも深雪ちゃんと協力すれば大丈夫だね！[p]
 
     ; 深雪漫符：びっくり
+    [DispSurprised_Left]
     [ChangeCharaFace name="miyuki" face="surprise"]
     #深雪
     えっ。[p]
 
+    [FreeDispSurprised]
     [ChangeCharaFace name="sakura" face="normal"]
     #桜良
     あっ、深雪ちゃん先お着替えする？[r]
@@ -169,26 +179,34 @@
 
     ; 深雪漫符：はてなびっくり
     ; 深雪漫符：集中線
+    [DispQS_Left]
+    [DispSaturatedLine_Left]
     [ChangeCharaFace name="miyuki" face="blush"]
     #深雪
     えっ！？[p]
 
+    [FreeDispQS]
+    [FreeDispSaturatedLine]
     #深雪
     ちょ、ちょっと待って心の準備が！[p]
 
     ; 桜良漫符：はてな
+    [DispQuestion_Right]
     [ChangeCharaFace name="sakura" face="close_mouth"]
     #桜良
     心の準備？[r]
     でも衣装って一人できるのすごく大変だよ？[p]
 
+    [FreeDispQuestion]
     #深雪
     それはそうなんだけど...[p]
 
     ; 深雪漫符：もやもや
+    [DispFuzzy_Left]
     #深雪
     （あなたに密着されるほうに準備が必要なのよ！）[p]
 
+    [FreeDispFuzzy]
     #深雪
     （うう、でも私ひとりじゃ無理だし...[r]
     _　覚悟を決めないと...）[p]
@@ -316,10 +334,12 @@
     えねるぎーまんたん？[p]
 
     ; 深雪漫符：キラキラ
+    [DispSparkle_Left]
     [ChangeCharaFace name="miyuki" face="precious"]
     #深雪
     はあ、今日が命日でもいい...[p]
 
+    [FreeDispSparkle]
     #桜良
     本当にエネルギー満タンなのかなそれ！？[p]
 
@@ -363,10 +383,12 @@
     [endscript]
     [ChangeCharaPosition]
     ; 桜良漫符：はてなびっくり
+    [DispQS_Right]
     [ShowSakura_Right face="surprise"]
     #桜良
     お着替えするだけなのに！？[p]
 
+    [FreeDispQS]
     [ChangeCharaFace name="sakura" face="close_mouth"]
     #桜良
     そ、そこまで言うなら待ってるね。[r]

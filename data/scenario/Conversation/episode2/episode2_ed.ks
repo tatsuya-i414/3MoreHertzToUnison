@@ -45,10 +45,12 @@ _　二人同じ画角に入っていればそれでいいかと...）[p]
 それならポーズもこだわりたいなーって。[p]
 
 ; 桜良漫符：音符
+[DispMusicalNote_Right]
 [ChangeCharaFace name="sakura" face="smile"]
 #桜良
 深雪ちゃんはどうしたい？[p]
 
+[FreeDispMusicalNote]
 [ChangeCharaFace name="miyuki" face="blush"]
 #深雪
 ひゃっ！[r]
@@ -134,10 +136,12 @@ _　アイドルやることを決めたんだけど）[p]
 （でも、尊敬しているのは事実よ）[p]
 
 ; 桜良漫符：キラキラ
+[DispSparkle_Right]
 [ChangeCharaFace name="sakura" face="smile"]
 #桜良
 えへへ...胸のあたりがくすぐったい。[p]
 
+[FreeDispSparkle]
 [ChangeCharaFace name="sakura" face="close_mouth"]
 #桜良
 私ね、最初は全然自信なかったんだ。[p]
@@ -165,10 +169,12 @@ _　アイドルやることを決めたんだけど）[p]
 誰よりもすごいアイドルって思ってるよ。[p]
 
 ; 深雪漫符：はてなびっくり
+[DispQS_Left]
 [ChangeCharaFace name="miyuki" face="blush"]
 #深雪
 桜良、い、今なんて？[p]
 
+[FreeDispQS]
 [ChangeCharaFace name="sakura" face="blush"]
 #桜良
 え、えーい！！[p]
@@ -182,5 +188,4 @@ _　アイドルやることを決めたんだけど）[p]
 [PlayPhotographing]
 [flasheffect]
 [bg storage="episode1/white.png" time="100"]
-; 思い出3に画面遷移する前に、キャラの衣装を私服へ変更
 [return]

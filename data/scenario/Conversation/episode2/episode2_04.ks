@@ -26,11 +26,13 @@
     何か書かれていたのかも。[p]
 
     ; 桜良漫符：ぐるぐる
+    [DispTrouble_Right]
     [ChangeCharaFace name="sakura" face="seriously"]
     #桜良
     何とかして読めないかな。[r]
     う～～～～～ん...[p]
 
+    [FreeDispTrouble]
     [ChangeCharaFace name="miyuki" face="smile"]
     #深雪
     そんなに目を凝らしても見えないと思うわよ。[p]
@@ -103,10 +105,12 @@
 ; 二回目以降
 [elsif exp="f.isPencilGet == 1 && f.isClickedSpeaker_first_whenPencilGetting == 'false' "]
     ; 深雪漫符：もやもや
+    [DispFuzzy_Center]
     [ShowMiyuki_Center face="trouble"]
     #深雪
     ......[p]
 
+    [FreeDispFuzzy]
     [iscript]
         f.charaPosition[0] = 'miyuki'
         f.charaPosition[1] = 'left'
@@ -129,9 +133,11 @@
     私がやったら先をつぶしそうで...[p]
 
     ; 桜良漫符：汗
+    [DispSweat_Right]
     #桜良
     そ、そんなに覚悟を決めてたんだね...[p]
 
+    [FreeDispSweat]
     [ChangeCharaFace name="sakura" face="close_eye"]
     #桜良
     私、やるね。[p]
@@ -227,11 +233,13 @@
     なにか浮かび上がってきたよ！[p]
 
     ; 桜良漫符：はてな
+    [DispQuestion_Center]
     [ChangeCharaFace name="sakura" face="seriously"]
     #桜良
     「かおり」...？[r]
     この部屋に何か香りのするものってあったかな？[p]
 
+    [FreeDispQuestion]
     [iscript]
         f.charaPosition[0] = 'sakura'
         f.charaPosition[1] = 'right'
@@ -242,10 +250,12 @@
     特になかったように思うけれど...[p]
 
     ; 深雪漫符：電球
+    [DispLighBulb_Left]
     [ChangeCharaFace name="miyuki" face="surprise"]
     #深雪
     ...あ。[p]
 
+    [FreeDispLighBulb]
     [ChangeCharaFace name="sakura" face="surprise"]
     #桜良
     何か思いついたの！？[p]
@@ -264,19 +274,23 @@
     あ｢か｣、あ「お」、みど「り」になる...[p]
 
     ; 桜良漫符：びっくり
+    [DispSurprised_Right]
     [ChangeCharaFace name="sakura" face="surprise"]
     #桜良
     「かおり」って、そういうこと！？[p]
 
+    [FreeDispSurprised]
     [ChangeCharaFace name="miyuki" face="close_eye"]
     #深雪
     恐らくね。[p]
 
     ; 桜良漫符：汗
+    [DispSweat_Right]
     [ChangeCharaFace name="sakura" face="smile"]
     #桜良
     私たち、ヒント見ずに開けちゃったね。[p]
 
+    [FreeDispSweat]
     [ChangeCharaFace name="miyuki" face="normal"]
     #深雪
     運も実力のうち、ということにしておきましょう。[p]
@@ -286,11 +300,13 @@
     なにか浮かび上がってきたよ！[p]
 
     ; 桜良漫符：はてな
+    [DispQuestion_Center]
     [ChangeCharaFace name="sakura" face="seriously"]
     #桜良
     「かおり」...？[r]
     この部屋に何か香りのするものってあったかな？[p]
 
+    [FreeDispQuestion]
     [iscript]
         f.charaPosition[0] = 'sakura'
         f.charaPosition[1] = 'right'
@@ -342,11 +358,13 @@
     あ、えと...[p]
 
     ; 桜良漫符：キラキラ
+    [DispSparkle_Right]
     [ChangeCharaFace name="sakura" face="blush"]
     #桜良
     ほ、ほめてくれてありがとう！！[r]
     すっごく嬉しい！！[p]
 
+    [FreeDispSparkle]
     [PlayRun]
     [HideSakura]
     [iscript]

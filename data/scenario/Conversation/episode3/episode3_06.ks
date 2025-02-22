@@ -24,10 +24,12 @@
     そうだったっけ、記憶力すごい...[p]
 
     ; 深雪漫符：もやもや
+    [DispFuzzy_Left]
     #深雪
     （ええ、仔細まで覚えているわ、[r]
     _　毎日寝る前にあのロケ映像を家で上映してるもの）[p]
 
+    [FreeDispFuzzy]
     [ChangeCharaFace name="miyuki" face="precious"]
     #深雪
     （...桜良の映っているところだけダイジェストで。[r]
@@ -58,10 +60,12 @@
     [ControlButtons]
 
     ; 桜良漫符：汗
+    [DispSweat_Right]
     [ChangeCharaFace name="sakura" face="surprise"]
     #桜良
     このハンガー取れないよ！？[p]
 
+    [FreeDispSweat]
     #深雪
     フックに固定されてる...[r]
     ハンガーは先の部屋のように外して使う訳ではなさそうね。[p]
@@ -104,22 +108,28 @@
     はたまたショートドラマつくったり！[p]
 
     ; 深雪漫符：ぐるぐる
+    [DispTrouble_Left]
     [ChangeCharaFace name="miyuki" face="sigh"]
     #深雪
     思い出させないで。[r]
     もはやデジタルタトゥーよ...[p]
 
+    [FreeDispTrouble]
     ; 桜良漫符：音符
+    [DispMusicalNote_Right]
     [ChangeCharaFace name="sakura" face="smile"]
     #桜良
     深雪ちゃんのスケバン姿、可愛かったけどなあ！[p]
 
+    [FreeDispMusicalNote]
     ; 深雪漫符：ぷんぷん
+    [DispAngry_Left]
     [ChangeCharaFace name="miyuki" face="amazed"]
     #深雪
     あのドラマ撮ってしばらくは、渾名が姉御になったのよ、[r]
     勘弁して欲しいわね。[p]
 
+    [FreeDispAngry]
     [ChangeCharaFace name="sakura" face="normal"]
     #桜良
     でも、それも今の私たちに繋がってるんだよ！[p]
@@ -246,10 +256,12 @@
 今私の家の玄関番になってるよ。[p]
 
 ; 深雪漫符：びっくり
+[DispSurprised_Left]
 [ChangeCharaFace name="miyuki" face="impatience"]
 #深雪
 まさかの警棒扱い...[p]
 
+[FreeDispSurprised]
 [ChangeCharaFace name="sakura" face="seriously"]
 #桜良
 不審者が来ても富士山登頂パワーでこう！[p]
@@ -271,10 +283,12 @@
 桜良、貴方剣道をやっていたことは？[p]
 
 ; 桜良漫符：はてな
+[DispQuestion_Right]
 [ChangeCharaFace name="sakura" face="surprise"]
 #桜良
 え、無いよ？[p]
 
+[FreeDispQuestion]
 [ChangeCharaFace name="sakura" face="close_mouth"]
 #桜良
 ボウリング好きだから、[r]

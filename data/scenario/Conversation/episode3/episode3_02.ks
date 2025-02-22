@@ -22,9 +22,11 @@
     桜良、何か心当たりはある？[p]
 
     ; 桜良漫符：はてな
+    [DispQuestion_Right]
     #桜良
     まる、さんかく、しかく...？[p]
 
+    [FreeDispQuestion]
     [ChangeCharaFace name="miyuki" face="normal"]
     #深雪
     ......[p]
@@ -41,9 +43,11 @@
     [endscript]
     [ChangeCharaPosition]
     ; 桜良漫符：もやもや
+    [DispFuzzy_Right]
     #桜良
     ごろ合わせとかかな...？[p]
 
+    [FreeDispFuzzy]
     [ChangeCharaFace name="sakura" face="surprise"]
     #桜良
     あれ、深雪ちゃんいつのまにそっちに！？[r]
@@ -77,11 +81,13 @@
     問題はほかの図形に何も文字がないことだけれど。[p]
 
     ; 桜良漫符：もやもや
+    [DispFuzzy_Right]
     [ChangeCharaFace name="sakura" face="trouble"]
     #桜良
     そうだった...[r]
     ううーどうして文字が入ってないんだー...[p]
 
+    [FreeDispFuzzy]
     [ChangeCharaFace name="miyuki" face="seriously"]
     #深雪
     （もしかしたら、図形に関するヒントがあるのかも。[r]
@@ -103,11 +109,13 @@
     手の込んだことをするものね。[p]
 
     ; 桜良漫符：汗
+    [DispSweat_Right]
     [ChangeCharaFace name="sakura" face="trouble"]
     #桜良
     コンパスがなかったら、[r]
     どれがどれだかわからなくなるところだったよ。[p]
 
+    [FreeDispSweat]
     #桜良
     方角の英語なんて覚えてないし...[p]
 
@@ -129,10 +137,12 @@
     すごい速さで手当てしてくれたよね！[p]
 
     ; 桜良漫符：ワイワイ
+    [DispClamorously_Right]
     [ChangeCharaFace name="sakura" face="smile"]
     #桜良
     あれも手際が良すぎるってガイドさんびっくりしてたよ！[p]
 
+    [FreeDispClamorously]
     [ChangeCharaFace name="miyuki" face="blush"]
     #深雪
     あれはたくさん練習したから...[p]
@@ -155,10 +165,12 @@
     そうなったらあなたの方向感覚も役に立ちそう。[p]
 
     ; 桜良漫符：電球
+    [DispLighBulb_Right]
     #桜良
     そういうことなら、[r]
     これから方向感覚も鍛えてみたり？[p]
 
+    [FreeDispLighBulb]
     [ChangeCharaFace name="miyuki" face="amazed"]
     #深雪
     歌やダンスのレッスン最優先。[p]

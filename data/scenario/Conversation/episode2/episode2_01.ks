@@ -18,10 +18,12 @@
     衣装とか着ないといけないのかも。[p]
 
     ; 深雪漫符：もやもや
+    [DispFuzzy_Left]
     [ChangeCharaFace name="miyuki" face="trouble"]
     #深雪
     そうだとしたら少し面倒ね...[p]
 
+    [FreeDispFuzzy]
     [ChangeCharaFace name="sakura" face="smile"]
     #桜良
     どうして？[r]
@@ -58,11 +60,13 @@
     衣装や小道具が入っているのかもしれないわね。[p]
 
     ; 桜良漫符：はてな
+    [DispQuestion_Right]
     [ChangeCharaFace name="sakura" face="surprise"]
     #桜良
     えっ、でもあれ取っ手がついてないよ？[r]
     変なくぼみだけついてて...[p]
 
+    [FreeDispQuestion]
     #深雪
     （変なくぼみ...[r]
     _　何かをはめるのかしら？）[p]
@@ -127,10 +131,12 @@
     ; 初回セリフ表示
     [if exp="f.isClickedCamera_first == 'true' "]
         ; 桜良漫符：音符
+        [DispMusicalNote_Center]
         [ShowSakura_Center face="smile"]
         #桜良
         撮影準備、ばっちりだね！[p]
 
+        [FreeDispMusicalNote]
         [iscript]
             f.charaPosition[0] = 'sakura'
             f.charaPosition[1] = 'right'

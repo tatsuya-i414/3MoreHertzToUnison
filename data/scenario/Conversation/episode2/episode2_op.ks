@@ -4,10 +4,12 @@
 ううん...いったい何が...[p]
 
 ; 深雪漫符：はてなびっくり
+[DispQS_Center]
 [ChangeCharaFace name="miyuki" face="surprise"]
 #深雪
 はっ、桜良！[p]
 
+[FreeDispQS]
 [iscript]
     f.charaPosition[0] = 'miyuki'
     f.charaPosition[1] = 'left'
@@ -29,11 +31,13 @@
 うん！ありがとう！[p]
 
 ; 桜良漫符：びっくり
+[DispSurprised_Right]
 [ChangeCharaFace name="sakura" face="surprise"]
 #桜良
 あれっ、場所が変わってる！[r]
 ここは...撮影スタジオかな？[p]
 
+[FreeDispSurprised]
 [ChangeCharaFace name="miyuki" face="seriously"]
 #深雪
 そうみたいね。[r]
@@ -41,10 +45,12 @@
 さっきのステージはクリアできたんでしょうね。[p]
 
 ; 桜良漫符：音符
+[DispMusicalNote_Right]
 [ChangeCharaFace name="sakura" face="close_mouth"]
 #桜良
 無事先に進めてるってことだね！[p]
 
+[FreeDispMusicalNote]
 #深雪
 この調子でいきましょう。[r]
 でもこの部屋は何をすれば...[p]
@@ -85,10 +91,12 @@
 
 [PlayKacha]
 ; 深雪漫符：はてな
+[DispQuestion_Left]
 [ChangeCharaFace name="miyuki" face="normal"]
 #深雪
 あら...？[p]
 
+[FreeDispQuestion]
 #深雪
 ちょっと桜良、そこに立ってくれる？[p]
 

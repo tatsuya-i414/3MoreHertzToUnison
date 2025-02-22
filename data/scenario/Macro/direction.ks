@@ -1,7 +1,7 @@
 ; ------------------------------------------------------------
 ; 演出用マクロ
 ; ------------------------------------------------------------
-; 暗転
+; 画面暗転
 [macro name="blackout"]
     [mask effect="fadeIn" time="%time_1|3000"]
     [if exp="%exp"]
@@ -67,29 +67,29 @@
     [mask_off time="2000"]
 [endmacro]
 
+; 背景画面を暗くする
+[macro name="DarkenBackground"]
+    [filter layer="base" brightness="%brightness|15" blur="10"]
+    [filter layer="1" brightness="%brightness|15" blur="10"]
+[endmacro]
+
+; アイテム小画面表示
+[macro name="ItemDisp"]
+    [layer2True]
+    [DarkenBackground]
+    [image storage="%storage" layer="2" x="780" y="350" width="250" height="250" name="itemDisp"]
+[endmacro]
+
+; アイテム小画面表示を解除
+[macro name="FreeItemDisp"]
+    [free layer="2" name="itemDisp"]
+    [layer2False]
+    [free_filter]
+[endmacro]
+
 ; フラッシュ
 [macro name="flasheffect"]
     [mask effect="fadeIn" color="%color|0xF5F5F5" graphic="%graphic" folder="image" time="%intime|80"]
     [mask_off effect="fadeOut" time="%outtime|160"]
-[endmacro]
-
-; 背景画面を暗くする
-[macro name="DarkenBackground"]
-    [filter layer="base" brightness="%brightness|15" blur="10"]
-[endmacro]
-
-; ジャンプ
-[macro name="Jumping"]
-    [keyframe name="jump"]
-        [frame p="20%" y="-100"]
-        [frame p="40%" y="100"]
-        [frame p="60%" y="-100"]
-        [frame p="80%" y="100"]
-        [frame p="100%" y="-20"]
-    [endkeyframe]
-    [messageFalse]
-    [kanim name="%name" keyframe="jump" time="2000"]
-    [wa]
-    [messageTrue]
 [endmacro]
 [return]

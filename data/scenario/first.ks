@@ -24,6 +24,7 @@
 [call storage="Macro/glossary.ks"]
 [call storage="Macro/item.ks"]
 [call storage="Macro/layer.ks"]
+[call storage="Macro/manpu.ks"]
 [call storage="Macro/others.ks"]
 [call storage="Macro/screenTransition.ks"]
 [call storage="Macro/se.ks"]

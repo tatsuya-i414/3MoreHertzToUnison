@@ -3,20 +3,24 @@
 ;-------------------------------------------------------
 ; アイブロウペンシル未使用時のみ
 ; 桜良、深雪漫符：びっくり
+[DispSurprised_Center]
 [ShowMiyuki_Center face="surprise"]
 #深雪
 あっ。[p]
 
+[FreeDispSurprised]
 [iscript]
     f.charaPosition[0] = 'miyuki'
     f.charaPosition[1] = 'left'
 [endscript]
 [ChangeCharaPosition]
 ; 桜良漫符：キラキラ
+[DispSparkle_Right]
 [ShowSakura_Right face="surprise"]
 #桜良
 おおー！[p]
 
+[FreeDispSparkle]
 #深雪
 適当にはめてたら当たったみたい。[r]
 ラッキーね。[p]
