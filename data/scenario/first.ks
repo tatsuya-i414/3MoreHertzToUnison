@@ -49,9 +49,7 @@
 [endif]
 ; ローディング画面を閉じる
 [if exp="f.loadData == 'true' "]
-    [iscript]
-        $('.loadingWrap').css({'display':'none'});
-    [endscript]
+    [StopLoading]
 [endif]
 
 [messageFalse]

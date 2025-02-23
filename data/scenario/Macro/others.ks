@@ -34,13 +34,38 @@
     [clickable x="%x" y="%y" width="%width" height="%height" target="%target" opacity="0" mouseopacity="0" color="&sf.colorScheme[3]" cond="sf.bootMode == 'normal' "]
 [endmacro]
 
+; ローディングアニメーション開始（※index.htmlに同様の処理あり）
+[macro name="StartLoading"]
+    [html]
+        <div class="loadingWrap">
+        <div class="spinner">
+            <div class="rect1"></div>
+            <div class="rect2"></div>
+            <div class="rect3"></div>
+            <div class="rect4"></div>
+            <div class="rect5"></div>
+        </div>
+        <p>Now Loading...</p>
+        </div>
+    [endhtml]
+[endmacro]
+
+; ローディングアニメーション終了
+[macro name="StopLoading"]
+    [iscript]
+        $('.loadingWrap').css({'display':'none'});
+    [endscript]
+[endmacro]
+
 ; セーブポイント
 [macro name="SavePoint"]
     [clearfix]
     [hidemenubutton]
     [wait time="1500"]
-    [call storage="Utility/SelectSave.ks" target="*SelectSave"]
-    [wait time="1500"]
+    [call storage="Utility/selectSave.ks" target="*SelectSave"]
+    [StartLoading]
+    [wait time="2500"]
+    [StopLoading]
 [endmacro]
 
 ; 昼夜切り替えスイッチ押下時に元の画像を削除（思い出3）
