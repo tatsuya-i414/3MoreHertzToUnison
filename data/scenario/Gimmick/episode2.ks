@@ -127,6 +127,7 @@
     [endif]
     [iscript]
         f.isEpisode2Clear = 1
+        f.isOpenDesc_08 = 'true'
     [endscript]
     [layer1True]
     [SavePoint]
