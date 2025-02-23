@@ -170,6 +170,7 @@
 [iscript]
     f.isYoukanGet = 1
     f.isEpisode3Clear = 1
+    f.isOpenDesc_09 = 'true'
 [endscript]
 ; セーブポイント時にアイテムが見えてしまうためレイヤー1を非表示にする
 [layer1False]

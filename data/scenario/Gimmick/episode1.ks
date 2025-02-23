@@ -44,6 +44,12 @@
     [iscript]
         f.scn_episode1_OP = 'true'
         f.itemVisible[0] = 'false'
+        f.isOpenDesc_01 = 'true'
+        f.isOpenDesc_02 = 'true'
+        f.isOpenDesc_03 = 'true'
+        f.isOpenDesc_04 = 'true'
+        f.isOpenDesc_05 = 'true'
+        f.isOpenDesc_06 = 'true'
     [endscript]
     [clearfix]
     [messageFalse]
@@ -194,6 +200,7 @@
     [iscript]
         f.isEpisode1Clear = 1
         f.isMikeGet = 1
+        f.isOpenDesc_07 = 'true'
     [endscript]
 [endif]
 [SavePoint]
