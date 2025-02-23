@@ -245,5 +245,6 @@ _　え、なんで私録音してなかったのかしら？）[p]
 
 #深雪
 桜良！[p]
+[messageFalse]
 [free layer="1" name="mikestand"]
 [return]
