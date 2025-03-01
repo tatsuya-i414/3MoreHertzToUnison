@@ -1,3 +1,6 @@
+; ------------------------------------------------------------
+;　タイトル画面
+; ------------------------------------------------------------
 [cm]
 [clearstack]
 [layer1True]
@@ -29,11 +32,14 @@
     [ptext layer="fix" text="使用ブラウザ：" x="1640" y="150" size="20" color="&sf.colorScheme[0]" bold="bold" edge="white" align="right"]
     [ptext layer="fix" text="&sf.usingBrowser" x="1785" y="150" size="20" color="&sf.colorScheme[0]" bold="bold" edge="white" align="right"]
 [endif]
+; タイトル画面をクリックしたら選択画面を表示する
 [l]
 [PlayTitleDecision]
 [wait time="1000"]
 
-; クリックしたらトップ画面を表示する
+; ------------------------------------------------------------
+;　選択画面
+; ------------------------------------------------------------
 *TopPage
 [clearfix]
 [free layer="1" name="circlelogo"]
@@ -53,7 +59,28 @@
 [endif]
 [s]
 
+; ------------------------------------------------------------
+;　ゲーム開始
+; ------------------------------------------------------------
 *GameStart
+[if exp="f.isFirstGameClear == 'true' && sf.bootMode == 'normal' "]
+    [cm]
+    [clearfix]
+    [DispModal text="すでにクリア済みのデータがあります<br><br>これまでの出来事をセーブして<br>新しいゲームを開始しますか？" y="450" storage="title.ks"]
+    *YesButton
+    [FreeModal]
+    ; 周回要素のあるフラグを除いて初期化（開発・検証時は適宜フラグ変更を行う可能性があるため）
+    [if exp="sf.bootMode == 'normal' "]
+        [call storage="Utility/resetFlag.ks"]
+        [showsave]
+    [endif]
+    *NoButton
+    [FreeModal]
+    ; 周回要素のあるフラグも含めて初期化（開発・検証時は適宜フラグ変更を行う可能性があるため）
+    [if exp="sf.bootMode == 'normal' "]
+        [call storage="Utility/flag.ks"]
+    [endif]
+[endif]
 [screen_full]
 ; デバッグ用に追加
 [jump storage="Gimmick/episode1.ks" cond="f.isEpisode1Clear == 0"]

@@ -68,6 +68,24 @@
     [StopLoading]
 [endmacro]
 
+; モーダル表示（※*YesButtonと*NoButton処理を別途記述すること）
+[macro name="DispModal"]
+    [filter layer="base" brightness="40"]
+    [image storage="../image/modal/modalwindow.png" layer="1" x="700" y="350" name="modal_backImage"]
+    [ptext layer="1" text="%text" x="770" y="%y|470" size="24" color="&sf.colorScheme[0]" name="modal_text"]
+    [button x="800" y="610" graphic="modal/button_yes.png" enterimg="modal/button_yes_hover.png" storage="%storage" target="%target_yes|*YesButton" clickse="../sound/se/decision.m4a"]
+    [button x="1000" y="610" graphic="modal/button_no.png" enterimg="modal/button_no_hover.png" storage="%storage" target="%target_no|*NoButton" clickse="../sound/se/cancel.m4a"]
+    [s]
+[endmacro]
+
+; モーダルを閉じる
+[macro name="FreeModal"]
+    [free_filter]
+    [free layer="1" name="modal_backImage"]
+    [free layer="1" name="modal_text"]
+    [cm]
+[endmacro]
+
 ; 昼夜切り替えスイッチ押下時に元の画像を削除（思い出3）
 [macro name="FreeImagesWhenSwitching"]
     [if exp="f.isJutanOpen == 1"]
