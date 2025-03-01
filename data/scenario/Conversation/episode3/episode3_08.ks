@@ -309,6 +309,12 @@
 [if exp="f.scn_skip == 0"]
     [ControlButtons]
     [FreeItemBox]
+    [iscript]
+        let html= 
+            `<br>` + 
+            `✔️` + `&emsp;` + `一緒に寝る`;
+        TG.ftag.startTag("pushlog", {text:html,} );
+    [endscript]
     [nolog]
     [ShowMiyuki_Center face="seriously"]
     #深雪

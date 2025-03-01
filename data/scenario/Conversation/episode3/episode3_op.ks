@@ -1,4 +1,12 @@
 [DispLocation text="山小屋"]
+[iscript]
+    let html=`
+	<br>` +
+    `●--------------------------------------------------------------●<br>` +
+    `&emsp;` + `山小屋` + `<br>` + 
+    `●--------------------------------------------------------------●`;
+    TG.ftag.startTag("pushlog", {text:html,} );
+[endscript]
 [ShowSakura_Right face="trouble"]
 [ShowMiyuki_Left face="trouble"]
 #桜良
@@ -17,26 +25,26 @@
 っ......！[p]
 
 #深雪
-（さっきの言葉、[r]
+（さっきの言葉、[rhr]
 _　お世辞じゃないってことなの！？）[p]
 
 #深雪
-あ、あの、そうね。[r]
+あ、あの、そうね。[rhr]
 早くここから脱出しないといけないんだったわ。[p]
 
 ; 桜良漫符：汗
 [ChangeCharaFace name="sakura" face="normal"]
 #桜良
-そうそう！[r]
+そうそう！[rhr]
 ごめんね、急にボタン押して...[p]
 
 [ChangeCharaFace name="miyuki" face="normal"]
 #深雪
-大丈夫よ。次からは気を付けて。[r]
+大丈夫よ。次からは気を付けて。[rhr]
 探索に戻りましょう。[p]
 
 #深雪
-ここは...[r]
+ここは...[rhr]
 なんだか見覚えのある部屋のような気がするけれど...[p]
 
 [HideAll]
@@ -55,7 +63,7 @@ _　お世辞じゃないってことなの！？）[p]
 深雪ちゃん、ここって！[p]
 
 #深雪
-え、ええ。[r]
+え、ええ。[rhr]
 まさか...[p]
 
 ; 桜良、深雪漫符：はてなびっくり
@@ -67,7 +75,7 @@ _　お世辞じゃないってことなの！？）[p]
 [FreeDispQS]
 [ChangeCharaFace name="miyuki" face="impatience"]
 #深雪
-（まさかこんなものまで再現しているの！？[r]
+（まさかこんなものまで再現しているの！？[rhr]
 _　窓の外の風景は違うけれど、内装はそのままじゃない！）[p]
 
 #桜良
@@ -92,14 +100,14 @@ _　窓の外の風景は違うけれど、内装はそのままじゃない！�
 [free_filter]
 [ChangeCharaFace name="sakura" face="close_mouth"]
 #桜良
-すごく大変だったろうなあ、[r]
+すごく大変だったろうなあ、[rhr]
 このお部屋つくるの...[p]
 
 ; 桜良漫符：はてな
 [DispQuestion_Right]
 [ChangeCharaFace name="sakura" face="surprise"]
 #桜良
-あれっ、そういえば深雪ちゃん、[r]
+あれっ、そういえば深雪ちゃん、[rhr]
 いつの間に服を着替えたの？[p]
 
 [FreeDispQuestion]
@@ -111,7 +119,7 @@ _　窓の外の風景は違うけれど、内装はそのままじゃない！�
 [DispClamorously_Right]
 [ChangeCharaFace name="sakura" face="smile"]
 #桜良
-本当だ！[r]
+本当だ！[rhr]
 いったいどうなってるんだろう、不思議！[p]
 
 [FreeDispClamorously]
@@ -130,7 +138,7 @@ _　窓の外の風景は違うけれど、内装はそのままじゃない！�
 [FreeDispSparkle]
 [ChangeCharaFace name="miyuki" face="sigh"]
 #深雪
-（そういうことにしておいたほうがよさそうね[r]
+（そういうことにしておいたほうがよさそうね[rhr]
 _　...いろんな意味で）[p]
 
 [ChangeCharaFace name="miyuki" face="normal"]

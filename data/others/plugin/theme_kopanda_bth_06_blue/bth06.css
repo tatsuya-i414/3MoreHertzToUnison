@@ -77,13 +77,14 @@
 /* バックログ画面
 --------------------------------------*/
 .log_body {
-	width: 1000px;
+	width: 1100px;
 	height: 600px;
-	margin: 300px 0 0 60px;
+	margin: 300px 0 0 300px;
 	padding: 20px;
 	color: #666;
 	background: none;
 	font-weight: normal;
+	font-size: 26px;
 	text-align: left;
 	line-height: 1.6em;
 	border: none;
@@ -92,6 +93,21 @@
 	-webkit-transform: translateZ(0);
 	transform: translateZ(0);
 	box-sizing: border-box;
+}
+
+.backlog_chara_name {
+	display: block;
+	width: 200px;
+	margin-top: 2em;
+	margin-bottom: 1ex;
+	color: #196D7D;
+	text-align: left;
+	font-weight: bold;
+	font-size: 26px;
+}
+
+.backlog_text{
+	font-size: 26px;
 }
 
 /* スクロールバー */

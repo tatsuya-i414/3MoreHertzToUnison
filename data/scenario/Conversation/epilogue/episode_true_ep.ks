@@ -1,7 +1,16 @@
 ; 背景画像：メタセコイヤの並木道
+[DispLocation text="メタセコイヤの並木道"]
+[iscript]
+    let html=`
+	<br>` +
+    `●--------------------------------------------------------------●<br>` +
+    `&emsp;` + `メタセコイヤの並木道` + `<br>` + 
+    `●--------------------------------------------------------------●`;
+    TG.ftag.startTag("pushlog", {text:html,} );
+[endscript]
 [ShowMiyuki_Center]
 #深雪
-紅葉を見に行きたいって言うから、[r]
+紅葉を見に行きたいって言うから、[rhr]
 てっきり紅葉かと思ってたわ。[p]
 
 [iscript]
@@ -13,7 +22,7 @@
 [DispMusicalNote_Right]
 [ShowSakura_Right face="smile"]
 #桜良
-紅葉とか銀杏もいいけど、[r]
+紅葉とか銀杏もいいけど、[rhr]
 ちょっと珍しくていい感じでしょ！[p]
 
 [FreeDispMusicalNote]
@@ -22,7 +31,7 @@
 桜良に誘われなかったら、自分で知ることはなかったかもね。[p]
 
 #桜良
-それなら今日は思いっきり楽しんじゃおう！[r]
+それなら今日は思いっきり楽しんじゃおう！[rhr]
 ほらほら、れっつごー！[p]
 
 ; 深雪漫符：汗
@@ -44,22 +53,22 @@
 （はしゃいでる桜良、かわいい...）[p]
 
 #深雪
-（テレビや舞台の上とも違う、[r]
+（テレビや舞台の上とも違う、[rhr]
 _　ふわっとした笑顔...）[p]
 
 #深雪
-（ちょっとだけ、桜良と仲良くなれたって、[r]
+（ちょっとだけ、桜良と仲良くなれたって、[rhr]
 _　うぬぼれてもいいのかしら？）[p]
 
 [ShowMiyuki_Left]
 [ShowSakura_Right face="close_mouth"]
 #桜良
-初めて一緒に出掛けたけど、[r]
+初めて一緒に出掛けたけど、[rhr]
 喜んでくれてよかった！[p]
 
 [ChangeCharaFace name="miyuki" face="smile"]
 #深雪
-桜良と完全オフで一緒にいられるのよ。[r]
+桜良と完全オフで一緒にいられるのよ。[rhr]
 どこだって嬉しいに決まってるわ。[p]
 
 ; 桜良漫符：汗
@@ -75,7 +84,7 @@ _　うぬぼれてもいいのかしら？）[p]
 
 [ChangeCharaFace name="miyuki" face="normal"]
 #深雪
-でも風が気持ちいいし、一面の自然もきれいで、[r]
+でも風が気持ちいいし、一面の自然もきれいで、[rhr]
 着てよかったとは思っているわ。[p]
 
 ; 桜良漫符：キラキラ
@@ -86,7 +95,7 @@ _　うぬぼれてもいいのかしら？）[p]
 
 [FreeDispSparkle]
 #桜良
-今度はお泊りも行きたいね！[r]
+今度はお泊りも行きたいね！[rhr]
 この間の不思議な部屋じゃ、話したりなかったもん！[p]
 
 [Jumping name="miyuki"]
@@ -103,7 +112,7 @@ _　うぬぼれてもいいのかしら？）[p]
 ええ～。[p]
 
 #桜良
-でもスケジュールつめつめだもんね。[r]
+でもスケジュールつめつめだもんね。[rhr]
 しかたないかあ。[p]
 
 [ChangeCharaFace name="miyuki" face="sigh"]
@@ -118,16 +127,16 @@ _　うぬぼれてもいいのかしら？）[p]
 
 [FreeDispQuestion]
 #桜良
-気づいたら自分の部屋にいるし、[r]
+気づいたら自分の部屋にいるし、[rhr]
 マネージャーさんは知らないって言うし。[p]
 
 [ChangeCharaFace name="miyuki" face="seriously"]
 #深雪
-（確かにその通り...[r]
+（確かにその通り...[rhr]
 _　結局あの部屋のことはわからずじまいだ。）[p]
 
 #深雪
-（同じ夢を見た、というには[r]
+（同じ夢を見た、というには[rhr]
 _　あまりにも記憶が鮮明すぎる）[p]
 
 [ChangeCharaFace name="miyuki" face="trouble"]
@@ -135,11 +144,11 @@ _　あまりにも記憶が鮮明すぎる）[p]
 （ただ...）[p]
 
 #深雪
-誘拐かも、なんて一時は考えたけれど、[r]
+誘拐かも、なんて一時は考えたけれど、[rhr]
 それにしては居心地の良すぎる空間だった。[p]
 
 #深雪
-あの部屋は、私たちを害そうとしたものではないんじゃないかしら。[r]
+あの部屋は、私たちを害そうとしたものではないんじゃないかしら。[rhr]
 
 [Jumping name="sakura"]
 [ChangeCharaFace name="sakura" face="normal"]
@@ -187,12 +196,12 @@ _　あまりにも記憶が鮮明すぎる）[p]
 いいのよ、細かいことは気にしないの。[p]
 
 #深雪
-桜良、もう少しあっちへ行ってみましょう。[r]
+桜良、もう少しあっちへ行ってみましょう。[rhr]
 噴水が見えるわ。[p]
 
 [ChangeCharaFace name="sakura" face="normal"]
 #桜良
-あっ、パンフレットに載ってたよね！[r]
+あっ、パンフレットに載ってたよね！[rhr]
 行こ行こ！[p]
 
 [autostop]
@@ -215,6 +224,7 @@ _　あまりにも記憶が鮮明すぎる）[p]
 [messageFalse]
 [autostop]
 [cancelskip]
+[DeleteDispLocation]
 [blackout exp="f.isRoomLightNight == 1" storage_1="episode3/bedroom_night.png" storage_2="episode3/bedroom.png"]
 [PlayPhotographing]
 [flasheffect]
@@ -246,7 +256,7 @@ _　あまりにも記憶が鮮明すぎる）[p]
 [HideAll]
 [ChangeBackGround storage="episode1/white.png" time="2000"]
 #謎のメッセージカード
-「脱出おめでとう！！[r]
+「脱出おめでとう！！[rhr]
 _　その勇気があれば、きっとこれからも大丈夫！」[p]
 
 #謎のメッセージカード

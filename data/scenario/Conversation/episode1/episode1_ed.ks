@@ -1,17 +1,21 @@
 [PlayTurnOffLight]
-
 [image storage="../image/episode1/mikestand.png" layer="1" name="mikestand"]
 [ChangeBackGround storage="episode1/spotlight.png"]
 [wait time="500"]
 [PlaySpotLightOn]
-
+[iscript]
+    let html= 
+        `<br>` + 
+        `✔️` + `&emsp;` + `スイッチを押す`;
+    TG.ftag.startTag("pushlog", {text:html,} );
+[endscript]
 [ChangeCharaFace name="sakura" face="surprise"]
 #桜良
 きゃっ、いきなり暗くなった！[p]
 
 [ChangeCharaFace name="miyuki" face="seriously"]
 #深雪
-停電？[r]
+停電？[rhr]
 いや、一か所だけスポットライトが当たってる...？[p]
 
 #桜良
@@ -19,7 +23,7 @@
 
 [ChangeCharaFace name="miyuki" face="trouble"]
 #深雪
-いつの間にかせりも下がってるわね。[r]
+いつの間にかせりも下がってるわね。[rhr]
 何か見覚えがあるような...[p]
 
 ; 深雪漫符：びっくり
@@ -31,7 +35,7 @@
 [FreeDispSurprised]
 [ChangeCharaFace name="sakura" face="seriously"]
 #桜良
-どうしたの？[r]
+どうしたの？[rhr]
 何かわかったの？[p]
 
 #深雪
@@ -41,7 +45,7 @@
 [DispQS_Right]
 [ChangeCharaFace name="sakura" face="surprise"]
 #桜良
-ああっ、本当だ！[r]
+ああっ、本当だ！[rhr]
 このリボン、あの時の！[p]
 
 [FreeDispQS]
@@ -50,14 +54,14 @@
 （正直あのライブはあんまり思い出したくない）[p]
 
 #深雪
-（前日のリハの時からスタッフ間でもめたり、[r]
+（前日のリハの時からスタッフ間でもめたり、[rhr]
 _　メンバーが転んで捻挫になりかかったり）[p]
 
 ; 深雪漫符：ぐるぐる
 [DispTrouble_Left]
 [ChangeCharaFace name="miyuki" face="sigh"]
 #深雪
-（挙句の果てには本番機材トラブルで停電なんて、[r]
+（挙句の果てには本番機材トラブルで停電なんて、[rhr]
 _　もう一生思い出したくもないわね...）[p]
 
 [FreeDispTrouble]
@@ -66,12 +70,12 @@ _　もう一生思い出したくもないわね...）[p]
 あのライブ、本当に大変だったよねえ...[p]
 
 #深雪
-悪夢だったわ。[r]
+悪夢だったわ。[rhr]
 いまだに夢に見て冷や汗ものよ。[p]
 
 [ChangeCharaFace name="miyuki" face="normal"]
 #深雪
-あの時の再現をしてくるなんて、[r]
+あの時の再現をしてくるなんて、[rhr]
 この部屋に放り込んだ人はよっぽど悪趣味ね。[p]
 
 [ChangeCharaFace name="sakura" face="close_mouth"]
@@ -83,16 +87,16 @@ _　もう一生思い出したくもないわね...）[p]
 どういうこと？[p]
 
 #桜良
-停電でライトがつかなくなっちゃったとき、[r]
+停電でライトがつかなくなっちゃったとき、[rhr]
 お客さんも私たちも混乱してたよね。[p]
 
 #桜良
-私もどうしたらいいかわかんなくて、[r]
+私もどうしたらいいかわかんなくて、[rhr]
 頭の中真っ白で...[p]
 
 [ChangeCharaFace name="miyuki" face="seriously"]
 #深雪
-仕方ないわ。[r]
+仕方ないわ。[rhr]
 あの時の私たちはまだ場数も少なかったもの。[p]
 
 [ChangeCharaFace name="sakura" face="normal"]
@@ -106,7 +110,7 @@ _　もう一生思い出したくもないわね...）[p]
 
 [FreeDispQuestion]
 #桜良
-「私がなんとかします！」って言ったと思ったら、[r]
+「私がなんとかします！」って言ったと思ったら、[rhr]
 突然ステージに飛び出して行っちゃって！[p]
 
 [messageFalse]
@@ -119,7 +123,7 @@ _　もう一生思い出したくもないわね...）[p]
 [DispSparkle_Right]
 [ShowSakura_Right face="smile"]
 #桜良
-たった一人で音楽もない中歌い始めて、[r]
+たった一人で音楽もない中歌い始めて、[rhr]
 すっごくカッコよかったんだよ！！[p]
 
 [FreeDispSparkle]
@@ -129,19 +133,19 @@ _　もう一生思い出したくもないわね...）[p]
 
 [ChangeCharaFace name="sakura" face="close_mouth"]
 #桜良
-今だったら私もそうしたかもしれないけど、[r]
+今だったら私もそうしたかもしれないけど、[rhr]
 でもあの時誰よりも勇気があったのは深雪ちゃんだったよ。[p]
 
 [ChangeCharaFace name="sakura" face="smile"]
 #桜良
-深雪ちゃんの後ろ姿がすごく大きくて、[r]
+深雪ちゃんの後ろ姿がすごく大きくて、[rhr]
 輝いてるみたいだったんだ。[p]
 
 ; 深雪漫符：汗
 [DispSweat_Left]
 [ChangeCharaFace name="miyuki" face="blush"]
 #深雪
-（え、何かしらこれは。[r]
+（え、何かしらこれは。[rhr]
 _　私、褒められてるの？桜良本人から？なんで？）[p]
 
 [FreeDispSweat]
@@ -150,7 +154,7 @@ _　私、褒められてるの？桜良本人から？なんで？）[p]
 
 [ChangeCharaFace name="sakura" face="close_eye"]
 #桜良
-深雪ちゃんのあの姿が見られたのはよかったなって、[r]
+深雪ちゃんのあの姿が見られたのはよかったなって、[rhr]
 不謹慎かもしれないけど思っちゃった。[p]
 
 [ChangeCharaFace name="sakura" face="close_mouth"]
@@ -165,12 +169,12 @@ _　私、褒められてるの？桜良本人から？なんで？）[p]
 [DispSparkle_Left]
 [ChangeCharaFace name="miyuki" face="seriously"]
 #深雪
-いえ、たった今人生で二番目くらいに[r]
+いえ、たった今人生で二番目くらいに[rhr]
 いい思い出にランクアップしたから、心配しないで。[p]
 
 [FreeDispSparkle]
 #深雪
-（一番は今、目の前で褒めてもらっていることだわ）[r]
+（一番は今、目の前で褒めてもらっていることだわ）[rhr]
 _　え、なんで私録音してなかったのかしら？）[p]
 
 #桜良
@@ -178,8 +182,8 @@ _　え、なんで私録音してなかったのかしら？）[p]
 
 [ChangeCharaFace name="miyuki" face="smile"]
 #深雪
-褒めてくれてありがとう。[r]
-あなたがそう言ってくれるなら、[r]
+褒めてくれてありがとう。[rhr]
+あなたがそう言ってくれるなら、[rhr]
 今後もかっこよくいないといけないわね。[p]
 
 [ChangeCharaFace name="sakura" face="blush"]
@@ -190,7 +194,7 @@ _　え、なんで私録音してなかったのかしら？）[p]
 [DispQuestion_Left]
 [ChangeCharaFace name="miyuki" face="normal"]
 #深雪
-今、何か言っていた？[r]
+今、何か言っていた？[rhr]
 ごめんなさい、よく聞こえなくて...[p]
 
 [FreeDispQuestion]
@@ -198,21 +202,21 @@ _　え、なんで私録音してなかったのかしら？）[p]
 [DispQS_Right]
 [Jumping name="sakura"]
 #桜良
-う、ううん！[r]
+う、ううん！[rhr]
 なんでもない！[p]
 
 [FreeDispQS]
 #深雪
-そう？なら話を戻すわよ。[r]
+そう？なら話を戻すわよ。[rhr]
 ひとまずこのマイクをどうにかすればよいのかしら。[p]
 
 [ChangeCharaFace name="sakura" face="normal"]
 #桜良
-そ、そうだね。[r]
+そ、そうだね。[rhr]
 あの時みたいに、スポットライトの下に立ってみたらどうかな？[p]
 
 #深雪
-あの時の再現ということね。[r]
+あの時の再現ということね。[rhr]
 わかったわ[p]
 
 [messageFalse]
@@ -226,7 +230,7 @@ _　え、なんで私録音してなかったのかしら？）[p]
 [cancelskip]
 
 #深雪
-立つだけじゃダメみたいね。[r]
+立つだけじゃダメみたいね。[rhr]
 マイクに触れてみるわ。[p]
 
 [PlayBell]
