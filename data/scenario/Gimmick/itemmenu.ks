@@ -13,7 +13,9 @@
 [bg storage="share/itemmenu.png" time="100"]
 [button graphic="../others/plugin/theme_kopanda_bth_06_blue/image/config/back.png" enterimg="../others/plugin/theme_kopanda_bth_06_blue/image/config/back2.png" target="*Scenario_Back" x="1680" y="60" clickse="../sound/se/cancel.m4a"]
 
+; ------------------------------------------------------------
 ; 通常アイテム
+; ------------------------------------------------------------
 [image storage="../image/share/inventory.png" layer="1" x="560" y="350" width="140" height="140"]
 [image storage="../image/share/inventory.png" layer="1" x="710" y="350" width="140" height="140"]
 [image storage="../image/share/inventory.png" layer="1" x="860" y="350" width="140" height="140"]
@@ -22,13 +24,16 @@
 [image storage="../image/share/inventory.png" layer="1" x="1310" y="350" width="140" height="140"]
 [image storage="../image/share/inventory.png" layer="1" x="1460" y="350" width="140" height="140"]
 
+; ------------------------------------------------------------
 ; 特別アイテム
+; ------------------------------------------------------------
 [image storage="../image/share/inventory.png" layer="1" x="560" y="680" width="140" height="140"]
 [image storage="../image/share/inventory.png" layer="1" x="710" y="680" width="140" height="140"]
 [image storage="../image/share/inventory.png" layer="1" x="860" y="680" width="140" height="140"]
 
-; アイテム画像
-; 通常アイテム
+; ------------------------------------------------------------
+; アイテム画像（通常アイテム）
+; ------------------------------------------------------------
 [layer2True]
 [if exp="f.isCableGet == 1"]
     [iscript]
@@ -108,7 +113,10 @@
     [endscript]
     [image storage="../image/episode3/futon.png" layer="2" x="1010" y="350" width="140" height="127" visible="true" name="futon"]
 [endif]
-; 特別アイテム
+
+; ------------------------------------------------------------
+; アイテム画像（特別アイテム）
+; ------------------------------------------------------------
 [if exp="f.isMikeGet == 1"]
     [iscript]
         tf.usingItemInventory8 = 1

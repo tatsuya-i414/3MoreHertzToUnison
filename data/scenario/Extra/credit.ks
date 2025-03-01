@@ -11,7 +11,9 @@
     tf.creators = ['国語丸', 'PON茶屋', 'ひろさきたま']   // スタッフ一覧
 [endscript]
 
+; ------------------------------------------------------------
  ; スタッフ
+ ; ------------------------------------------------------------
 [ptext layer="fix" text="スタッフ" x="&tf.header[0]" y="250" size="&tf.characterSetting[0]" color="&sf.colorScheme[1]" bold="bold" width="&tf.characterSetting[1]" align="right"]
 [ptext layer="fix" text="企画" x="&tf.staff[0]" y="380" size="&tf.characterSetting[0]" width="&tf.characterSetting[1]" align="right"]
 [ptext layer="fix" text="&tf.creators[0]" x="&tf.staff[1]" y="380" size="&tf.characterSetting[0]" width="&tf.characterSetting[1]" align="left"]
@@ -25,11 +27,15 @@
 [ptext layer="fix" text="プログラム" x="&tf.staff[0]" y="680" size="&tf.characterSetting[0]" width="&tf.characterSetting[1]" align="right"]
 [ptext layer="fix" text="&tf.creators[0]" x="&tf.staff[1]" y="680" size="&tf.characterSetting[0]" width="&tf.characterSetting[1]" align="left"]
 
+; ------------------------------------------------------------
 ; 制作
+; ------------------------------------------------------------
 [ptext layer="fix" text="制作" x="&tf.staff[0]" y="850" size="&tf.characterSetting[0]" width="&tf.characterSetting[1]" align="right"]
 [ptext layer="fix" text="&sf.circleName" x="&tf.staff[1]" y="850" size="&tf.characterSetting[0]" width="&tf.characterSetting[1]" align="left"]
 
+; ------------------------------------------------------------
 ; 使用素材
+; ------------------------------------------------------------
 [ptext layer="fix" text="使用素材" x="&tf.header[1]" y="250" size="&tf.characterSetting[0]" color="&sf.colorScheme[1]" bold="bold" width="&tf.characterSetting[1]" align="right"]
 [ptext layer="fix" text="Audiostock" x="&tf.usedMaterial" y="380" size="&tf.characterSetting[0]" width="&tf.characterSetting[1]" align="left"]
 [ptext layer="fix" text="BGMer" x="&tf.usedMaterial" y="440" size="&tf.characterSetting[0]" width="&tf.characterSetting[1]" align="left"]
