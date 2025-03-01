@@ -16,7 +16,9 @@
 [glink color="bth06" target="*Flagdetail" text="フラグ別詳細" x="1380" y="960" width="150" height="24" size="24" clickse="../sound/se/decision.m4a" bold="true"]
 [button graphic="debug/sysbtn_02_qsave.png" enterimg="debug/sysbtn_02_qsave_hover.png" target="*Save" x="1680" y="960" clickse="../sound/se/itemdecision.m4a"]
 
+; ------------------------------------------------------------
 ; ゲーム変数_Episode1
+; ------------------------------------------------------------
 [if exp="f.isEpisode1Clear == 0"]
     [edit name="f.isEpisode1Clear" initial="0" left="400" top="265" color="&sf.colorScheme[0]" size="36" width="150" maxchars="1"]
 [else]
@@ -58,7 +60,9 @@
     [edit name="f.isMikeGet" initial="&f.isMikeGet" left="400" top="730" color="&sf.colorScheme[0]" size="36" width="150" maxchars="1"]
 [endif]
 
+; ------------------------------------------------------------
 ; ゲーム変数_Episode2
+; ------------------------------------------------------------
 [if exp="f.isEpisode2Clear == 0"]
     [edit name="f.isEpisode2Clear" initial="0" left="1010" top="265" color="&sf.colorScheme[0]" size="36" width="150" maxchars="1"]
 [else]
@@ -115,7 +119,9 @@
     [edit name="f.isCurtainGet" initial="&f.isCurtainGet" left="1010" top="900" color="&sf.colorScheme[0]" size="36" width="150" maxchars="2"]
 [endif]
 
+; ------------------------------------------------------------
 ; ゲーム変数_Episode3
+; ------------------------------------------------------------
 [if exp="f.isEpisode3Clear == 0"]
     [edit name="f.isEpisode3Clear" initial="0" left="1600" top="265" color="&sf.colorScheme[0]" size="36" width="150" maxchars="1"]
 [else]
@@ -161,13 +167,16 @@
 [s]
 
 *Flagdetail
-;Notionの「フラグ一覧」ページを開く
+; Notionの「フラグ一覧」ページを開く
 [iscript]
     alert("Notionでフラグ一覧ページを開きます");
 [endscript]
 [web url="https://www.notion.so/shinya30/8a2e9e554d9d4a8ebea9cc950fb3ca44?v=cc8efcf2a18c4d5db87e5b1abaaf00ec&pvs=4"]
 [jump target="*Debug"]
 
+; ------------------------------------------------------------
+; 入力内容を保存
+; ------------------------------------------------------------
 *Save
 ; ゲーム変数格納_Episode1
 [commit name="f.isEpisode1Clear"]
@@ -426,7 +435,7 @@
 [cm]
 [freeimage layer="1"]
 [if exp="tf.prevPage == 'kenshou' "]
-    [jump storage="develop/kenshou.ks"]
+    [jump storage="Develop/kenshou.ks"]
 [else]
     [jump target="*Debug"]
 [endif]

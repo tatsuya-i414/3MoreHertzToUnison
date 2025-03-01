@@ -3,22 +3,22 @@
 ; ------------------------------------------------------------
 ; メッセージウィンドウ非表示ボタン
 [macro name="hiddenMessageWindow"]
-    [button graphic="share/sysbtn_02_screen.png" enterimg="share/sysbtn_02_screen_hover.png" x="1420" y="20" clickse="../sound/se/decision2.m4a" fix="true" role="window"]
+    [button graphic="share/sysbtn_02_screen.png" enterimg="share/sysbtn_02_screen_hover.png" x="1420" y="20" clickse="../sound/se/decision2.m4a" fix="true" role="window" hint="メッセージウインドウ非表示"]
 [endmacro]
 
 ; オートボタン
 [macro name="AutoButton"]
-    [button graphic="share/sysbtn_02_auto.png" enterimg="share/sysbtn_02_auto_hover.png" x="1540" y="20" clickse="../sound/se/decision2.m4a" fix="true" role="auto" hint="AUTO"]
+    [button graphic="share/sysbtn_02_auto.png" enterimg="share/sysbtn_02_auto_hover.png" x="1540" y="20" clickse="../sound/se/decision2.m4a" fix="true" role="auto" hint="オートモード"]
 [endmacro]
 
 ; バックログボタン
 [macro name="BacklogButton"]
-    [button graphic="share/sysbtn_02_log.png" enterimg="share/sysbtn_02_log_hover.png" x="1660" y="20" clickse="../sound/se/decision2.m4a" fix="true" role="backlog" hint="LOG"]
+    [button graphic="share/sysbtn_02_log.png" enterimg="share/sysbtn_02_log_hover.png" x="1660" y="20" clickse="../sound/se/decision2.m4a" fix="true" role="backlog" hint="会話ログ"]
 [endmacro]
 
 ; スキップボタン
 [macro name="SkipButton"]
-    [button graphic="share/sysbtn_02_skip.png" enterimg="share/sysbtn_02_skip_hover.png" x="1780" y="20" clickse="../sound/se/decision2.m4a" fix="true" role="skip" hint="SKIP"]
+    [button graphic="share/sysbtn_02_skip.png" enterimg="share/sysbtn_02_skip_hover.png" x="1780" y="20" clickse="../sound/se/decision2.m4a" fix="true" role="skip" hint="スキップモード"]
 [endmacro]
 
 ; シナリオパート開始時に操作ボタン類を表示する

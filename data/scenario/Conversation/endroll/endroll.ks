@@ -2,9 +2,6 @@
 ;　エンドロール
 ; ------------------------------------------------------------
 [ChangeBackGround storage="epilogue/black.png"]
-[if exp="f.isFirstGameClear == 'true' "]
-    [button graphic="share/sysbtn_02_skip.png" enterimg="share/sysbtn_02_skip_hover.png" x="1780" y="20" clickse="../sound/se/decision2.m4a" target="*SkipEndroll" hint="SKIP" name="skipButton"]
-[endif]
 ; Endroll曲再生
 [PlayEndrollBGM]
 
@@ -176,26 +173,4 @@
 [if exp="f.isFirstGameClear == 'true' "]
     [cm]
 [endif]
-[return]
-
-; ------------------------------------------------------------
-;　エンドロールスキップ
-; ------------------------------------------------------------
-*SkipEndroll
-[cm]
-[Freelayer1]
-[stop_kanim name="&tf.partsName"]
-[FadeoutBGM]
-[wait time="2500"]
-
-; 一時変数を削除
-[iscript]
-    delete tf.x
-    delete tf.centerX
-    delete tf.width
-    delete tf.textSize
-    delete tf.partsName
-    delete tf.animationY
-    delete tf.animationTime
-[endscript]
 [return]

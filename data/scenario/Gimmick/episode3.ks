@@ -272,15 +272,19 @@
 ; エンドロール再生
 [if exp="sf.endrollSkip == 'false' "]
     [cancelskip]
-    ; TrueEndルート
-    ;[if exp="f.selectedEDRoute == 'True' "]
-        ;[call storage="Conversation/endroll/endroll_true.ks"]
-    ; NormalEndルート
-    ;[else]
-    ;    [call storage="Conversation/endroll/endroll_normal.ks"]
-    ;[endif]
+    [if exp="f.isFirstGameClear == 'true' "]
+        [cm]
+        [clearfix]
+        [DispModal text="エンドロールをスキップしますか？" storage="Gimmick/episode3.ks"]
+        *YesButton
+        [FreeModal]
+        [jump target="*SkipEndroll"]
+        *NoButton
+        [FreeModal]
+    [endif]
     [call storage="Conversation/endroll/endroll.ks"]
 [endif]
+*SkipEndroll
 [iscript]
     f.isFirstGameClear = 'true'
 [endscript]
