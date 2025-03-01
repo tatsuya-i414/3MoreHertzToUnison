@@ -1,4 +1,12 @@
 [DispLocation text="撮影スタジオ"]
+[iscript]
+    let html=`
+	<br>` +
+    `●--------------------------------------------------------------●<br>` +
+    `&emsp;` + `撮影スタジオ` + `<br>` + 
+    `●--------------------------------------------------------------●`;
+    TG.ftag.startTag("pushlog", {text:html,} );
+[endscript]
 [ShowMiyuki_Center face="trouble"]
 #深雪
 ううん...いったい何が...[p]
@@ -21,7 +29,7 @@
 
 [ChangeCharaFace name="miyuki" face="sigh"]
 #深雪
-よかった、はぐれてなくて。[r]
+よかった、はぐれてなくて。[rhr]
 ほら、大丈夫？[p]
 
 [PlayRustlingClothes]
@@ -34,14 +42,14 @@
 [DispSurprised_Right]
 [ChangeCharaFace name="sakura" face="surprise"]
 #桜良
-あれっ、場所が変わってる！[r]
+あれっ、場所が変わってる！[rhr]
 ここは...撮影スタジオかな？[p]
 
 [FreeDispSurprised]
 [ChangeCharaFace name="miyuki" face="seriously"]
 #深雪
-そうみたいね。[r]
-マイクに触ってここに飛ばされたから、[r]
+そうみたいね。[rhr]
+マイクに触ってここに飛ばされたから、[rhr]
 さっきのステージはクリアできたんでしょうね。[p]
 
 ; 桜良漫符：音符
@@ -52,12 +60,12 @@
 
 [FreeDispMusicalNote]
 #深雪
-この調子でいきましょう。[r]
+この調子でいきましょう。[rhr]
 でもこの部屋は何をすれば...[p]
 
 [ChangeCharaFace name="sakura" face="seriously"]
 #桜良
-部屋の中央にカメラが置いてあるから、[r]
+部屋の中央にカメラが置いてあるから、[rhr]
 写真を撮ればいいんじゃないかな？[p]
 
 #深雪
@@ -76,17 +84,17 @@
 見ただけでわかるの！？[p]
 
 #深雪
-写真が趣味だから、少しだけね。[r]
+写真が趣味だから、少しだけね。[rhr]
 それにしても...[p]
 
 [ChangeCharaFace name="miyuki" face="trouble"]
 #深雪
-このカメラ、シャッターが押せないみたい。[r]
+このカメラ、シャッターが押せないみたい。[rhr]
 押しても感触がないわ。[p]
 
 [ChangeCharaFace name="sakura" face="trouble"]
 #桜良
-あ、本当だ。[r]
+あ、本当だ。[rhr]
 固くて押せないね。[p]
 
 [PlayKacha]
@@ -128,17 +136,17 @@
 今のはもしかしてタイマー機能？[p]
 
 #深雪
-ええ。[r]
-唯一使えそうだったから試しに二人で映ってみたのだけど、[r]
+ええ。[rhr]
+唯一使えそうだったから試しに二人で映ってみたのだけど、[rhr]
 特に何も起きなかったみたい。[p]
 
 #桜良
-でも、写真を撮るのは合ってそうだよね！[r]
+でも、写真を撮るのは合ってそうだよね！[rhr]
 何を撮ればいいか部屋を調べてみよう！[p]
 
 #深雪
-それもそうね。[r]
-部屋にヒントが隠されているかもしれない。[r]
+それもそうね。[rhr]
+部屋にヒントが隠されているかもしれない。[rhr]
 確認してみましょう。[p]
 [DeleteDispLocation]
 [HideAll]

@@ -1,6 +1,21 @@
 ; ------------------------------------------------------------
 ; その他共通処理用マクロ
 ; ------------------------------------------------------------
+; バックログのみ改行
+[macro name="hr"]
+    [iscript]
+        tf.system.backlog.push("");
+    [endscript]
+[endmacro]
+
+; バックログと表画面で改行
+[macro name="rhr"]
+    [r]
+    [iscript]
+        tf.system.backlog.push("");
+    [endscript]
+[endmacro]
+
 ; 背景を変更する
 [macro name="ChangeBackGround"]
     [bg storage="%storage" time="%time|100" method="%method"]

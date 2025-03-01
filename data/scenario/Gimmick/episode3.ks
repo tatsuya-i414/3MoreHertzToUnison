@@ -184,7 +184,7 @@
     [ControlButtons]
     ; 隠し要素を全て回収している場合はTrueEndへの分岐が現れる
     ; 隠し要素を全て回収していない場合は選択肢自体が表示されず、強制的にNormalEndに突入する
-    [if exp="f.episode1_Secret == 'true' && f.episode1_Secret == 'true' && f.episode1_Secret == 'true' "]
+    [if exp="f.episode1_Secret == 'true' && f.episode2_Secret == 'true' && f.episode3_Secret == 'true' "]
         [messageTrue]
         *SelecteRoute
         [autostop]
@@ -198,16 +198,27 @@
         *ReSelection_Convey
         [autostop]
         [cancelskip]
-        [SelectOptionsButton target_yes="*SelectedOfTrueRoute" text_yes="自分の気持ちを伝える！" target_no="*SelecteRoute" text_no="いや、もう少し考えよう"]
+        [SelectOptionsButton target_yes="*SelectedOfTrueRoute" text_yes="自分の気持ちを伝える！" exp_yes="f.selectedEDRoute = 'True' " target_no="*SelecteRoute" text_no="いや、もう少し考えよう"]
         [s]
         *ReSelection_Worry
         [autostop]
         [cancelskip]
-        [SelectOptionsButton target_yes="*SelectedOfNormalRoute" text_yes="まだ勇気が出ない...やめておこう" target_no="*SelecteRoute" text_no="本当にこれでいいのかな？"]
+        [SelectOptionsButton target_yes="*SelectedOfNormalRoute" text_yes="まだ勇気が出ない...やめておこう" exp_yes="f.selectedEDRoute = 'Normal' " target_no="*SelecteRoute" text_no="本当にこれでいいのかな？"]
         [s]
     [else]
         ; NormalEndルート
         *SelectedOfNormalRoute
+        ; 選択肢未表示の場合は選択したエンディングルートはここで代入
+        [if exp="f.selectedEDRoute == '' "]
+            f.selectedEDRoute = 'Normal' "
+        [else]
+            [iscript]
+                let html= 
+                    `<br>` + 
+                    `✔️` + `&emsp;` + `まだ勇気が出ない...やめておこう`;
+                TG.ftag.startTag("pushlog", {text:html,} );
+            [endscript]
+        [endif]
         [messageFalse]
         [FadeoutBGM]
         [if exp="f.isPlayingBGM == 'false' "]
@@ -229,6 +240,12 @@
         [messageTrue]
         [autostop]
         [cancelskip]
+        [iscript]
+            let html= 
+                `<br>` + 
+                `✔️` + `&emsp;` + `自分の気持ちを伝える！`;
+            TG.ftag.startTag("pushlog", {text:html,} );
+        [endscript]
         [call storage="Conversation/ending/episode_true_ed.ks" target="*TrueEndRoute"]
     [endif]
     [messageFalse]
