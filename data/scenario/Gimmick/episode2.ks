@@ -655,6 +655,16 @@
     [PlayOpenChest]
     *GetAnotherItem
     [ChangeBackGround storage="episode2/dressandcurtain.png"]
+    [if exp="f.isHangerGet == 0"]
+        [free layer="1" name="hanger" time="10" wait="true"]
+    [endif]
+    [layer1True]
+    [if exp="f.isDressGet == 0"]
+        [image storage="../image/episode2/dress_inchest.png" layer="1" name="dress" time="10" wait="true"]
+    [endif]
+    [if exp="f.isCurtainGet == 0"]
+        [image storage="../image/episode2/curtain_inchest.png" layer="1" name="curtain" time="10" wait="true"]
+    [endif]
     ; アイブロウペンシル未使用時のみ発生
     [if exp="f.isPencilGet != -1 && f.scn_episode2_07 == 'false' "]
         [if exp="f.scn_skip == 0"]
@@ -677,11 +687,11 @@
     [endif]
     ; 衣装
     [if exp="f.isDressGet == 0"]
-        [clickJudgment x="230" y="150" width="690" height="510" target="*GetDress"]
+        [clickJudgment x="190" y="120" width="720" height="930" target="*GetDress"]
     [endif]
     ; カーテン
     [if exp="f.isCurtainGet == 0"]
-        [clickJudgment x="1090" y="480" width="720" height="300" target="*GetCurtain"]
+        [clickJudgment x="930" y="80" width="830" height="250" target="*GetCurtain"]
     [endif]
     [if exp="f.isDressGet == 0 || f.isCurtainGet == 0"]
         [BackFromEnlargedMap target="*OpenChest_back"]
@@ -700,7 +710,6 @@
 [return]
 
 *GetDress
-[PlayGetItem]
 [if exp="f.scn_skip == 0"]
     [ControlButtons]
     [messageTrue]
@@ -713,6 +722,7 @@
     [clearfix]
     [MenuButton]
 [endif]
+[PlayGetItem]
 [iscript]
     f.isDressGet = 1
 [endscript]
@@ -735,6 +745,8 @@
 
 *OpenChest_back
 [cm]
+[free layer="1" name="dress" time="10" wait="true"]
+[free layer="1" name="curtain" time="10" wait="true"]
 [JumpStudioRoom]
 
 *SearchFittingRoom
