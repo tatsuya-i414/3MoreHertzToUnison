@@ -119,7 +119,7 @@
 [cm]
 
 ; コンフィグ用の背景を読み込んでトランジション
-[bg storage="&tf.img_path +'config_bg.png'" time="100"]
+[ChangeBackGround storage="&tf.img_path +'config_bg.png'"]
 
 ; 開発/検証用
 [if exp="sf.bootMode == 'develop' || sf.bootMode == 'kenshou' "]

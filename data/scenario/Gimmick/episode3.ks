@@ -55,24 +55,24 @@
 ; 背景パーツ
 ; ジャケット
 [if exp="f.isJacketGet == 0"]
-    [image storage="../image/episode3/jacket.png" layer="1" x="1150" y="750" name="jacket"]
+    [image storage="../image/episode3/jacket.png" layer="1" x="1150" y="750" name="jacket" time="10" wait="true"]
 [endif]
 ; ハンガー
 [if exp="f.isJacketGet == -1 && f.isRoomLightNight == 0"]
-    [image storage="../image/episode3/wallhanger_onjacket.png" layer="1" x="1427" y="90" name="wallhanger_onjacket"]
+    [image storage="../image/episode3/wallhanger_onjacket.png" layer="1" x="1427" y="90" name="wallhanger_onjacket" time="10" wait="true"]
 [elsif exp="f.isJacketGet == -1 && f.isRoomLightNight == 1"]
-    [image storage="../image/episode3/wallhanger_onjacket_night.png" layer="1" x="1411" y="107" name="wallhanger_onjacket_night"]
+    [image storage="../image/episode3/wallhanger_onjacket_night.png" layer="1" x="1411" y="107" name="wallhanger_onjacket_night" time="10" wait="true"]
 [else]
-    [image storage="../image/episode3/wallhanger_onhanger.png" layer="1" x="1414" y="111" name="wallhanger_onhanger"]
+    [image storage="../image/episode3/wallhanger_onhanger.png" layer="1" x="1414" y="111" name="wallhanger_onhanger" time="10" wait="true"]
 [endif]
 ; 絨毯
 [if exp="f.isJutanOpen == 1"]
-    [image storage="../image/episode3/jutan_turnedup.png" layer="1" x="585" y="908" name="jutan_turndup"]
+    [image storage="../image/episode3/jutan_turnedup.png" layer="1" x="585" y="908" name="jutan_turndup" time="10" wait="true"]
     [if exp="f.isRoomLightNight == 1"]
-        [image storage="../image/episode3/mark_underjutan.png" layer="1" x="1175" y="915" name="mark"]
+        [image storage="../image/episode3/mark_underjutan.png" layer="1" x="1175" y="915" name="mark" time="10" wait="true"]
     [endif]
 [else]
-    [image storage="../image/episode3/jutan.png" layer="1" x="585" y="908" name="jutan"]
+    [image storage="../image/episode3/jutan.png" layer="1" x="585" y="908" name="jutan" time="10" wait="true"]
 [endif]
 
 ; クリック判定
@@ -210,7 +210,9 @@
         *SelectedOfNormalRoute
         ; 選択肢未表示の場合は選択したエンディングルートはここで代入
         [if exp="f.selectedEDRoute == '' "]
-            f.selectedEDRoute = 'Normal' "
+            [iscript]
+                f.selectedEDRoute = 'Normal'
+            [endscript]
         [else]
             [iscript]
                 let html= 
@@ -345,7 +347,7 @@
     [s]
 [elsif exp="f.isCompassGet == -1"]
     *PushBoxKeyButton
-    [image storage="../image/episode3/compass.png" layer="1" x="797" y="399" name="compass_set"]
+    [image storage="../image/episode3/compass.png" layer="1" x="797" y="399" name="compass_set" time="10" wait="true"]
     ; 上矢印ボタン
     [clickJudgment x="870" y="210" width="130" height="120" target="*PushTopButton"]
     ; 下矢印ボタン
@@ -376,7 +378,7 @@
 *SearchBox_back
 [cm]
 [FreeItemBox]
-[free layer="1" name="compass_set"]
+[free layer="1" name="compass_set" time="10" wait="true"]
 [iscript]
     // 押下したボタンの順番を初期化
     f.arrayElementsCount = 0
@@ -464,7 +466,7 @@
             [clearfix]
             [MenuButton]
         [endif]
-        [free layer="1" name="compass_set"]
+        [free layer="1" name="compass_set" time="10" wait="true"]
         *InsideOfBox
         [if exp="tf.boxUnlock == 'true' "]
             [PlayOpenBox]
@@ -480,7 +482,7 @@
         [iscript]
             f.isFutonGet = 1
         [endscript]
-        [free layer="1" name="compass_set"]
+        [free layer="1" name="compass_set" time="10" wait="true"]
         ; ベッドの初回クリックフラグをリセットする
         [if exp="f.isClickedBed_first == 'false' "]
             [iscript]
@@ -615,7 +617,7 @@
 [iscript]
     f.isJacketGet = 1 
 [endscript]
-[free layer="1" name="jacket"]
+[free layer="1" name="jacket" time="10" wait="true"]
 [MenuButton]
 [JumpBedRoom]
 
@@ -673,7 +675,7 @@
 
 *ValidItemOfJacket
 [FreeItemBox]
-[free layer="1" name="wallhanger_onhanger"]
+[free layer="1" name="wallhanger_onhanger" time="10" wait="true"]
 [if exp="f.scn_skip == 0"]
     [ControlButtons]
     [messageTrue]
@@ -705,13 +707,13 @@
     [iscript]
         f.isJutanOpen = 1
     [endscript]
-    [free layer="1" name="jutan"]
+    [free layer="1" name="jutan" time="10" wait="true"]
 [elsif exp="f.isJutanOpen == 1"]
     [iscript]
         f.isJutanOpen = 0
     [endscript]
-    [free layer="1" name="jutan_turndup"]
-    [free layer="1" name="mark"]
+    [free layer="1" name="jutan_turndup" time="10" wait="true"]
+    [free layer="1" name="mark" time="10" wait="true"]
 [endif]
 [JumpBedRoom]
 
@@ -721,23 +723,23 @@
     [iscript]
         f.isRoomLightNight = 1
     [endscript]
-    [free layer="1" name="wallhanger_onjacket"]
+    [free layer="1" name="wallhanger_onjacket" time="10" wait="true"]
 [elsif exp="f.isRoomLightNight == 1"]
     [iscript]
         f.isRoomLightNight = 0
     [endscript]
-    [free layer="1" name="wallhanger_onjacket_night"]
-    [free layer="1" name="mark"]
+    [free layer="1" name="wallhanger_onjacket_night" time="10" wait="true"]
+    [free layer="1" name="mark" time="10" wait="true"]
 [endif]
 [if exp="f.scn_skip == 0 && f.isClickedSwitch_first == 'true' "]
     ; 背景とパーツの画像を夜Ver.に変更
     [ChangeBackGround storage="episode3/bedroom_night.png"]
     [if exp="f.isJacketGet == -1"]
-        [image storage="../image/episode3/wallhanger_onjacket_night.png" layer="1" x="1411" y="107" name="wallhanger_onjacket_night"]
+        [image storage="../image/episode3/wallhanger_onjacket_night.png" layer="1" x="1411" y="107" name="wallhanger_onjacket_night" time="10" wait="true"]
     [endif]
     [if exp="f.isJutanOpen == 1"]
-        [image storage="../image/episode3/jutan_turnedup.png" layer="1" x="585" y="908" name="jutan_turndup"]
-        [image storage="../image/episode3/mark_underjutan.png" layer="1" x="1175" y="915" name="mark"]
+        [image storage="../image/episode3/jutan_turnedup.png" layer="1" x="585" y="908" name="jutan_turndup" time="10" wait="true"]
+        [image storage="../image/episode3/mark_underjutan.png" layer="1" x="1175" y="915" name="mark" time="10" wait="true"]
     [endif]
     [ControlButtons]
     [messageTrue]

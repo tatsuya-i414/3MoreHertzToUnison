@@ -14,32 +14,28 @@
 [layopt layer="0" visible="true"]
 [layopt layer="1" visible="true"]
 [hidemenubutton]
-
 [clearfix]
 [cm]
 
 ; ギャラリーモードの背景読込み
-[bg storage="../image/append_theme/gallery_bg.png" time="300"]
+[ChangeBackGround storage="../image/append_theme/gallery_bg.png"]
 
 [iscript]
-
-tf.page              = 0   // ページ番号
-tf.selected_cg_image = []  // 選択したCGの差分を格納した配列変数
-tf.cg_index          = 0   // 上の配列の要素番号
-
-tf.cg_posx = [288, 756, 1224]; // サムネイルのX座標
-tf.cg_posy = [326, 605]; // サムネイルのY座標
-tf.cg_thumbnail_width  = 432; // サムネイルの幅
-tf.cg_thumbnail_height = 243; // サムネイルの高さ
-
+    tf.page              = 0        // ページ番号
+    tf.selected_cg_image = []       // 選択したCGの差分を格納した配列変数
+    tf.cg_index          = 0        // 上の配列の要素番号
+    tf.cg_posx = [288, 756, 1224];  // サムネイルのX座標
+    tf.cg_posy = [326, 605];        // サムネイルのY座標
+    tf.cg_thumbnail_width  = 432;   // サムネイルの幅
+    tf.cg_thumbnail_height = 243;   // サムネイルの高さ
 [endscript]
 
 ; ページネーション（ページ数が変わるときはtextの中身を修正してね）
 [macro name="pagination"]
-  [layopt layer="0" visible="true"]
-  [free layer="0" name="pagination" time="1"]
-  [ptext layer="0" name="pagination" text="&tf.page + 1 + '/3'" x="330" y="890" size="18" color="&sf.colorScheme[0]" width="1280" align="center"]
-  [endmacro]
+    [layopt layer="0" visible="true"]
+    [free layer="0" name="pagination" time="1"]
+    [ptext layer="0" name="pagination" text="&tf.page + 1 + '/3'" x="330" y="890" size="18" color="&sf.colorScheme[0]" width="1280" align="center"]
+[endmacro]
 
 [jump target="*cgpage"]
 
@@ -57,7 +53,6 @@ tf.cg_thumbnail_height = 243; // サムネイルの高さ
 ;-------------------------------------------------------
 *page_0
 ;-------------------------------------------------------
-
 ; CG閲覧モード画面1ページ目
 
 ; graphic には表示する画像のファイル名
@@ -97,7 +92,6 @@ tf.cg_thumbnail_height = 243; // サムネイルの高さ
 [cg_image_button graphic="" thumb="" no_graphic="../image/append_theme/lock.png" x="&tf.cg_posx[1]" y="&tf.cg_posy[1]" width="&tf.cg_thumbnail_width" height="&tf.cg_thumbnail_height"]
 [cg_image_button graphic="" thumb="" no_graphic="../image/append_theme/lock.png" x="&tf.cg_posx[2]" y="&tf.cg_posy[1]" width="&tf.cg_thumbnail_width" height="&tf.cg_thumbnail_height"]
 
-
 ; 前のページへ
 [button graphic="append_theme/gallery_prev.png" enterimg="append_theme/gallery_prev2.png" target="*backpage" x="150" y="540" clickse="../sound/se/pagechange.m4a"]
 
@@ -124,7 +118,6 @@ tf.cg_thumbnail_height = 243; // サムネイルの高さ
 [cg_image_button graphic="" thumb="" no_graphic="../image/append_theme/lock.png" x="&tf.cg_posx[1]" y="&tf.cg_posy[1]" width="&tf.cg_thumbnail_width" height="&tf.cg_thumbnail_height"]
 [cg_image_button graphic="" thumb="" no_graphic="../image/append_theme/lock.png" x="&tf.cg_posx[2]" y="&tf.cg_posy[1]" width="&tf.cg_thumbnail_width" height="&tf.cg_thumbnail_height"]
 
-
 ; 前ページへ
 [button graphic="append_theme/gallery_prev.png" enterimg="append_theme/gallery_prev2.png" target="*backpage" x="150" y="540" clickse="../sound/se/pagechange.m4a"]
 
@@ -136,11 +129,8 @@ tf.cg_thumbnail_height = 243; // サムネイルの高さ
 ;-------------------------------------------------------
 *common
 ;-------------------------------------------------------
-
 ; 停止
-
 [s]
-
 
 ;-----------------------------------------------------------
 *backtitle
@@ -149,12 +139,11 @@ tf.cg_thumbnail_height = 243; // サムネイルの高さ
 
 ; 使用したレイヤーをすべて消去
 [cm]
-[freeimage layer="0"]
-[freeimage layer="1"]
+[freeimage layer="0" time="10" wait="true"]
+[freeimage layer="1" time="10" wait="true"]
 
 ; 別のシナリオにジャンプする場合はここを変更
 [jump storage="Extra/extra.ks"]
-
 
 ;-----------------------------------------------------------
 *nextpage
@@ -162,7 +151,9 @@ tf.cg_thumbnail_height = 243; // サムネイルの高さ
 ; 次のページに移る処理
 
 ; 一時変数 tf.page を増加させたうえで *cgpage へ
-[eval exp="tf.page++"]
+[iscript]
+    tf.page++
+[endscript]
 [jump target="*cgpage"]
 
 ;-----------------------------------------------------------
@@ -171,7 +162,9 @@ tf.cg_thumbnail_height = 243; // サムネイルの高さ
 ; 前のページに移る処理
 
 ; 一時変数 tf.page を減少させたうえで *cgpage へ
-[eval exp="tf.page--"]
+[iscript]
+    tf.page--
+[endscript]
 [jump target="*cgpage"]
 
 ;-----------------------------------------------------------
@@ -187,10 +180,12 @@ tf.cg_thumbnail_height = 243; // サムネイルの高さ
 
 ; フリーレイヤーとレイヤー１(back)を解放します
 [cm]
-[freeimage layer="1" page="back"]
+[freeimage layer="1" page="back" time="10" wait="true"]
 
 ; 一時変数 tf.cg_index に 0 をぶち込みます
-[eval exp="tf.cg_index = 0"]
+[iscript]
+    tf.cg_index = 0
+[endscript]
 
 ;-------------------------------------------------------
 *cg_next_image
@@ -202,27 +197,27 @@ tf.cg_thumbnail_height = 243; // サムネイルの高さ
 
 ; 一時変数 tf.storage に表示すべきCGのstorageを代入します
 [iscript]
-tf.storage = tf.selected_cg_image[tf.cg_index];
+    tf.storage = tf.selected_cg_image[tf.cg_index];
 [endscript]
 
 ; CGを表示してクリックを待ちます。
-[freeimage layer="1" page="back"]
-[image layer="1" page="back" storage="&tf.storage" folder="bgimage" width="1920" height="1080"]
+[freeimage layer="1" page="back" time="10" wait="true"]
+[image layer="1" page="back" storage="&tf.storage" folder="bgimage" width="1920" height="1080" time="10" wait="true"]
 [trans layer="1" time="700"]
 [wt]
 [l]
 
 ; クリックされたら
 ; 一時変数 tf.cg_index (差分画像がある場合の画像番号)を1増加させます。
-[eval exp="tf.cg_index++"]
+[iscript]
+    tf.cg_index++
+[endscript]
 
 ; まだ表示すべき差分画像が残っているなら、このラベルに飛びなおします。
 [if exp=" tf.selected_cg_image.length > tf.cg_index "]
-  [jump target="*cg_next_image"]
-
+    [jump target="*cg_next_image"]
 [else]
-  [freeimage layer="1" page="back"]
-  [freeimage layer="1" page="fore" time="700"]
-  [jump target="*cgpage"]
-
+    [freeimage layer="1" page="back"]
+    [freeimage layer="1" page="fore" time="700"]
+    [jump target="*cgpage"]
 [endif]

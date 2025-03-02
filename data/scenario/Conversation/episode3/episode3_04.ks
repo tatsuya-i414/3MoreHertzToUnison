@@ -58,7 +58,7 @@
 [ControlButtons]
 [FreeItemBox]
 [nolog]
-[image storage="../image/episode3/compass.png" layer="1" x="797" y="399" name="compass_set"]
+[image storage="../image/episode3/compass.png" layer="1" x="797" y="399" name="compass_set" time="10" wait="true"]
 [PlayMountLightCover]
 [ShowMiyuki_Center]
 #深雪
@@ -112,7 +112,7 @@
 となると、順番のヒントがあるかも！[r]
 探してみよう！[p]
 [endnolog]
-[free layer="1" name="compass_set"]
+[free layer="1" name="compass_set" time="10" wait="true"]
 [HideAll]
 [return]
 
@@ -172,10 +172,10 @@
 [PlayUnlockKey]
 [wait time="200"]
 [PlayOpenBox]
-[free layer="1" name="compass_set"]
+[free layer="1" name="compass_set" time="10" wait="true"]
 [ChangeBackGroundOfEpisode3 storage_noon="episode3/futon_inbox.png" storage_night="episode3/futon_inbox_night.png"]
 ; 桜良漫符：びっくり
-[DispSurprised_Right]
+[DispSurprised_Center]
 [ShowSakura_Center face="surprise"]
 #桜良
 あっ！[p]

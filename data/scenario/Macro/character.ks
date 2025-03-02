@@ -29,11 +29,11 @@
 ; キャラクターの立ち位置を移動する
 [macro name="ChangeCharaPosition"]
     [if exp="f.charaPosition[1] == 'left' "]
-        [chara_move name="&f.charaPosition[0]" left="160" anim="true"]
+        [chara_move name="&f.charaPosition[0]" left="160" anim="true" time="10" wait="true"]
     [elsif exp="f.charaPosition[1] == 'center' "]
-        [chara_move name="&f.charaPosition[0]" left="550" anim="true"]
+        [chara_move name="&f.charaPosition[0]" left="550" anim="true" time="10" wait="true"]
     [elsif exp="f.charaPosition[1] == 'right' "]
-        [chara_move name="&f.charaPosition[0]" left="960" anim="true"]
+        [chara_move name="&f.charaPosition[0]" left="960" anim="true" time="10" wait="true"]
     [endif]
 [endmacro]
 
