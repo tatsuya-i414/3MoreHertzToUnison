@@ -33,7 +33,7 @@
 ほら、大丈夫？[p]
 
 [PlayRustlingClothes]
-[chara_move name="sakura" top="120"]
+[chara_move name="sakura" top="120" time="10" wait="true"]
 [ChangeCharaFace name="sakura" face="normal"]
 #桜良
 うん！ありがとう！[p]

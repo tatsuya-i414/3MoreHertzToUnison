@@ -5,7 +5,7 @@
 [Freelayer2]
 [Freelayer3]
 [FreeItemBox]
-[bg storage="extra/extra.png" time="100"]
+[ChangeBackGround storage="extra/extra.png"]
 [button graphic="../others/plugin/theme_kopanda_bth_06_blue/image/config/back.png" enterimg="../others/plugin/theme_kopanda_bth_06_blue/image/config/back2.png" target="*Backtitle" x="1680" y="60" clickse="../sound/se/cancel.m4a"]
 
 [glink color="bth06" storage="cg.ks" text="<br>CG" x="700" y="200" width="250" height="150" clickse="../sound/se/decision.m4a" size="50" bold="true"]
@@ -16,7 +16,7 @@
 *Backtitle
 [if exp="f.isJumping == 'true' "]
     [cm]
-    [freeimage layer="1"]
+    [freeimage layer="1" time="10" wait="true"]
     [iscript]
         f.isJumping = 'false'
         delete tf.header

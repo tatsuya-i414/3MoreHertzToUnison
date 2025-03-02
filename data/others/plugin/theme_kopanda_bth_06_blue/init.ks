@@ -16,7 +16,7 @@
 [endscript]
 
 ; 名前部分のメッセージレイヤ削除
-[free name="chara_name_area" layer="message0"]
+[free name="chara_name_area" layer="message0" time="10" wait="true"]
 
 ; メッセージウィンドウの設定
 [position layer="message0" width="1800" height="250" top="800" left="0"]

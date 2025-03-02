@@ -128,7 +128,7 @@
     #深雪
     それは勘弁して。[p]
 
-    [chara_move name="sakura" left="600" anim="true"]
+    [chara_move name="sakura" left="600" anim="true" time="10" wait="true"]
     ; 桜良漫符：キラキラ
     [DispSparkle_Right]
     #桜良

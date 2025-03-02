@@ -4,7 +4,7 @@
 [cm]
 [clearstack]
 [layer1True]
-[bg storage="share/title.png" time="100"]
+[ChangeBackGround storage="share/title.png"]
 ; タイトル名
 [ptext layer="fix" text="&sf.gameTitle" x="140" y="100" size="100" color="&sf.colorScheme[0]"]
 ; バージョン表記
@@ -13,7 +13,7 @@
 ; クレジット表記
 [ptext layer="fix" text="&sf.credit" x="850" y="1000" size="20" face="sans-serif" color="&sf.colorScheme[0]" bold="bold" edge="white"]
 ; サークルロゴ
-[image storage="../image/logo/circlelogo.png" layer="1" x="1720" y="850" width="130" height="184" name="circlelogo"]
+[image storage="../image/logo/circlelogo.png" layer="1" x="1720" y="850" width="130" height="184" name="circlelogo" time="10" wait="true"]
 [if exp="sf.bootMode == 'develop' || sf.bootMode == 'kenshou' "]
     ; ティラノスクリプトバージョン表記
     [ptext layer="fix" text="ティラノスクリプトVer." x="1590" y="60" size="20" color="&sf.colorScheme[0]" bold="bold" edge="white"]
@@ -42,8 +42,8 @@
 ; ------------------------------------------------------------
 *TopPage
 [clearfix]
-[free layer="1" name="circlelogo"]
-[bg storage="share/top.png" time="100"]
+[free layer="1" name="circlelogo" time="10" wait="true"]
+[ChangeBackGround storage="share/top.png"]
 ; タイトル名
 [ptext layer="fix" text="&sf.gameTitle" x="140" y="100" size="100" color="&sf.colorScheme[0]"]
 [button x="700" y="330" width="540" height="86" graphic="title/button_newgame.png" enterimg="title/button_newgame_hover.png" target="*GameStart" clickse="../sound/se/decision.m4a"]
@@ -66,7 +66,7 @@
 [if exp="f.isFirstGameClear == 'true' && sf.bootMode == 'normal' "]
     [cm]
     [clearfix]
-    [DispModal text="すでにクリア済みのデータがあります<br><br>これまでの出来事をセーブして<br>新しいゲームを開始しますか？" y="450" storage="title.ks"]
+    [DispModal text="すでにクリア済みのデータがあります<br>これまでの出来事をセーブして<br>新しいゲームを開始しますか？<br><br>※Noを押下すると開放した用語や<br>&emsp;CGがリセットされます" y="390" storage="title.ks"]
     *YesButton
     [FreeModal]
     ; 周回要素のあるフラグを除いて初期化（開発・検証時は適宜フラグ変更を行う可能性があるため）
@@ -79,6 +79,9 @@
     ; 周回要素のあるフラグも含めて初期化（開発・検証時は適宜フラグ変更を行う可能性があるため）
     [if exp="sf.bootMode == 'normal' "]
         [call storage="Utility/flag.ks"]
+        [iscript]
+            f.loadData = 'true'
+        [endscript]
     [endif]
 [endif]
 [screen_full]

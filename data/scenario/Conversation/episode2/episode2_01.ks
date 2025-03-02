@@ -200,7 +200,6 @@
     まだ少しだけ部屋を見てみたいわ。[r]
     何か見逃しているかも。[p]
 
-
     [iscript]
         f.charaPosition[0] = 'miyuki'
         f.charaPosition[1] = 'left'

@@ -1,7 +1,7 @@
 [clearfix] 
 [clearstack]
 [layer1True]
-[bg storage="extra/glossary.png" time="100"]
+[ChangeBackGround storage="extra/glossary.png"]
 
 [iscript]
     tf.pageNo = 0               // 現在のページ数
@@ -131,7 +131,7 @@
     ; キャラクター：20文字×6行の最大120文字まで
 ; ---------------------------------------------------
 [clearstack]
-[image layer="1" storage="../image/glossary/log_panel.png" x="850" y="300" width="1308" height="741"]
+[image layer="1" storage="../image/glossary/log_panel.png" x="850" y="300" width="1308" height="741" time="10" wait="true"]
 [if exp="tf.pageNo == 1"]
     [if exp="tf.selectedDescription == 1"]
         [if exp="f.isOpenDesc_01 == 'true' "]
@@ -401,7 +401,7 @@
 
 *Backtitle
 [cm]
-[freeimage layer="1"]
+[freeimage layer="1" time="10" wait="true"]
 [iscript]
     delete tf.pageNo
     delete tf.maxPageNo

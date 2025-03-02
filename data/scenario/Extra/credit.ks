@@ -1,5 +1,5 @@
 [clearfix]
-[bg storage="extra/credit.png" time="100"]
+[ChangeBackGround storage="extra/credit.png"]
 [button graphic="../others/plugin/theme_kopanda_bth_06_blue/image/config/back.png" enterimg="../others/plugin/theme_kopanda_bth_06_blue/image/config/back2.png" target="*Backtitle" x="1680" y="60" clickse="../sound/se/cancel.m4a"]
 
 ; 座標の設定
@@ -49,7 +49,7 @@
 
 *Backtitle
 [cm]
-[freeimage layer="1"]
+[freeimage layer="1" time="10" wait="true"]
 [iscript]
     delete tf.header
     delete tf.staff

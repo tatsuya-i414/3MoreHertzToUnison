@@ -52,15 +52,15 @@
 ; 背景パーツ
 ; ハンガー
 [if exp="f.isHangerGet == 0"]
-    [image storage="../image/episode2/hanger.png" layer="1" x="148" y="410" name="hanger"]
+    [image storage="../image/episode2/hanger.png" layer="1" x="148" y="410" name="hanger" time="10" wait="true"]
 [endif]
 ; ブロック
 [if exp="f.isBlueBlockGet == 0 && f.isRedBlockGet == 0 && f.isGreenBlockGet == 0"]
-    [image storage="../image/episode2/block.png" layer="1" x="265" y="527" name="block"]
+    [image storage="../image/episode2/block.png" layer="1" x="265" y="527" name="block" time="10" wait="true"]
 [endif]
 ; カーテン
 [if exp="f.isCurtainGet == -1"]
-    [image storage="../image/episode2/curtain.png" layer="1" x="223" y="227" name="curtain"]
+    [image storage="../image/episode2/curtain.png" layer="1" x="223" y="227" name="curtain" time="10" wait="true"]
 [endif]
 
 ; クリック判定
@@ -111,8 +111,8 @@
 [endif]
 [if exp="f.isTentDown == 1 && f.isDressGet == -1"]
     ; 画像を削除する
-    [free layer="1" name="paper"]
-    [free layer="1" name="curtain"]
+    [free layer="1" name="paper" time="10" wait="true"]
+    [free layer="1" name="curtain" time="10" wait="true"]
     ; シナリオ_思い出2終盤
     [if exp="f.scn_skip == 0 && sf.scn_episode2ED_Skip == 'false'"]
         [ControlButtons]
@@ -204,7 +204,7 @@
 [iscript]
     f.isHangerGet = 1
 [endscript]
-[free layer="1" name="hanger"]
+[free layer="1" name="hanger" time="10" wait="true"]
 ; 天幕の初回クリックフラグをリセットする
 [if exp="f.isClickedTent_first == 'false' "]
     [iscript]
@@ -335,9 +335,9 @@
     *SelectItemOfBlock
     ; ブロックの配置が正しくない場合はリセットする
     [if exp="f.dimple[0] != '' && f.dimple[1] != '' && f.dimple[2] != '' "]
-        [free layer="1" name="blue"]
-        [free layer="1" name="red"]
-        [free layer="1" name="green"]
+        [free layer="1" name="blue" time="10" wait="true"]
+        [free layer="1" name="red" time="10" wait="true"]
+        [free layer="1" name="green" time="10" wait="true"]
         [iscript]
             tf.usingItemInventory4 = 1
             f.isBlueBlockGet = 1
@@ -413,7 +413,7 @@
             tf.usingItemInventory4 = 1
             f.isBlueBlockGet = 1
         [endscript]
-        [free layer="1" name="blue"]
+        [free layer="1" name="blue" time="10" wait="true"]
     [endif]
 [endif]
 [if exp="f.dimple[0] == 'red' "]
@@ -422,7 +422,7 @@
             tf.usingItemInventory5 = 1
             f.isRedBlockGet = 1
         [endscript]
-        [free layer="1" name="red"]
+        [free layer="1" name="red" time="10" wait="true"]
     [endif]
 [endif]
 [if exp="f.dimple[0] == 'green' "]
@@ -431,7 +431,7 @@
             tf.usingItemInventory6 = 1
             f.isGreenBlockGet = 1
         [endscript]
-        [free layer="1" name="green"]
+        [free layer="1" name="green" time="10" wait="true"]
     [endif]
 [endif]
 [iscript]
@@ -450,7 +450,7 @@
             tf.usingItemInventory4 = 1
             f.isBlueBlockGet = 1
         [endscript]
-        [free layer="1" name="blue"]
+        [free layer="1" name="blue" time="10" wait="true"]
     [endif]
 [endif]
 [if exp="f.dimple[1] == 'red' "]
@@ -459,7 +459,7 @@
             tf.usingItemInventory5 = 1
             f.isRedBlockGet = 1
         [endscript]
-        [free layer="1" name="red"]
+        [free layer="1" name="red" time="10" wait="true"]
     [endif]
 [endif]
 [if exp="f.dimple[1] == 'green' "]
@@ -468,7 +468,7 @@
             tf.usingItemInventory6 = 1
             f.isGreenBlockGet = 1
         [endscript]
-        [free layer="1" name="green"]
+        [free layer="1" name="green" time="10" wait="true"]
     [endif]
 [endif]
 [iscript]
@@ -484,7 +484,7 @@
             tf.usingItemInventory4 = 1
             f.isBlueBlockGet = 1
         [endscript]
-        [free layer="1" name="blue"]
+        [free layer="1" name="blue" time="10" wait="true"]
     [endif]
 [endif]
 [if exp="f.dimple[2] == 'red' "]
@@ -493,7 +493,7 @@
             tf.usingItemInventory5 = 1
             f.isRedBlockGet = 1
         [endscript]
-        [free layer="1" name="red"]
+        [free layer="1" name="red" time="10" wait="true"]
     [endif]
 [endif]
 [if exp="f.dimple[2] == 'green' "]
@@ -502,7 +502,7 @@
             tf.usingItemInventory6 = 1
             f.isGreenBlockGet = 1
         [endscript]
-        [free layer="1" name="green"]
+        [free layer="1" name="green" time="10" wait="true"]
     [endif]
 [endif]
 [iscript]
@@ -518,9 +518,9 @@
 [endscript]
 [cm]
 [FreeItemBox]
-[free layer="1" name="blue"]
-[free layer="1" name="red"]
-[free layer="1" name="green"]
+[free layer="1" name="blue" time="10" wait="true"]
+[free layer="1" name="red" time="10" wait="true"]
+[free layer="1" name="green" time="10" wait="true"]
 [if exp="tf.usingItemInventory4 == 1"]
     [iscript]
         tf.usingItemInventory4 = 1
@@ -548,19 +548,19 @@
         tf.usingItemInventory4 = 0
         f.isBlueBlockGet = -1
     [endscript]
-    [free layer="2" name="blueblock"]
+    [free layer="2" name="blueblock" time="10" wait="true"]
 [elsif exp="f.blockColor == 'red' "]
     [iscript]
         tf.usingItemInventory5 = 0
         f.isRedBlockGet = -1
     [endscript]
-    [free layer="2" name="redblock"]
+    [free layer="2" name="redblock" time="10" wait="true"]
 [elsif exp="f.blockColor == 'green' "]
     [iscript]
         tf.usingItemInventory6 = 0
         f.isGreenBlockGet = -1
     [endscript]
-    [free layer="2" name="greenblock"]
+    [free layer="2" name="greenblock" time="10" wait="true"]
 [endif]
 [if exp="f.dimple[0] == '' "]
     [clickJudgment x="485" y="388" width="275" height="300" target="*LeftDimple"]
@@ -584,17 +584,17 @@
 *LeftDimple
 [PlayEmbed]
 [if exp="f.blockColor == 'blue' "]
-    [image storage="../image/episode2/blueblock.png" layer="1" x="485" y="389" width="278" height="293" name="blue"]
+    [image storage="../image/episode2/blueblock.png" layer="1" x="485" y="389" width="278" height="293" name="blue" time="10" wait="true"]
     [iscript]
         f.dimple[0] = 'blue'
     [endscript]
 [elsif exp="f.blockColor == 'red' "]
-    [image storage="../image/episode2/redblock.png" layer="1" x="485" y="389" width="278" height="293" name="red"]
+    [image storage="../image/episode2/redblock.png" layer="1" x="485" y="389" width="278" height="293" name="red" time="10" wait="true"]
     [iscript]
         f.dimple[0] = 'red'
     [endscript]
 [elsif exp="f.blockColor == 'green' "]
-    [image storage="../image/episode2/greenblock.png" layer="1" x="485" y="389" width="278" height="293" name="green"]
+    [image storage="../image/episode2/greenblock.png" layer="1" x="485" y="389" width="278" height="293" name="green" time="10" wait="true"]
     [iscript]
         f.dimple[0] = 'green'
     [endscript]
@@ -604,17 +604,17 @@
 *CenterDimple
 [PlayEmbed]
 [if exp="f.blockColor == 'blue' "]
-    [image storage="../image/episode2/blueblock.png" layer="1" x="795" y="389" width="278" height="293" name="blue"]
+    [image storage="../image/episode2/blueblock.png" layer="1" x="795" y="389" width="278" height="293" name="blue" time="10" wait="true"]
     [iscript]
         f.dimple[1] = 'blue'
     [endscript]
 [elsif exp="f.blockColor == 'red' "]
-    [image storage="../image/episode2/redblock.png" layer="1" x="795" y="389" width="278" height="293" name="red"]
+    [image storage="../image/episode2/redblock.png" layer="1" x="795" y="389" width="278" height="293" name="red" time="10" wait="true"]
     [iscript]
         f.dimple[1] = 'red'
     [endscript]
 [elsif exp="f.blockColor == 'green' "]
-    [image storage="../image/episode2/greenblock.png" layer="1" x="795" y="389" width="278" height="293" name="green"]
+    [image storage="../image/episode2/greenblock.png" layer="1" x="795" y="389" width="278" height="293" name="green" time="10" wait="true"]
     [iscript]
         f.dimple[1] = 'green'
     [endscript]
@@ -624,17 +624,17 @@
 *RightDimple
 [PlayEmbed]
 [if exp="f.blockColor == 'blue' "]
-    [image storage="../image/episode2/blueblock.png" layer="1" x="1108" y="389" width="278" height="293" name="blue"]
+    [image storage="../image/episode2/blueblock.png" layer="1" x="1108" y="389" width="278" height="293" name="blue" time="10" wait="true"]
     [iscript]
         f.dimple[2] = 'blue'
     [endscript]
 [elsif exp="f.blockColor == 'red' "]
-    [image storage="../image/episode2/redblock.png" layer="1" x="1108" y="389" width="278" height="293" name="red"]
+    [image storage="../image/episode2/redblock.png" layer="1" x="1108" y="389" width="278" height="293" name="red" time="10" wait="true"]
     [iscript]
         f.dimple[2] = 'red'
     [endscript]
 [elsif exp="f.blockColor == 'green' "]
-    [image storage="../image/episode2/greenblock.png" layer="1" x="1108" y="389" width="278" height="293" name="green"]
+    [image storage="../image/episode2/greenblock.png" layer="1" x="1108" y="389" width="278" height="293" name="green" time="10" wait="true"]
     [iscript]
         f.dimple[2] = 'green'
     [endscript]
@@ -644,9 +644,9 @@
 *OpenChest
 [if exp="f.dimple[0]== 'red' && f.dimple[1] == 'blue' && f.dimple[2] == 'green' "]
     [FreeItemBox]
-    [free layer="1" name="blue"]
-    [free layer="1" name="red"]
-    [free layer="1" name="green"]
+    [free layer="1" name="blue" time="10" wait="true"]
+    [free layer="1" name="red" time="10" wait="true"]
+    [free layer="1" name="green" time="10" wait="true"]
     [iscript]
         f.isKeyOpen = 1
     [endscript]
@@ -716,7 +716,7 @@
 [iscript]
     f.isDressGet = 1
 [endscript]
-[free layer="1" name="dress"]
+[free layer="1" name="dress" time="10" wait="true"]
 [jump target="*GetAnotherItem"]
 
 *GetCurtain
@@ -724,7 +724,7 @@
 [iscript]
     f.isCurtainGet = 1
 [endscript]
-[free layer="1" name="curtain"]
+[free layer="1" name="curtain" time="10" wait="true"]
 ; 簡易更衣室の初回クリックフラグをリセットする
 [if exp="f.isClickedFittingRoom_first == 'false' "]
     [iscript]

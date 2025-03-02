@@ -53,21 +53,21 @@
 
 ; レイヤー0に設定した画像を削除する
 [macro name="Freelayer0"]
-    [freeimage layer="0"]
+    [freeimage layer="0" time="10" wait="true"]
 [endmacro]
 
 ; レイヤー1に設定した画像を削除する
 [macro name="Freelayer1"]
-    [freeimage layer="1"]
+    [freeimage layer="1" time="10" wait="true"]
 [endmacro]
 
 ; レイヤー2に設定した画像を削除する
 [macro name="Freelayer2"]
-    [freeimage layer="2"]
+    [freeimage layer="2" time="10" wait="true"]
 [endmacro]
 
 ; レイヤー3に設定した画像を削除する
 [macro name="Freelayer3"]
-    [freeimage layer="3"]
+    [freeimage layer="3" time="10" wait="true"]
 [endmacro]
 [return]

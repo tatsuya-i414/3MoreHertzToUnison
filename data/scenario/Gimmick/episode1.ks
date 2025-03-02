@@ -79,13 +79,13 @@
 ; 背景パーツ
 ; ライト
 [if exp="f.isLightStatusGreen == 1"]
-    [image storage="../image/episode1/lightcover_mount.png" layer="1" x="695" y="20" name="light"]
+    [image storage="../image/episode1/lightcover_mount.png" layer="1" x="695" y="20" name="light" time="10" wait="true"]
 [endif]
 ; スピーカー
 [if exp="f.isSpeakerStatusGreen == 1"]
-    [image storage="../image/episode1/speaker_afterrepair.png" layer="1" x="1" y="125" name="speaker"]
+    [image storage="../image/episode1/speaker_afterrepair.png" layer="1" x="1" y="125" name="speaker" time="10" wait="true"]
 [else]
-    [image storage="../image/episode1/speaker_beforerepair.png" layer="1" x="1" y="110" name="speaker"]
+    [image storage="../image/episode1/speaker_beforerepair.png" layer="1" x="1" y="110" name="speaker" time="10" wait="true"]
 [endif]
 
 ; クリック判定
@@ -103,7 +103,7 @@
 [endif]
 ; ドライバー
 [if exp="f.isStageStatusGreen == 1 && f.isDriverGet == 0 && f.isUsing == 0"]
-    [image storage="../image/episode1/driver_stage.png" layer="2" x="740" y="520" name="driver"]
+    [image storage="../image/episode1/driver_stage.png" layer="2" x="740" y="520" name="driver" time="10" wait="true"]
     [clickJudgment x="740" y="520" width="185" height="50" target="*GetDriver"]
 [endif]
 ; ライト
@@ -112,7 +112,7 @@
 [endif]
 ; ライトカバー
 [if exp="f.isLightCoverGet == 0 && f.isUsing == 0"]
-    [image storage="../image/episode1/lightcover_item.png" layer="1" x="450" y="770" name="lightcover"]
+    [image storage="../image/episode1/lightcover_item.png" layer="1" x="450" y="770" name="lightcover" time="10" wait="true"]
     [clickJudgment x="440" y="770" width="150" height="150" target="*GetLightCover"]
 [endif]
 ; スピーカー
@@ -128,30 +128,30 @@
 
 ; ボタン
 [clickJudgment target="*SearchControlPanel_Decision" x="700" y="810" width="170" height="140"]
-[image storage="../image/episode1/controlpanel/controlpanel_button_push.png" layer="1" x="690" y="800" name="controlpanel_button"]
+[image storage="../image/episode1/controlpanel/controlpanel_button_push.png" layer="1" x="690" y="800" name="controlpanel_button" time="10" wait="true"]
 
 ; 準備完了ランプ
 [if exp="f.isStageStatusGreen == 1 && f.isLightStatusGreen == 1 && f.isSpeakerStatusGreen == 1"]
-    [image storage="../image/episode1/controlpanel/controlpanel_complete.png" layer="1" x="950" y="850" name="controlpanel_lamp"]
+    [image storage="../image/episode1/controlpanel/controlpanel_complete.png" layer="1" x="950" y="850" name="controlpanel_lamp" time="10" wait="true"]
 [else]
-    [image storage="../image/episode1/controlpanel/controlpanel_incomplete.png" layer="1" x="950" y="850" name="controlpanel_lamp"]
+    [image storage="../image/episode1/controlpanel/controlpanel_incomplete.png" layer="1" x="950" y="850" name="controlpanel_lamp" time="10" wait="true"]
 [endif]
 
 ; ランプ（赤or緑）
 [if exp="f.isStageStatusGreen == 1"]
-    [image storage="../image/episode1/controlpanel/controlpanel_green_lamp.png" layer="1" x="840" y="245" name="stage_redlamp"]
+    [image storage="../image/episode1/controlpanel/controlpanel_green_lamp.png" layer="1" x="840" y="245" name="stage_redlamp" time="10" wait="true"]
 [else]
-    [image storage="../image/episode1/controlpanel/controlpanel_red_lamp.png" layer="1" x="840" y="245" name="stage_greenlamp"]
+    [image storage="../image/episode1/controlpanel/controlpanel_red_lamp.png" layer="1" x="840" y="245" name="stage_greenlamp" time="10" wait="true"]
 [endif]
 [if exp="f.isLightStatusGreen == 1"]
-    [image storage="../image/episode1/controlpanel/controlpanel_green_lamp.png" layer="1" x="840" y="335" name="light_redlamp"]
+    [image storage="../image/episode1/controlpanel/controlpanel_green_lamp.png" layer="1" x="840" y="335" name="light_redlamp" time="10" wait="true"]
 [else]
-    [image storage="../image/episode1/controlpanel/controlpanel_red_lamp.png" layer="1" x="840" y="335" name="light_greenlamp"]
+    [image storage="../image/episode1/controlpanel/controlpanel_red_lamp.png" layer="1" x="840" y="335" name="light_greenlamp" time="10" wait="true"]
 [endif]
 [if exp="f.isSpeakerStatusGreen == 1"]
-    [image storage="../image/episode1/controlpanel/controlpanel_green_lamp.png" layer="1" x="840" y="425" name="speaker_redlamp"]
+    [image storage="../image/episode1/controlpanel/controlpanel_green_lamp.png" layer="1" x="840" y="425" name="speaker_redlamp" time="10" wait="true"]
 [else]
-    [image storage="../image/episode1/controlpanel/controlpanel_red_lamp.png" layer="1" x="840" y="425" name="speaker_greenlamp"]
+    [image storage="../image/episode1/controlpanel/controlpanel_red_lamp.png" layer="1" x="840" y="425" name="speaker_greenlamp" time="10" wait="true"]
 [endif]
 
 ; 戻るボタン
@@ -176,14 +176,14 @@
     [endscript]
 [endif]
 ; 画像を削除する
-[free layer="1" name="controlpanel_button"]
-[free layer="1" name="controlpanel_lamp"]
-[free layer="1" name="stage_greenlamp"]
-[free layer="1" name="stage_redlamp"]
-[free layer="1" name="light_greenlamp"]
-[free layer="1" name="light_redlamp"]
-[free layer="1" name="speaker_greenlamp"]
-[free layer="1" name="speaker_redlamp"]
+[free layer="1" name="controlpanel_button" time="10" wait="true"]
+[free layer="1" name="controlpanel_lamp" time="10" wait="true"]
+[free layer="1" name="stage_greenlamp" time="10" wait="true"]
+[free layer="1" name="stage_redlamp" time="10" wait="true"]
+[free layer="1" name="light_greenlamp" time="10" wait="true"]
+[free layer="1" name="light_redlamp" time="10" wait="true"]
+[free layer="1" name="speaker_greenlamp" time="10" wait="true"]
+[free layer="1" name="speaker_redlamp" time="10" wait="true"]
 ; シナリオ_思い出1終盤
 [if exp="f.scn_skip == 0 && sf.scn_episode1ED_Skip == 'false' "]
     [ControlButtons]
@@ -209,14 +209,14 @@
 
 *SearchControlPanel_back
 ; 画像を削除する
-[free layer="1" name="controlpanel_button"]
-[free layer="1" name="controlpanel_lamp"]
-[free layer="1" name="stage_greenlamp"]
-[free layer="1" name="stage_redlamp"]
-[free layer="1" name="light_greenlamp"]
-[free layer="1" name="light_redlamp"]
-[free layer="1" name="speaker_greenlamp"]
-[free layer="1" name="speaker_redlamp"]
+[free layer="1" name="controlpanel_button" time="10" wait="true"]
+[free layer="1" name="controlpanel_lamp" time="10" wait="true"]
+[free layer="1" name="stage_greenlamp" time="10" wait="true"]
+[free layer="1" name="stage_redlamp" time="10" wait="true"]
+[free layer="1" name="light_greenlamp" time="10" wait="true"]
+[free layer="1" name="light_redlamp" time="10" wait="true"]
+[free layer="1" name="speaker_greenlamp" time="10" wait="true"]
+[free layer="1" name="speaker_redlamp" time="10" wait="true"]
 [cm]
 [JumpStageRoom]
 
@@ -296,7 +296,7 @@
     f.isCableGet = -1
     f.isStageStatusGreen = 1
 [endscript]
-[free layer="2" name="cable"]
+[free layer="2" name="cable" time="10" wait="true"]
 ; ライトの初回クリックフラグをリセットする
 [if exp="f.isClickedLight_first == 'false' "]
     [iscript]
@@ -317,9 +317,9 @@
 [if exp="f.leftNum != 4 && f.centerNum != 5 && f.rightNum != 6"]
     [ChangeBackGround storage="episode1/dial.png"]
     ; ダイヤル（画像で表示）
-    [image storage="../image/episode1/dial/dialnumber_0.png" layer="1" x="440" y="400" width="200" height="400" name="leftdial"]
-    [image storage="../image/episode1/dial/dialnumber_0.png" layer="1" x="850" y="400" width="200" height="400" name="centerdial"]
-    [image storage="../image/episode1/dial/dialnumber_0.png" layer="1" x="1250" y="400" width="200" height="400" name="rightdial"]
+    [image storage="../image/episode1/dial/dialnumber_0.png" layer="1" x="440" y="400" width="200" height="400" name="leftdial" time="10" wait="true"]
+    [image storage="../image/episode1/dial/dialnumber_0.png" layer="1" x="850" y="400" width="200" height="400" name="centerdial" time="10" wait="true"]
+    [image storage="../image/episode1/dial/dialnumber_0.png" layer="1" x="1250" y="400" width="200" height="400" name="rightdial" time="10" wait="true"]
     [if exp="f.scn_skip == 0"]
         [ControlButtons]
         [messageTrue]
@@ -337,9 +337,9 @@
             f.isClickedToolBox_first = 'false'
         [endscript]
     [endif]
-    [free layer="1" name="leftdial"]
-    [free layer="1" name="centerdial"]
-    [free layer="1" name="rightdial"]
+    [free layer="1" name="leftdial" time="10" wait="true"]
+    [free layer="1" name="centerdial" time="10" wait="true"]
+    [free layer="1" name="rightdial" time="10" wait="true"]
     ; ダイヤル（ボタンで表示）
     [button graphic="episode1/dial/dialnumber_0.png" x="440" y="400" width="200" height="400" exp="f.leftNum = 0" fix="true" target="*LeftDialTurn"]
     [button graphic="episode1/dial/dialnumber_0.png" x="860" y="400" width="200" height="400" exp="f.centerNum = 0" fix="true" target="*CenterDialTurn"]
@@ -539,7 +539,7 @@
     [wait time="1000"]
     [clearfix]
     [ChangeBackGround storage="episode1/cablebundle.png"]
-    [image storage="../image/episode1/cable.png" layer="1" x="500" y="115" width="800" height="800" name="cable"]
+    [image storage="../image/episode1/cable.png" layer="1" x="500" y="115" width="800" height="800" name="cable" time="10" wait="true"]
     [clickJudgment x="500" y="115" width="800" height="800" target="*GetCable"]
     ; 戻るボタン
     [BackFromEnlargedMap target="*DialUnlock_back"]
@@ -547,7 +547,7 @@
 [return]
 
 *GetCable
-[free layer="1" name="cable"]
+[free layer="1" name="cable" time="10" wait="true"]
 [PlayGetItem]
 [if exp="f.scn_skip == 0"]
     [ControlButtons]
@@ -589,7 +589,7 @@
 [iscript]
     tf.dialUnlock = 'true'
 [endscript]
-[free layer="1" name="cable"]
+[free layer="1" name="cable" time="10" wait="true"]
 [JumpStageRoom]
 
 *GetDriver
@@ -597,7 +597,7 @@
 [iscript]
     f.isDriverGet = 1
 [endscript]
-[free layer="2" name="driver"]
+[free layer="2" name="driver" time="10" wait="true"]
 [JumpStageRoom]
 
 *SearchLight
@@ -664,7 +664,7 @@
 [iscript]
     f.isLightCoverGet = -1
 [endscript]
-[free layer="2" name="lightcover"]
+[free layer="2" name="lightcover" time="10" wait="true"]
 [iscript]
     f.isLightStatusGreen = 1
 [endscript]
@@ -681,7 +681,7 @@
 [iscript]
     f.isLightCoverGet = 1
 [endscript]
-[free layer="1" name="lightcover"]
+[free layer="1" name="lightcover" time="10" wait="true"]
 ; ライトの初回クリックフラグをリセットする
 [if exp="f.isClickedLight_first == 'false' && f.isStageStatusGreen == 1"]
     [iscript]
@@ -746,7 +746,7 @@
 [iscript]
     f.isSpeakerStatusGreen = 1
 [endscript]
-[free layer="1" name="speaker"]
+[free layer="1" name="speaker" time="10" wait="true"]
 [JumpStageRoom]
 
 *IncorrectItemOfDriver

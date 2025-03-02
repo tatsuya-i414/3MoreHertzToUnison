@@ -1,7 +1,7 @@
 [clearfix]
 [messageFalse]
 [hidemenubutton]
-[freeimage layer="0" page="back"]
+[freeimage layer="0" page="back" time="10" wait="true"]
 [cm]
 
 *Debug
@@ -9,7 +9,7 @@
 [iscript]
     tf.prevPage = 'debug'
 [endscript]
-[bg storage="share/debug.png" time="100"]
+[ChangeBackGround storage="share/debug.png"]
 
 ; ボタン
 [button graphic="../others/plugin/theme_kopanda_bth_06_blue/image/config/back.png" enterimg="../others/plugin/theme_kopanda_bth_06_blue/image/config/back2.png" target="*PageBack" x="1680" y="60" clickse="../sound/se/cancel.m4a"]
@@ -443,5 +443,5 @@
 
 *PageBack
 [cm]
-[freeimage layer="1"]
+[freeimage layer="1" time="10" wait="true"]
 [jump storage="../others/plugin/theme_kopanda_bth_06_blue/config.ks"]

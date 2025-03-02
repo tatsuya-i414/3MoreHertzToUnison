@@ -1,5 +1,5 @@
 *SelectSave
-[ChangeBackGround storage="episode1/white.png" time="100"]
+[ChangeBackGround storage="episode1/white.png"]
 [messageTrue]
 [nolog]
 #

@@ -10,7 +10,7 @@
 [layer1True]
 [layer2True]
 
-[bg storage="share/itemmenu.png" time="100"]
+[ChangeBackGround storage="share/itemmenu.png"]
 [button graphic="../others/plugin/theme_kopanda_bth_06_blue/image/config/back.png" enterimg="../others/plugin/theme_kopanda_bth_06_blue/image/config/back2.png" target="*Scenario_Back" x="1680" y="60" clickse="../sound/se/cancel.m4a"]
 
 ; ------------------------------------------------------------
